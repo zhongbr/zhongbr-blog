@@ -1,15 +1,27 @@
+/*
+ * @Description: desc
+ * @Author: 张盼宏
+ * @Date: 2022-08-27 13:57:29
+ * @LastEditors: 张盼宏
+ * @LastEditTime: 2022-08-27 23:23:26
+ */
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
+import { BrowserRouter } from 'react-router-dom';
+
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+
+import './index.less';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+        <App />
+    </BrowserRouter>
   </React.StrictMode>
 );
 
