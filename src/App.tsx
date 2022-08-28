@@ -3,41 +3,47 @@
  * @Author: 张盼宏
  * @Date: 2022-08-27 10:15:53
  * @LastEditors: 张盼宏
- * @LastEditTime: 2022-08-27 23:41:13
+ * @LastEditTime: 2022-08-28 02:08:43
  */
-import React from 'react';
+import React, { Suspense } from 'react';
 import { useRoutes } from 'react-router-dom';
+
+import routers from "@/config/routers";
+import { title as titleText, navLinks, titleLink } from '@/config/meta';
 
 import { Layout, Icon } from './components'
 import { PageConfigContext, IPageConfig, useStates } from './hooks';
 import { useScrollRate } from './animations';
-import { title, navLinks, titleLink } from './config/meta';
-import routers from "@/config/routers";
 
 import "./app.less";
 
 function App() {
-    const router = useRoutes(routers);
+    const element = useRoutes(routers);
 
-    const { rate, ref } = useScrollRate(100);
+    const { rate, ref } = useScrollRate<HTMLDivElement>(60);
     const [states, setStates] = useStates<IPageConfig>({
-        title: title,
+        title: titleText,
         target: titleLink
     })
+
+    const title = (
+        <span className="title">
+            <Icon className="rp-yuedu icon"/>
+            {states.title}
+        </span>
+    );
 
     return (
         <Layout
             rate={rate}
-            title={
-                <span className="title">
-                    <Icon className="rp-yuedu icon"/>
-                    {states.title}
-                </span>
-            }
+            title={title}
             navLinks={navLinks}
+            contentRef={ref}
         >
             <PageConfigContext.Provider value={{ ...states, scrollRef: ref, setStates }}>
-                {router}
+                <Suspense fallback={null}>
+                    {element}
+                </Suspense>
             </PageConfigContext.Provider>
         </Layout>
     );

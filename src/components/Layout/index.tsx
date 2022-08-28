@@ -3,7 +3,7 @@
  * @Author: 张盼宏
  * @Date: 2022-08-27 09:41:18
  * @LastEditors: 张盼宏
- * @LastEditTime: 2022-08-27 23:51:20
+ * @LastEditTime: 2022-08-28 01:18:50
  */
 
 import React from "react";
@@ -42,6 +42,7 @@ const Layout: React.FC<IProps> = (props) => {
                 rate={rate}
             />
             <div className={styles.contentContainer} ref={contentRef}>
+                <div className={styles.padding} />
                 <div className={styles.content}>
                     {children}
                 </div>
