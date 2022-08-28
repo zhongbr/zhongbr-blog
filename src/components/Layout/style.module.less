@@ -7,8 +7,9 @@
         right: 0;
         padding: 10px;
         color: var(--font-color);
+        z-index: 999;
 
-        backdrop-filter:saturate(1.8) blur(20px);
+        backdrop-filter: var(--background-filter);
         background-color: var(--header-background-color);
 
         user-select: none;
@@ -17,6 +18,7 @@
             display: flex;
             align-items: center;
             height: 40px;
+            margin-bottom: 10px;
 
             .title {
                 line-height: 100%;
@@ -39,7 +41,7 @@
 
                     &:hover {
                         background-color: var(--hover-background-color);
-                        opacity: 0.5;
+                        color: var(--hover-font-color);
                     }
                 }
             }
@@ -47,7 +49,6 @@
 
         .init-title {
             text-align: center;
-            margin-top: 20px;
 
             .title {
                 position: relative;
@@ -63,12 +64,12 @@
         overflow: auto;
 
         .content {
-            margin-top: 155px;
             min-height: calc(100vh - 80px);
         }
-    }
 
-    .body {
-
+        .padding {
+            opacity: 0;
+            height: 145px;
+        }
     }
 }

@@ -3,9 +3,11 @@
  * @Author: 张盼宏
  * @Date: 2022-08-27 09:47:30
  * @LastEditors: 张盼宏
- * @LastEditTime: 2022-08-27 23:50:39
+ * @LastEditTime: 2022-08-28 01:18:50
  */
 import React, {useMemo} from 'react';
+
+import { useNavigate } from '@/hooks';
 
 import styles from './style.module.less';
 
@@ -28,6 +30,13 @@ const Header: React.FC<IProps> = (props) => {
         return [...navLinks].reverse();
     }, [navLinks]);
 
+    const navigator = useNavigate();
+
+    const onNavigate = (target: string) => {
+        console.log('nav', target);
+        navigator(target);
+    };
+
     return (
         <div className={styles.header}>
             <div className={styles.base}>
@@ -39,8 +48,12 @@ const Header: React.FC<IProps> = (props) => {
                 </div>
 
                 <div className={styles.navLinks}>
-                    {links.map(({ name, target, icon }) => (
-                        <div className={styles.navLink}>
+                    {links.map(({ name, target = './', icon }) => (
+                        <div
+                            key={target}
+                            className={styles.navLink}
+                            onClick={() => onNavigate(target)}
+                        >
                             <span>{icon}</span>
                             <span>{name}</span>
                         </div>
