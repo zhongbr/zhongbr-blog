@@ -1,3 +1,10 @@
+/*
+ * @Description: desc
+ * @Author: 张盼宏
+ * @Date: 2022-08-28 11:30:36
+ * @LastEditors: 张盼宏
+ * @LastEditTime: 2022-08-28 12:24:34
+ */
 'use strict';
 
 const path = require('path');
@@ -70,6 +77,9 @@ module.exports = {
   appTsBuildInfoFile: resolveApp('node_modules/.cache/tsconfig.tsbuildinfo'),
   swSrc: resolveModule(resolveApp, 'src/service-worker'),
   publicUrlOrPath,
+  markdownFilesPath: resolveApp('./posts'),
+  markdownJsonPath: resolveApp('./md'),
+  markdownCompileCachePath: resolveApp('.md-cache')
 };
 
 
