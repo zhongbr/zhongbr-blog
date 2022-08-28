@@ -75,8 +75,8 @@
     "md2json": "node scripts/md2json.js"
   },
   "pre-commit": [
-    "pnpm run build",
-    "pnpm run md2json"
+    "build",
+    "md2json"
   ],
   "eslintConfig": {
     "extends": [
