@@ -1,3 +1,10 @@
+/*
+ * @Description: desc
+ * @Author: 张盼宏
+ * @Date: 2022-08-28 12:22:54
+ * @LastEditors: 张盼宏
+ * @LastEditTime: 2022-08-28 12:27:29
+ */
 'use strict';
 
 const fs = require('fs');
@@ -5,6 +12,7 @@ const evalSourceMapMiddleware = require('react-dev-utils/evalSourceMapMiddleware
 const noopServiceWorkerMiddleware = require('react-dev-utils/noopServiceWorkerMiddleware');
 const ignoredFiles = require('react-dev-utils/ignoredFiles');
 const redirectServedPath = require('react-dev-utils/redirectServedPathMiddleware');
+const express = require('express');
 const paths = require('./paths');
 const getHttpsConfig = require('./getHttpsConfig');
 
@@ -123,5 +131,11 @@ module.exports = function (proxy, allowedHost) {
       // https://github.com/facebook/create-react-app/issues/2272#issuecomment-302832432
       devServer.app.use(noopServiceWorkerMiddleware(paths.publicUrlOrPath));
     },
+
+    setupMiddlewares(middleware, devServer) {
+      // add markdown json files to /md
+      devServer.app.use('/md/', express.static(paths.markdownJsonPath));
+      return middleware;
+    }
   };
 };
