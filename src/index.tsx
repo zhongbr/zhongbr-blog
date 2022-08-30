@@ -3,7 +3,7 @@
  * @Author: 张盼宏
  * @Date: 2022-08-27 13:57:29
  * @LastEditors: 张盼宏
- * @LastEditTime: 2022-08-28 02:29:03
+ * @LastEditTime: 2022-08-31 00:37:59
  */
 import React from 'react';
 import ReactDOM from 'react-dom/client';
@@ -19,7 +19,7 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
+    <BrowserRouter basename="/blog">
         <App />
     </BrowserRouter>
   </React.StrictMode>
