@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkreact_press=self.webpackChunkreact_press||[]).push([[825],{5825:function(e,r,c){c.r(r),c.d(r,{default:function(){return u}});c(5413);var n="container_Ofr4h",s="code-block_OFD1u",a=c(4727),u=function(e){var r=e.node;return(0,a.jsx)("div",{id:r.key,className:n,children:(0,a.jsx)("div",{className:s,children:r.value})})}}}]);
