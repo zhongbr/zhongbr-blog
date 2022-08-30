@@ -1,0 +1,17 @@
+# run build when push files to react project
+name: build react files
+on:
+    push:
+        paths-ignore:
+            - 'posts/**'
+            - 'md/**'
+            - 'build/**'
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v3
+            - uses: actions/setup-node@v3
+              with:
+                node-version: '14'
+            - run: npm run build
