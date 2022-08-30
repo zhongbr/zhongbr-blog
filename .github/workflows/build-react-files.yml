@@ -26,6 +26,7 @@ jobs:
               run: pnpm run build
     # deploy the build/ folder to github-pages branch
     depoly:
+        needs: build
         runs-on: ubuntu-latest
         steps:
             - uses: JamesIves/github-pages-deploy-action@v4
