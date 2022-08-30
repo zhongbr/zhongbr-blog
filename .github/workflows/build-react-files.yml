@@ -24,6 +24,8 @@ jobs:
               run: pnpm i
             - name: Build dist resources
               run: pnpm run build
+            - name: Transform posts/*.md to json
+              run: pnpm run md2json
     # deploy the build/ folder to github-pages branch
     depoly:
         needs: build

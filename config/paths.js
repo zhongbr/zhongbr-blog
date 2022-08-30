@@ -3,7 +3,7 @@
  * @Author: 张盼宏
  * @Date: 2022-08-28 11:30:36
  * @LastEditors: 张盼宏
- * @LastEditTime: 2022-08-28 12:24:34
+ * @LastEditTime: 2022-08-31 00:08:39
  */
 'use strict';
 
@@ -78,7 +78,7 @@ module.exports = {
   swSrc: resolveModule(resolveApp, 'src/service-worker'),
   publicUrlOrPath,
   markdownFilesPath: resolveApp('./posts'),
-  markdownJsonPath: resolveApp('./md'),
+  markdownJsonPath: resolveApp(`${buildPath}/md`),
   markdownCompileCachePath: resolveApp('.md-cache')
 };
 
