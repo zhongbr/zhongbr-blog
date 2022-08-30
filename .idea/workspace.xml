@@ -96,6 +96,8 @@
       <change beforePath="$PROJECT_DIR$/md/test5.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/service/passage/catalogue.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/passage/catalogue.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/service/passage/passage.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/passage/passage.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -151,7 +153,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.standard": "",
     "nodejs_package_manager_path": "pnpm",
-    "ts.external.directory.path": "/Applications/WebStorm.app/Contents/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external",
+    "ts.external.directory.path": "/Users/zhangpanhong/Documents/zhongbr_projects/react-press/node_modules/typescript/lib",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -204,7 +206,7 @@
       <updated>1661783479208</updated>
       <workItem from="1661783481510" duration="219000" />
       <workItem from="1661783703006" duration="5640000" />
-      <workItem from="1661867571173" duration="9262000" />
+      <workItem from="1661867571173" duration="9576000" />
     </task>
     <servers />
   </component>
