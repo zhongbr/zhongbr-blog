@@ -26,6 +26,8 @@ jobs:
               run: pnpm run build
             - name: Transform posts/*.md to json
               run: pnpm run md2json
+            - name: Copy index.html to 404.html
+              run: cp ./build/index.html ./build/404.html
             - name: upload files
               uses: actions/upload-artifact@v3
               with:
