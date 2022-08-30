@@ -1,5 +1,7 @@
 # run build when push files to react project
 name: build react files
+env:
+    GENERATE_SOURCEMAP: false
 on:
     push:
         paths-ignore:
@@ -16,7 +18,7 @@ jobs:
                   version: 7.9.5
             - uses: actions/setup-node@v3
               with:
-                node-version: '14'
+                  node-version: '14'
             - name: Install Dependencies
               run: pnpm i
             - name: Build dist resources
