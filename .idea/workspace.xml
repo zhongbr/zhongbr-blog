@@ -153,7 +153,7 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager" selected="npm.precommit">
+  <component name="RunManager" selected="npm.md2json">
     <configuration name="md2json" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="run" />
@@ -186,8 +186,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="npm.precommit" />
         <item itemvalue="npm.md2json" />
+        <item itemvalue="npm.precommit" />
         <item itemvalue="npm.start" />
       </list>
     </recent_temporary>
@@ -202,7 +202,7 @@
       <updated>1661783479208</updated>
       <workItem from="1661783481510" duration="219000" />
       <workItem from="1661783703006" duration="5640000" />
-      <workItem from="1661867571173" duration="7067000" />
+      <workItem from="1661867571173" duration="7581000" />
     </task>
     <servers />
   </component>

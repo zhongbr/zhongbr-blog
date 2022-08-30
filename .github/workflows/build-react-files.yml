@@ -26,12 +26,25 @@ jobs:
               run: pnpm run build
             - name: Transform posts/*.md to json
               run: pnpm run md2json
+            - name: upload files
+              uses: actions/upload-artifact@v3
+              with:
+                  name: build-pages
+                  path: build
+                  retention-days: 1
     # deploy the build/ folder to github-pages branch
     depoly:
         needs: build
         runs-on: ubuntu-latest
         steps:
+            - uses: actions/checkout@v3
+            - name: download build files
+              uses: actions/download-artifact@v2
+              with:
+                  name: build-pages
+                  path: build
             - uses: JamesIves/github-pages-deploy-action@v4
               with:
                   folder: build
                   branch: github-pages
+                  token: "${{ secrets.DEPLOY_TOKEN }}"
