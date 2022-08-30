@@ -2,6 +2,7 @@
 name: build react files
 env:
     GENERATE_SOURCEMAP: false
+    CI: false
 on:
     push:
         paths-ignore:
