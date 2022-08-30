@@ -7,9 +7,9 @@ on:
     push:
         paths-ignore:
             - 'posts/**'
-            - 'md/**'
             - 'build/**'
 jobs:
+    # use pnpm to build react files
     build:
         runs-on: ubuntu-latest
         steps:
@@ -24,3 +24,11 @@ jobs:
               run: pnpm i
             - name: Build dist resources
               run: pnpm run build
+    # deploy the build/ folder to github-pages branch
+    depoly:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: JamesIves/github-pages-deploy-action@v4
+              with:
+                  folder: build
+                  branch: github-pages

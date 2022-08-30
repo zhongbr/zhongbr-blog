@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="27b3b0e5-1ac3-4b25-8173-a590bd44bf60" name="变更" comment="feat: add resources">
       <change beforePath="$PROJECT_DIR$/.github/workflows/build-react-files.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/build-react-files.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -112,7 +113,7 @@
       <updated>1661783479208</updated>
       <workItem from="1661783481510" duration="219000" />
       <workItem from="1661783703006" duration="5640000" />
-      <workItem from="1661867571173" duration="4981000" />
+      <workItem from="1661867571173" duration="6237000" />
     </task>
     <servers />
   </component>
