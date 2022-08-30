@@ -3,17 +3,21 @@
  * @Author: 张盼宏
  * @Date: 2022-08-28 00:29:28
  * @LastEditors: 张盼宏
- * @LastEditTime: 2022-08-28 14:47:00
+ * @LastEditTime: 2022-08-29 22:54:55
  */
-import {useEffect, useState} from "react";
+import { useEffect, memo } from "react";
 
-import {useAsyncEffect, usePageConfig} from '@/hooks';
+import { useAsyncEffect, usePageConfig, useAsyncFn } from '@/hooks';
 import { title } from '@/config/meta';
-import getPassagesCatalogue, { IPassage } from "@/service/passage/catalogue";
+import getPassagesCatalogue from "@/service/passage/catalogue";
 
-export default function Index() {
+import { Catalogue } from './modules';
+
+import styles from './style.module.less';
+
+const Index = () => {
     const { setStates } = usePageConfig();
-    const [passages, setPassages] = useState<IPassage[]>([]);
+    const [fetchCatalogue, catalogue] = useAsyncFn(getPassagesCatalogue);
 
     useEffect(() => {
         setStates?.({
@@ -22,18 +26,16 @@ export default function Index() {
     }, [setStates]);
 
     useAsyncEffect(async () => {
-        const catalogue = await getPassagesCatalogue();
-        setPassages(Object.values(catalogue.data));
+        await fetchCatalogue();
     }, []);
 
     return (
-        <div>
-            {passages?.map(passage => (
-                <div key={passage["json-path"]}>
-                    <div>{passage.title}</div>
-                    <div>{passage.author}</div>
-                </div>
-            ))}
+        <div className={styles.catalogue}>
+            <Catalogue
+                catalogue={catalogue?.data}
+            />
         </div>
     );
 }
+
+export default memo(Index);

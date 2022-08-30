@@ -1,0 +1,25 @@
+.container {
+    .title {
+        font-size: 25px;
+        font-weight: bold;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    .item {
+        cursor: pointer;
+        margin-top: 10px;
+
+        .sharp:after {
+            content: ' ';
+        }
+
+        &:hover {
+            text-decoration: underline;
+        }
+
+        &.selected {
+            font-weight: bold;
+        }
+    }
+}

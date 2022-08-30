@@ -12,8 +12,6 @@ import clsx from 'clsx';
 import Header, { IProps as HeaderProps } from './header';
 import styles from './style.module.less';
 
-console.log(styles);
-
 export interface IProps {
     /** website logo */
     logo?: React.ReactNode;

@@ -1,0 +1,48 @@
+.catalogue-item {
+    display: flex;
+    margin: 20px;
+    padding: 10px;
+    border-radius: 25px;
+
+    backdrop-filter: var(--background-filter);
+    background-color: var(--catalogue-background-color);
+
+    user-select: none;
+
+    .meta-info {
+        .title {
+            font-family: var(--font-family);
+            font-size: 30px;
+            font-weight: bold;
+            cursor: pointer;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+
+        .tags {
+            display: flex;
+            gap: 10px;
+
+            .tag {
+                height: 20px;
+                line-height: 20px;
+                font-size: 12px;
+                padding: 5px;
+                border-radius: 10px;
+                background-color: var(--tag-background-color);
+
+                &:hover {
+                    text-decoration: underline;
+                    cursor: pointer;
+                }
+            }
+        }
+
+        .extra {
+            font-family: var(--font-family);
+            font-size: 15px;
+        }
+    }
+}

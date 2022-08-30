@@ -23,5 +23,5 @@ export default function useAsyncFn<Fn extends (...args: any[]) => Promise<any>>(
         return res;
     });
 
-    return [asyncFn, res, loading];
+    return [asyncFn as Fn, res, loading] as const;
 }
