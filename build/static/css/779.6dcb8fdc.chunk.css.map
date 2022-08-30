@@ -1,0 +1,1 @@
+{"version":3,"file":"static/css/779.6dcb8fdc.chunk.css","mappings":"AAAA,WACI,UACJ","sources":["container/Passage/components/Render/Image/style.module.less"],"sourcesContent":[".img {\n    width: 100%;\n}\n"],"names":[],"sourceRoot":""}

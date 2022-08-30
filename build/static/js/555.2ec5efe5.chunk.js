@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkreact_press=self.webpackChunkreact_press||[]).push([[555],{1555:function(e,n,r){r.r(n),r.d(n,{default:function(){return t}});r(4026);var s="delete_RLp88",c=r(1369),t=function(e){var n=e.node,r=e.children;return(0,c.jsx)("span",{id:n.key,className:s,children:r})}}}]);
+//# sourceMappingURL=555.2ec5efe5.chunk.js.map
