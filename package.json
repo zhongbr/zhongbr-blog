@@ -73,7 +73,8 @@
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js",
-    "md2json": "node scripts/md2json.js"
+    "md2json": "node scripts/md2json.js",
+    "precommit": "pnpm run build && pnpm run md2json"
   },
   "pre-commit": [
     "build",

@@ -1,0 +1,1 @@
+{"version":3,"file":"static/css/621.feaa8ce3.chunk.css","mappings":"AAAA,cACI,eACJ","sources":["container/Passage/components/Render/TableRow/style.module.less"],"sourcesContent":[".header {\n    font-weight: bold;\n}\n"],"names":[],"sourceRoot":""}
