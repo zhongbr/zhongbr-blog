@@ -43,7 +43,7 @@ jobs:
               with:
                   name: build-pages
                   path: build
-            - uses: JamesIves/github-pages-deploy-action@v4
+            - uses: JamesIves/github-pages-deploy-action@4.2.0
               with:
                   folder: build
                   branch: github-pages
