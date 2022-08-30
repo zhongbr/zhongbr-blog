@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="27b3b0e5-1ac3-4b25-8173-a590bd44bf60" name="变更" comment="">
+      <change afterPath="$PROJECT_DIR$/src/container/Passage/components/Render/Header/style.module.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/git_toolbox_prj.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/react-press.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/react-press.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/watcherTasks.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/watcherTasks.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/webResources.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/md/catalogue.json" beforeDir="false" afterPath="$PROJECT_DIR$/md/catalogue.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/md/test.json" beforeDir="false" afterPath="$PROJECT_DIR$/md/test.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pnpm-lock.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pnpm-lock.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/posts/test.md" beforeDir="false" afterPath="$PROJECT_DIR$/posts/test.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/md2json.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/md2json.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.test.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/animations/useScrollRate.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/animations/useScrollRate.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Layout/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Layout/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/config/routers.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/config/routers.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/container/Index/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/container/Index/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/container/Index/modules/Catalogue/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/container/Index/modules/Catalogue/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/container/Passage/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/container/Passage/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/container/Passage/style.module.less" beforeDir="false" afterPath="$PROJECT_DIR$/src/container/Passage/style.module.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hooks/useAsyncFn.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/hooks/useAsyncFn.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hooks/usePageConfig.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/hooks/usePageConfig.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/service/passage/catalogue.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/passage/catalogue.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/service/passage/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/passage/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/default-theme.less" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/default-theme.less" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2E2AoGRG3E7atFlG4rNkN4eaViN" />
+  <component name="ProjectViewState">
+    <option name="autoscrollFromSource" value="true" />
+    <option name="autoscrollToSource" value="true" />
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+    <option name="showMembers" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.standard": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.standard": "",
+    "nodejs_package_manager_path": "pnpm",
+    "ts.external.directory.path": "/Users/zhangpanhong/Documents/zhongbr_projects/react-press/node_modules/typescript/lib",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RunManager">
+    <configuration name="md2json" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="md2json" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="start" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="start" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="npm.md2json" />
+        <item itemvalue="npm.start" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="应用程序级" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="默认任务">
+      <changelist id="27b3b0e5-1ac3-4b25-8173-a590bd44bf60" name="变更" comment="" />
+      <created>1661783479208</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1661783479208</updated>
+      <workItem from="1661783481510" duration="219000" />
+      <workItem from="1661783703006" duration="5640000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

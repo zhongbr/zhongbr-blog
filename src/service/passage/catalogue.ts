@@ -11,6 +11,8 @@ export interface IPassage {
     title: string;
     tags: string[];
     author: string;
+    summary: string;
+    mdate: string;
     'header-img': string;
     'json-path': string;
 }

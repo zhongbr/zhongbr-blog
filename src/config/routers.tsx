@@ -17,7 +17,7 @@ const routers: RouteObject[] = [
         element: <Index />,
     },
     {
-        path: '/passage',
+        path: '/passage/:path',
         element: <Passage />,
     }
 ];

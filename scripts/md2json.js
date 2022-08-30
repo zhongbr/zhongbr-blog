@@ -9,7 +9,7 @@ const chalk = require('react-dev-utils/chalk');
 const path = require('path');
 const { parse } = require('@textlint/markdown-to-ast');
 const { existsSync } = require('fs');
-const { readFile, readdir, appendFile, writeFile, mkdir } = require('fs/promises');
+const { readFile, readdir, appendFile, writeFile, mkdir, stat } = require('fs/promises');
 const crypto = require('crypto');
 const yaml = require('js-yaml');
 
@@ -32,11 +32,15 @@ async function generateCatalogue(filename, ast) {
     const children = ast?.children || [];
     const ymlChild = children?.[0];
 
+    const fileStat = await stat(path.join(markdownFilesPath, filename));
+
     if (ymlChild?.type === 'Yaml') {
         return new Promise((resolve) => {
             yaml.loadAll(ymlChild?.value, (doc) => {
                 resolve({
                     title,
+                    'json-path': `${title}.json`,
+                    mdate: fileStat.mtime,
                     ...doc
                 });
             });
@@ -88,9 +92,12 @@ async function startCompile() {
         // not compile yet or updated, start compile
         if (!compileHash?.[file] || compileHash[file] !== hash) {
             const ast = parse(buffer.toString());
-            await write(targetPath, JSON.stringify(ast));
 
             catalogue[file] = await generateCatalogue(file, ast);
+            await write(targetPath, JSON.stringify({
+                ast,
+                catalogue: catalogue[file]
+            }));
 
             console.log(chalk.green(`${file} compiled to ${jsonName}`));
             compileHash[file] = hash;
