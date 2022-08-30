@@ -3,7 +3,7 @@
  * @Author: 张盼宏
  * @Date: 2022-08-27 21:54:39
  * @LastEditors: 张盼宏
- * @LastEditTime: 2022-08-28 02:13:14
+ * @LastEditTime: 2022-08-30 23:01:03
  */
 import { ILayoutProps, Icon } from '@/components';
 
@@ -15,5 +15,5 @@ export const titleLink = '/';
 export const navLinks: ILayoutProps['navLinks'] = [
     { name: 'Passages', target: '/index', icon: <Icon className="rp-suoyin" /> },
     { name: 'Wechat', icon: <Icon className="rp-weixin" /> },
-    { name: 'Github', target: 'https://github.com', icon: <Icon className="rp-github" /> },
+    { name: 'Github', target: 'https://github.com/zhongbr', icon: <Icon className="rp-github" /> },
 ];
