@@ -47,4 +47,4 @@ jobs:
               with:
                   folder: build
                   branch: github-pages
-                  token: "${{ secrets.DEPLOY_TOKEN }}"
+                  SSH_KEY: ${{ secrets.SSH_KEY }}
