@@ -1,0 +1,1 @@
+{"version":3,"file":"static/css/57.bc5a19a8.chunk.css","mappings":"AAAA,cACI,eACJ","sources":["container/Passage/components/Render/Strong/style.module.less"],"sourcesContent":[".strong {\n    font-weight: bold;\n}\n"],"names":[],"sourceRoot":""}
