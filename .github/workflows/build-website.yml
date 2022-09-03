@@ -28,7 +28,7 @@ jobs:
             - name: build website dist resources
               run: pnpm run build-website
             - name: transform posts/*.md to json
-              run: pnpm run md2json
+              run: pnpm run build-markdown
             - name: copy index.html to 404.html
               run: cp ./build/index.html ./build/404.html
             - name: upload files
