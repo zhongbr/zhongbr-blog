@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="27b3b0e5-1ac3-4b25-8173-a590bd44bf60" name="变更" comment="feat: modify path">
+      <change beforePath="$PROJECT_DIR$/.github/workflows/build-posts.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/build-posts.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pnpm-lock.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pnpm-lock.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/posts/2020-01-01-HappyNewYear.md" beforeDir="false" afterPath="$PROJECT_DIR$/posts/2020-01-01-HappyNewYear.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -160,7 +159,7 @@
       <workItem from="1661867571173" duration="11077000" />
       <workItem from="1662184255678" duration="10296000" />
       <workItem from="1662195787298" duration="10010000" />
-      <workItem from="1662213987463" duration="7941000" />
+      <workItem from="1662213987463" duration="7993000" />
     </task>
     <task id="LOCAL-00001" summary="feat: change styles">
       <created>1662204333394</created>
@@ -344,7 +343,14 @@
       <option name="project" value="LOCAL" />
       <updated>1662221910881</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="feat: modify path">
+      <created>1662222133776</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1662222133776</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

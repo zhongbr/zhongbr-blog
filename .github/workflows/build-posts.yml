@@ -19,7 +19,7 @@ jobs:
               with:
                   node-version: '14'
             - name: install dependencies
-              run: pnpm run install
+              run: pnpm install
             - name: mkdir
               run: mkdir ./.md-cache/ && mkdir ./.md-cache/md
             - name: build markdowns
