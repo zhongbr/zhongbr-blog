@@ -3,9 +3,10 @@
  * @Author: 张盼宏
  * @Date: 2022-08-29 22:52:35
  * @LastEditors: 张盼宏
- * @LastEditTime: 2022-08-29 23:36:26
+ * @LastEditTime: 2022-09-03 19:08:58
  */
 import React from 'react';
+import Typography from "@mui/material/Typography";
 
 import { IBaseProps } from '@/types/markdown';
 
@@ -19,9 +20,9 @@ const Paragraph: React.FC<IProps> = (props) => {
     const { node, children } = props;
 
     return (
-        <div id={node.key} className={styles.paragraph}>
+        <Typography id={node.key} className={styles.paragraph} variant="body1" paragraph>
             {children}
-        </div>
+        </Typography>
     );
 };
 

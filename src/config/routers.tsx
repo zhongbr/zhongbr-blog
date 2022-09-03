@@ -3,7 +3,7 @@
  * @Author: 张盼宏
  * @Date: 2022-08-27 23:30:19
  * @LastEditors: 张盼宏
- * @LastEditTime: 2022-08-28 00:46:44
+ * @LastEditTime: 2022-09-03 13:58:40
  */
 import { lazy } from 'react';
 import { RouteObject } from 'react-router-dom';
@@ -19,6 +19,10 @@ const routers: RouteObject[] = [
     {
         path: '/passage/:path',
         element: <Passage />,
+    },
+    {
+        path: '/',
+        element: <Index/>
     }
 ];
 

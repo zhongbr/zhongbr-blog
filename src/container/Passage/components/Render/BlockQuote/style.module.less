@@ -4,17 +4,14 @@
     background-color: var(--quoteblock-background-color);
     padding: 10px 10px 10px 20px;
     margin-top: 10px;
-    border-radius: 10px;
 
     &::before {
         content: ' ';
         background-color: var(--quoteblock-left-line-color);
         position: absolute;
-        left: 0;
-        top: 0;
-        bottom: 0;
+        left: -1px;
+        top: -1px;
+        bottom: -1px;
         width: 10px;
-        border-bottom-left-radius: 10px;
-        border-top-left-radius: 10px;
     }
 }

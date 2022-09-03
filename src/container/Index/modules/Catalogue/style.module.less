@@ -1,48 +1,42 @@
-.catalogue-item {
-    display: flex;
-    margin: 20px;
-    padding: 10px;
-    border-radius: 25px;
+.container {
+    width: 80%;
+    flex: 1;
 
-    backdrop-filter: var(--background-filter);
-    background-color: var(--catalogue-background-color);
+    .selected-tags {
+        margin: 20px;
+        padding: 20px;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 10px;
+    }
 
-    user-select: none;
+    .passages-container {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 20px;
+        gap: 10px;
 
-    .meta-info {
-        .title {
-            font-family: var(--font-family);
-            font-size: 30px;
-            font-weight: bold;
-            cursor: pointer;
-
-            &:hover {
-                text-decoration: underline;
-            }
-        }
-
-        .tags {
+        .card {
+            width: calc(25% - 10px);
             display: flex;
-            gap: 10px;
+            flex-direction: column;
 
-            .tag {
-                height: 20px;
-                line-height: 20px;
-                font-size: 12px;
-                padding: 5px;
-                border-radius: 10px;
-                background-color: var(--tag-background-color);
+            .content {
+                flex: 1;
 
-                &:hover {
-                    text-decoration: underline;
-                    cursor: pointer;
+                .tags {
+                    display: flex;
+                    flex-wrap: wrap;
+                    gap: 10px;
                 }
             }
         }
+    }
 
-        .extra {
-            font-family: var(--font-family);
-            font-size: 15px;
-        }
+    .pagination {
+        display: flex;
+        flex-direction: row-reverse;
+        margin-right: 20px;
     }
 }

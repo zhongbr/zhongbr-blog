@@ -3,14 +3,16 @@
  * @Author: 张盼宏
  * @Date: 2022-08-27 23:24:29
  * @LastEditors: 张盼宏
- * @LastEditTime: 2022-08-29 23:13:04
+ * @LastEditTime: 2022-09-03 19:21:50
  */
 import { useEffect, useState, memo } from 'react';
 import { useParams } from 'react-router-dom';
+import Paper from "@mui/material/Paper";
 
-import { usePageConfig, useAsyncFn, useAsyncEffect } from "@/hooks";
+import { usePageConfig, useAsyncFn, useAsyncEffect, useNavigate } from "@/hooks";
 import { passage } from '@/service';
 
+import { Tag } from "@/components";
 import { Render, Sketch } from './components';
 import { traverseAst, generateSketch, Title } from './utils/traverse';
 import styles from './style.module.less';
@@ -23,6 +25,8 @@ const Passage = () => {
 
     const [fetchPassage, res] = useAsyncFn(passage.passage);
     const [sketch, setSketch] = useState<Title[]>([]);
+
+    const navigator = useNavigate();
 
     useEffect(() => {
         setStates?.({
@@ -44,17 +48,22 @@ const Passage = () => {
 
     return (
         <div className={styles.passageContainer}>
-            <div
+            <Paper
                 className={styles.sketch}
                 style={{
                     top: `${155 - 75 * rate}px`
                 }}
             >
                 <Sketch sketch={sketch}/>
-            </div>
-            <div className={styles.passage}>
+            </Paper>
+            <Paper className={styles.passage}>
+                <div>
+                    {res?.data?.catalogue?.tags?.map(tag => (
+                        <Tag key={tag} onClick={() => navigator(`/?tags=${tag}`)}>{tag}</Tag>
+                    ))}
+                </div>
                 {!!res?.data?.ast ? <Render node={res.data.ast}/> : null}
-            </div>
+            </Paper>
         </div>
     );
 }
