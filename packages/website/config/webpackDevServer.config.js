@@ -3,7 +3,7 @@
  * @Author: 张盼宏
  * @Date: 2022-08-28 12:22:54
  * @LastEditors: 张盼宏
- * @LastEditTime: 2022-09-03 14:00:51
+ * @LastEditTime: 2022-09-03 23:03:14
  */
 'use strict';
 
@@ -134,7 +134,7 @@ module.exports = function (proxy, allowedHost) {
 
     setupMiddlewares(middleware, devServer) {
       // add markdown json files to /md
-      devServer.app.use('/blog/md/', express.static(paths.markdownJsonPath));
+      devServer.app.use('/md/', express.static(paths.markdownJsonPath));
       return middleware;
     }
   };

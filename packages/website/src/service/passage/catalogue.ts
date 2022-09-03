@@ -3,7 +3,7 @@
  * @Author: 张盼宏
  * @Date: 2022-08-28 12:52:39
  * @LastEditors: 张盼宏
- * @LastEditTime: 2022-08-31 00:50:32
+ * @LastEditTime: 2022-09-03 23:03:44
  */
 import axios from 'axios';
 
@@ -22,5 +22,5 @@ export interface ICatalogue {
 }
 
 export default async function getPassagesCatalogue() {
-    return await axios.get<ICatalogue>('/blog/md/catalogue.json');
+    return await axios.get<ICatalogue>('/md/catalogue.json');
 }
