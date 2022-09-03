@@ -17,21 +17,19 @@ jobs:
         steps:
             - name: checkout
               uses: actions/checkout@v3
-            - name: change to website dir
-              run: cd ./packages/website
             - uses: pnpm/action-setup@v2.2.2
               with:
                   version: 7.9.5
             - uses: actions/setup-node@v3
               with:
                   node-version: '14'
-            - name: Install Dependencies
-              run: pnpm i
-            - name: Build dist resources
+            - name: install website dependencies
+              run: pnpm run install-website
+            - name: build website dist resources
               run: pnpm run build
-            - name: Transform posts/*.md to json
+            - name: transform posts/*.md to json
               run: pnpm run md2json
-            - name: Copy index.html to 404.html
+            - name: copy index.html to 404.html
               run: cp ./build/index.html ./build/404.html
             - name: upload files
               uses: actions/upload-artifact@v3
