@@ -51,6 +51,8 @@ jobs:
                   path: build
             - name: copy md json files
               run: cp -r ./current-branch/md ./build/md
+            - run: cp -r ./current-branch/.git ./build/md/.git
+            - run: cp -r ./current-branch/.gitignore ./build/md/.gitignore
             - uses: JamesIves/github-pages-deploy-action@4.2.0
               with:
                   folder: build
