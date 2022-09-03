@@ -47,6 +47,6 @@ jobs:
             - name: push
               uses: JamesIves/github-pages-deploy-action@4.2.0
               with:
-                  folder: current-branch
+                  folder: ./
                   branch: github-pages
                   SSH_KEY: ${{ secrets.SSH_KEY }}
