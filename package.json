@@ -2,9 +2,16 @@
   "name": "react-press",
   "version": "1.0.0",
   "scripts": {
+    "install": "pnpm install",
     "install-website": "cd ./packages/website && pnpm install",
     "build-website": "cd ./packages/website && pnpm run build",
     "start-website": "cd ./packages/website && pnpm run start",
-    "build-markdown": "cd ./packages/website && pnpm run md2json"
+    "build-markdown": "node ./scripts/md2json.js"
+  },
+  "devDependencies": {
+    "@textlint/markdown-to-ast": "^12.2.1",
+    "js-yaml": "^4.1.0",
+    "chalk": "^5.0.1",
+    "react-dev-utils": "^12.0.1"
   }
 }

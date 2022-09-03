@@ -3,7 +3,7 @@
  * @Author: 张盼宏
  * @Date: 2022-08-28 11:30:36
  * @LastEditors: 张盼宏
- * @LastEditTime: 2022-09-03 22:32:24
+ * @LastEditTime: 2022-09-03 23:30:32
  */
 'use strict';
 
@@ -76,10 +76,7 @@ module.exports = {
   appWebpackCache: resolveApp('node_modules/.cache'),
   appTsBuildInfoFile: resolveApp('node_modules/.cache/tsconfig.tsbuildinfo'),
   swSrc: resolveModule(resolveApp, 'src/service-worker'),
-  publicUrlOrPath,
-  markdownFilesPath: resolveApp('../../posts'),
-  markdownJsonPath: resolveApp(`${buildPath}/md`),
-  markdownCompileCachePath: resolveApp('.md-cache')
+  publicUrlOrPath
 };
 
 

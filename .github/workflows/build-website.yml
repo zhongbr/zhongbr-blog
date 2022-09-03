@@ -27,8 +27,6 @@ jobs:
               run: pnpm run install-website
             - name: build website dist resources
               run: pnpm run build-website
-            - name: transform posts/*.md to json
-              run: pnpm run build-markdown
             - name: copy index.html to 404.html
               run: cp ./packages/website/build/index.html ./packages/website/build/404.html
             - name: upload files
@@ -43,11 +41,16 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v3
+              with:
+                  ref: github-pages
+                  path: current-branch
             - name: download build files
               uses: actions/download-artifact@v2
               with:
                   name: build-pages
                   path: build
+            - name: copy md json files
+              run: cp -r ./current-branch/md ./build/md
             - uses: JamesIves/github-pages-deploy-action@4.2.0
               with:
                   folder: build

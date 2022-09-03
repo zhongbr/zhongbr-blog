@@ -3,7 +3,7 @@
  * @Author: 张盼宏
  * @Date: 2022-08-28 11:26:36
  * @LastEditors: 张盼宏
- * @LastEditTime: 2022-08-28 12:50:05
+ * @LastEditTime: 2022-09-03 23:32:02
  */
 const chalk = require('react-dev-utils/chalk');
 const path = require('path');
@@ -13,10 +13,7 @@ const { readFile, readdir, appendFile, writeFile, mkdir, stat } = require('fs/pr
 const crypto = require('crypto');
 const yaml = require('js-yaml');
 
-const { markdownFilesPath, markdownJsonPath, markdownCompileCachePath } = require('../config/paths');
-
-const compileCacheFile = path.join(markdownCompileCachePath, 'last-compile-hash.json');
-const catalogueFile = path.join(markdownJsonPath, 'catalogue.json');
+const { markdownFilesPath, markdownJsonPath, markdownCompileCachePath, compileCacheFile, catalogueFile } = require('../config/paths');
 
 /** write files */
 async function write(target, content) {
