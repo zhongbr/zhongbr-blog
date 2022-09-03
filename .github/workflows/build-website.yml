@@ -30,12 +30,12 @@ jobs:
             - name: transform posts/*.md to json
               run: pnpm run build-markdown
             - name: copy index.html to 404.html
-              run: cp ./build/index.html ./build/404.html
+              run: cp ./packages/website/build/index.html ./packages/website/build/404.html
             - name: upload files
               uses: actions/upload-artifact@v3
               with:
                   name: build-pages
-                  path: build
+                  path: ./packages/website/build
                   retention-days: 1
     # deploy the build/ folder to github-pages branch
     depoly:
