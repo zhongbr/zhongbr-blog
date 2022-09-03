@@ -2,7 +2,7 @@
   "name": "react-press",
   "version": "1.0.0",
   "scripts": {
-    "install": "pnpm install",
+    "install-global": "pnpm install",
     "install-website": "cd ./packages/website && pnpm install",
     "build-website": "cd ./packages/website && pnpm run build",
     "start-website": "cd ./packages/website && pnpm run start",
