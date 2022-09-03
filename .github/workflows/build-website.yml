@@ -1,16 +1,22 @@
 # run build when push files to react project
-name: build react files
+name: build react press website
 env:
     GENERATE_SOURCEMAP: false
     CI: false
 on:
     push:
-        paths-ignore:
-            - 'posts/**'
-            - 'build/**'
+        paths:
+            # only runs when the website files change
+            - '/packages/website/**'
 jobs:
+    prepare:
+        runs-on: ubuntu-latest
+        steps:
+            - name: change to website dir
+              run: cd ./packages/website
     # use pnpm to build react files
     build:
+        needs: prepare
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v3

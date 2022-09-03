@@ -1,1 +1,0 @@
-{"version":3,"file":"static/css/563.3c55184e.chunk.css","mappings":"AAAA,gBACI,iBACJ","sources":["container/Passage/components/Render/Emphasis/style.module.less"],"sourcesContent":[".emphasis {\n    font-style: italic;\n}\n"],"names":[],"sourceRoot":""}
