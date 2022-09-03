@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkreact_press=self.webpackChunkreact_press||[]).push([[232],{9232:function(e,r,n){n.r(r);n(5413);var s=n(4727);r.default=function(e){var r=e.node,n=e.children;return(0,s.jsx)("li",{id:r.key,children:n})}}}]);

@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkreact_press_website=self.webpackChunkreact_press_website||[]).push([[3140],{7913:function(e){function s(e){e.languages.hsts={directive:{pattern:/\b(?:max-age=|includeSubDomains|preload)/,alias:"keyword"},safe:{pattern:/\d{8,}/,alias:"selector"},unsafe:{pattern:/\d{1,7}/,alias:"function"}}}e.exports=s,s.displayName="hsts",s.aliases=[]}}]);

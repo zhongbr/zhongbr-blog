@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkreact_press=self.webpackChunkreact_press||[]).push([[825],{5825:function(e,n,r){r.r(n),r.d(n,{default:function(){return u}});r(5413);var a=r(8574),c="container_Ofr4h",s="code-block_OFD1u",t=r(4727),u=function(e){var n=e.node;return(0,t.jsx)(a.Z,{id:n.key,className:c,variant:"outlined",children:(0,t.jsx)("div",{className:s,children:n.value})})}}}]);

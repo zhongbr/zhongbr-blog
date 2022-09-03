@@ -1,1 +1,0 @@
-{"version":3,"file":"static/css/71.e4035687.chunk.css","mappings":"AAAA,uBAEI,6CAA8C,CAD9C,UAAW,CAEX,aACJ","sources":["container/Passage/components/Render/HorizontalRule/style.module.less"],"sourcesContent":[".horizontal-rule {\n    height: 1px;\n    background-color: var(--horizontal-rule-color);\n    margin: 10px 0;\n}\n"],"names":[],"sourceRoot":""}
