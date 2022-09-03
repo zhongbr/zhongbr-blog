@@ -26,7 +26,7 @@ jobs:
             - name: install website dependencies
               run: pnpm run install-website
             - name: build website dist resources
-              run: pnpm run build
+              run: pnpm run build-website
             - name: transform posts/*.md to json
               run: pnpm run md2json
             - name: copy index.html to 404.html
