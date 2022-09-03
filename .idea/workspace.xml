@@ -1,44 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="27b3b0e5-1ac3-4b25-8173-a590bd44bf60" name="变更" comment="feat: add resources">
-      <change afterPath="$PROJECT_DIR$/public/img.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Tag/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Tag/style.module.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/container/Index/hooks/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/container/Index/hooks/useCatalogue.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/container/Index/modules/Tags/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/container/Index/modules/Tags/style.module.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/hooks/useTags.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/watcherTasks.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/watcherTasks.xml" afterDir="false" />
+    <list default="true" id="27b3b0e5-1ac3-4b25-8173-a590bd44bf60" name="变更" comment="feat: change styles">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/md/catalogue.json" beforeDir="false" afterPath="$PROJECT_DIR$/build/md/catalogue.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/webpackDevServer.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/config/webpackDevServer.config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pnpm-lock.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pnpm-lock.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/config/routers.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/config/routers.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/container/Index/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/container/Index/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/container/Index/modules/Catalogue/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/container/Index/modules/Catalogue/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/container/Index/modules/Catalogue/style.module.less" beforeDir="false" afterPath="$PROJECT_DIR$/src/container/Index/modules/Catalogue/style.module.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/container/Index/modules/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/container/Index/modules/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/container/Index/style.module.less" beforeDir="false" afterPath="$PROJECT_DIR$/src/container/Index/style.module.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/container/Passage/components/Render/BlockQuote/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/container/Passage/components/Render/BlockQuote/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/container/Passage/components/Render/BlockQuote/style.module.less" beforeDir="false" afterPath="$PROJECT_DIR$/src/container/Passage/components/Render/BlockQuote/style.module.less" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/container/Passage/components/Render/CodeBlock/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/container/Passage/components/Render/CodeBlock/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/container/Passage/components/Render/CodeBlock/style.module.less" beforeDir="false" afterPath="$PROJECT_DIR$/src/container/Passage/components/Render/CodeBlock/style.module.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/container/Passage/components/Render/Header/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/container/Passage/components/Render/Header/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/container/Passage/components/Render/Image/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/container/Passage/components/Render/Image/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/container/Passage/components/Render/Image/style.module.less" beforeDir="false" afterPath="$PROJECT_DIR$/src/container/Passage/components/Render/Image/style.module.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/container/Passage/components/Render/Paragraph/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/container/Passage/components/Render/Paragraph/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/container/Passage/components/Render/Yaml/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/container/Passage/components/Render/Yaml/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/container/Passage/components/Render/Yaml/style.module.less" beforeDir="false" afterPath="$PROJECT_DIR$/src/container/Passage/components/Render/Yaml/style.module.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/container/Passage/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/container/Passage/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/container/Passage/style.module.less" beforeDir="false" afterPath="$PROJECT_DIR$/src/container/Passage/style.module.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/hooks/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/hooks/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/default-theme.less" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/default-theme.less" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -158,8 +123,23 @@
       <workItem from="1661783703006" duration="5640000" />
       <workItem from="1661867571173" duration="11077000" />
       <workItem from="1662184255678" duration="10296000" />
-      <workItem from="1662195787298" duration="7335000" />
+      <workItem from="1662195787298" duration="9383000" />
     </task>
+    <task id="LOCAL-00001" summary="feat: change styles">
+      <created>1662204333394</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1662204333394</updated>
+    </task>
+    <task id="LOCAL-00002" summary="feat: change styles">
+      <created>1662204432674</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1662204432674</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -177,7 +157,9 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <MESSAGE value="feat: add resources" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: add resources" />
+    <MESSAGE value="feat: change styles" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: change styles" />
   </component>
 </project>
