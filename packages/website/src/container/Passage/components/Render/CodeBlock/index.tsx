@@ -3,7 +3,7 @@
  * @Author: 张盼宏
  * @Date: 2022-08-29 22:46:04
  * @LastEditors: 张盼宏
- * @LastEditTime: 2022-09-03 21:48:43
+ * @LastEditTime: 2022-09-03 22:23:42
  */
 import React from 'react';
 import Paper from "@mui/material/Paper";
@@ -23,7 +23,7 @@ const CodeBlock: React.FC<IBaseProps> = (props) => {
                 theme={github}
                 wrapLongLines
             />
-            {node.lang && <div className={styles.lang}>{node.lang}</div>}
+            {node.lang && <div className={styles.lang}>language: {node.lang}</div>}
         </Paper>
     );
 };
