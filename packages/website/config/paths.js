@@ -3,7 +3,7 @@
  * @Author: 张盼宏
  * @Date: 2022-08-28 11:30:36
  * @LastEditors: 张盼宏
- * @LastEditTime: 2022-08-31 00:08:39
+ * @LastEditTime: 2022-09-03 22:32:24
  */
 'use strict';
 
@@ -77,7 +77,7 @@ module.exports = {
   appTsBuildInfoFile: resolveApp('node_modules/.cache/tsconfig.tsbuildinfo'),
   swSrc: resolveModule(resolveApp, 'src/service-worker'),
   publicUrlOrPath,
-  markdownFilesPath: resolveApp('./posts'),
+  markdownFilesPath: resolveApp('../../posts'),
   markdownJsonPath: resolveApp(`${buildPath}/md`),
   markdownCompileCachePath: resolveApp('.md-cache')
 };
