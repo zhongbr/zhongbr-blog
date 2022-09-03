@@ -8,6 +8,7 @@ on:
 jobs:
     # build markdown files to json
     build:
+        runs-on: ubuntu-latest
         steps:
             - name: checkout
               uses: actions/checkout@v3
