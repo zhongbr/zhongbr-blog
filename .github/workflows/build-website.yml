@@ -7,7 +7,7 @@ on:
     push:
         paths:
             # only runs when the website files change
-            - '/packages/website/**'
+            - 'packages/website/**'
 jobs:
     prepare:
         runs-on: ubuntu-latest
