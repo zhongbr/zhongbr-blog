@@ -5,6 +5,8 @@ env:
     CI: false
 on:
     push:
+        branches:
+            - main
         paths:
             # only runs when the website files change
             - 'packages/website/**'
@@ -12,6 +14,8 @@ jobs:
     prepare:
         runs-on: ubuntu-latest
         steps:
+            - name: checkout
+              uses: actions/checkout@v3
             - name: change to website dir
               run: cd ./packages/website
     # use pnpm to build react files
@@ -19,7 +23,6 @@ jobs:
         needs: prepare
         runs-on: ubuntu-latest
         steps:
-            - uses: actions/checkout@v3
             - uses: pnpm/action-setup@v2.2.2
               with:
                   version: 7.9.5

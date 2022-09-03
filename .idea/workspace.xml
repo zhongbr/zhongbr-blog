@@ -1,94 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="27b3b0e5-1ac3-4b25-8173-a590bd44bf60" name="变更" comment="feat: change github workflow">
-      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+    <list default="true" id="27b3b0e5-1ac3-4b25-8173-a590bd44bf60" name="变更" comment="feat: change index page path">
+      <change beforePath="$PROJECT_DIR$/.github/workflows/build-website.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/build-website.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/config/paths.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/config/paths.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/posts/2020-01-01-HappyNewYear.md" beforeDir="false" afterPath="$PROJECT_DIR$/posts/2020-01-01-HappyNewYear.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/posts/2020-07-01-操作系统的目标和作用.md" beforeDir="false" afterPath="$PROJECT_DIR$/posts/2020-07-01-操作系统的目标和作用.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/posts/2020-07-12-操作系统的运行机制和体系结构.md" beforeDir="false" afterPath="$PROJECT_DIR$/posts/2020-07-12-操作系统的运行机制和体系结构.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/posts/2020-07-23-KMP串匹配算法.md" beforeDir="false" afterPath="$PROJECT_DIR$/posts/2020-07-23-KMP串匹配算法.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/posts/2020-07-24-广义表.md" beforeDir="false" afterPath="$PROJECT_DIR$/posts/2020-07-24-广义表.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/posts/2020-07-24-数组.md" beforeDir="false" afterPath="$PROJECT_DIR$/posts/2020-07-24-数组.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/posts/2020-07-25-广义表的递归算法.md" beforeDir="false" afterPath="$PROJECT_DIR$/posts/2020-07-25-广义表的递归算法.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/posts/2020-07-25-树和树的定义.md" beforeDir="false" afterPath="$PROJECT_DIR$/posts/2020-07-25-树和树的定义.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/posts/2020-07-26-二叉树.md" beforeDir="false" afterPath="$PROJECT_DIR$/posts/2020-07-26-二叉树.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/posts/2020-07-26-遍历二叉树和线索二叉树.md" beforeDir="false" afterPath="$PROJECT_DIR$/posts/2020-07-26-遍历二叉树和线索二叉树.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/posts/2020-07-28-树、森林与二叉树的转换.md" beforeDir="false" afterPath="$PROJECT_DIR$/posts/2020-07-28-树、森林与二叉树的转换.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/posts/2020-07-28-树的存储结构.md" beforeDir="false" afterPath="$PROJECT_DIR$/posts/2020-07-28-树的存储结构.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/posts/2020-07-28-树的应用：并查集.md" beforeDir="false" afterPath="$PROJECT_DIR$/posts/2020-07-28-树的应用：并查集.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/posts/2020-07-29-二叉排序树.md" beforeDir="false" afterPath="$PROJECT_DIR$/posts/2020-07-29-二叉排序树.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/posts/2020-07-29-平衡二叉树.md" beforeDir="false" afterPath="$PROJECT_DIR$/posts/2020-07-29-平衡二叉树.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/posts/2020-07-29-赫夫曼树及其应用.md" beforeDir="false" afterPath="$PROJECT_DIR$/posts/2020-07-29-赫夫曼树及其应用.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/posts/2020-07-30-数据结构——图.md" beforeDir="false" afterPath="$PROJECT_DIR$/posts/2020-07-30-数据结构——图.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/posts/2020-07-30-进程的基本概念.md" beforeDir="false" afterPath="$PROJECT_DIR$/posts/2020-07-30-进程的基本概念.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/posts/2020-07-31-图的存储结构.md" beforeDir="false" afterPath="$PROJECT_DIR$/posts/2020-07-31-图的存储结构.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/posts/2020-07-31-进程控制.md" beforeDir="false" afterPath="$PROJECT_DIR$/posts/2020-07-31-进程控制.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/posts/2020-08-01-图的连通性问题.md" beforeDir="false" afterPath="$PROJECT_DIR$/posts/2020-08-01-图的连通性问题.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/posts/2020-08-01-图的遍历.md" beforeDir="false" afterPath="$PROJECT_DIR$/posts/2020-08-01-图的遍历.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/posts/2020-08-02-最短路径.md" beforeDir="false" afterPath="$PROJECT_DIR$/posts/2020-08-02-最短路径.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/posts/2020-08-02-有向无环图及其应用.md" beforeDir="false" afterPath="$PROJECT_DIR$/posts/2020-08-02-有向无环图及其应用.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/posts/2020-08-03-关键路径.md" beforeDir="false" afterPath="$PROJECT_DIR$/posts/2020-08-03-关键路径.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/posts/2020-08-03-奈氏准则和香农定理.md" beforeDir="false" afterPath="$PROJECT_DIR$/posts/2020-08-03-奈氏准则和香农定理.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/posts/2020-08-03-物理层的基本概念.md" beforeDir="false" afterPath="$PROJECT_DIR$/posts/2020-08-03-物理层的基本概念.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/posts/2020-08-03-计算机网络的分层结构.md" beforeDir="false" afterPath="$PROJECT_DIR$/posts/2020-08-03-计算机网络的分层结构.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/posts/2020-08-03-计算机网络的概念.md" beforeDir="false" afterPath="$PROJECT_DIR$/posts/2020-08-03-计算机网络的概念.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/posts/2020-08-04-数据链路层功能概述.md" beforeDir="false" afterPath="$PROJECT_DIR$/posts/2020-08-04-数据链路层功能概述.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/posts/2020-08-04-查找的基本概念.md" beforeDir="false" afterPath="$PROJECT_DIR$/posts/2020-08-04-查找的基本概念.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/posts/2020-08-04-编码和调制.md" beforeDir="false" afterPath="$PROJECT_DIR$/posts/2020-08-04-编码和调制.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/posts/2020-08-05-B树.md" beforeDir="false" afterPath="$PROJECT_DIR$/posts/2020-08-05-B树.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/posts/2020-08-06-电路交换、报文交换、分组交换、数据报和虚电路.md" beforeDir="false" afterPath="$PROJECT_DIR$/posts/2020-08-06-电路交换、报文交换、分组交换、数据报和虚电路.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/posts/2020-08-07-数据链路层流量控制和可靠传输机制.md" beforeDir="false" afterPath="$PROJECT_DIR$/posts/2020-08-07-数据链路层流量控制和可靠传输机制.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/posts/2020-08-08-介质划分和信道访问控制.md" beforeDir="false" afterPath="$PROJECT_DIR$/posts/2020-08-08-介质划分和信道访问控制.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/posts/2020-08-08-散列表.md" beforeDir="false" afterPath="$PROJECT_DIR$/posts/2020-08-08-散列表.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/posts/2020-08-09-局域网.md" beforeDir="false" afterPath="$PROJECT_DIR$/posts/2020-08-09-局域网.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/posts/2020-08-09-排序的基本概念.md" beforeDir="false" afterPath="$PROJECT_DIR$/posts/2020-08-09-排序的基本概念.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/posts/2020-08-10-DHCP协议.md" beforeDir="false" afterPath="$PROJECT_DIR$/posts/2020-08-10-DHCP协议.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/posts/2020-08-10-PPP协议和HDLC协议.md" beforeDir="false" afterPath="$PROJECT_DIR$/posts/2020-08-10-PPP协议和HDLC协议.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/posts/2020-08-10-以太网.md" beforeDir="false" afterPath="$PROJECT_DIR$/posts/2020-08-10-以太网.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/posts/2020-08-10-网络层功能概述.md" beforeDir="false" afterPath="$PROJECT_DIR$/posts/2020-08-10-网络层功能概述.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/posts/2020-08-10-链路层设备.md" beforeDir="false" afterPath="$PROJECT_DIR$/posts/2020-08-10-链路层设备.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/posts/2020-08-11-DNS系统.md" beforeDir="false" afterPath="$PROJECT_DIR$/posts/2020-08-11-DNS系统.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/posts/2020-08-11-IPv6.md" beforeDir="false" afterPath="$PROJECT_DIR$/posts/2020-08-11-IPv6.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/posts/2020-08-11-IP组播.md" beforeDir="false" afterPath="$PROJECT_DIR$/posts/2020-08-11-IP组播.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/posts/2020-08-11-TCP协议的特点和TCP报文格式.md" beforeDir="false" afterPath="$PROJECT_DIR$/posts/2020-08-11-TCP协议的特点和TCP报文格式.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/posts/2020-08-11-UDP协议.md" beforeDir="false" afterPath="$PROJECT_DIR$/posts/2020-08-11-UDP协议.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/posts/2020-08-11-传输层概述.md" beforeDir="false" afterPath="$PROJECT_DIR$/posts/2020-08-11-传输层概述.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/posts/2020-08-11-应用层协议：FTP、电子邮件、HTTP.md" beforeDir="false" afterPath="$PROJECT_DIR$/posts/2020-08-11-应用层协议：FTP、电子邮件、HTTP.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/posts/2020-08-11-应用层概述.md" beforeDir="false" afterPath="$PROJECT_DIR$/posts/2020-08-11-应用层概述.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/posts/2020-08-11-网际报文控制和ICMP协议.md" beforeDir="false" afterPath="$PROJECT_DIR$/posts/2020-08-11-网际报文控制和ICMP协议.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/posts/2020-08-12-中断和异常.md" beforeDir="false" afterPath="$PROJECT_DIR$/posts/2020-08-12-中断和异常.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/posts/2020-08-12-处理机调度.md" beforeDir="false" afterPath="$PROJECT_DIR$/posts/2020-08-12-处理机调度.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/posts/2020-08-12-系统调用.md" beforeDir="false" afterPath="$PROJECT_DIR$/posts/2020-08-12-系统调用.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/posts/2020-08-12-线程、多线程模型.md" beforeDir="false" afterPath="$PROJECT_DIR$/posts/2020-08-12-线程、多线程模型.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/posts/2020-08-12-调度算法.md" beforeDir="false" afterPath="$PROJECT_DIR$/posts/2020-08-12-调度算法.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/posts/2020-08-12-进程通信.md" beforeDir="false" afterPath="$PROJECT_DIR$/posts/2020-08-12-进程通信.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/posts/2020-08-14-信号量机制.md" beforeDir="false" afterPath="$PROJECT_DIR$/posts/2020-08-14-信号量机制.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/posts/2020-08-14-进程同步.md" beforeDir="false" afterPath="$PROJECT_DIR$/posts/2020-08-14-进程同步.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/posts/2020-08-15-管程.md" beforeDir="false" afterPath="$PROJECT_DIR$/posts/2020-08-15-管程.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/posts/2020-08-15-经典同步问题.md" beforeDir="false" afterPath="$PROJECT_DIR$/posts/2020-08-15-经典同步问题.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/posts/2020-08-16-内存分配与回收.md" beforeDir="false" afterPath="$PROJECT_DIR$/posts/2020-08-16-内存分配与回收.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/posts/2020-08-16-内存管理.md" beforeDir="false" afterPath="$PROJECT_DIR$/posts/2020-08-16-内存管理.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/posts/2020-08-16-基本存储分页管理的基本概念.md" beforeDir="false" afterPath="$PROJECT_DIR$/posts/2020-08-16-基本存储分页管理的基本概念.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/posts/2020-08-16-死锁.md" beforeDir="false" afterPath="$PROJECT_DIR$/posts/2020-08-16-死锁.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/posts/2020-08-16-覆盖技术.md" beforeDir="false" afterPath="$PROJECT_DIR$/posts/2020-08-16-覆盖技术.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/posts/2020-08-17-内存分配策略.md" beforeDir="false" afterPath="$PROJECT_DIR$/posts/2020-08-17-内存分配策略.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/posts/2020-08-17-文件存储空间管理.md" beforeDir="false" afterPath="$PROJECT_DIR$/posts/2020-08-17-文件存储空间管理.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/posts/2020-08-17-文件管理.md" beforeDir="false" afterPath="$PROJECT_DIR$/posts/2020-08-17-文件管理.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/posts/2020-08-17-虚拟内存.md" beforeDir="false" afterPath="$PROJECT_DIR$/posts/2020-08-17-虚拟内存.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/posts/2020-08-17-虚拟内存——请求分页存储管理.md" beforeDir="false" afterPath="$PROJECT_DIR$/posts/2020-08-17-虚拟内存——请求分页存储管理.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/posts/2020-08-18-文件共享和保护.md" beforeDir="false" afterPath="$PROJECT_DIR$/posts/2020-08-18-文件共享和保护.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/posts/2020-08-18-文件的基本操作.md" beforeDir="false" afterPath="$PROJECT_DIR$/posts/2020-08-18-文件的基本操作.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/posts/2020-08-18-文件系统.md" beforeDir="false" afterPath="$PROJECT_DIR$/posts/2020-08-18-文件系统.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/posts/2020-08-24-http和https.md" beforeDir="false" afterPath="$PROJECT_DIR$/posts/2020-08-24-http和https.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/posts/2020-11-25-.babelrc配置.md" beforeDir="false" afterPath="$PROJECT_DIR$/posts/2020-11-25-.babelrc配置.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/posts/2020-11-25-TypeScript配置tsconfig.md" beforeDir="false" afterPath="$PROJECT_DIR$/posts/2020-11-25-TypeScript配置tsconfig.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/posts/2020-11-25-webpack配置.md" beforeDir="false" afterPath="$PROJECT_DIR$/posts/2020-11-25-webpack配置.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/posts/2020-11-28-建立typescript+react+webpack+electron的桌面应用项目.md" beforeDir="false" afterPath="$PROJECT_DIR$/posts/2020-11-28-建立typescript+react+webpack+electron的桌面应用项目.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/posts/2020-11-29-electron主进程和渲染进程通信.md" beforeDir="false" afterPath="$PROJECT_DIR$/posts/2020-11-29-electron主进程和渲染进程通信.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/config/meta.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/config/meta.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/config/routers.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/config/routers.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -240,7 +155,7 @@
       <workItem from="1661867571173" duration="11077000" />
       <workItem from="1662184255678" duration="10296000" />
       <workItem from="1662195787298" duration="10010000" />
-      <workItem from="1662213987463" duration="1652000" />
+      <workItem from="1662213987463" duration="1779000" />
     </task>
     <task id="LOCAL-00001" summary="feat: change styles">
       <created>1662204333394</created>
@@ -291,7 +206,14 @@
       <option name="project" value="LOCAL" />
       <updated>1662215130624</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="feat: change index page path">
+      <created>1662215661357</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1662215661357</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -316,6 +238,7 @@
     <MESSAGE value="feat: change the dir structure" />
     <MESSAGE value="feat: change style of code block" />
     <MESSAGE value="feat: change github workflow" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: change github workflow" />
+    <MESSAGE value="feat: change index page path" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: change index page path" />
   </component>
 </project>
