@@ -3,7 +3,7 @@
  * @Author: 张盼宏
  * @Date: 2022-09-04 01:02:47
  * @LastEditors: 张盼宏
- * @LastEditTime: 2022-09-04 14:24:44
+ * @LastEditTime: 2022-09-04 14:39:09
  */
 const path = require('path');
 const { babel } = require('@rollup/plugin-babel');
@@ -33,6 +33,7 @@ module.exports = {
                     id: `lib/${packageJson.name}`
                 }
             },
+            externals: ['react', 'react-dom'],
             plugins: [
                 postcss({
                     plugins: [autoprefixer()],

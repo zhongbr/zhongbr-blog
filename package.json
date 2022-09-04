@@ -8,7 +8,11 @@
     "start-website": "cd ./packages/website && pnpm run start",
     "build-markdown": "node ./scripts/md2json.js",
     "install-pack-umd": "cd ./packages/umd-factory && pnpm install",
-    "pack-umd": "cd ./packages/umd-factory && pnpm run pack react-dom@latest react@latest"
+    "build-umd": "cd ./packages/umd-factory && pnpm run compile",
+    "pack-umd": "cd ./packages/umd-factory && pnpm run pack $PACKAGES_PATH",
+    "install-jsx-core": "cd ./packages/jsx-core && pnpm install",
+    "build-jsx-worker": "cd ./packages/jsx-core && pnpm run worker",
+    "start-jsx-core": "cd ./packages/jsx-core && pnpm run start"
   },
   "devDependencies": {
     "@textlint/markdown-to-ast": "^12.2.1",

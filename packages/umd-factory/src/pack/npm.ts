@@ -3,7 +3,7 @@
  * @Author: 张盼宏
  * @Date: 2022-09-04 01:48:20
  * @LastEditors: 张盼宏
- * @LastEditTime: 2022-09-04 14:03:07
+ * @LastEditTime: 2022-09-04 14:54:11
  */
 import fse from 'fs-extra';
 import { join } from 'path';
@@ -25,6 +25,7 @@ class NpmPackage {
     private packageJsonPath: string;
     private resultPath: string = '';
     private innerResultPath: string;
+    private exist: boolean = false;
 
     constructor(public name: string, public version: string = 'latest') {
         this.tempPath = join(cwd, temp, `./${name}_${version}`);
@@ -75,6 +76,9 @@ class NpmPackage {
         }
 
         this.resultPath = join(distPath, `./${name}@${v}.umd.js`);
+        this.exist = fse.existsSync(this.resultPath);
+
+        return this.exist;
     }
 
     public async init() {
@@ -84,18 +88,28 @@ class NpmPackage {
     }
 
     public async install() {
+        if (this.exist) {
+            return;
+        }
         return await this.exec('pnpm i');
     }
 
     public async build() {
+        if (this.exist) {
+            return;
+        }
         return await this.exec('pnpm run build');
     }
 
     public async cpUmdFile() {
-        const { resultPath, innerResultPath, tempPath } = this;
-        console.log({ innerResultPath, resultPath });
+        const { resultPath, innerResultPath, tempPath, exist } = this;
+        if (exist) {
+            return resultPath;
+        }
         await fse.copyFile(innerResultPath, resultPath);
-        // await fse.remove(tempPath);
+        await fse.remove(tempPath);
+
+        return resultPath;
     }
 }
 

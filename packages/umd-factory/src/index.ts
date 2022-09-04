@@ -3,15 +3,16 @@
  * @Author: 张盼宏
  * @Date: 2022-09-04 00:49:44
  * @LastEditors: 张盼宏
- * @LastEditTime: 2022-09-04 02:37:44
+ * @LastEditTime: 2022-09-04 16:12:33
  */
 import * as process from "process";
-
+import {readJSON} from 'fs-extra';
 import NpmPackage from "./pack/npm.js";
 
-const [...packages] = process.argv.slice(2) as `${string}@${string}`[];
+const packagesPath = process.argv[2];
 
-const start = async () => {
+const start = async (args?: string[]) => {
+    const packages = args || (await readJSON(packagesPath));
     const tasks = packages.map(async packageInfo => {
         const [packageName, version] = packageInfo.split('@');
         const npm = new NpmPackage(packageName, version);
@@ -19,10 +20,11 @@ const start = async () => {
         await npm.init();
         await npm.install();
         await npm.build();
-        await npm.cpUmdFile();
+        return await npm.cpUmdFile();
     });
 
-    await Promise.all(tasks);
+    return await Promise.all(tasks);
 };
 
-start();
+export default start;
+

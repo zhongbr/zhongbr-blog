@@ -5,7 +5,8 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "pack": "tsc && node ./distjs/index.js"
+    "compile": "tsc",
+    "pack": "tsc && node ./distjs/start.js"
   },
   "author": "",
   "license": "ISC",
