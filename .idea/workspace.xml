@@ -2,9 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="27b3b0e5-1ac3-4b25-8173-a590bd44bf60" name="变更" comment="feat: modify path">
-      <change beforePath="$PROJECT_DIR$/.github/workflows/build-posts.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/build-posts.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/umd-factory/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/umd-factory/pnpm-lock.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/umd-factory/src/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/umd-factory/src/pack/npm.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/umd-factory/tsconfig.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/umd-factory/umd-template/build/babel.config.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/umd-factory/umd-template/build/rollup.config.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/umd-factory/umd-template/build/rollup.config.prod.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/umd-factory/umd-template/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/umd-factory/umd-template/pnpm-lock.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/umd-factory/umd-template/src/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/umd-factory/umd-template/src/test.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/posts/2020-01-01-HappyNewYear.md" beforeDir="false" afterPath="$PROJECT_DIR$/posts/2020-01-01-HappyNewYear.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,6 +27,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JavaScript File" />
+        <option value="Less File" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -60,21 +74,27 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "javascript.nodejs.core.library.configured.version": "14.18.3",
     "javascript.nodejs.core.library.typings.version": "14.18.3",
+    "last_opened_file_path": "/Users/zhangpanhong/Documents/zhongbr_projects/react-press/packages/umd-factory",
+    "list.type.of.created.stylesheet": "Less",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.standard": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.standard": "",
     "nodejs_package_manager_path": "pnpm",
-    "ts.external.directory.path": "/Users/zhangpanhong/Documents/zhongbr_projects/react-press/packages/website/node_modules/typescript/lib",
+    "ts.external.directory.path": "/Users/zhangpanhong/Documents/zhongbr_projects/react-press/packages/umd-factory/node_modules/typescript/lib",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/packages/umd-factory" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/scripts" />
@@ -85,7 +105,7 @@
       <command value="reload" />
     </option>
   </component>
-  <component name="RunManager" selected="npm.build-markdown">
+  <component name="RunManager" selected="npm.pack-umd">
     <configuration name="build-markdown" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="run" />
@@ -96,21 +116,21 @@
       <envs />
       <method v="2" />
     </configuration>
-    <configuration name="md2json" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
-      <package-json value="$PROJECT_DIR$/package.json" />
+    <configuration name="build" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/packages/umd-factory/umd-template/package.json" />
       <command value="run" />
       <scripts>
-        <script value="md2json" />
+        <script value="build" />
       </scripts>
       <node-interpreter value="project" />
       <envs />
       <method v="2" />
     </configuration>
-    <configuration name="precommit" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+    <configuration name="pack-umd" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="run" />
       <scripts>
-        <script value="precommit" />
+        <script value="pack-umd" />
       </scripts>
       <node-interpreter value="project" />
       <envs />
@@ -138,11 +158,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="npm.pack-umd" />
+        <item itemvalue="npm.build" />
         <item itemvalue="npm.build-markdown" />
         <item itemvalue="npm.start-website" />
         <item itemvalue="npm.start" />
-        <item itemvalue="npm.md2json" />
-        <item itemvalue="npm.precommit" />
       </list>
     </recent_temporary>
   </component>
@@ -159,7 +179,7 @@
       <workItem from="1661867571173" duration="11077000" />
       <workItem from="1662184255678" duration="10296000" />
       <workItem from="1662195787298" duration="10010000" />
-      <workItem from="1662213987463" duration="8113000" />
+      <workItem from="1662213987463" duration="23309000" />
     </task>
     <task id="LOCAL-00001" summary="feat: change styles">
       <created>1662204333394</created>
@@ -357,7 +377,14 @@
       <option name="project" value="LOCAL" />
       <updated>1662222181549</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="feat: modify path">
+      <created>1662222301985</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1662222301985</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

@@ -1,0 +1,33 @@
+{
+  "name": "umd-template",
+  "version": "1.0.0",
+  "description": "umd template",
+  "main": "index.js",
+  "scripts": {
+    "build": "node_modules/.bin/rollup -c build/rollup.config.prod.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.18.13",
+    "@babel/preset-env": "^7.18.10",
+    "@rollup/plugin-babel": "^5.3.1",
+    "@rollup/plugin-node-resolve": "^13.3.0",
+    "@rollup/plugin-replace": "^4.0.0",
+    "@rollup/plugin-typescript": "^8.4.0",
+    "autoprefixer": "^10.4.8",
+    "less": "^4.1.3",
+    "node-sass": "^7.0.1",
+    "postcss": "^8.4.16",
+    "rollup": "^2.79.0",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-postcss": "^4.0.2",
+    "rollup-plugin-serve": "^2.0.1",
+    "rollup-plugin-uglify": "^6.0.4",
+    "stylus": "^0.59.0"
+  },
+  "dependencies": {
+    "pack-target": "npm:lodash@^4.17.21"
+  },
+  "_umdEnvTag": "prod"
+}

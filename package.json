@@ -6,7 +6,9 @@
     "install-website": "cd ./packages/website && pnpm install",
     "build-website": "cd ./packages/website && pnpm run build",
     "start-website": "cd ./packages/website && pnpm run start",
-    "build-markdown": "node ./scripts/md2json.js"
+    "build-markdown": "node ./scripts/md2json.js",
+    "install-pack-umd": "cd ./packages/umd-factory && pnpm install",
+    "pack-umd": "cd ./packages/umd-factory && pnpm run pack react-dom@latest react@latest"
   },
   "devDependencies": {
     "@textlint/markdown-to-ast": "^12.2.1",
