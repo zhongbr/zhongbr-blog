@@ -3,7 +3,7 @@
  * @Author: 张盼宏
  * @Date: 2022-08-28 11:26:36
  * @LastEditors: 张盼宏
- * @LastEditTime: 2022-09-03 23:32:02
+ * @LastEditTime: 2022-09-08 23:31:27
  */
 const chalk = require('react-dev-utils/chalk');
 const path = require('path');
@@ -13,11 +13,44 @@ const { readFile, readdir, appendFile, writeFile, mkdir, stat } = require('fs/pr
 const crypto = require('crypto');
 const yaml = require('js-yaml');
 
-const { markdownFilesPath, markdownJsonPath, markdownCompileCachePath, compileCacheFile, catalogueFile } = require('../config/paths');
+const { markdownFilesPath, markdownJsonPath, markdownCompileCachePath, compileCacheFile, catalogueFile, umdVersionFile } = require('../config/paths');
+
+const usedUmdScripts = [];
+
+/** traverse */
+async function traverse(ast, listeners) {
+    await listeners[ast.type]?.(ast);
+    if (ast.children?.length) {
+        for(const child of ast.children) {
+            await traverse(child, listeners);
+        }
+    }
+}
+
+/** transform jsx code block */
+async function transformJsx(ast) {
+    const transformCode = (await import('../packages/jsx-core/dist/index.js')).default;
+    const getVersion = (await import('../packages/umd-factory/distjs/pack/npm.js')).getVersion;
+    await traverse(ast, {
+        CodeBlock: async node => {
+            const { lang, value } = node;
+            if (lang === 'jsx') {
+                const [code, imports, sources] = transformCode(value);
+                node._js = code;
+                node.imports = imports;
+                node._sources = sources;
+                node._umd = await Promise.all(imports.map(async imp => `${imp}@${await getVersion(imp)}`));
+                console.log(node.imports, node._umd);
+                usedUmdScripts.push(...node._umd || []);
+            }
+        }
+    });
+}
 
 /** write files */
 async function write(target, content) {
     if (!existsSync(target)) {
+        console.log('append', target);
         return appendFile(target, content);
     }
     return writeFile(target, content);
@@ -90,7 +123,16 @@ async function startCompile() {
         if (!compileHash?.[file] || compileHash[file] !== hash) {
             const ast = parse(buffer.toString());
 
-            catalogue[file] = await generateCatalogue(file, ast);
+            // transform jsx code block
+            await transformJsx(ast);
+
+            const metas = await generateCatalogue(file, ast);
+
+            if (metas?.editing) {
+                continue;
+            }
+
+            catalogue[file] = metas;
             await write(targetPath, JSON.stringify({
                 ast,
                 catalogue: catalogue[file]
@@ -107,6 +149,10 @@ async function startCompile() {
         await write(compileCacheFile, JSON.stringify(compileHash));
         await write(catalogueFile, JSON.stringify(catalogue));
     }
+    // write umd file
+    console.log('write file', umdVersionFile, usedUmdScripts);
+    await write(umdVersionFile, JSON.stringify(usedUmdScripts));
+    // child_process.execSync('pnpm run pack-umd ' + umdVersionFile);
 }
 
 startCompile().then();

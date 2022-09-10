@@ -3,16 +3,24 @@
  * @Author: 张盼宏
  * @Date: 2022-08-27 13:57:29
  * @LastEditors: 张盼宏
- * @LastEditTime: 2022-09-03 18:55:00
+ * @LastEditTime: 2022-09-07 23:01:38
  */
 import React from 'react';
+import * as ReactNamespace from 'react';
 import ReactDOM from 'react-dom/client';
+import * as ReactDomNamespace from 'react-dom/client';
+
 import { HashRouter } from 'react-router-dom';
+import * as ReactRouterDom from 'react-router-dom';
 
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 import './index.less';
+
+window['react'] = { default: React, ...ReactNamespace };
+window['react-dom'] = { default: ReactDOM, ...ReactDomNamespace };
+window['react-router-dom'] = { ...ReactRouterDom };
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement

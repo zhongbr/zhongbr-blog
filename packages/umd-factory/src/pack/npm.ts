@@ -3,13 +3,19 @@
  * @Author: 张盼宏
  * @Date: 2022-09-04 01:48:20
  * @LastEditors: 张盼宏
- * @LastEditTime: 2022-09-04 14:54:11
+ * @LastEditTime: 2022-09-06 09:43:04
  */
 import fse from 'fs-extra';
 import { join } from 'path';
 import * as process from "process";
 import { exec } from 'child_process';
 import fetch from 'node-fetch';
+import _glob from 'glob';
+import { promisify } from 'util';
+import * as path from "path";
+import { createHash } from 'crypto';
+
+const glob = promisify(_glob);
 
 const cwd = process.cwd();
 const temp = './.temp';
@@ -20,10 +26,18 @@ if (!fse.existsSync(distPath)) {
     fse.mkdirSync(distPath);
 }
 
+export async function getVersion (name: string, version: string = 'latest') {
+    if (version !== 'latest') return version;
+    const res = await fetch(`https://registry.npmjs.org/${name}`);
+    const tarball = await res.json() as any;
+
+    return tarball?.['dist-tags']?.['latest'] || '';
+}
+
 class NpmPackage {
     private readonly tempPath: string;
     private packageJsonPath: string;
-    private resultPath: string = '';
+    public resultPath: string = '';
     private innerResultPath: string;
     private exist: boolean = false;
 
@@ -35,6 +49,7 @@ class NpmPackage {
 
     private async copy() {
         const { tempPath } = this;
+        console.log('copy from', tempPath, ' to ', tempPath);
         await fse.copy(template, tempPath);
     }
 
@@ -66,14 +81,7 @@ class NpmPackage {
     private async updateResultPath() {
         const { name, version } = this;
 
-        let v = version;
-
-        if (version === 'latest') {
-            const res = await fetch(`https://registry.npmjs.org/${name}`);
-            const tarball = await res.json() as any;
-
-            v = tarball?.['dist-tags']?.['latest'] || '';
-        }
+        const v = await getVersion(name, version);
 
         this.resultPath = join(distPath, `./${name}@${v}.umd.js`);
         this.exist = fse.existsSync(this.resultPath);
@@ -92,6 +100,45 @@ class NpmPackage {
             return;
         }
         return await this.exec('pnpm i');
+    }
+
+    public async generateEntry() {
+        const packagePath = path.join(this.tempPath, './node_modules/pack-target');
+        const defaultsImport = [
+            `export * from 'pack-target';`,
+            `import defaultTarget from 'pack-target';`,
+            `export default defaultTarget;`,
+            `const _subModules = {};`,
+            `export const _import = path => {`,
+                '\t' + `return _subModules[path] || _subModules[path + '/index'];`,
+            `};`
+        ].join('\n');
+
+        const files = await glob('/**/*.{js,ts,css,less,sass}', {
+            root: packagePath,
+            ignore: ['**/*.d.ts', '**/*.min.js', '**/*.development.js', ]
+        });
+
+        const statements = files.map(file => {
+            const md5 = createHash('md5');
+            const hash = md5.update(file).digest('hex').slice(0, 5);
+            const relative = path.relative(packagePath, file);
+
+            return [
+                `import default_${hash} from '${relative}';`,
+                `import * as namespace_${hash} from '${relative}';`,
+                `_subModules['${relative}'] = {`,
+                    '\t' + `default: default_${hash},`,
+                    '\t' + `...namespace_${hash}`,
+                `};`
+            ].join('\n');
+        }).join('\n');
+
+        const entry = path.join(this.tempPath, './src/index.js');
+        if (fse.existsSync(entry)) {
+            await fse.remove(entry);
+        }
+        await fse.writeFile(entry, defaultsImport + statements);
     }
 
     public async build() {

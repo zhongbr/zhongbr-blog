@@ -3,11 +3,12 @@
  * @Author: 张盼宏
  * @Date: 2022-08-29 22:40:12
  * @LastEditors: 张盼宏
- * @LastEditTime: 2022-08-29 22:40:12
+ * @LastEditTime: 2022-09-08 23:42:21
  */
 import React, { lazy, memo } from 'react';
 
 import { NodeType, IBaseProps } from '@/types/markdown';
+import Skeleton from "@mui/material/Skeleton";
 
 const ComponentsMap = new Map([
     [NodeType.Header, lazy(() => import('./Header'))],
@@ -30,11 +31,11 @@ const ComponentsMap = new Map([
     [NodeType.HorizontalRule, lazy(() => import('./HorizontalRule'))]
 ]);
 
-const Render: React.FC<IBaseProps> = (props) => {
+const Render: React.FC<Partial<IBaseProps>> = (props) => {
     const { node } = props;
 
     if (!node) {
-        return null;
+        return <Skeleton/>;
     }
 
     const children = node.children?.map(child => <Render key={child.key} node={child}/>);

@@ -11,7 +11,7 @@
     <div id="root"></div>
     <script>
         const React = window['react'].default;
-        const ReactDom = window['react-dom'].default;
+        const ReactDom = window['react-dom']._import('client.js');
 
         function App() {
             return React.createElement('div', null, 'hello world');

@@ -100,7 +100,7 @@ module.exports = {
         extensions: ['.ts', '.tsx', '.d.ts', '.js', '.jsx', '.d.js', '.css']
     },
     entry: {
-        ui: path.resolve(__dirname, 'src','ui','index.tsx')
+        ui: path.resolve(__dirname, 'src','ui','index.js')
     },
     output: {
         filename: '[name]_bundle.js',

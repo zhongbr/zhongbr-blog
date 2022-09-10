@@ -12,12 +12,39 @@
     "pack-umd": "cd ./packages/umd-factory && pnpm run pack $PACKAGES_PATH",
     "install-jsx-core": "cd ./packages/jsx-core && pnpm install",
     "build-jsx-worker": "cd ./packages/jsx-core && pnpm run worker",
+    "build-jsx-core": "cd ./packages/jsx-core && pnpm run compile",
     "start-jsx-core": "cd ./packages/jsx-core && pnpm run start"
   },
   "devDependencies": {
     "@textlint/markdown-to-ast": "^12.2.1",
-    "js-yaml": "^4.1.0",
+    "@types/babel__core": "^7.1.19",
+    "@types/babel__generator": "^7.6.4",
+    "@types/babel__parser": "^7.1.1",
+    "@types/babel__traverse": "^7.18.1",
     "chalk": "^5.0.1",
-    "react-dev-utils": "^12.0.1"
+    "js-yaml": "^4.1.0",
+    "react-dev-utils": "^12.0.1",
+    "webpack": "^5.74.0"
+  },
+  "dependencies": {
+    "@babel/core": "^7.18.13",
+    "@babel/generator": "^7.18.13",
+    "@babel/plugin-proposal-class-properties": "^7.18.6",
+    "@babel/plugin-proposal-decorators": "^7.18.10",
+    "@babel/plugin-transform-runtime": "^7.18.10",
+    "@babel/preset-env": "^7.18.10",
+    "@babel/preset-react": "^7.18.6",
+    "@babel/preset-typescript": "^7.18.6",
+    "DefinePlugin": "link:webpack/lib/DefinePlugin",
+    "autoprefixer": "^10.4.8",
+    "babel-loader": "^8.2.5",
+    "less-loader": "^11.0.0",
+    "postcss": "^8.4.16",
+    "postcss-flexbugs-fixes": "^5.0.2",
+    "postcss-loader": "^7.0.1",
+    "rmraf": "^1.0.3",
+    "style-loader": "^3.3.1",
+    "terser-webpack-plugin": "^5.3.6",
+    "webpack": "^5.74.0"
   }
 }

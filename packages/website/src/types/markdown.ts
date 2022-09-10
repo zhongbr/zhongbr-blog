@@ -1,3 +1,10 @@
+/*
+ * @Description: desc
+ * @Author: 张盼宏
+ * @Date: 2022-09-04 18:51:07
+ * @LastEditors: 张盼宏
+ * @LastEditTime: 2022-09-07 22:34:35
+ */
 export enum NodeType {
     Document = 'Document',
     Header = 'Header',
@@ -38,6 +45,12 @@ export interface ILocation {
     end: IPostion;
 }
 
+export interface ISource {
+    name: string;
+    path: string;
+    cdn: string;
+}
+
 export interface Node {
     key?: string;
     type: NodeType;
@@ -59,6 +72,9 @@ export interface Node {
     parent?: Node;
     nextSibling?: Node;
     previousSibling?: Node;
+    _js?: string;
+    imports?: string[];
+    _sources?: ISource[]
 }
 
 export interface IBaseProps {
