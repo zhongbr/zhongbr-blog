@@ -3,39 +3,58 @@
  * @Author: 张盼宏
  * @Date: 2022-08-29 22:40:12
  * @LastEditors: 张盼宏
- * @LastEditTime: 2022-09-08 23:42:21
+ * @LastEditTime: 2022-09-11 10:39:24
  */
-import React, { lazy, memo } from 'react';
+import React, { memo } from 'react';
 
 import { NodeType, IBaseProps } from '@/types/markdown';
-import Skeleton from "@mui/material/Skeleton";
+import { Loading } from '@/components';
+
+import Header from './Header';
+import Str from './Str';
+import Strong from './Strong';
+import Emphasis from "./Emphasis";
+import Delete from './Delete';
+import Paragraph from './Paragraph';
+import CodeBlock from './CodeBlock';
+import BlockQuote from './BlockQuote';
+import Link from './Link';
+import Image from './Image';
+import Html from './Html';
+import Table from './Table';
+import TableRow from './TableRow';
+import TableCell from './TableCell';
+import Yaml from './Yaml';
+import List from './List';
+import ListItem from './ListItem';
+import HorizontalRule from './HorizontalRule';
 
 const ComponentsMap = new Map([
-    [NodeType.Header, lazy(() => import('./Header'))],
-    [NodeType.Str, lazy(() => import('./Str'))],
-    [NodeType.Strong, lazy(() => import('./Strong'))],
-    [NodeType.Emphasis, lazy(() => import('./Emphasis'))],
-    [NodeType.Delete, lazy(() => import('./Delete'))],
-    [NodeType.Paragraph, lazy(() => import('./Paragraph'))],
-    [NodeType.CodeBlock, lazy(() => import('./CodeBlock'))],
-    [NodeType.BlockQuote, lazy(() => import('./BlockQuote'))],
-    [NodeType.Link, lazy(() => import('./Link'))],
-    [NodeType.Image, lazy(() => import('./Image'))],
-    [NodeType.Html, lazy(() => import('./Html'))],
-    [NodeType.Table, lazy(() => import('./Table'))],
-    [NodeType.TableRow, lazy(() => import('./TableRow'))],
-    [NodeType.TableCell, lazy(() => import('./TableCell'))],
-    [NodeType.Yaml, lazy(() => import('./Yaml'))],
-    [NodeType.List, lazy(() => import('./List'))],
-    [NodeType.ListItem, lazy(() => import('./ListItem'))],
-    [NodeType.HorizontalRule, lazy(() => import('./HorizontalRule'))]
+    [NodeType.Header, Header],
+    [NodeType.Str, Str],
+    [NodeType.Strong, Strong],
+    [NodeType.Emphasis, Emphasis],
+    [NodeType.Delete, Delete],
+    [NodeType.Paragraph, Paragraph],
+    [NodeType.CodeBlock, CodeBlock],
+    [NodeType.BlockQuote, BlockQuote],
+    [NodeType.Link, Link],
+    [NodeType.Image, Image],
+    [NodeType.Html, Html],
+    [NodeType.Table, Table],
+    [NodeType.TableRow, TableRow],
+    [NodeType.TableCell, TableCell],
+    [NodeType.Yaml, Yaml],
+    [NodeType.List, List],
+    [NodeType.ListItem, ListItem],
+    [NodeType.HorizontalRule, HorizontalRule],
 ]);
 
 const Render: React.FC<Partial<IBaseProps>> = (props) => {
     const { node } = props;
 
     if (!node) {
-        return <Skeleton/>;
+        return <Loading texts="Passage Loading..."/>;
     }
 
     const children = node.children?.map(child => <Render key={child.key} node={child}/>);

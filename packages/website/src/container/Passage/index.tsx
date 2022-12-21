@@ -49,22 +49,24 @@ const Passage = () => {
 
     return (
         <div className={styles.passageContainer}>
-            <Paper
+            <div
                 className={styles.sketch}
                 style={{
                     top: `${155 - 75 * rate}px`
                 }}
             >
                 <Sketch sketch={sketch}/>
-            </Paper>
-            <Paper className={styles.passage}>
-                <div>
-                    {res?.data?.catalogue?.tags?.map(tag => (
-                        <Tag key={tag} onClick={() => navigator(`/?tags=${tag}`)}>{tag}</Tag>
-                    ))}
+            </div>
+            <div className={styles.passage}>
+                <div className="content">
+                    <div>
+                        {res?.data?.catalogue?.tags?.map(tag => (
+                            <Tag key={tag} onClick={() => navigator(`/?tags=${tag}`)}>{tag}</Tag>
+                        ))}
+                    </div>
+                    <Render node={res?.data?.ast}/>
                 </div>
-                <Render node={res?.data?.ast}/>
-            </Paper>
+            </div>
         </div>
     );
 }

@@ -3,15 +3,16 @@
  * @Author: 张盼宏
  * @Date: 2022-08-27 10:15:53
  * @LastEditors: 张盼宏
- * @LastEditTime: 2022-09-03 22:49:32
+ * @LastEditTime: 2022-09-11 10:46:58
  */
 import React, { Suspense } from 'react';
 import { useRoutes } from 'react-router-dom';
+import Pager from '@mui/material/Paper';
 
 import routers from "@/config/routers";
 import { title as titleText, navLinks, titleLink } from '@/config/meta';
 
-import { Layout, Icon } from './components';
+import { Layout, Icon, Loading } from './components';
 import { PageConfigContext, IPageConfig, useStates } from './hooks';
 import { useScrollRate } from './animations';
 
@@ -41,7 +42,11 @@ function App() {
             contentRef={ref}
         >
             <PageConfigContext.Provider value={{ ...states, rate, scrollRef: ref, setStates }}>
-                <Suspense fallback={null}>
+                <Suspense fallback={
+                    <Pager>
+                        <Loading texts="Passages loading..."/>
+                    </Pager>
+                }>
                     {element}
                 </Suspense>
             </PageConfigContext.Provider>

@@ -20,7 +20,7 @@ const Sketch: React.FC<IProps> = props => {
 
     return (
         <div className={styles.container}>
-            <div className={styles.title}>Catalogue</div>
+            <div className={styles.title}>目录</div>
             {sketch.map(item => (
                 <div
                     className={styles.item}

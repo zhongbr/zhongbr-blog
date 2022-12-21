@@ -1,51 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="27b3b0e5-1ac3-4b25-8173-a590bd44bf60" name="变更" comment="feat: code transform">
-      <change afterPath="$PROJECT_DIR$/packages/umd-factory/umd-template/babel.config.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/umd-factory/umd-template/config/build.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/umd-factory/umd-template/config/webpack.config.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/website/src/container/Passage/components/Render/CodeBlock/JsxBlock/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/website/src/global.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/posts/2022-08-25-移动端h5开发常见问题.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/website/src/components/Loading/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/website/src/components/Loading/loading.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/website/src/components/Loading/style.module.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pnpm-workspace.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.md-cache/last-compile-hash.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.md-cache/md/2020-01-01-HappyNewYear.json" beforeDir="false" afterPath="$PROJECT_DIR$/.md-cache/md/2020-01-01-HappyNewYear.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.md-cache/md/2020-11-28-建立typescript+react+webpack+electron的桌面应用项目.json" beforeDir="false" afterPath="$PROJECT_DIR$/.md-cache/md/2020-11-28-建立typescript+react+webpack+electron的桌面应用项目.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.md-cache/md/catalogue.json" beforeDir="false" afterPath="$PROJECT_DIR$/.md-cache/md/catalogue.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/paths.js" beforeDir="false" afterPath="$PROJECT_DIR$/config/paths.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/jsx-core/dist/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/jsx-core/dist/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/jsx-core/dist/start.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/jsx-core/dist/start.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/jsx-core/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/jsx-core/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/jsx-core/src/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/jsx-core/src/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/jsx-core/src/start.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/jsx-core/src/start.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/umd-factory/dist/react-dom@18.2.0.umd.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/umd-factory/dist/react@18.2.0.umd.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/umd-factory/dist/test.html" beforeDir="false" afterPath="$PROJECT_DIR$/packages/umd-factory/dist/test.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/umd-factory/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/umd-factory/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/umd-factory/pnpm-lock.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/packages/umd-factory/pnpm-lock.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/umd-factory/src/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/umd-factory/src/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/umd-factory/src/pack/npm.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/umd-factory/src/pack/npm.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/umd-factory/umd-template/build/babel.config.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/umd-factory/umd-template/build/rollup.config.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/umd-factory/umd-template/build/rollup.config.prod.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/umd-factory/umd-template/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/umd-factory/umd-template/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/umd-factory/umd-template/pnpm-lock.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/packages/umd-factory/umd-template/pnpm-lock.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/umd-factory/umd-template/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/umd-factory/umd-template/src/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/umd-factory/umd-template/src/test.less" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/config/paths.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/config/paths.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/scripts/start.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/scripts/start.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/container/Passage/components/Render/CodeBlock/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/container/Passage/components/Render/CodeBlock/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/components/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/components/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/container/Passage/components/Render/Header/style.module.less" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/container/Passage/components/Render/Header/style.module.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/container/Passage/components/Render/Paragraph/style.module.less" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/container/Passage/components/Render/Paragraph/style.module.less" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/packages/website/src/container/Passage/components/Render/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/container/Passage/components/Render/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/container/Passage/components/Sketch/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/container/Passage/components/Sketch/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/packages/website/src/container/Passage/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/container/Passage/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/types/markdown.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/types/markdown.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/container/Passage/style.module.less" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/container/Passage/style.module.less" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pnpm-lock.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pnpm-lock.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/posts/2020-01-01-HappyNewYear.md" beforeDir="false" afterPath="$PROJECT_DIR$/posts/2020-01-01-HappyNewYear.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/posts/2020-11-28-建立typescript+react+webpack+electron的桌面应用项目.md" beforeDir="false" afterPath="$PROJECT_DIR$/posts/2020-11-28-建立typescript+react+webpack+electron的桌面应用项目.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/md2json.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/md2json.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/posts/2022-08-25-移动端h5开发常见问题.md" beforeDir="false" afterPath="$PROJECT_DIR$/posts/2022-08-25-移动端h5开发常见问题.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,6 +65,9 @@
       </RecentBranches>
     </option>
   </component>
+  <component name="GoLibraries">
+    <option name="indexEntireGoPath" value="true" />
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -107,18 +84,23 @@
     "DefaultHtmlFileTemplate": "HTML File",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.go.formatter.settings.were.checked": "true",
+    "RunOnceActivity.go.migrated.go.modules.settings": "true",
     "WebServerToolWindowFactoryState": "false",
-    "javascript.nodejs.core.library.configured.version": "14.18.3",
-    "javascript.nodejs.core.library.typings.version": "14.18.3",
+    "go.import.settings.migrated": "true",
+    "javascript.nodejs.core.library.configured.version": "16.15.0",
+    "javascript.nodejs.core.library.typings.version": "",
     "last_opened_file_path": "/Users/zhangpanhong/Documents/zhongbr_projects/react-press/packages/umd-factory",
     "list.type.of.created.stylesheet": "Less",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.standard": "true",
+    "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.standard": "",
+    "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "pnpm",
     "settings.editor.selected.configurable": "preferences.pluginManager",
-    "ts.external.directory.path": "/Users/zhangpanhong/Documents/zhongbr_projects/react-press/packages/website/node_modules/typescript/lib",
+    "ts.external.directory.path": "/Users/zhangpanhong/Documents/zhongbr_projects/react-press/packages/umd-factory/node_modules/typescript/lib",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -135,6 +117,13 @@
   <component name="RunAnythingCache">
     <option name="myCommands">
       <command value="reload" />
+    </option>
+  </component>
+  <component name="RunDashboard">
+    <option name="excludedTypes">
+      <set>
+        <option value="HttpClient.HttpRequestRunConfigurationType" />
+      </set>
     </option>
   </component>
   <component name="RunManager" selected="npm.start-website">
@@ -212,7 +201,10 @@
       <workItem from="1662184255678" duration="10296000" />
       <workItem from="1662195787298" duration="10010000" />
       <workItem from="1662213987463" duration="68425000" />
-      <workItem from="1662616172467" duration="6904000" />
+      <workItem from="1662616172467" duration="7130000" />
+      <workItem from="1662818395702" duration="2885000" />
+      <workItem from="1663153536051" duration="8772000" />
+      <workItem from="1671633780564" duration="3916000" />
     </task>
     <task id="LOCAL-00001" summary="feat: change styles">
       <created>1662204333394</created>
@@ -445,7 +437,14 @@
       <option name="project" value="LOCAL" />
       <updated>1662286982526</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="feat: code transform">
+      <created>1662818121114</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1662818121114</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -477,5 +476,9 @@
     <MESSAGE value="feat: support use command to generate a npm to umd js" />
     <MESSAGE value="feat: code transform" />
     <option name="LAST_COMMIT_MESSAGE" value="feat: code transform" />
+  </component>
+  <component name="VgoProject">
+    <integration-enabled>false</integration-enabled>
+    <settings-migrated>true</settings-migrated>
   </component>
 </project>
