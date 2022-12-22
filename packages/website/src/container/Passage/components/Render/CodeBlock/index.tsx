@@ -31,7 +31,7 @@ const CodeBlock: React.FC<IBaseProps> = (props) => {
                 theme={github}
                 wrapLongLines
             />}
-            {node.lang && <div className={styles.lang}>language: {node.lang}</div>}
+            {node.lang && <div className={styles.lang}>语言: {node.lang}</div>}
         </Paper>
     );
 };
