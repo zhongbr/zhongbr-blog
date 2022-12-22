@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkreact_press_website=self.webpackChunkreact_press_website||[]).push([[7830],{7830:function(e,s,n){n.r(s),n.d(s,{default:function(){return c}});n(5413);var r="delete_RLp88",t=n(4727),c=function(e){var s=e.node,n=e.children;return(0,t.jsx)("span",{id:s.key,className:r,children:n})}}}]);

@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkreact_press_website=self.webpackChunkreact_press_website||[]).push([[3360],{3360:function(e,s,r){r.r(s);r(5413);var n=r(4727);s.default=function(e){var s=e.node;return(0,n.jsx)("span",{id:s.key,children:s.value})}}}]);
