@@ -52,8 +52,8 @@ jobs:
           path: build
       - name: copy md json files
         run: cp -r ./md ./build/md
-      - uses: JamesIves/github-pages-deploy-action@v4
+      - uses: peaceiris/actions-gh-pages@v3
         with:
-          folder: build
-          branch: github-pages
-          git-config-email: zhongbr@icloud.com
+          publish_dir: build
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: github-pages
