@@ -44,7 +44,7 @@ function App() {
             <PageConfigContext.Provider value={{ ...states, rate, scrollRef: ref, setStates }}>
                 <Suspense fallback={
                     <Pager>
-                        <Loading texts="Passages loading..."/>
+                        <Loading texts="页面加载中..."/>
                     </Pager>
                 }>
                     {element}
