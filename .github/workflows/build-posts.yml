@@ -5,6 +5,8 @@ on:
       - 'posts/**.md'
       - 'scripts/md2json.js'
       - 'config/**/*.js'
+permissions:
+  contents: write
 jobs:
   # build markdown files to json
   build:
