@@ -54,7 +54,7 @@ const Render: React.FC<Partial<IBaseProps>> = (props) => {
     const { node } = props;
 
     if (!node) {
-        return <Loading texts="文章加载中..."/>;
+        return <Loading texts="🚀🚀文章加载中..."/>;
     }
 
     const children = node.children?.map(child => <Render key={child.key} node={child}/>);
