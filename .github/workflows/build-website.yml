@@ -54,4 +54,4 @@ jobs:
               with:
                   folder: build
                   branch: github-pages
-                  SSH_KEY: ${{ secrets.SSH_KEY }}
+                  ssh-key: ${{ secrets.SSH_KEY }}
