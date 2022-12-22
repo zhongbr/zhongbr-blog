@@ -6,3 +6,4 @@
 /packages/umd-factory/.temp/
 /packages/jsx-core/node_modules/
 /packages/umd-factory/umd-template/dist/
+.md-cache
