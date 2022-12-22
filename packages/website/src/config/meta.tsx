@@ -8,7 +8,7 @@
 import { ILayoutProps, Icon } from '@/components';
 
 /** title of website */
-export const title = 'Zhongbr\'s Blog 🚀';
+export const title = "Zhongbr's Blog 🚀";
 /** link to navigate when click title */
 export const titleLink = '/';
 /** navigate link on right of the header */
