@@ -1,57 +1,57 @@
 # run build when push files to react project
 name: build react press website
 env:
-    GENERATE_SOURCEMAP: false
-    CI: false
+  GENERATE_SOURCEMAP: false
+  CI: false
 on:
-    push:
-        branches:
-            - main
-        paths:
-            # only runs when the website files change
-            - 'packages/website/**'
+  push:
+    branches:
+      - main
+    paths:
+      # only runs when the website files change
+      - 'packages/website/**'
 jobs:
-    # use pnpm to build react files
-    build:
-        runs-on: ubuntu-latest
-        steps:
-            - name: checkout
-              uses: actions/checkout@v3
-            - uses: pnpm/action-setup@v2.2.2
-              with:
-                  version: 7.9.5
-            - uses: actions/setup-node@v3
-              with:
-                  node-version: '14'
-            - name: install website dependencies
-              run: pnpm run install-website
-            - name: build website dist resources
-              run: pnpm run build-website
-            - name: copy index.html to 404.html
-              run: cp ./packages/website/build/index.html ./packages/website/build/404.html
-            - name: upload files
-              uses: actions/upload-artifact@v3
-              with:
-                  name: build-pages
-                  path: ./packages/website/build
-                  retention-days: 1
-    # deploy the build/ folder to github-pages branch
-    depoly:
-        needs: build
-        runs-on: ubuntu-latest
-        steps:
-            - uses: actions/checkout@v3
-              with:
-                  ref: github-pages
-            - name: download build files
-              uses: actions/download-artifact@v2
-              with:
-                  name: build-pages
-                  path: build
-            - name: copy md json files
-              run: cp -r ./md ./build/md
-            - uses: JamesIves/github-pages-deploy-action@4.2.0
-              with:
-                  folder: build
-                  branch: github-pages
-                  ssh-key: ${{ secrets.SSH_KEY }}
+  # use pnpm to build react files
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v3
+      - uses: pnpm/action-setup@v2.2.2
+        with:
+          version: 7.9.5
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '14'
+      - name: install website dependencies
+        run: pnpm run install-website
+      - name: build website dist resources
+        run: pnpm run build-website
+      - name: copy index.html to 404.html
+        run: cp ./packages/website/build/index.html ./packages/website/build/404.html
+      - name: upload files
+        uses: actions/upload-artifact@v3
+        with:
+          name: build-pages
+          path: ./packages/website/build
+          retention-days: 1
+  # deploy the build/ folder to github-pages branch
+  depoly:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          ref: github-pages
+      - name: download build files
+        uses: actions/download-artifact@v2
+        with:
+          name: build-pages
+          path: build
+      - name: copy md json files
+        run: cp -r ./md ./build/md
+      - uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: build
+          branch: github-pages
+          ssh-key: ${{ secrets.SSH_KEY }}
