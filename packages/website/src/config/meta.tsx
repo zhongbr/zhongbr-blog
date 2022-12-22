@@ -13,7 +13,7 @@ export const title = 'Zhongbr\'s Blog';
 export const titleLink = '/';
 /** navigate link on right of the header */
 export const navLinks: ILayoutProps['navLinks'] = [
-    { name: 'Passages', target: '/', icon: <Icon className="rp-suoyin" /> },
-    { name: 'Wechat', icon: <Icon className="rp-weixin" /> },
+    { name: '首页', target: '/', icon: <Icon className="rp-suoyin" /> },
+    { name: '微信', icon: <Icon className="rp-weixin" /> },
     { name: 'Github', target: 'https://github.com/zhongbr', icon: <Icon className="rp-github" /> },
 ];
