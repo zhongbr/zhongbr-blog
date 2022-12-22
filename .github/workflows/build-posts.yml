@@ -1,52 +1,52 @@
 name: build posts
 on:
-    push:
-        paths:
-            - 'posts/**.md'
-            - 'scripts/md2json.js'
-            - 'config/**/*.js'
+  push:
+    paths:
+      - 'posts/**.md'
+      - 'scripts/md2json.js'
+      - 'config/**/*.js'
 jobs:
-    # build markdown files to json
-    build:
-        runs-on: ubuntu-latest
-        steps:
-            - name: checkout
-              uses: actions/checkout@v3
-            - uses: pnpm/action-setup@v2.2.2
-              with:
-                  version: 7.9.5
-            - uses: actions/setup-node@v3
-              with:
-                  node-version: '14'
-            - name: install dependencies
-              run: pnpm install
-            - name: mkdir
-              run: mkdir ./.md-cache/ && mkdir ./.md-cache/md
-            - name: build markdowns
-              run: pnpm run build-markdown
-            - name: upload files
-              uses: actions/upload-artifact@v3
-              with:
-                  name: build-markdwons
-                  path: ./.md-cache/md
-                  retention-days: 1
-    # deploy
-    deploy:
-        needs: build
-        runs-on: ubuntu-latest
-        steps:
-            - name: clone github-pages
-              uses: actions/checkout@v3
-              with:
-                  ref: github-pages
-            - name: download files
-              uses: actions/download-artifact@v2
-              with:
-                  name: build-markdwons
-                  path: md
-            - name: push
-              uses: JamesIves/github-pages-deploy-action@4.2.0
-              with:
-                  folder: ./
-                  branch: github-pages
-                  SSH_KEY: ${{ secrets.SSH_KEY }}
+  # build markdown files to json
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v3
+      - uses: pnpm/action-setup@v2.2.2
+        with:
+          version: 7.9.5
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '14'
+      - name: install dependencies
+        run: pnpm install
+      - name: mkdir
+        run: mkdir ./.md-cache/ && mkdir ./.md-cache/md
+      - name: build markdowns
+        run: pnpm run build-markdown
+      - name: upload files
+        uses: actions/upload-artifact@v3
+        with:
+          name: build-markdwons
+          path: ./.md-cache/md
+          retention-days: 1
+  # deploy
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: clone github-pages
+        uses: actions/checkout@v3
+        with:
+          ref: github-pages
+      - name: download files
+        uses: actions/download-artifact@v2
+        with:
+          name: build-markdwons
+          path: md
+      - name: push
+        uses: JamesIves/github-pages-deploy-action@4.2.0
+        with:
+          folder: ./
+          branch: github-pages
+          token: ${{ secrets.TOKEN }}

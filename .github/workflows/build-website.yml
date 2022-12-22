@@ -54,4 +54,5 @@ jobs:
         with:
           folder: build
           branch: github-pages
+          token: ${{ secrets.TOKEN }}
           git-config-email: zhongbr@icloud.com
