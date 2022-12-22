@@ -54,4 +54,4 @@ jobs:
         with:
           folder: build
           branch: github-pages
-          ssh-key: ${{ secrets.SSH_KEY }}
+          git-config-email: zhongbr@icloud.com
