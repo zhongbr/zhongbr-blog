@@ -13,7 +13,7 @@ const MathJax = memo<IProps>(props => {
     const { latex } = props;
 
     return (
-        <Suspense fallback="📚公式加载中🚀">
+        <Suspense fallback="📚公式加载中🚀🚀">
             <LazyMathComponent tex={latex}/>
         </Suspense>
     );
