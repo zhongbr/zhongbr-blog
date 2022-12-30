@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="27b3b0e5-1ac3-4b25-8173-a590bd44bf60" name="变更" comment="feat: 支持渲染 latex 公式">
-      <change beforePath="$PROJECT_DIR$/scripts/md2json.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/md2json.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/posts/2020-01-01-HappyNewYear.md" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -195,14 +195,7 @@
       <workItem from="1671633780564" duration="5930000" />
       <workItem from="1671713810790" duration="10167000" />
       <workItem from="1671955426075" duration="1074000" />
-      <workItem from="1672405508991" duration="10501000" />
-    </task>
-    <task id="LOCAL-00004" summary="feat: change the dir structure">
-      <created>1662214815214</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1662214815214</updated>
+      <workItem from="1672405508991" duration="10843000" />
     </task>
     <task id="LOCAL-00005" summary="feat: change the dir structure">
       <created>1662214923195</created>
@@ -540,7 +533,14 @@
       <option name="project" value="LOCAL" />
       <updated>1672416082608</updated>
     </task>
-    <option name="localTasksCounter" value="53" />
+    <task id="LOCAL-00053" summary="feat: 支持渲染 latex 公式">
+      <created>1672416103955</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1672416103955</updated>
+    </task>
+    <option name="localTasksCounter" value="54" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
