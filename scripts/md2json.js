@@ -84,6 +84,7 @@ async function generateCatalogue(filename, ast) {
 async function startCompile() {
     // import parser
     const { parse } = await import('md2json');
+    console.log('load md2json', parse);
     // check dir exist
     for (const path1 of [markdownFilesPath, markdownJsonPath, markdownCompileCachePath]) {
         if (!existsSync(path1)) {
