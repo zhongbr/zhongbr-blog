@@ -1,9 +1,7 @@
-/node_modules/
+**/node_modules/
+**/dist/
+**/build/
 .idea
-/packages/website/build/
-/packages/umd-factory/umd-template/node_modules/
 /packages/umd-factory/distjs/
 /packages/umd-factory/.temp/
-/packages/jsx-core/node_modules/
-/packages/umd-factory/umd-template/dist/
 .md-cache

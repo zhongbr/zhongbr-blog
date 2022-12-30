@@ -4,60 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="27b3b0e5-1ac3-4b25-8173-a590bd44bf60" name="变更" comment="feat: 修改文案">
-      <change afterPath="$PROJECT_DIR$/packages/md2json/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/md2json/sytax-map.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/website/src/components/MathJax/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/website/src/container/Passage/components/Render/InlineMath/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/website/src/container/Passage/components/Render/InlineMath/style.module.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/website/src/container/Passage/components/Render/Math/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+    <list default="true" id="27b3b0e5-1ac3-4b25-8173-a590bd44bf60" name="变更" comment="feat: 支持渲染 latex 公式">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/components/Layout/header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/components/Layout/header.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/components/Layout/style.module.less" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/components/Layout/style.module.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/components/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/components/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/container/Passage/components/Render/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/container/Passage/components/Render/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/types/markdown.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/types/markdown.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pnpm-lock.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pnpm-lock.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/posts/2020-07-24-广义表.md" beforeDir="false" afterPath="$PROJECT_DIR$/posts/2020-07-24-广义表.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/posts/2020-07-24-数组.md" beforeDir="false" afterPath="$PROJECT_DIR$/posts/2020-07-24-数组.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/posts/2020-07-25-树和树的定义.md" beforeDir="false" afterPath="$PROJECT_DIR$/posts/2020-07-25-树和树的定义.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/posts/2020-07-26-二叉树.md" beforeDir="false" afterPath="$PROJECT_DIR$/posts/2020-07-26-二叉树.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/posts/2020-07-28-树、森林与二叉树的转换.md" beforeDir="false" afterPath="$PROJECT_DIR$/posts/2020-07-28-树、森林与二叉树的转换.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/posts/2020-07-28-树的存储结构.md" beforeDir="false" afterPath="$PROJECT_DIR$/posts/2020-07-28-树的存储结构.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/posts/2020-07-29-平衡二叉树.md" beforeDir="false" afterPath="$PROJECT_DIR$/posts/2020-07-29-平衡二叉树.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/posts/2020-07-29-赫夫曼树及其应用.md" beforeDir="false" afterPath="$PROJECT_DIR$/posts/2020-07-29-赫夫曼树及其应用.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/posts/2020-07-30-数据结构——图.md" beforeDir="false" afterPath="$PROJECT_DIR$/posts/2020-07-30-数据结构——图.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/posts/2020-07-30-进程的基本概念.md" beforeDir="false" afterPath="$PROJECT_DIR$/posts/2020-07-30-进程的基本概念.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/posts/2020-07-31-图的存储结构.md" beforeDir="false" afterPath="$PROJECT_DIR$/posts/2020-07-31-图的存储结构.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/posts/2020-07-31-进程控制.md" beforeDir="false" afterPath="$PROJECT_DIR$/posts/2020-07-31-进程控制.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/posts/2020-08-01-图的连通性问题.md" beforeDir="false" afterPath="$PROJECT_DIR$/posts/2020-08-01-图的连通性问题.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/posts/2020-08-01-图的遍历.md" beforeDir="false" afterPath="$PROJECT_DIR$/posts/2020-08-01-图的遍历.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/posts/2020-08-02-最短路径.md" beforeDir="false" afterPath="$PROJECT_DIR$/posts/2020-08-02-最短路径.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/posts/2020-08-02-有向无环图及其应用.md" beforeDir="false" afterPath="$PROJECT_DIR$/posts/2020-08-02-有向无环图及其应用.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/posts/2020-08-03-关键路径.md" beforeDir="false" afterPath="$PROJECT_DIR$/posts/2020-08-03-关键路径.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/posts/2020-08-03-奈氏准则和香农定理.md" beforeDir="false" afterPath="$PROJECT_DIR$/posts/2020-08-03-奈氏准则和香农定理.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/posts/2020-08-03-物理层的基本概念.md" beforeDir="false" afterPath="$PROJECT_DIR$/posts/2020-08-03-物理层的基本概念.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/posts/2020-08-03-计算机网络的概念.md" beforeDir="false" afterPath="$PROJECT_DIR$/posts/2020-08-03-计算机网络的概念.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/posts/2020-08-04-数据链路层功能概述.md" beforeDir="false" afterPath="$PROJECT_DIR$/posts/2020-08-04-数据链路层功能概述.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/posts/2020-08-04-查找的基本概念.md" beforeDir="false" afterPath="$PROJECT_DIR$/posts/2020-08-04-查找的基本概念.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/posts/2020-08-04-编码和调制.md" beforeDir="false" afterPath="$PROJECT_DIR$/posts/2020-08-04-编码和调制.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/posts/2020-08-05-B树.md" beforeDir="false" afterPath="$PROJECT_DIR$/posts/2020-08-05-B树.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/posts/2020-08-07-数据链路层流量控制和可靠传输机制.md" beforeDir="false" afterPath="$PROJECT_DIR$/posts/2020-08-07-数据链路层流量控制和可靠传输机制.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/posts/2020-08-08-介质划分和信道访问控制.md" beforeDir="false" afterPath="$PROJECT_DIR$/posts/2020-08-08-介质划分和信道访问控制.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/posts/2020-08-08-散列表.md" beforeDir="false" afterPath="$PROJECT_DIR$/posts/2020-08-08-散列表.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/posts/2020-08-09-排序的基本概念.md" beforeDir="false" afterPath="$PROJECT_DIR$/posts/2020-08-09-排序的基本概念.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/posts/2020-08-10-以太网.md" beforeDir="false" afterPath="$PROJECT_DIR$/posts/2020-08-10-以太网.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/posts/2020-08-10-网络层功能概述.md" beforeDir="false" afterPath="$PROJECT_DIR$/posts/2020-08-10-网络层功能概述.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/posts/2020-08-11-TCP协议的特点和TCP报文格式.md" beforeDir="false" afterPath="$PROJECT_DIR$/posts/2020-08-11-TCP协议的特点和TCP报文格式.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/posts/2020-08-12-线程、多线程模型.md" beforeDir="false" afterPath="$PROJECT_DIR$/posts/2020-08-12-线程、多线程模型.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/posts/2020-08-12-调度算法.md" beforeDir="false" afterPath="$PROJECT_DIR$/posts/2020-08-12-调度算法.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/posts/2020-08-16-内存管理.md" beforeDir="false" afterPath="$PROJECT_DIR$/posts/2020-08-16-内存管理.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/posts/2020-08-16-基本存储分页管理的基本概念.md" beforeDir="false" afterPath="$PROJECT_DIR$/posts/2020-08-16-基本存储分页管理的基本概念.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/posts/2020-08-17-文件存储空间管理.md" beforeDir="false" afterPath="$PROJECT_DIR$/posts/2020-08-17-文件存储空间管理.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/md2json.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/md2json.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -247,7 +196,7 @@
       <workItem from="1671633780564" duration="5930000" />
       <workItem from="1671713810790" duration="10167000" />
       <workItem from="1671955426075" duration="1074000" />
-      <workItem from="1672405508991" duration="9607000" />
+      <workItem from="1672405508991" duration="9871000" />
     </task>
     <task id="LOCAL-00001" summary="feat: change styles">
       <created>1662204333394</created>
@@ -578,7 +527,14 @@
       <option name="project" value="LOCAL" />
       <updated>1671722156419</updated>
     </task>
-    <option name="localTasksCounter" value="48" />
+    <task id="LOCAL-00048" summary="feat: 支持渲染 latex 公式">
+      <created>1672415357828</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1672415357828</updated>
+    </task>
+    <option name="localTasksCounter" value="49" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -611,7 +567,8 @@
     <MESSAGE value="feat: code transform" />
     <MESSAGE value="feat: delete md-cache" />
     <MESSAGE value="feat: 修改文案" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: 修改文案" />
+    <MESSAGE value="feat: 支持渲染 latex 公式" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: 支持渲染 latex 公式" />
   </component>
   <component name="VgoProject">
     <integration-enabled>false</integration-enabled>
