@@ -5,7 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="27b3b0e5-1ac3-4b25-8173-a590bd44bf60" name="变更" comment="feat: 支持渲染 latex 公式">
-      <change beforePath="$PROJECT_DIR$/posts/2020-01-01-HappyNewYear.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -195,14 +196,7 @@
       <workItem from="1671633780564" duration="5930000" />
       <workItem from="1671713810790" duration="10167000" />
       <workItem from="1671955426075" duration="1074000" />
-      <workItem from="1672405508991" duration="10843000" />
-    </task>
-    <task id="LOCAL-00005" summary="feat: change the dir structure">
-      <created>1662214923195</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1662214923195</updated>
+      <workItem from="1672405508991" duration="11103000" />
     </task>
     <task id="LOCAL-00006" summary="feat: change style of code block">
       <created>1662215039478</created>
@@ -540,7 +534,14 @@
       <option name="project" value="LOCAL" />
       <updated>1672416103955</updated>
     </task>
-    <option name="localTasksCounter" value="54" />
+    <task id="LOCAL-00054" summary="feat: 支持渲染 latex 公式">
+      <created>1672416446231</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1672416446231</updated>
+    </task>
+    <option name="localTasksCounter" value="55" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

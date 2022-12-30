@@ -1,7 +1,5 @@
 **/node_modules/
-**/dist/
 **/build/
 .idea
-/packages/umd-factory/distjs/
 /packages/umd-factory/.temp/
 .md-cache
