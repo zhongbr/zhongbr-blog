@@ -126,7 +126,7 @@ async function startCompile() {
             const ast = parse(buffer.toString());
 
             // transform jsx code block
-            await transformJsx(ast);
+            // await transformJsx(ast);
 
             const metas = await generateCatalogue(file, ast);
 
