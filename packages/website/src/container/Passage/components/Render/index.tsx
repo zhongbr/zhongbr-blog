@@ -5,10 +5,10 @@
  * @LastEditors: 张盼宏
  * @LastEditTime: 2022-09-11 10:39:24
  */
-import React, { memo } from 'react';
+import React, {memo} from 'react';
 
-import { NodeType, IBaseProps } from '@/types/markdown';
-import { Loading } from '@/components';
+import {IBaseProps, NodeType} from '@/types/markdown';
+import {Loading} from '@/components';
 
 import Header from './Header';
 import Str from './Str';
@@ -28,6 +28,8 @@ import Yaml from './Yaml';
 import List from './List';
 import ListItem from './ListItem';
 import HorizontalRule from './HorizontalRule';
+import Math from './Math';
+import InlineMath from './InlineMath';
 
 const ComponentsMap = new Map([
     [NodeType.Header, Header],
@@ -48,6 +50,8 @@ const ComponentsMap = new Map([
     [NodeType.List, List],
     [NodeType.ListItem, ListItem],
     [NodeType.HorizontalRule, HorizontalRule],
+    [NodeType.Math, Math],
+    [NodeType.InlineMath, InlineMath]
 ]);
 
 const Render: React.FC<Partial<IBaseProps>> = (props) => {

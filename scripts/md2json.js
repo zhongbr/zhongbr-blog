@@ -7,7 +7,6 @@
  */
 const chalk = require('react-dev-utils/chalk');
 const path = require('path');
-const { parse } = require('@textlint/markdown-to-ast');
 const { existsSync } = require('fs');
 const { readFile, readdir, appendFile, writeFile, mkdir, stat } = require('fs/promises');
 const crypto = require('crypto');
@@ -83,6 +82,8 @@ async function generateCatalogue(filename, ast) {
 }
 
 async function startCompile() {
+    // import parser
+    const { parse } = await import('md2json');
     // check dir exist
     for (const path1 of [markdownFilesPath, markdownJsonPath, markdownCompileCachePath]) {
         if (!existsSync(path1)) {

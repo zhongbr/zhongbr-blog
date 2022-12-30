@@ -10,6 +10,7 @@ import React, {useMemo} from 'react';
 import { useNavigate } from '@/hooks';
 
 import styles from './style.module.less';
+import clsx from "clsx";
 
 export interface NavLink {
     name?: React.ReactNode;
@@ -61,7 +62,7 @@ const Header: React.FC<IProps> = (props) => {
                 </div>
             </div>
             <div
-                className={styles.initTitle}
+                className={clsx(styles.initTitle)}
                 style={{
                     display: rate === 1 ? 'none' : undefined,
                     height: `${(75 * (1 - rate)).toFixed(2)}px`

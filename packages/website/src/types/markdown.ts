@@ -24,7 +24,9 @@ export enum NodeType {
     List = 'List',
     ListItem = 'ListItem',
     HorizontalRule = 'HorizontalRule',
-    Delete = 'Delete'
+    Delete = 'Delete',
+    InlineMath = 'InlineMath',
+    Math = 'Math'
 }
 
 export enum Align {
