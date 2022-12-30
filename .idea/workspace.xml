@@ -5,8 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="27b3b0e5-1ac3-4b25-8173-a590bd44bf60" name="变更" comment="feat: 支持渲染 latex 公式">
+      <change beforePath="$PROJECT_DIR$/.github/workflows/build-posts.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/build-posts.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/md2json.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/md2json.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -196,14 +196,7 @@
       <workItem from="1671633780564" duration="5930000" />
       <workItem from="1671713810790" duration="10167000" />
       <workItem from="1671955426075" duration="1074000" />
-      <workItem from="1672405508991" duration="10387000" />
-    </task>
-    <task id="LOCAL-00002" summary="feat: change styles">
-      <created>1662204432674</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1662204432674</updated>
+      <workItem from="1672405508991" duration="10469000" />
     </task>
     <task id="LOCAL-00003" summary="feat: add code block component">
       <created>1662212941370</created>
@@ -541,7 +534,14 @@
       <option name="project" value="LOCAL" />
       <updated>1672415597220</updated>
     </task>
-    <option name="localTasksCounter" value="51" />
+    <task id="LOCAL-00051" summary="feat: 支持渲染 latex 公式">
+      <created>1672415993641</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1672415993641</updated>
+    </task>
+    <option name="localTasksCounter" value="52" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

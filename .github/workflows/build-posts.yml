@@ -1,6 +1,8 @@
 name: build posts
 on:
   push:
+    branches:
+      - main
     paths:
       - 'posts/**.md'
       - 'scripts/md2json.js'
