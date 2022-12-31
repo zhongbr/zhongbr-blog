@@ -53,7 +53,7 @@ async function write(target, content) {
 
 /** catalogue */
 async function generateCatalogue(filename, ast) {
-    const title = filename.replace(/\.md$/, '');
+    const title = filename.replace(/\.md$/, '').replace(/20(\d{2}-){3}/, '');
     const children = ast?.children || [];
     const ymlChild = children?.[0];
 
