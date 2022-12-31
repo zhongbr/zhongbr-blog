@@ -53,6 +53,7 @@ async function write(target, content) {
 
 /** catalogue */
 async function generateCatalogue(filename, ast) {
+    const date = filename.match(/20(?:-?\d{2}){3}/)?.[0];
     const title = filename.replace(/\.md$/, '').replace(/20(\d{2}-){3}/, '');
     const children = ast?.children || [];
     const ymlChild = children?.[0];
@@ -65,7 +66,7 @@ async function generateCatalogue(filename, ast) {
                 resolve({
                     title,
                     'json-path': `${title}.json`,
-                    mdate: fileStat.mtime,
+                    mdate: date,
                     cover: randomCoverImage(),
                     ...doc
                 });

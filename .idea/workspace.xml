@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="27b3b0e5-1ac3-4b25-8173-a590bd44bf60" name="变更" comment="feat: 调整页面">
+    <list default="true" id="27b3b0e5-1ac3-4b25-8173-a590bd44bf60" name="变更" comment="feat: 标题内不显示日期">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scripts/md2json.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/md2json.js" afterDir="false" />
     </list>
@@ -201,14 +201,7 @@
       <workItem from="1671955426075" duration="1074000" />
       <workItem from="1672405508991" duration="40878000" />
       <workItem from="1672496848931" duration="29000" />
-      <workItem from="1672496896543" duration="1993000" />
-    </task>
-    <task id="LOCAL-00012" summary="feat: test commit">
-      <created>1662216074632</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1662216074632</updated>
+      <workItem from="1672496896543" duration="2357000" />
     </task>
     <task id="LOCAL-00013" summary="feat: test commit">
       <created>1662216252083</created>
@@ -546,7 +539,14 @@
       <option name="project" value="LOCAL" />
       <updated>1672498442822</updated>
     </task>
-    <option name="localTasksCounter" value="61" />
+    <task id="LOCAL-00061" summary="feat: 标题内不显示日期">
+      <created>1672498912260</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1672498912260</updated>
+    </task>
+    <option name="localTasksCounter" value="62" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -582,7 +582,8 @@
     <MESSAGE value="feat: 支持渲染 latex 公式" />
     <MESSAGE value="feat: 调整样式" />
     <MESSAGE value="feat: 调整页面" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: 调整页面" />
+    <MESSAGE value="feat: 标题内不显示日期" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: 标题内不显示日期" />
   </component>
   <component name="VgoProject">
     <integration-enabled>false</integration-enabled>
