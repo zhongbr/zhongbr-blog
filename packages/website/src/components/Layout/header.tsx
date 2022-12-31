@@ -6,11 +6,11 @@
  * @LastEditTime: 2022-08-28 01:18:50
  */
 import React, {useMemo} from 'react';
+import clsx from 'clsx';
 
 import { useNavigate } from '@/hooks';
 
 import styles from './style.module.less';
-import clsx from "clsx";
 
 export interface NavLink {
     name?: React.ReactNode;
@@ -39,7 +39,7 @@ const Header: React.FC<IProps> = (props) => {
     };
 
     return (
-        <div className={styles.header}>
+        <div className={clsx(styles.header, 'blur')}>
             <div className={styles.base}>
                 <div
                     className={styles.title}

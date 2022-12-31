@@ -9,17 +9,14 @@ import React, {useMemo} from "react";
 import moment from 'moment';
 import Pagination, { PaginationProps } from '@mui/material/Pagination';
 import Paper from "@mui/material/Paper";
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import CardActions from "@mui/material/CardActions";
-import Typography from '@mui/material/Typography';
 import Button from "@mui/material/Button";
 
-import { Tag } from '@/components';
+import { Tag, Card, Icon } from '@/components';
 import {useNavigate, useStates, useTags} from '@/hooks';
 import { ICatalogue, IPassage } from "@/service/passage/catalogue";
 
 import styles from './style.module.less';
+import {copy} from "@/utils/copt";
 
 interface IStates {
     pageNo: number;
@@ -64,6 +61,10 @@ const Catalogue: React.FC<Props> = (props) => {
         navigator(`/passage/${passage['json-path']}`);
     };
 
+    const onCopy = async (passage: IPassage) => {
+        await copy(`${window.location.protocol}//${window.location.host}/#/passage/${passage['json-path']}`);
+    };
+
     const onPageChange: PaginationProps['onChange'] = (event, page) => {
         setStates({ pageNo: page });
     };
@@ -88,34 +89,31 @@ const Catalogue: React.FC<Props> = (props) => {
 
             <div className={styles.passagesContainer}>
                 {passages.map(passage => (
-                    <Card className={styles.card} variant="outlined" onClick={() => onOpenPassage(passage)}>
-                        <CardContent className={styles.content}>
-
-                            <Typography color="h5">
-                                {passage.title}
-                            </Typography>
-
-                            <Typography color="text.secondary">
-                                {passage.mdate}
-                            </Typography>
-
-                            <div className={styles.tags}>
-                                {passage.tags?.map(tag => (
-                                    <Tag
-                                        key={tag}
-                                        onClick={() => onReplaceTags([tag])}
-                                    >
-                                        {tag}
-                                    </Tag>
-                                ))}
+                    <Card
+                        onClickImage={() => onOpenPassage(passage)}
+                        title={passage.title}
+                        headerImage={passage.cover}
+                        extraInfo={(
+                            <div>
+                                {passage.tags.map(tag => <Tag key={tag}>{tag}</Tag>)}
                             </div>
-
-                        </CardContent>
-
-                        <CardActions className={styles.actions}>
-                            <Button size="small" onClick={() => onOpenPassage(passage)}>read...</Button>
-                        </CardActions>
-                    </Card>
+                        )}
+                        extraInfoHover={passage.mdate}
+                        hoverContent={(
+                            <div className={styles.passageOperations}>
+                                <Icon
+                                    className="rp-faxian"
+                                    text="阅读"
+                                    onClick={() => onOpenPassage(passage)}
+                                />
+                                <Icon
+                                    className="rp-fuzhi"
+                                    text="复制"
+                                    onClick={() => onCopy(passage)}
+                                />
+                            </div>
+                        )}
+                    />
                 ))}
             </div>
 

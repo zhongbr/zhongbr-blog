@@ -15,6 +15,7 @@ export interface IPassage {
     mdate: string;
     'header-img': string;
     'json-path': string;
+    cover: string;
 }
 
 export interface ICatalogue {

@@ -1,9 +1,6 @@
 import React, { memo, Suspense } from 'react';
 
-const LazyMathComponent = React.lazy(async () => {
-    const { MathComponent } = await import('mathjax-react');
-    return { default: MathComponent };
-})
+const LazyMathComponent = React.lazy(() => import('./MathJaxReact'));
 
 export interface IProps {
     latex: string;

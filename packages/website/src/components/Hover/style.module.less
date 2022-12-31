@@ -1,0 +1,15 @@
+.hover-container {
+  position: relative;
+  --hover-base-zindex: 100;
+  z-index: var(--hover-base-zindex);
+
+  .hover-layer {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    overflow: visible;
+    z-index: calc(var(--hover-base-zindex) + 1);
+  }
+}

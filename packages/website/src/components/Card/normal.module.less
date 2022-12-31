@@ -1,0 +1,69 @@
+.card-normal {
+  position: relative;
+  border: 1px solid var(--gray-3);
+  border-radius: 10px;
+  overflow: hidden;
+  --width: 400px;
+  --height: calc(var(--width) / 1.8);
+  width: var(--width);
+  height: var(--height);
+
+  .header {
+    width: var(--width);
+    img {
+      width: var(--width);
+    }
+  }
+
+  .content {
+    position: absolute;
+    top: calc(0.65 * var(--height));
+    bottom: 0;
+    left: 0;
+    right: 0;
+    overflow: hidden;
+    padding: 16px;
+    z-index: calc(var(--hover-base-zindex) + 2);
+    display: flex;
+    flex-direction: column;
+
+    &.hovered {
+      top: 0;
+      transition: top 200ms ease-out;
+    }
+
+    &.unhovered {
+      top: calc(var(--height) - 90px);
+      transition: top 200ms ease-out;
+    }
+
+    .title {
+      display: flex;
+      gap: 8px;
+      font-weight: bold;
+      font-size: 18px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .extra-info {
+      font-size: 14px;
+    }
+
+    .extra-info-hover {
+      &.fold {
+        display: none;
+      }
+    }
+
+
+    .hover-container {
+      flex: 1;
+
+      &.fold {
+        display: none;
+      }
+    }
+  }
+}

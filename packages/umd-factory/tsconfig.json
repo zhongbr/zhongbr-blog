@@ -1,9 +1,0 @@
-{
-    "compilerOptions": {
-        "moduleResolution": "Node",
-        "target": "es2015",
-        "module": "es2022",
-        "esModuleInterop": true,
-        "outDir": "./distjs"
-    }
-}

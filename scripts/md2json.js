@@ -12,9 +12,25 @@ const { readFile, readdir, appendFile, writeFile, mkdir, stat } = require('fs/pr
 const crypto = require('crypto');
 const yaml = require('js-yaml');
 
-const { markdownFilesPath, markdownJsonPath, markdownCompileCachePath, compileCacheFile, catalogueFile, umdVersionFile } = require('../config/paths');
+const { markdownFilesPath, markdownJsonPath, markdownCompileCachePath, compileCacheFile, catalogueFile } = require('../config/paths');
 
-const usedUmdScripts = [];
+// 随机生成一张封面图片
+function randomCoverImage() {
+    const imagesPools = [
+        'https://i.328888.xyz/2022/12/31/ndOVF.jpeg',
+        'https://i.328888.xyz/2022/12/31/nd2oZ.jpeg',
+        'https://i.328888.xyz/2022/12/31/ndbjH.jpeg',
+        'https://i.328888.xyz/2022/12/31/ndj6Q.jpeg',
+        'https://i.328888.xyz/2022/12/31/nd8QE.jpeg',
+        'https://i.328888.xyz/2022/12/31/ndNlC.jpeg',
+        'https://i.328888.xyz/2022/12/31/ndrgP.jpeg',
+        'https://i.328888.xyz/2022/12/31/nd3LX.jpeg',
+        'https://i.328888.xyz/2022/12/31/ndcnt.jpeg',
+        'https://i.328888.xyz/2022/12/31/ndmRJ.jpeg',
+        'https://i.328888.xyz/2022/12/31/ndpoc.jpeg',
+    ];
+    return imagesPools[Math.floor(Math.random() * 10 * imagesPools.length) % imagesPools.length];
+}
 
 /** traverse */
 async function traverse(ast, listeners) {
@@ -24,26 +40,6 @@ async function traverse(ast, listeners) {
             await traverse(child, listeners);
         }
     }
-}
-
-/** transform jsx code block */
-async function transformJsx(ast) {
-    const transformCode = (await import('../packages/jsx-core/dist/index.js')).default;
-    const getVersion = (await import('../packages/umd-factory/distjs/pack/npm.js')).getVersion;
-    await traverse(ast, {
-        CodeBlock: async node => {
-            const { lang, value } = node;
-            if (lang === 'jsx') {
-                const [code, imports, sources] = transformCode(value);
-                node._js = code;
-                node.imports = imports;
-                node._sources = sources;
-                node._umd = await Promise.all(imports.map(async imp => `${imp}@${await getVersion(imp)}`));
-                console.log(node.imports, node._umd);
-                usedUmdScripts.push(...node._umd || []);
-            }
-        }
-    });
 }
 
 /** write files */
@@ -70,6 +66,7 @@ async function generateCatalogue(filename, ast) {
                     title,
                     'json-path': `${title}.json`,
                     mdate: fileStat.mtime,
+                    cover: randomCoverImage(),
                     ...doc
                 });
             });
@@ -125,9 +122,6 @@ async function startCompile() {
         if (!compileHash?.[file] || compileHash[file] !== hash) {
             const ast = parse(buffer.toString());
 
-            // transform jsx code block
-            // await transformJsx(ast);
-
             const metas = await generateCatalogue(file, ast);
 
             if (metas?.editing) {
@@ -151,10 +145,6 @@ async function startCompile() {
         await write(compileCacheFile, JSON.stringify(compileHash));
         await write(catalogueFile, JSON.stringify(catalogue));
     }
-    // write umd file
-    console.log('write file', umdVersionFile, usedUmdScripts);
-    await write(umdVersionFile, JSON.stringify(usedUmdScripts));
-    // child_process.execSync('pnpm run pack-umd ' + umdVersionFile);
 }
 
 startCompile().then();
