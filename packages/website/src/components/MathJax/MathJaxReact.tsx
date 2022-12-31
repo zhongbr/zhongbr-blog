@@ -7,6 +7,7 @@ import { usePersistFn } from '@/hooks';
 
 import Hover from '../Hover';
 import styles from './jax.module.less';
+import {copy} from "@/utils/copy";
 
 type IMathComponentProps = typeof MathComponent extends React.FC<infer T> ? T : unknown;
 export type IProps = IMathComponentProps & {
@@ -20,6 +21,7 @@ const MathJax: React.FC<IProps> = props => {
 
     const onCopy = usePersistFn(() => {
         setCopied(true);
+        copy(others.tex || '');
     });
 
     return (

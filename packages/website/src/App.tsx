@@ -29,7 +29,7 @@ function App() {
 
     const title = (
         <span className="title">
-            <Icon className="rp-yuedu icon"/>
+            <Icon className="rp-quanyi icon"/>
             {states.title}
         </span>
     );

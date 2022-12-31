@@ -8,8 +8,9 @@
 import React from 'react';
 import clsx from 'clsx';
 import Button from "@mui/material/Button";
-import LocalOfferTwoToneIcon from '@mui/icons-material/LocalOfferTwoTone';
 import ClearTwoToneIcon from '@mui/icons-material/ClearTwoTone';
+
+import Icon from '@/components/Icon';
 
 import styles from './style.module.less';
 
@@ -36,7 +37,7 @@ export default React.forwardRef<any, IProps>((props, ref) => {
             className={clsx([styles.tag, className])}
             size="medium"
             variant={selected ? 'outlined' : undefined}
-            startIcon={<LocalOfferTwoToneIcon/>}
+            startIcon={<Icon className="rp-biaoqian"/>}
             endIcon={selected ? <ClearTwoToneIcon onClick={remove}/> : undefined}
             onClick={onClick}
         >

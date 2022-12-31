@@ -3,9 +3,10 @@ import clsx from 'clsx';
 
 import { useHover } from '../Hover';
 import styles from './normal.module.less';
-import Icon from "../Icon";
 
 export interface IProps {
+    /** card width */
+    width?: number;
     /** head image */
     headerImage?: React.ReactNode;
     /** icon at the left of title */
@@ -29,13 +30,14 @@ const Normal: React.FC<IProps> = props => {
         extraInfoHover,
         extraInfo,
         hoverContent,
-        onClickImage
+        onClickImage,
+        width = 400,
     } = props;
 
     const { hovered } = useHover();
 
     return (
-        <div className={styles.cardNormal}>
+        <div className={clsx(styles.cardNormal, 'border-radius-normal')} style={{ '--width': `${width}px` } as any}>
             <div className={styles.header} onClick={onClickImage}>
                 {typeof headerImage === 'string' ? <img src={headerImage} alt="Cover"/> : headerImage}
             </div>

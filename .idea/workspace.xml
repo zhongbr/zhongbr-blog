@@ -4,67 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="27b3b0e5-1ac3-4b25-8173-a590bd44bf60" name="变更" comment="feat: 支持渲染 latex 公式">
-      <change afterPath="$PROJECT_DIR$/packages/website/src/components/Card/Normal.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/website/src/components/Card/hover.module.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/website/src/components/Card/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/website/src/components/Card/normal.module.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/website/src/components/Hover/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/website/src/components/Hover/style.module.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/website/src/components/Icon/style.module.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/website/src/components/MathJax/MathJaxReact.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/website/src/components/MathJax/jax.module.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/website/src/utils/copt.ts" afterDir="false" />
+    <list default="true" id="27b3b0e5-1ac3-4b25-8173-a590bd44bf60" name="变更" comment="feat: 调整样式">
+      <change afterPath="$PROJECT_DIR$/packages/website/src/utils/anchor-scroll.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/react-press.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/react-press.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/jsx-core/dist/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/jsx-core/dist/start.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/jsx-core/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/jsx-core/pnpm-lock.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/jsx-core/src/index.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/jsx-core/src/start.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/jsx-core/tsconfig.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/umd-factory/dist/react-dom@18.2.0.umd.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/umd-factory/dist/react@18.2.0.umd.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/umd-factory/dist/test.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/umd-factory/distjs/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/umd-factory/distjs/pack/npm.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/umd-factory/distjs/src/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/umd-factory/distjs/src/pack/npm.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/umd-factory/distjs/src/start.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/umd-factory/distjs/start.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/umd-factory/distjs/umd-template/src/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/umd-factory/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/umd-factory/pnpm-lock.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/umd-factory/src/index.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/umd-factory/src/pack/npm.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/umd-factory/src/start.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/umd-factory/tsconfig.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/umd-factory/umd-template/babel.config.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/umd-factory/umd-template/config/build.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/umd-factory/umd-template/config/webpack.config.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/umd-factory/umd-template/dist/index.umd.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/umd-factory/umd-template/dist/index.umd.js.LICENSE.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/umd-factory/umd-template/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/umd-factory/umd-template/pnpm-lock.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/umd-factory/umd-template/src/index.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/packages/website/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/App.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/packages/website/src/app.less" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/app.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/components/Icon/icon.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/components/Icon/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/components/Icon/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/components/Layout/header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/components/Layout/header.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/components/Layout/style.module.less" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/components/Layout/style.module.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/components/MathJax/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/components/MathJax/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/components/Tag/style.module.less" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/components/Tag/style.module.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/components/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/components/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/components/Card/Normal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/components/Card/Normal.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/components/Card/normal.module.less" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/components/Card/normal.module.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/components/MathJax/MathJaxReact.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/components/MathJax/MathJaxReact.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/components/Tag/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/components/Tag/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/config/meta.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/config/meta.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/packages/website/src/container/Index/modules/Catalogue/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/container/Index/modules/Catalogue/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/packages/website/src/container/Index/modules/Catalogue/style.module.less" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/container/Index/modules/Catalogue/style.module.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/container/Passage/components/Render/Image/style.module.less" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/container/Passage/components/Render/Image/style.module.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/hooks/usePersistFn.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/hooks/usePersistFn.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/service/passage/catalogue.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/service/passage/catalogue.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/container/Passage/components/Sketch/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/container/Passage/components/Sketch/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/packages/website/src/styles/default-theme.less" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/styles/default-theme.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pnpm-lock.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pnpm-lock.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/md2json.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/md2json.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/utils/copt.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/utils/copy.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,10 +31,10 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="HTML File" />
-        <option value="TypeScript File" />
         <option value="JavaScript File" />
         <option value="TypeScript JSX File" />
         <option value="Less File" />
+        <option value="TypeScript File" />
       </list>
     </option>
   </component>
@@ -113,6 +69,9 @@
   </component>
   <component name="GoLibraries">
     <option name="indexEntireGoPath" value="true" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/node_modules/.pnpm/@types+react@18.0.26/node_modules/@types/react/index.d.ts" root0="SKIP_INSPECTION" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -254,14 +213,7 @@
       <workItem from="1671633780564" duration="5930000" />
       <workItem from="1671713810790" duration="10167000" />
       <workItem from="1671955426075" duration="1074000" />
-      <workItem from="1672405508991" duration="34102000" />
-    </task>
-    <task id="LOCAL-00009" summary="feat: fix workflow bug">
-      <created>1662215789515</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1662215789515</updated>
+      <workItem from="1672405508991" duration="40521000" />
     </task>
     <task id="LOCAL-00010" summary="feat: test commit">
       <created>1662215833884</created>
@@ -599,7 +551,14 @@
       <option name="project" value="LOCAL" />
       <updated>1672416791855</updated>
     </task>
-    <option name="localTasksCounter" value="58" />
+    <task id="LOCAL-00058" summary="feat: 调整样式">
+      <created>1672482844486</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1672482844486</updated>
+    </task>
+    <option name="localTasksCounter" value="59" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -633,7 +592,8 @@
     <MESSAGE value="feat: delete md-cache" />
     <MESSAGE value="feat: 修改文案" />
     <MESSAGE value="feat: 支持渲染 latex 公式" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: 支持渲染 latex 公式" />
+    <MESSAGE value="feat: 调整样式" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: 调整样式" />
   </component>
   <component name="VgoProject">
     <integration-enabled>false</integration-enabled>

@@ -16,7 +16,8 @@ import {useNavigate, useStates, useTags} from '@/hooks';
 import { ICatalogue, IPassage } from "@/service/passage/catalogue";
 
 import styles from './style.module.less';
-import {copy} from "@/utils/copt";
+import {copy} from "@/utils/copy";
+import clsx from "clsx";
 
 interface IStates {
     pageNo: number;
@@ -71,8 +72,8 @@ const Catalogue: React.FC<Props> = (props) => {
 
     return (
         <div className={styles.container}>
-            { !!tags.length && (
-                <Paper className={styles.selectedTags} variant="outlined">
+            {!!tags.length && (
+                <div className={clsx('blur', 'border-radius-normal', styles.selectedTags)}>
                     {tags?.map(tag => (
                         <Tag
                             selected
@@ -84,21 +85,22 @@ const Catalogue: React.FC<Props> = (props) => {
                     <Button size="small" color="primary" onClick={() => onReplaceTags([])}>
                         清除
                     </Button>
-                </Paper>
-            ) }
+                </div>
+            )}
 
             <div className={styles.passagesContainer}>
                 {passages.map(passage => (
                     <Card
+                        width={450}
                         onClickImage={() => onOpenPassage(passage)}
                         title={passage.title}
                         headerImage={passage.cover}
+                        extraInfoHover={passage.mdate}
                         extraInfo={(
                             <div>
                                 {passage.tags.map(tag => <Tag key={tag}>{tag}</Tag>)}
                             </div>
                         )}
-                        extraInfoHover={passage.mdate}
                         hoverContent={(
                             <div className={styles.passageOperations}>
                                 <Icon
