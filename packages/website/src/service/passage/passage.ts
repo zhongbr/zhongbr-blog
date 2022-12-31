@@ -16,5 +16,5 @@ export interface IResp {
 }
 
 export default async function getPassageContent(params: { path: string; }) {
-    return await axios.get<IResp>(`/md/${params.path}`);
+    return await axios.get<IResp>(`/md/${params.path}?r=${Math.random()}`);
 }

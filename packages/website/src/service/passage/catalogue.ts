@@ -23,5 +23,5 @@ export interface ICatalogue {
 }
 
 export default async function getPassagesCatalogue() {
-    return await axios.get<ICatalogue>('/md/catalogue.json');
+    return await axios.get<ICatalogue>(`/md/catalogue.json?r=${Math.random()}`);
 }
