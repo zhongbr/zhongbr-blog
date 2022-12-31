@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="27b3b0e5-1ac3-4b25-8173-a590bd44bf60" name="变更" comment="feat: 标题内不显示日期">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/service/passage/catalogue.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/service/passage/catalogue.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/service/passage/passage.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/service/passage/passage.ts" afterDir="false" />
+    <list default="true" id="27b3b0e5-1ac3-4b25-8173-a590bd44bf60" name="变更" comment="feat: 请求时增加随机数，避免浏览器使用缓存">
+      <change beforePath="$PROJECT_DIR$/scripts/md2json.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/md2json.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -202,14 +200,7 @@
       <workItem from="1671955426075" duration="1074000" />
       <workItem from="1672405508991" duration="40878000" />
       <workItem from="1672496848931" duration="29000" />
-      <workItem from="1672496896543" duration="2628000" />
-    </task>
-    <task id="LOCAL-00014" summary="feat: test commit">
-      <created>1662216272832</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1662216272832</updated>
+      <workItem from="1672496896543" duration="2887000" />
     </task>
     <task id="LOCAL-00015" summary="feat: test commit">
       <created>1662216366094</created>
@@ -547,7 +538,14 @@
       <option name="project" value="LOCAL" />
       <updated>1672499265932</updated>
     </task>
-    <option name="localTasksCounter" value="63" />
+    <task id="LOCAL-00063" summary="feat: 请求时增加随机数，避免浏览器使用缓存">
+      <created>1672499560039</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1672499560039</updated>
+    </task>
+    <option name="localTasksCounter" value="64" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -584,7 +582,8 @@
     <MESSAGE value="feat: 调整样式" />
     <MESSAGE value="feat: 调整页面" />
     <MESSAGE value="feat: 标题内不显示日期" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: 标题内不显示日期" />
+    <MESSAGE value="feat: 请求时增加随机数，避免浏览器使用缓存" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: 请求时增加随机数，避免浏览器使用缓存" />
   </component>
   <component name="VgoProject">
     <integration-enabled>false</integration-enabled>

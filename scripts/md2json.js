@@ -65,7 +65,7 @@ async function generateCatalogue(filename, ast) {
             yaml.loadAll(ymlChild?.value, (doc) => {
                 resolve({
                     title,
-                    'json-path': `${title}.json`,
+                    'json-path': `${date}-${title}.json`,
                     mdate: date,
                     cover: randomCoverImage(),
                     ...doc
