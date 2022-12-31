@@ -8,13 +8,17 @@
 import { lazy } from 'react';
 import { RouteObject } from 'react-router-dom';
 
-const Index = lazy(() => import('@/container/Index'));
+const Index = lazy(() => import('@/container/TagIndex'));
 const Passage = lazy(() => import('@/container/Passage'));
 
 const routers: RouteObject[] = [
     {
         path: '/passage/:path',
-        element: <Passage />,
+        element: <Passage/>,
+    },
+    {
+        path: '/tags',
+        element: <Index/>
     },
     {
         path: '/',

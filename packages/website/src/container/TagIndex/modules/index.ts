@@ -6,4 +6,3 @@
  * @LastEditTime: 2022-09-03 14:36:17
  */
 export { default as Catalogue } from './Catalogue';
-export { default as Tags } from './Tags';
