@@ -14,6 +14,6 @@ export const titleLink = '/';
 /** navigate link on right of the header */
 export const navLinks: ILayoutProps['navLinks'] = [
     { name: '首页', target: '/', icon: <Icon className="rp-zixun" /> },
-    { name: '微信', icon: <Icon className="rp-pinglun" /> },
+    { name: '全部文章', target: '/tags', icon: <Icon className="rp-zhinan" /> },
     { name: 'Github', target: 'https://github.com/zhongbr', icon: <Icon className="rp-tuandui" /> },
 ];

@@ -20,5 +20,6 @@ module.exports = {
     markdownJsonPath,
     compileCacheFile: resolveApp(`${markdownCompileCachePath}/last-compile-hash.json`),
     catalogueFile: resolveApp(`${markdownJsonPath}/catalogue.json`),
-    umdVersionFile: resolveApp(`${markdownCompileCachePath}/umd-version.json`)
+    umdVersionFile: resolveApp(`${markdownCompileCachePath}/umd-version.json`),
+    topicsFilePath: resolveApp(`${markdownJsonPath}/topic.json`)
 }

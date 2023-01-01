@@ -5,6 +5,41 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="27b3b0e5-1ac3-4b25-8173-a590bd44bf60" name="变更" comment="feat: 请求时增加随机数，避免浏览器使用缓存">
+      <change afterPath="$PROJECT_DIR$/packages/website/src/container/Topics/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/website/src/container/Topics/modules/Footer/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/website/src/container/Topics/modules/Footer/style.module.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/website/src/container/Topics/modules/TopicCard/Group.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/website/src/container/Topics/modules/TopicCard/card.module.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/website/src/container/Topics/modules/TopicCard/group.module.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/website/src/container/Topics/modules/TopicCard/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/website/src/container/Topics/modules/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/website/src/container/Topics/style.module.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/website/src/service/passage/topics.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/posts/topics.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/react-press.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/react-press.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/paths.js" beforeDir="false" afterPath="$PROJECT_DIR$/config/paths.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/assets/background.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/components/Card/Normal.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/components/Card/hover.module.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/components/Card/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/components/Card/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/components/Hover/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/components/Hover/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/components/Hover/style.module.less" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/components/Hover/style.module.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/components/Layout/style.module.less" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/components/Layout/style.module.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/components/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/components/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/config/meta.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/config/meta.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/config/routers.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/config/routers.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/container/TagIndex/modules/Catalogue/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/container/TagIndex/modules/Catalogue/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/container/TagIndex/modules/Catalogue/style.module.less" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/container/TagIndex/modules/Catalogue/style.module.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/hooks/useTags.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/hooks/useTags.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/service/passage/catalogue.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/service/passage/catalogue.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/service/passage/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/service/passage/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/styles/default-theme.less" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/styles/default-theme.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pnpm-lock.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pnpm-lock.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/posts/2020-08-24-http和https.md" beforeDir="false" afterPath="$PROJECT_DIR$/posts/2020-08-24-http和https.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/posts/2020-11-29-electron主进程和渲染进程通信.md" beforeDir="false" afterPath="$PROJECT_DIR$/posts/2020-11-29-electron主进程和渲染进程通信.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scripts/md2json.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/md2json.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -61,6 +96,9 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="PackageJsonUpdateNotifier">
+    <dismissed value="$PROJECT_DIR$/package.json" />
+  </component>
   <component name="ProjectId" id="2E2AoGRG3E7atFlG4rNkN4eaViN" />
   <component name="ProjectViewState">
     <option name="autoscrollFromSource" value="true" />
@@ -69,31 +107,31 @@
     <option name="showLibraryContents" value="true" />
     <option name="showMembers" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.go.formatter.settings.were.checked&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.go.migrated.go.modules.settings&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
-    &quot;javascript.nodejs.core.library.configured.version&quot;: &quot;14.17.4&quot;,
-    &quot;javascript.nodejs.core.library.typings.version&quot;: &quot;14.17.4&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/zhangpanhong/Documents/zhongbr_projects/react-press/packages/website/src/container/Passage/components/Render&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;Less&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.standard&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.standard&quot;: &quot;&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;pnpm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.ide.settings.new.ui&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;/Users/zhangpanhong/Documents/zhongbr_projects/react-press/packages/website/node_modules/typescript/lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.go.formatter.settings.were.checked": "true",
+    "RunOnceActivity.go.migrated.go.modules.settings": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "go.import.settings.migrated": "true",
+    "javascript.nodejs.core.library.configured.version": "14.17.4",
+    "javascript.nodejs.core.library.typings.version": "14.17.4",
+    "last_opened_file_path": "/Users/zhangpanhong/Documents/zhongbr_projects/react-press/packages/website/src/container/Passage/components/Render",
+    "list.type.of.created.stylesheet": "Less",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.standard": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.standard": "",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "pnpm",
+    "settings.editor.selected.configurable": "reference.settingsdialog.IDE.editor.colors.控制台字体",
+    "ts.external.directory.path": "/Users/zhangpanhong/Documents/zhongbr_projects/react-press/packages/website/node_modules/typescript/lib",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/packages/website/src/container/Passage/components/Render" />
@@ -117,7 +155,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="npm.start-website">
+  <component name="RunManager" selected="npm.build-markdown">
     <configuration name="build-jsx-core" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="run" />
@@ -170,8 +208,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="npm.start-website" />
         <item itemvalue="npm.build-markdown" />
+        <item itemvalue="npm.start-website" />
         <item itemvalue="npm.build-jsx-core" />
         <item itemvalue="npm.pack-umd" />
         <item itemvalue="npm.compile" />
@@ -200,14 +238,8 @@
       <workItem from="1671955426075" duration="1074000" />
       <workItem from="1672405508991" duration="40878000" />
       <workItem from="1672496848931" duration="29000" />
-      <workItem from="1672496896543" duration="2887000" />
-    </task>
-    <task id="LOCAL-00015" summary="feat: test commit">
-      <created>1662216366094</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1662216366094</updated>
+      <workItem from="1672496896543" duration="4180000" />
+      <workItem from="1672538124325" duration="26230000" />
     </task>
     <task id="LOCAL-00016" summary="feat: test commit">
       <created>1662216445227</created>
@@ -545,7 +577,14 @@
       <option name="project" value="LOCAL" />
       <updated>1672499560039</updated>
     </task>
-    <option name="localTasksCounter" value="64" />
+    <task id="LOCAL-00064" summary="feat: 请求时增加随机数，避免浏览器使用缓存">
+      <created>1672499796760</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1672499796760</updated>
+    </task>
+    <option name="localTasksCounter" value="65" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

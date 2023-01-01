@@ -6,15 +6,18 @@
  * @LastEditTime: 2022-09-03 18:01:12
  */
 import { useSearchParams } from 'react-router-dom';
+import qs from 'query-string';
 
 import usePersistFn from './usePersistFn';
+import useNavigate from './useNavigate';
 
 export default function useTags() {
     const [params, updateParams] = useSearchParams();
+    const navigate = useNavigate();
+
     const tags = params.getAll("tags") || [];
 
     const onSelectTag = usePersistFn((tag: string) => {
-        console.log('on select tag', tag);
         updateParams({
             tags: Array.from(new Set([...tags, tag]))
         }, {
@@ -23,7 +26,6 @@ export default function useTags() {
     });
 
     const onRemoveTag = usePersistFn((tag: string) => {
-        console.log('on remove tag', tag);
         updateParams({
             tags: tags.filter(_tag => _tag !== tag)
         }, {
@@ -39,5 +41,9 @@ export default function useTags() {
         });
     });
 
-    return { tags, onSelectTag, onRemoveTag, onReplaceTags };
+    const onOpenTags = usePersistFn((tags: string[]) => {
+        navigate(`/tags?${qs.stringify({ tags })}`);
+    });
+
+    return { tags, onSelectTag, onRemoveTag, onReplaceTags, onOpenTags };
 }

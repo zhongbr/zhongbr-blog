@@ -7,14 +7,14 @@
  */
 import React, {useMemo} from "react";
 import Button from "@mui/material/Button";
+import clsx from "clsx";
 
 import { Tag, Card, Icon } from '@/components';
 import { useNavigate, useTags } from '@/hooks';
 import { ICatalogue, IPassage } from "@/service/passage/catalogue";
+import {copy} from "@/utils/copy";
 
 import styles from './style.module.less';
-import {copy} from "@/utils/copy";
-import clsx from "clsx";
 
 export interface Props {
     /** trigger when entry passage */
@@ -67,11 +67,12 @@ const Catalogue: React.FC<Props> = (props) => {
                         width={450}
                         onClickImage={() => onOpenPassage(passage)}
                         title={passage.title}
+                        icon={passage.icon}
                         headerImage={passage.cover}
                         extraInfoHover={passage.mdate}
                         extraInfo={(
                             <div>
-                                {passage.tags.map(tag => <Tag key={tag} onClick={() => onSelectTag(tag)}>{tag}</Tag>)}
+                                {passage?.tags?.map?.(tag => <Tag key={tag} onClick={() => onSelectTag(tag)}>{tag}</Tag>)}
                             </div>
                         )}
                         hoverContent={(

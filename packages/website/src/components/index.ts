@@ -9,6 +9,7 @@ export { default as Layout } from './Layout';
 export type { IProps as ILayoutProps } from './Layout';
 
 export { default as Icon } from './Icon';
+export type { IProps as IIconProps } from './Icon';
 
 export { default as Tag } from './Tag';
 

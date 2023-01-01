@@ -2,14 +2,26 @@
   position: relative;
   --hover-base-zindex: 100;
   z-index: var(--hover-base-zindex);
+  display: flex;
+  flex-direction: column;
 
   .hover-layer {
     position: absolute;
-    top: 0;
-    right: 0;
+    top: 100%;
     left: 0;
+    right: 0;
     bottom: 0;
-    overflow: visible;
+    overflow: hidden;
     z-index: calc(var(--hover-base-zindex) + 1);
+
+    &.unfold {
+      top: 0;
+      transition: top ease-in-out 150ms;
+    }
+
+    &.fold {
+      top: 100%;
+      transition: top ease-in-out 150ms;
+    }
   }
 }
