@@ -9,10 +9,11 @@ import {title} from "@/config/meta";
 
 const Topics: React.FC = props => {
     const [fetchTopics, topicsRes] = useAsyncFn(topics);
-    const { setStates } = usePageConfig();
+    const { setStates, onPageReady } = usePageConfig();
 
     useAsyncEffect(async () => {
         await fetchTopics();
+        onPageReady?.();
     }, [fetchTopics]);
 
     useEffect(() => {

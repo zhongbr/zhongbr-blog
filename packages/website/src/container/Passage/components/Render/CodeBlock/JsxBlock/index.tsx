@@ -6,7 +6,7 @@
  * @LastEditTime: 2022-09-07 22:38:10
  */
 import React, { useMemo, memo, Suspense } from "react";
-import {ISource} from "@/types/markdown";
+import { ISource } from "@/types/markdown";
 
 export interface IProps {
     imports?: string[];
@@ -58,7 +58,7 @@ const JsxBlock: React.FC<IProps> = props => {
                     return { default: comp };
                 })
         });
-    }, [jsCode]);
+    }, [jsCode, sources]);
 
     return (
         <div style={{ height: '200px' }}>

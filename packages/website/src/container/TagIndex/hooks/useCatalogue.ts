@@ -23,7 +23,8 @@ const initStates: IStates = {
     catalogue: {}
 };
 
-export default function useCatalogue() {
+export default function useCatalogue(opt: { onReady?: () => void; }) {
+    const { onReady } = opt;
     const [fetchCatalogue, res, loading] = useAsyncFn(getPassagesCatalogue);
     const { tags } = useTags();
 
@@ -62,6 +63,8 @@ export default function useCatalogue() {
             tagsMap,
             catalogue: filterPassages(catalogue)
         });
+
+        onReady?.();
     }, [tags.join(','), filterPassages, setStates]);
 
     useEffect(() => {

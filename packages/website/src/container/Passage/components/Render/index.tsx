@@ -7,8 +7,8 @@
  */
 import React, {memo} from 'react';
 
-import {IBaseProps, NodeType} from '@/types/markdown';
-import {Loading} from '@/components';
+import { IBaseProps, NodeType } from '@/types/markdown';
+import { Splash } from '@/components';
 
 import Header from './Header';
 import Str from './Str';
@@ -58,7 +58,7 @@ const Render: React.FC<Partial<IBaseProps>> = (props) => {
     const { node } = props;
 
     if (!node) {
-        return <Loading texts="🚀🚀文章加载中..."/>;
+        return <Splash texts="🚀🚀文章加载中..."/>;
     }
 
     const children = node.children?.map(child => <Render key={child.key} node={child}/>);

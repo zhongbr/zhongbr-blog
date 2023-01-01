@@ -38,10 +38,17 @@ const TopicCard: React.FC<ITopic> = props => {
                             </div>
                             <div className={styles.passagesList}>
                                 {passages?.map((passage) => (
-                                    <div className={styles.passageListItem} onClick={() => onOpenPassage(passage)}>
+                                    <div className={styles.passageListItem}>
                                         <Icon className="rp-dianzan"/>
-                                        <div className={styles.title}>{passage.title}</div>
-                                        <Icon className={clsx('rp-arrow-right', styles.icon)}/>
+                                        <div
+                                            className={styles.title}
+                                        >
+                                            {passage.title}
+                                        </div>
+                                        <Icon
+                                            className={clsx('rp-arrow-right', styles.icon)}
+                                            onClick={() => onOpenPassage(passage)}
+                                        />
                                     </div>
                                 ))}
                             </div>

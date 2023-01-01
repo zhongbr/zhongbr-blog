@@ -5,22 +5,20 @@
  * @LastEditors: 张盼宏
  * @LastEditTime: 2022-09-18 15:23:24
  */
-import { ReactComponent as LoadingIcon } from './loading.svg';
+import Loading from './Loading';
 import styles from './style.module.less';
 
 export interface Props {
     texts: string;
 }
 
-export default function Loading (props: Props) {
+export default function Splash (props: Props) {
     const { texts } = props;
 
     return (
-        <div className={styles.loading}>
-            <div className={styles.content}>
-                <LoadingIcon/>
-                <div>{texts}</div>
-            </div>
+        <div className={styles.splash}>
+            <Loading className={styles.loading} count={8}/>
+            <div>{texts}</div>
         </div>
     );
 }

@@ -14,9 +14,11 @@ import { Catalogue } from './modules';
 import { useCatalogue } from './hooks';
 
 const Index = () => {
-    const { setStates } = usePageConfig();
+    const { setStates, onPageReady } = usePageConfig();
 
-    const { catalogue } = useCatalogue();
+    const { catalogue } = useCatalogue({
+        onReady: onPageReady
+    });
 
     useEffect(() => {
         setStates?.({

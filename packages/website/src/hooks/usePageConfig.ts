@@ -11,11 +11,13 @@ export interface IPageContext {
     title: string;
     target: string;
     scrollRef?: React.LegacyRef<Element>;
+    loading?: boolean;
     rate?: number;
     setStates?: (
         payload: Partial<Omit<IPageConfig, 'setStates'>>,
         cb?: (states: Omit<IPageConfig, 'setStates'>) => void
     ) => void;
+    onPageReady?: () => void;
 }
 
 export type IPageConfig = Omit<IPageContext, 'setStates'>;

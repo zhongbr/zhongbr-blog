@@ -16,8 +16,6 @@ const Table: React.FC<IBaseProps> = (props) => {
         <table
             id={node.key}
             className={styles.table}
-            border={1}
-            cellSpacing={0}
         >
             {children}
         </table>

@@ -7,13 +7,13 @@
  */
 import { useEffect, useState, memo } from 'react';
 import { useParams } from 'react-router-dom';
-import Paper from "@mui/material/Paper";
-import Skeleton from "@mui/material/Skeleton";
+import clsx from 'clsx';
 
-import { usePageConfig, useAsyncFn, useAsyncEffect, useNavigate } from "@/hooks";
+import { usePageConfig, useAsyncFn, useAsyncEffect, useTags } from "@/hooks";
 import { passage } from '@/service';
-
+import { IPassage } from "@/service/passage/catalogue";
 import { Tag } from "@/components";
+
 import { Render, Sketch } from './components';
 import { traverseAst, generateSketch, Title } from './utils/traverse';
 import styles from './style.module.less';
@@ -21,13 +21,14 @@ import styles from './style.module.less';
 type IPageParam = Record<'path', string | undefined>;
 
 const Passage = () => {
-    const { setStates, rate = 0 } = usePageConfig();
+    const { setStates, rate = 0, onPageReady } = usePageConfig();
     const { path } = useParams<IPageParam>();
 
     const [fetchPassage, res] = useAsyncFn(passage.passage);
     const [sketch, setSketch] = useState<Title[]>([]);
+    const [catalogue, setCatalogue] = useState<IPassage>();
 
-    const navigator = useNavigate();
+    const { onOpenTags } = useTags();
 
     useEffect(() => {
         setStates?.({
@@ -39,12 +40,18 @@ const Passage = () => {
         if (!path) {
             return;
         }
-        const res = await fetchPassage({ path });
+        const [res, catalogue] = await Promise.all([
+            fetchPassage({ path }),
+            passage.catalogue()
+        ]);
+        setCatalogue(catalogue?.data?.[path.replace(/\.json$/, '.md')]);
         // traverse markdown ast and mark the parent and siblings
         traverseAst(res.data.ast);
         // generate sketch
         const sketch = generateSketch(res.data.ast);
         setSketch(sketch);
+        // show page
+        onPageReady?.();
     }, [fetchPassage, path]);
 
     return (
@@ -58,12 +65,17 @@ const Passage = () => {
                 <Sketch sketch={sketch}/>
             </div>
             <div className={styles.passage}>
-                <div className="content">
-                    <div>
+                <div className={clsx('content', 'blur')}>
+                    <div className="tags">
                         {res?.data?.catalogue?.tags?.map(tag => (
-                            <Tag key={tag} onClick={() => navigator(`/?tags=${tag}`)}>{tag}</Tag>
+                            <Tag key={tag} onClick={() => onOpenTags([tag])}>{tag}</Tag>
                         ))}
                     </div>
+
+                    {catalogue?.cover && (
+                        <img alt="cover" className="cover-image" src={catalogue.cover}/>
+                    )}
+
                     <Render node={res?.data?.ast}/>
                 </div>
             </div>

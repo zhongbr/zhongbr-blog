@@ -7,13 +7,12 @@
  */
 import React, { Suspense } from 'react';
 import { useRoutes } from 'react-router-dom';
-import Pager from '@mui/material/Paper';
 
 import routers from "@/config/routers";
 import { title as titleText, navLinks, titleLink } from '@/config/meta';
 
-import { Layout, Icon, Loading } from './components';
-import { PageConfigContext, IPageConfig, useStates } from './hooks';
+import { Layout, Icon, Splash } from './components';
+import { PageConfigContext, IPageConfig, useStates, usePersistFn } from './hooks';
 import { useScrollRate } from './animations';
 
 import "./app.less";
@@ -24,8 +23,16 @@ function App() {
     const { rate, ref } = useScrollRate<HTMLDivElement>(60);
     const [states, setStates] = useStates<IPageConfig>({
         title: titleText,
-        target: titleLink
-    })
+        target: titleLink,
+        loading: true
+    });
+
+    const onPageReady = usePersistFn(() => {
+        console.log('on page ready');
+        setStates({
+            loading: false
+        });
+    });
 
     const title = (
         <span className="title">
@@ -34,6 +41,8 @@ function App() {
         </span>
     );
 
+    const splash = <Splash texts="🚀🚀页面加载中..."/>;
+
     return (
         <Layout
             rate={rate}
@@ -41,13 +50,12 @@ function App() {
             navLinks={navLinks}
             contentRef={ref}
         >
-            <PageConfigContext.Provider value={{ ...states, rate, scrollRef: ref, setStates }}>
-                <Suspense fallback={
-                    <Pager>
-                        <Loading texts="🚀🚀页面加载中..."/>
-                    </Pager>
-                }>
-                    {element}
+            <PageConfigContext.Provider value={{ ...states, rate, scrollRef: ref, setStates, onPageReady }}>
+                <Suspense fallback={splash}>
+                    {states.loading && splash}
+                    <div style={{ display: states.loading ? 'none' : 'block' }}>
+                        {element}
+                    </div>
                 </Suspense>
             </PageConfigContext.Provider>
         </Layout>

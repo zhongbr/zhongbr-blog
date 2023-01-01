@@ -13,7 +13,7 @@ export type { IProps as IIconProps } from './Icon';
 
 export { default as Tag } from './Tag';
 
-export { default as Loading } from './Loading';
+export { default as Splash } from './Splash';
 
 export { default as MathJax } from './MathJax';
 export type { IProps as IMathJaxProp } from './MathJax';

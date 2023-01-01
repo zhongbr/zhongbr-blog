@@ -1,6 +1,7 @@
 import React, { useMemo } from 'react';
 import moment from 'moment';
 
+import { ICP, PublicSecurity, PublicSecurityNo, AuthorCopyRight } from '@/config/meta';
 import Icon from '@/components/Icon';
 
 import styles from './style.module.less';
@@ -15,11 +16,11 @@ const Footer: React.FC = () => {
                     <Icon className="rp-zixun"/>
                     <span style={{ marginLeft: '8px' }}>网站备案</span>
                 </span>
-                <a href="https://beian.miit.gov.cn">鄂ICP备19008487号-1</a>
-                <a href="http://beian.gov.cn/portal/registerSystemInfo?recordcode=42011102003165">鄂公网安备42011102003165号</a>
+                <a href="https://beian.miit.gov.cn">{ICP}</a>
+                <a href={`http://beian.gov.cn/portal/registerSystemInfo?recordcode=${PublicSecurityNo}`}>{PublicSecurity}</a>
             </div>
             <div>
-                ©Zhongbr {date.year()}
+                ©{AuthorCopyRight} {date.year()}
             </div>
         </div>
     );
