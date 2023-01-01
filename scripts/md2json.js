@@ -37,6 +37,17 @@ function randomCoverImage() {
         'https://i.328888.xyz/2022/12/31/ndcnt.jpeg',
         'https://i.328888.xyz/2022/12/31/ndmRJ.jpeg',
         'https://i.328888.xyz/2022/12/31/ndpoc.jpeg',
+        'https://i.328888.xyz/2023/01/01/tZMoa.jpeg',
+        'https://i.328888.xyz/2023/01/01/tZLcw.jpeg',
+        'https://i.328888.xyz/2023/01/01/tZTfx.jpeg',
+        'https://i.328888.xyz/2023/01/01/tZa8k.jpeg',
+        'https://i.328888.xyz/2023/01/01/tZ1FL.jpeg',
+        'https://i.328888.xyz/2023/01/01/tZQYp.jpeg',
+        'https://i.328888.xyz/2023/01/01/tZqwU.jpeg',
+        'https://i.328888.xyz/2023/01/01/tZuxv.jpeg',
+        'https://i.328888.xyz/2023/01/01/tiZM3.jpeg',
+        'https://i.328888.xyz/2023/01/01/tiVty.jpeg',
+        'https://i.328888.xyz/2023/01/01/tifc5.jpeg',
     ];
     return imagesPools.random();
 }

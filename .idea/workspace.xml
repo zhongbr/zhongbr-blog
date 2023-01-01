@@ -4,38 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="27b3b0e5-1ac3-4b25-8173-a590bd44bf60" name="变更" comment="feat: 增加首页栏目">
-      <change afterPath="$PROJECT_DIR$/packages/website/src/components/Splash/Loading/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/website/src/components/Splash/Loading/style.module.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.github/workflows/build-posts.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/build-posts.yml" afterDir="false" />
+    <list default="true" id="27b3b0e5-1ac3-4b25-8173-a590bd44bf60" name="变更" comment="feat: 优化 splash">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/components/Loading/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/components/Splash/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/components/Loading/loading.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/components/Loading/style.module.less" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/components/Splash/style.module.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/components/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/components/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/config/meta.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/config/meta.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/container/Passage/components/Render/BlockQuote/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/container/Passage/components/Render/BlockQuote/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/container/Passage/components/Render/BlockQuote/style.module.less" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/container/Passage/components/Render/BlockQuote/style.module.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/container/Passage/components/Render/CodeBlock/JsxBlock/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/container/Passage/components/Render/CodeBlock/JsxBlock/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/container/Passage/components/Render/CodeBlock/style.module.less" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/container/Passage/components/Render/CodeBlock/style.module.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/container/Passage/components/Render/Header/style.module.less" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/container/Passage/components/Render/Header/style.module.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/container/Passage/components/Render/Paragraph/style.module.less" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/container/Passage/components/Render/Paragraph/style.module.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/container/Passage/components/Render/Table/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/container/Passage/components/Render/Table/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/container/Passage/components/Render/TableCell/style.module.less" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/container/Passage/components/Render/TableCell/style.module.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/container/Passage/components/Render/Yaml/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/container/Passage/components/Render/Yaml/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/container/Passage/components/Render/Yaml/style.module.less" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/container/Passage/components/Render/Yaml/style.module.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/container/Passage/components/Render/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/container/Passage/components/Render/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/container/Passage/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/container/Passage/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/container/Passage/style.module.less" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/container/Passage/style.module.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/container/TagIndex/hooks/useCatalogue.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/container/TagIndex/hooks/useCatalogue.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/container/TagIndex/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/container/TagIndex/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/container/Topics/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/container/Topics/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/container/Topics/modules/Footer/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/container/Topics/modules/Footer/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/container/Topics/modules/Footer/style.module.less" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/container/Topics/modules/Footer/style.module.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/container/Topics/modules/TopicCard/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/container/Topics/modules/TopicCard/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/hooks/usePageConfig.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/hooks/usePageConfig.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/styles/default-theme.less" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/styles/default-theme.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/md2json.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/md2json.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -234,14 +205,7 @@
       <workItem from="1672405508991" duration="40878000" />
       <workItem from="1672496848931" duration="29000" />
       <workItem from="1672496896543" duration="4180000" />
-      <workItem from="1672538124325" duration="34434000" />
-    </task>
-    <task id="LOCAL-00018" summary="feat: modify path">
-      <created>1662217533393</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1662217533393</updated>
+      <workItem from="1672538124325" duration="35421000" />
     </task>
     <task id="LOCAL-00019" summary="feat: modify path">
       <created>1662220647978</created>
@@ -579,7 +543,14 @@
       <option name="project" value="LOCAL" />
       <updated>1672571210687</updated>
     </task>
-    <option name="localTasksCounter" value="67" />
+    <task id="LOCAL-00067" summary="feat: 优化 splash">
+      <created>1672582861538</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1672582861539</updated>
+    </task>
+    <option name="localTasksCounter" value="68" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -618,7 +589,8 @@
     <MESSAGE value="feat: 标题内不显示日期" />
     <MESSAGE value="feat: 请求时增加随机数，避免浏览器使用缓存" />
     <MESSAGE value="feat: 增加首页栏目" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: 增加首页栏目" />
+    <MESSAGE value="feat: 优化 splash" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: 优化 splash" />
   </component>
   <component name="VgoProject">
     <integration-enabled>false</integration-enabled>
