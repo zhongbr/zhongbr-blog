@@ -23,7 +23,7 @@ const Topics: React.FC = props => {
     }, [setStates]);
 
     return (
-        <div>
+        <div className={styles.topicsPage}>
             <TopicCardGroup rowCount={2} className={styles.topicsContainer}>
                 {topicsRes?.data?.topics?.map?.(topic => (
                     <TopicCard

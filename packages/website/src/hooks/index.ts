@@ -20,3 +20,7 @@ export { default as usePersistFn } from './usePersistFn';
 export { default as useAsyncFn } from './useAsyncFn';
 
 export { default as useTags } from './useTags';
+
+export { default as useEventListener } from './useEventListener';
+
+export { default as useDebounce } from './useDebounce';

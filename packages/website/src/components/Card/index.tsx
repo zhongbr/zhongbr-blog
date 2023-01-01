@@ -7,7 +7,7 @@ import styles from "@/components/Card/normal.module.less";
 
 export interface IProps {
     /** card width */
-    width?: number;
+    width?: string;
     /** head image */
     headerImage?: React.ReactNode;
     /** icon at the left of title */
@@ -32,14 +32,14 @@ const Card: React.FC<IProps> = props => {
         extraInfo,
         hoverContent,
         onClickImage,
-        width = 400,
+        width = '400px',
     } = props;
 
     return (
         <Hover>
             <HoverContext.Consumer>
                 {({ hovered }) => (
-                    <div className={clsx(styles.cardNormal, 'border-radius-normal')} style={{ '--width': `${width}px` } as any}>
+                    <div className={clsx(styles.cardNormal, 'border-radius-normal')} style={{ '--width': width } as any}>
                         <div className={styles.header} onClick={onClickImage}>
                             {typeof headerImage === 'string' ? <img src={headerImage} alt="Cover"/> : headerImage}
                         </div>

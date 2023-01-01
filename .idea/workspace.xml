@@ -4,8 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="27b3b0e5-1ac3-4b25-8173-a590bd44bf60" name="变更" comment="feat: 优化 splash">
+    <list default="true" id="27b3b0e5-1ac3-4b25-8173-a590bd44bf60" name="变更" comment="feat: 增加封面图">
+      <change afterPath="$PROJECT_DIR$/packages/website/src/hooks/useDebounce.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/website/src/hooks/useEventListener.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/scripts/random.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/components/Card/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/components/Card/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/container/Passage/style.module.less" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/container/Passage/style.module.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/container/TagIndex/modules/Catalogue/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/container/TagIndex/modules/Catalogue/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/container/TagIndex/modules/Catalogue/style.module.less" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/container/TagIndex/modules/Catalogue/style.module.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/container/Topics/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/container/Topics/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/container/Topics/style.module.less" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/container/Topics/style.module.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/hooks/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/hooks/index.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scripts/md2json.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/md2json.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -17,10 +27,10 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="HTML File" />
-        <option value="JavaScript File" />
-        <option value="TypeScript File" />
         <option value="TypeScript JSX File" />
         <option value="Less File" />
+        <option value="JavaScript File" />
+        <option value="TypeScript File" />
       </list>
     </option>
   </component>
@@ -205,14 +215,7 @@
       <workItem from="1672405508991" duration="40878000" />
       <workItem from="1672496848931" duration="29000" />
       <workItem from="1672496896543" duration="4180000" />
-      <workItem from="1672538124325" duration="35421000" />
-    </task>
-    <task id="LOCAL-00019" summary="feat: modify path">
-      <created>1662220647978</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1662220647978</updated>
+      <workItem from="1672538124325" duration="39936000" />
     </task>
     <task id="LOCAL-00020" summary="feat: modify path">
       <created>1662220913390</created>
@@ -550,7 +553,14 @@
       <option name="project" value="LOCAL" />
       <updated>1672582861539</updated>
     </task>
-    <option name="localTasksCounter" value="68" />
+    <task id="LOCAL-00068" summary="feat: 增加封面图">
+      <created>1672584939432</created>
+      <option name="number" value="00068" />
+      <option name="presentableId" value="LOCAL-00068" />
+      <option name="project" value="LOCAL" />
+      <updated>1672584939432</updated>
+    </task>
+    <option name="localTasksCounter" value="69" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -590,7 +600,8 @@
     <MESSAGE value="feat: 请求时增加随机数，避免浏览器使用缓存" />
     <MESSAGE value="feat: 增加首页栏目" />
     <MESSAGE value="feat: 优化 splash" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: 优化 splash" />
+    <MESSAGE value="feat: 增加封面图" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: 增加封面图" />
   </component>
   <component name="VgoProject">
     <integration-enabled>false</integration-enabled>
