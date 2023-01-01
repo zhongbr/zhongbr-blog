@@ -69,7 +69,7 @@ topics:
     topicName: '操作系统'
     icon: 'rp-jiankong1'
     color: '#6cb0f432'
-    desc: 'Windows？OSX？iOS？Linux？Android？还有 HormonyOS 算不算😂'
+    desc: 'Windows？OSX？iOS？Linux？Android？还有 HarmonyOS 算不算😂'
     tags:
       - '操作系统'
       - '进程'
