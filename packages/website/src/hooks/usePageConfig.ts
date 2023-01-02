@@ -15,6 +15,7 @@ export interface IPageContext {
     scrollRef?: React.LegacyRef<Element>;
     loading?: boolean;
     rate?: number;
+    theme?: string;
     setStates?: (
         payload: Partial<Omit<IPageConfig, 'setStates'>>,
         cb?: (states: Omit<IPageConfig, 'setStates'>) => void

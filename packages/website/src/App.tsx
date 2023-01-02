@@ -20,7 +20,7 @@ import "./app.less";
 function App() {
     const element = useRoutes(routers);
 
-    const { setTheme } = useDarkMode();
+    const { setTheme, theme } = useDarkMode();
 
     const { rate, ref } = useScrollRate<HTMLDivElement>(60);
     const [states, setStates, resetStates] = useStates<IPageConfig>({
@@ -46,7 +46,7 @@ function App() {
     const splash = <Splash texts="🚀🚀页面加载中..."/>;
 
     return (
-        <PageConfigContext.Provider value={{ ...states, rate, scrollRef: ref, setStates, resetStates, setTheme, onPageReady }}>
+        <PageConfigContext.Provider value={{ ...states, theme, rate, scrollRef: ref, setStates, resetStates, setTheme, onPageReady }}>
             <MessageProvider>
                 <Layout
                     rate={rate}

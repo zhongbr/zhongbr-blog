@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import usePersistFn from "./usePersistFn";
 
 const onChangeTo = (theme: 'dark' | 'light', cb: () => void) => {
@@ -25,7 +25,10 @@ const onChangeTo = (theme: 'dark' | 'light', cb: () => void) => {
 };
 
 export default function useDarkMode() {
+    const [theme, setTheme_] = useState('light-theme');
+
     const setTheme = usePersistFn((theme) => {
+        setTheme_(theme);
         document.body.classList.forEach((className) => {
             if (className.endsWith('-theme')) {
                 document.body.classList.remove(className);
@@ -56,5 +59,5 @@ export default function useDarkMode() {
         setTheme('light-theme');
     }, [setTheme])
 
-    return { setTheme };
+    return { setTheme, theme };
 }
