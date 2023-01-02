@@ -5,23 +5,23 @@
  * @LastEditors: 张盼宏
  * @LastEditTime: 2022-09-08 23:40:46
  */
-import { useEffect, useState, memo } from 'react';
-import { useParams } from 'react-router-dom';
+import {memo, useEffect, useState} from 'react';
+import {useParams} from 'react-router-dom';
 import clsx from 'clsx';
 
-import { usePageConfig, useAsyncFn, useAsyncEffect, useTags } from "@/hooks";
-import { passage } from '@/service';
-import { IPassage } from "@/service/passage/catalogue";
-import { Tag } from "@/components";
+import {ResponsiveEnum, useAsyncEffect, useAsyncFn, usePageConfig, useTags} from "@/hooks";
+import {passage} from '@/service';
+import {IPassage} from "@/service/passage/catalogue";
+import {Tag} from "@/components";
 
-import { Render, Sketch } from './components';
-import { traverseAst, generateSketch, Title } from './utils/traverse';
+import {Render, Sketch} from './components';
+import {generateSketch, Title, traverseAst} from './utils/traverse';
 import styles from './style.module.less';
 
 type IPageParam = Record<'path', string | undefined>;
 
 const Passage = () => {
-    const { setStates, rate = 0, onPageReady } = usePageConfig();
+    const { setStates, rate = 0, onPageReady, widthLevel } = usePageConfig();
     const { path } = useParams<IPageParam>();
 
     const [fetchPassage, res] = useAsyncFn(passage.passage);
@@ -62,7 +62,12 @@ const Passage = () => {
     return (
         <div className={styles.passageContainer}>
             <div
-                className={styles.sketch}
+                className={clsx(
+                    styles.sketch,
+                    {
+                        [styles.display]: [ResponsiveEnum.normal, ResponsiveEnum.large].includes(widthLevel || ResponsiveEnum.normal)
+                    }
+                )}
                 style={{
                     top: `${155 - 75 * rate}px`
                 }}

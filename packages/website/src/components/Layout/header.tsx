@@ -5,14 +5,15 @@
  * @LastEditors: 张盼宏
  * @LastEditTime: 2022-08-28 01:18:50
  */
-import React, {useMemo} from 'react';
+import React, { useMemo, useState } from 'react';
 import clsx from 'clsx';
 
-import { useNavigate, usePageConfig } from '@/hooks';
+import { useNavigate, usePageConfig, ResponsiveEnum } from '@/hooks';
 
 import { Switch, ISwitchProps } from '../Form';
 
 import styles from './style.module.less';
+import {Icon} from "@/components";
 
 export interface NavLink {
     name?: React.ReactNode;
@@ -34,8 +35,9 @@ const Header: React.FC<IProps> = (props) => {
     }, [navLinks]);
 
     const navigator = useNavigate();
-    const { setTheme, theme } = usePageConfig();
-    console.log('theme3', theme);
+    const { setTheme, theme, widthLevel } = usePageConfig();
+
+    const [fold, setFold] = useState(true);
 
     const onNavigate = (target: string) => {
         navigator(target);
@@ -49,34 +51,56 @@ const Header: React.FC<IProps> = (props) => {
         setTheme?.('light-theme');
     };
 
+    const navLinksElements = (
+        <div
+            className={clsx(styles.navLinks)}
+            data-fold={widthLevel === ResponsiveEnum.tiny}
+        >
+            {links.map(({name, target = './', icon}) => (
+                <div
+                    key={target}
+                    className={styles.navLink}
+                    onClick={() => onNavigate(target)}
+                >
+                    <span>{icon}</span>
+                    <span>{name}</span>
+                </div>
+            ))}
+            <div className={styles.switch}>
+                <Switch
+                    value={theme === 'dark-theme'}
+                    onChange={onChangeTheme}
+                    onContent={<span>dark mode</span>}
+                    offContent={<span>light mode</span>}
+                />
+            </div>
+        </div>
+    );
+
     return (
         <div className={clsx(styles.header, 'blur')}>
             <div className={styles.base}>
                 <div
-                    className={styles.title}
+                    className={styles.titleContainer}
                     style={{ opacity: rate }}
                 >
                     {title}
                 </div>
 
-                <div className={styles.navLinks}>
-                    {links.map(({ name, target = './', icon }) => (
-                        <div
-                            key={target}
-                            className={styles.navLink}
-                            onClick={() => onNavigate(target)}
-                        >
-                            <span>{icon}</span>
-                            <span>{name}</span>
+                {widthLevel !== ResponsiveEnum.tiny ? (
+                    /*屏幕宽度足够时直接平铺展示*/
+                    navLinksElements
+                ) : (
+                    /*屏幕宽度足够时直接折叠，点击后展示*/
+                    <div className={styles.foldContainer}>
+                        <div onClick={() => setFold(!fold)} className={styles.fold}>
+                            <Icon className={clsx('rp-arrow-down', styles.icon, fold ? styles.folded : styles.unfolded)} />
+                            <span>菜单</span>
                         </div>
-                    ))}
-                    <Switch
-                        value={theme === 'dark-theme'}
-                        onChange={onChangeTheme}
-                        onContent={<span>dark mode</span>}
-                        offContent={<span>light mode</span>}
-                    />
-                </div>
+                        {!fold && navLinksElements}
+                    </div>
+                )}
+
             </div>
             <div
                 className={clsx(styles.initTitle)}
@@ -90,7 +114,7 @@ const Header: React.FC<IProps> = (props) => {
                         opacity: 1 - (rate || 0),
                         top: `-${(rate * 50).toFixed(2)}px`
                     }}
-                    className={styles.title}
+                    className={styles.titleContainer}
                 >
                     {title}
                 </div>

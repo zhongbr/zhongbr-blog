@@ -1,17 +1,20 @@
 import React, {useEffect} from 'react';
 
-import { useAsyncFn, useAsyncEffect, usePageConfig } from '@/hooks';
-import { topics } from '@/service/passage';
-import { useMessage } from '@/components';
-
-import { TopicCard, TopicCardGroup } from './modules';
-import styles from './style.module.less';
+import {ResponsiveEnum, useAsyncEffect, useAsyncFn, usePageConfig} from '@/hooks';
+import {topics} from '@/service/passage';
+import {useMessage} from '@/components';
 import {title} from "@/config/meta";
+
+import {TopicCard, TopicCardGroup} from './modules';
+import styles from './style.module.less';
 
 const Topics: React.FC = props => {
     const [fetchTopics, topicsRes] = useAsyncFn(topics);
-    const { setStates, onPageReady } = usePageConfig();
+    const { setStates, widthLevel, onPageReady } = usePageConfig();
     const { success } = useMessage();
+
+    // 屏幕宽度最窄时，一行只显示一个
+    const rowCount = widthLevel === ResponsiveEnum.tiny ? 1 : 2;
 
     useAsyncEffect(async () => {
         await fetchTopics();
@@ -35,7 +38,7 @@ const Topics: React.FC = props => {
 
     return (
         <div className={styles.topicsPage}>
-            <TopicCardGroup rowCount={2} className={styles.topicsContainer}>
+            <TopicCardGroup rowCount={rowCount} className={styles.topicsContainer}>
                 {topicsRes?.data?.topics?.map?.(topic => (
                     <TopicCard
                         key={topic.id}

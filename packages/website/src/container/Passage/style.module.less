@@ -2,15 +2,13 @@
     width: 100%;
 
     .passage {
-        width: calc(100vw - 400px);
         padding: 20px;
-        margin: 10px 0 10px 240px;
         color: var(--font-color);
 
         :global {
             .content {
                 max-width: 1000px;
-                margin-left: calc(50% - 500px);
+                margin: 0 auto;
                 padding: 20px;
                 border-radius: var(--border-radius-mid);
 
@@ -40,7 +38,7 @@
         display: none;
         color: var(--font-color);
 
-        @media (min-width: 1360px) {
+        &.display {
             display: block;
         }
     }

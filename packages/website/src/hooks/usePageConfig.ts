@@ -7,6 +7,7 @@
  */
 import React, {createContext, useContext} from 'react';
 import { IProps as LayoutProps } from '@/components/Layout';
+import { ResponsiveEnum } from './useResponsive';
 
 export interface IPageContext {
     title: string;
@@ -16,6 +17,8 @@ export interface IPageContext {
     loading?: boolean;
     rate?: number;
     theme?: string;
+    screenWidth?: number;
+    widthLevel?: ResponsiveEnum;
     setStates?: (
         payload: Partial<Omit<IPageConfig, 'setStates'>>,
         cb?: (states: Omit<IPageConfig, 'setStates'>) => void

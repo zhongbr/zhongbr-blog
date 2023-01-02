@@ -9,10 +9,10 @@ import React, { Suspense } from 'react';
 import { useRoutes } from 'react-router-dom';
 
 import routers from "@/config/routers";
-import { title as titleText, navLinks, titleLink } from '@/config/meta';
+import { navLinks, title as titleText, titleLink } from '@/config/meta';
 
-import { Layout, Icon, Splash, MessageProvider } from './components';
-import { PageConfigContext, IPageConfig, useStates, usePersistFn, useThemeManager } from './hooks';
+import { Icon, Layout, MessageProvider, Splash } from './components';
+import { IPageConfig, PageConfigContext, ResponsiveEnum, usePersistFn, useStates, useThemeManager, useResponsive } from './hooks';
 import { useScrollRate } from './animations';
 
 import "./app.less";
@@ -34,7 +34,9 @@ function App() {
         title: titleText,
         target: titleLink,
         loading: true,
-        theme: 'light-theme'
+        theme: 'light-theme',
+        widthLevel: ResponsiveEnum.normal,
+        screenWidth: window.innerWidth,
     });
 
     const setTheme = usePersistFn((theme: string) => {
@@ -42,13 +44,16 @@ function App() {
         setBodyTheme(theme);
     });
 
-    useThemeManager({
-        onThemeChange: setTheme
+    useThemeManager(setTheme);
+
+    useResponsive((level, width) => {
+        setStates({
+            widthLevel: level,
+            screenWidth: width
+        });
     });
-    console.log('theme2', states.theme);
 
     const onPageReady = usePersistFn(() => {
-        console.log('on page ready');
         setStates({
             loading: false
         });

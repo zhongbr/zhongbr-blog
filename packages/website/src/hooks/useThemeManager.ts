@@ -24,12 +24,7 @@ const onChangeTo = (theme: 'dark' | 'light', cb: () => void) => {
     };
 };
 
-export interface IOptions {
-    onThemeChange?: (theme: string) => void;
-}
-
-export default function useThemeManager(opt: IOptions) {
-    const { onThemeChange: onThemeChange_ = () => {} } = opt;
+export default function useThemeManager(onThemeChange_: (theme: string) => void) {
     const onThemeChange = usePersistFn(onThemeChange_);
 
     // 监听模式变化

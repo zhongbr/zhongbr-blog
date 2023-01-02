@@ -5,18 +5,23 @@
  * @LastEditors: 张盼宏
  * @LastEditTime: 2022-09-03 18:45:34
  */
-import React, { useMemo, useState } from "react";
+import React, {useMemo} from "react";
 import clsx from "clsx";
 
-import { Tag, Card, Icon } from '@/components';
-import { useEventListener, useDebounce, useNavigate, useTags } from '@/hooks';
-import { ICatalogue, IPassage } from "@/service/passage/catalogue";
-import { copy } from "@/utils/copy";
+import {Card, Icon, Tag} from '@/components';
+import {ResponsiveEnum, useNavigate, usePageConfig, useTags} from '@/hooks';
+import {ICatalogue, IPassage} from "@/service/passage/catalogue";
+import {copy} from "@/utils/copy";
 
 import styles from './style.module.less';
 
-const rowCount = 3;
 const maxWidth = 1416;
+const RowCountsMap = new Map([
+    [ResponsiveEnum.tiny, 1],
+    [ResponsiveEnum.mid, 2],
+    [ResponsiveEnum.normal, 3],
+    [ResponsiveEnum.large, 3]
+]);
 
 export interface Props {
     /** trigger when entry passage */
@@ -32,8 +37,9 @@ const Catalogue: React.FC<Props> = (props) => {
 
     const { onReplaceTags, onRemoveTag, onSelectTag, tags } = useTags();
 
-    const [screenWidth, setScreenWidth] = useState(window.innerWidth);
-    const passagesListWidth = Math.min(maxWidth, screenWidth);
+    const { screenWidth, widthLevel } = usePageConfig();
+    const rowCount = RowCountsMap.get(widthLevel || ResponsiveEnum.normal) || 3;
+    const passagesListWidth = Math.min(maxWidth, screenWidth || window.innerWidth);
     const cardWidth = Math.floor((passagesListWidth - 20 * 2 - 10 * (rowCount - 1) - 2 * rowCount) / rowCount);
 
     const passages = useMemo(() => {
@@ -48,10 +54,6 @@ const Catalogue: React.FC<Props> = (props) => {
     const onCopy = async (passage: IPassage) => {
         await copy(`${window.location.protocol}//${window.location.host}/#/passage/${passage['json-path']}`);
     };
-
-    useEventListener('resize', useDebounce(() => {
-        setScreenWidth(window.innerWidth);
-    }));
 
     return (
         <div className={styles.container} style={{ '--passages-list-width': `${passagesListWidth}px` } as React.CSSProperties}>
