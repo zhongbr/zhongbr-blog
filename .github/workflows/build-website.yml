@@ -57,4 +57,4 @@ jobs:
           publish_dir: build
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_branch: github-pages
-          cname: zhongbr.cn
+          cname: ${{ secrets.DOMAIN }}
