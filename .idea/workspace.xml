@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="27b3b0e5-1ac3-4b25-8173-a590bd44bf60" name="变更" comment="feat: 支持响应式布局">
+    <list default="true" id="27b3b0e5-1ac3-4b25-8173-a590bd44bf60" name="变更" comment="feat: 调整排序方式">
+      <change afterPath="$PROJECT_DIR$/posts/2023-01-03-浅谈Javascript模块化.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/container/Passage/components/Render/CodeBlock/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/container/Passage/components/Render/CodeBlock/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/md2json.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/md2json.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -177,8 +176,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="npm.start-website" />
         <item itemvalue="npm.build-markdown" />
+        <item itemvalue="npm.start-website" />
         <item itemvalue="npm.build-jsx-core" />
         <item itemvalue="npm.pack-umd" />
         <item itemvalue="npm.compile" />
@@ -208,14 +207,7 @@
       <workItem from="1672405508991" duration="40878000" />
       <workItem from="1672496848931" duration="29000" />
       <workItem from="1672496896543" duration="4180000" />
-      <workItem from="1672538124325" duration="79008000" />
-    </task>
-    <task id="LOCAL-00030" summary="feat: support use command to generate a npm to umd js">
-      <created>1662272899444</created>
-      <option name="number" value="00030" />
-      <option name="presentableId" value="LOCAL-00030" />
-      <option name="project" value="LOCAL" />
-      <updated>1662272899444</updated>
+      <workItem from="1672538124325" duration="80477000" />
     </task>
     <task id="LOCAL-00031" summary="feat: code transform">
       <created>1662286701967</created>
@@ -553,7 +545,14 @@
       <option name="project" value="LOCAL" />
       <updated>1672670139689</updated>
     </task>
-    <option name="localTasksCounter" value="79" />
+    <task id="LOCAL-00079" summary="feat: 调整排序方式">
+      <created>1672673056161</created>
+      <option name="number" value="00079" />
+      <option name="presentableId" value="LOCAL-00079" />
+      <option name="project" value="LOCAL" />
+      <updated>1672673056161</updated>
+    </task>
+    <option name="localTasksCounter" value="80" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -572,7 +571,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
-    <MESSAGE value="feat: change style of code block" />
     <MESSAGE value="feat: change github workflow" />
     <MESSAGE value="feat: change index page path" />
     <MESSAGE value="feat: fix workflow bug" />
@@ -597,7 +595,8 @@
     <MESSAGE value="feat: 修复bug" />
     <MESSAGE value="feat: 修复滚动条bug" />
     <MESSAGE value="feat: 支持响应式布局" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: 支持响应式布局" />
+    <MESSAGE value="feat: 调整排序方式" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: 调整排序方式" />
   </component>
   <component name="VgoProject">
     <integration-enabled>false</integration-enabled>
