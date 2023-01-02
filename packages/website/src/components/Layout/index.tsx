@@ -7,16 +7,15 @@
  */
 
 import React from "react";
-import clsx from 'clsx';
 
+import { useInitCopy } from '@/utils/copy';
 import Header, { IProps as HeaderProps } from './header';
+import Footer, { IProps as FooterProps } from './footer';
 import styles from './style.module.less';
 
 export interface IProps {
     /** website logo */
     logo?: React.ReactNode;
-    /** theme scope */
-    theme?: string;
     /** blog title */
     title?: React.ReactNode;
     /** nav links on header */
@@ -27,13 +26,17 @@ export interface IProps {
     rate?: number;
     /** content ref */
     contentRef?: React.LegacyRef<HTMLDivElement>;
+    /** footer */
+    footerProps?: FooterProps;
 }
 
 const Layout: React.FC<IProps> = (props) => {
-    const { title = 'react-press', theme = 'default-theme', navLinks, children, rate, contentRef } = props;
+    const { title = 'react-press', navLinks, children, rate, contentRef, footerProps } = props;
+
+    useInitCopy();
 
     return (
-        <div className={clsx([styles.layout, theme])}>
+        <div className={styles.layout}>
             <Header
                 title={title}
                 navLinks={navLinks}
@@ -44,6 +47,9 @@ const Layout: React.FC<IProps> = (props) => {
                 <div className={styles.content}>
                     {children}
                 </div>
+                {footerProps && (
+                    <Footer {...footerProps}/>
+                )}
             </div>
         </div>
     );

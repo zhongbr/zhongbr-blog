@@ -11,8 +11,8 @@ import { useRoutes } from 'react-router-dom';
 import routers from "@/config/routers";
 import { title as titleText, navLinks, titleLink } from '@/config/meta';
 
-import { Layout, Icon, Splash } from './components';
-import { PageConfigContext, IPageConfig, useStates, usePersistFn } from './hooks';
+import { Layout, Icon, Splash, MessageProvider } from './components';
+import { PageConfigContext, IPageConfig, useStates, usePersistFn, useDarkMode } from './hooks';
 import { useScrollRate } from './animations';
 
 import "./app.less";
@@ -20,8 +20,10 @@ import "./app.less";
 function App() {
     const element = useRoutes(routers);
 
+    const { setTheme } = useDarkMode();
+
     const { rate, ref } = useScrollRate<HTMLDivElement>(60);
-    const [states, setStates] = useStates<IPageConfig>({
+    const [states, setStates, resetStates] = useStates<IPageConfig>({
         title: titleText,
         target: titleLink,
         loading: true
@@ -44,21 +46,24 @@ function App() {
     const splash = <Splash texts="🚀🚀页面加载中..."/>;
 
     return (
-        <Layout
-            rate={rate}
-            title={title}
-            navLinks={navLinks}
-            contentRef={ref}
-        >
-            <PageConfigContext.Provider value={{ ...states, rate, scrollRef: ref, setStates, onPageReady }}>
-                <Suspense fallback={splash}>
-                    {states.loading && splash}
-                    <div style={{ display: states.loading ? 'none' : 'block' }}>
-                        {element}
-                    </div>
-                </Suspense>
-            </PageConfigContext.Provider>
-        </Layout>
+        <PageConfigContext.Provider value={{ ...states, rate, scrollRef: ref, setStates, resetStates, setTheme, onPageReady }}>
+            <MessageProvider>
+                <Layout
+                    rate={rate}
+                    title={title}
+                    navLinks={navLinks}
+                    contentRef={ref}
+                    footerProps={states.footer}
+                >
+                    <Suspense fallback={splash}>
+                        {states.loading && splash}
+                        <div style={{ display: states.loading ? 'none' : 'block' }}>
+                            {element}
+                        </div>
+                    </Suspense>
+                </Layout>
+            </MessageProvider>
+        </PageConfigContext.Provider>
     );
 }
 

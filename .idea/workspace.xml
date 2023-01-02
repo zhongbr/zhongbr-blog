@@ -4,19 +4,56 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="27b3b0e5-1ac3-4b25-8173-a590bd44bf60" name="变更" comment="feat: 增加封面图">
-      <change afterPath="$PROJECT_DIR$/packages/website/src/hooks/useDebounce.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/website/src/hooks/useEventListener.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/scripts/random.js" afterDir="false" />
+    <list default="true" id="27b3b0e5-1ac3-4b25-8173-a590bd44bf60" name="变更" comment="feat: 增加样式响应式计算">
+      <change afterPath="$PROJECT_DIR$/packages/website/src/components/Form/Switch/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/website/src/components/Form/Switch/style.module.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/website/src/components/Form/hooks/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/website/src/components/Form/hooks/usePropsStates.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/website/src/components/Form/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/website/src/components/Form/style/index.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/website/src/components/Layout/footer.module.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/website/src/components/Layout/footer.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/website/src/components/Message/Message.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/website/src/components/Message/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/website/src/components/Message/message.module.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/website/src/hooks/useDarkMode.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/react-press.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/react-press.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/components/Card/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/components/Card/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/app.less" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/app.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/components/Layout/header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/components/Layout/header.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/components/Layout/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/components/Layout/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/components/Layout/style.module.less" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/components/Layout/style.module.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/components/MathJax/jax.module.less" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/components/MathJax/jax.module.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/components/Splash/Loading/style.module.less" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/components/Splash/Loading/style.module.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/components/Splash/style.module.less" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/components/Splash/style.module.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/components/Tag/style.module.less" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/components/Tag/style.module.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/components/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/components/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/config/meta.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/config/meta.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/container/Passage/components/Render/BlockQuote/style.module.less" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/container/Passage/components/Render/BlockQuote/style.module.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/container/Passage/components/Render/CodeBlock/JsxBlock/index.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/container/Passage/components/Render/CodeBlock/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/container/Passage/components/Render/CodeBlock/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/container/Passage/components/Render/CodeBlock/style.module.less" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/container/Passage/components/Render/CodeBlock/style.module.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/container/Passage/components/Render/Paragraph/style.module.less" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/container/Passage/components/Render/Paragraph/style.module.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/container/Passage/components/Render/TableCell/style.module.less" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/container/Passage/components/Render/TableCell/style.module.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/container/Passage/components/Render/Yaml/style.module.less" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/container/Passage/components/Render/Yaml/style.module.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/container/Passage/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/container/Passage/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/packages/website/src/container/Passage/style.module.less" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/container/Passage/style.module.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/container/TagIndex/modules/Catalogue/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/container/TagIndex/modules/Catalogue/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/container/TagIndex/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/container/TagIndex/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/packages/website/src/container/TagIndex/modules/Catalogue/style.module.less" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/container/TagIndex/modules/Catalogue/style.module.less" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/packages/website/src/container/Topics/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/container/Topics/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/container/Topics/style.module.less" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/container/Topics/style.module.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/container/Topics/modules/Footer/index.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/container/Topics/modules/Footer/style.module.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/container/Topics/modules/TopicCard/card.module.less" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/container/Topics/modules/TopicCard/card.module.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/container/Topics/modules/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/container/Topics/modules/index.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/packages/website/src/hooks/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/hooks/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/md2json.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/md2json.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/hooks/useNavigate.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/hooks/useNavigate.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/hooks/usePageConfig.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/hooks/usePageConfig.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/hooks/useStates.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/hooks/useStates.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/index.less" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/index.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/styles/default-theme.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/utils/copy.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/utils/copy.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,9 +64,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="HTML File" />
+        <option value="JavaScript File" />
         <option value="TypeScript JSX File" />
         <option value="Less File" />
-        <option value="JavaScript File" />
         <option value="TypeScript File" />
       </list>
     </option>
@@ -94,7 +131,7 @@
     "go.import.settings.migrated": "true",
     "javascript.nodejs.core.library.configured.version": "14.17.4",
     "javascript.nodejs.core.library.typings.version": "14.17.4",
-    "last_opened_file_path": "/Users/zhangpanhong/Documents/zhongbr_projects/react-press/packages/website/src/container/Passage/components/Render",
+    "last_opened_file_path": "/Users/zhangpanhong/Documents/zhongbr_projects/react-press/packages/website/src/components/Layout",
     "list.type.of.created.stylesheet": "Less",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.standard": "true",
@@ -110,6 +147,7 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/packages/website/src/components/Layout" />
       <recent name="$PROJECT_DIR$/packages/website/src/container/Passage/components/Render" />
       <recent name="$PROJECT_DIR$/packages/umd-factory" />
     </key>
@@ -184,8 +222,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="npm.build-markdown" />
         <item itemvalue="npm.start-website" />
+        <item itemvalue="npm.build-markdown" />
         <item itemvalue="npm.build-jsx-core" />
         <item itemvalue="npm.pack-umd" />
         <item itemvalue="npm.compile" />
@@ -215,14 +253,7 @@
       <workItem from="1672405508991" duration="40878000" />
       <workItem from="1672496848931" duration="29000" />
       <workItem from="1672496896543" duration="4180000" />
-      <workItem from="1672538124325" duration="39936000" />
-    </task>
-    <task id="LOCAL-00020" summary="feat: modify path">
-      <created>1662220913390</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1662220913390</updated>
+      <workItem from="1672538124325" duration="58989000" />
     </task>
     <task id="LOCAL-00021" summary="feat: modify path">
       <created>1662220944650</created>
@@ -560,7 +591,14 @@
       <option name="project" value="LOCAL" />
       <updated>1672584939432</updated>
     </task>
-    <option name="localTasksCounter" value="69" />
+    <task id="LOCAL-00069" summary="feat: 增加样式响应式计算">
+      <created>1672591454446</created>
+      <option name="number" value="00069" />
+      <option name="presentableId" value="LOCAL-00069" />
+      <option name="project" value="LOCAL" />
+      <updated>1672591454446</updated>
+    </task>
+    <option name="localTasksCounter" value="70" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -601,7 +639,8 @@
     <MESSAGE value="feat: 增加首页栏目" />
     <MESSAGE value="feat: 优化 splash" />
     <MESSAGE value="feat: 增加封面图" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: 增加封面图" />
+    <MESSAGE value="feat: 增加样式响应式计算" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: 增加样式响应式计算" />
   </component>
   <component name="VgoProject">
     <integration-enabled>false</integration-enabled>

@@ -32,7 +32,12 @@ const Passage = () => {
 
     useEffect(() => {
         setStates?.({
-            title: res?.data?.catalogue?.title
+            title: res?.data?.catalogue?.title,
+            footer: {
+                showICP: false,
+                showCopyRight: true,
+                showPublicSecurity: false
+            }
         });
     }, [setStates, res?.data?.catalogue?.title]);
 

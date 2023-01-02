@@ -22,7 +22,12 @@ const Index = () => {
 
     useEffect(() => {
         setStates?.({
-            title
+            title,
+            footer: {
+                showICP: true,
+                showCopyRight: true,
+                showPublicSecurity: true
+            }
         });
     }, [setStates]);
 

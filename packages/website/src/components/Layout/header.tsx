@@ -8,7 +8,9 @@
 import React, {useMemo} from 'react';
 import clsx from 'clsx';
 
-import { useNavigate } from '@/hooks';
+import { useNavigate, usePageConfig } from '@/hooks';
+
+import { Switch, ISwitchProps } from '../Form';
 
 import styles from './style.module.less';
 
@@ -32,10 +34,18 @@ const Header: React.FC<IProps> = (props) => {
     }, [navLinks]);
 
     const navigator = useNavigate();
+    const { setTheme } = usePageConfig();
 
     const onNavigate = (target: string) => {
-        console.log('nav', target);
         navigator(target);
+    };
+
+    const onChangeTheme: ISwitchProps['onChange'] = (value) => {
+        if (value) {
+            setTheme?.('dark-theme');
+            return;
+        }
+        setTheme?.('light-theme');
     };
 
     return (
@@ -59,6 +69,11 @@ const Header: React.FC<IProps> = (props) => {
                             <span>{name}</span>
                         </div>
                     ))}
+                    <Switch
+                        onChange={onChangeTheme}
+                        onContent={<span>dark mode</span>}
+                        offContent={<span>light mode</span>}
+                    />
                 </div>
             </div>
             <div

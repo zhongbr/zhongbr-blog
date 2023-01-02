@@ -25,4 +25,4 @@ export const ICP = '鄂ICP备19008487号-1';
 export const PublicSecurity = '鄂公网安备42011102003165号';
 export const PublicSecurityNo = '42011102003165';
 /** 版权信息 */
-export const AuthorCopyRight = 'Zhongbr';
+export const AuthorCopyRight = 'Zhongbr\'s Blog 钟摆人的部落格';

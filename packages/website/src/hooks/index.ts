@@ -24,3 +24,5 @@ export { default as useTags } from './useTags';
 export { default as useEventListener } from './useEventListener';
 
 export { default as useDebounce } from './useDebounce';
+
+export { default as useDarkMode } from './useDarkMode';

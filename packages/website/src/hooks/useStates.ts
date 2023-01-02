@@ -12,7 +12,9 @@ export type Dispatch<T> = (
     cb?: (states: T) => void
 ) => void;
 
-export default function useStates<T>(initStates: T): [T, Dispatch<T>] {
+export type SetStatesRes<T> = [T, Dispatch<T>, () => void];
+
+export default function useStates<T>(initStates: T): SetStatesRes<T> {
     const cbMap = useRef<Map<string, ((states: T) => void) | undefined>>(new Map());
 
     const [states, dispatch] = useReducer((states: T, payload: { data: Partial<T>; id: string; }) => {
@@ -39,5 +41,5 @@ export default function useStates<T>(initStates: T): [T, Dispatch<T>] {
         cbMap.current.set(id, cb);
     }, [dispatch]);
 
-    return [states, setStates];
+    return [states, setStates, () => setStates(initStates)];
 }
