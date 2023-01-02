@@ -6,7 +6,6 @@
  * @LastEditTime: 2022-09-03 18:45:34
  */
 import React, { useMemo, useState } from "react";
-import Button from "@mui/material/Button";
 import clsx from "clsx";
 
 import { Tag, Card, Icon } from '@/components';
@@ -66,9 +65,9 @@ const Catalogue: React.FC<Props> = (props) => {
                             {tag}
                         </Tag>
                     ))}
-                    <Button size="small" color="primary" onClick={() => onReplaceTags([])}>
+                    <Tag hideIcon onClick={() => onReplaceTags([])}>
                         清除
-                    </Button>
+                    </Tag>
                 </div>
             )}
 

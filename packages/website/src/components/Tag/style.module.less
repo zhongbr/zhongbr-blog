@@ -1,11 +1,18 @@
 .tag {
+    display: inline-block;
     cursor: pointer;
     border-radius: var(--border-radius-mid);
-    font-size: 12px;
+    font-size: 14px;
     min-width: 60px;
-    text-align: center;
+    padding: 8px;
 
-    &:hover {
-        text-decoration: underline;
+    &[data-selected=true] {
+        border: var(--border-color) 1px solid;
+    }
+
+    &> div {
+        display: flex;
+        align-items: center;
+        gap: 8px;
     }
 }

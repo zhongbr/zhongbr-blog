@@ -7,13 +7,14 @@
  */
 import clsx from 'clsx';
 import styles from './style.module.less';
+import React from "react";
 
 export interface IProps {
     /** icon font class name */
     className: string;
     text?: string;
     textClassName?: string;
-    onClick?: () => void;
+    onClick?: (e: React.MouseEvent) => void;
 }
 
 export default function Icon(props: IProps) {

@@ -7,8 +7,6 @@
  */
 import React from 'react';
 import clsx from 'clsx';
-import Button from "@mui/material/Button";
-import ClearTwoToneIcon from '@mui/icons-material/ClearTwoTone';
 
 import Icon from '@/components/Icon';
 
@@ -20,11 +18,12 @@ export interface IProps {
     onClick?: () => void;
     selected?: boolean;
     onRemove?: () => void;
+    hideIcon?: boolean;
 }
 
 
 export default React.forwardRef<any, IProps>((props, ref) => {
-    const { children, className, selected, onClick, onRemove } = props;
+    const { children, className, selected, hideIcon, onClick, onRemove } = props;
 
     const remove = (e: React.MouseEvent) => {
         e.stopPropagation();
@@ -32,16 +31,20 @@ export default React.forwardRef<any, IProps>((props, ref) => {
     };
 
     return (
-        <Button
-            ref={ref}
+        <div
+            data-selected={selected}
             className={clsx([styles.tag, className])}
-            size="medium"
-            variant={selected ? 'outlined' : undefined}
-            startIcon={<Icon className="rp-biaoqian"/>}
-            endIcon={selected ? <ClearTwoToneIcon onClick={remove}/> : undefined}
             onClick={onClick}
         >
-            {children}
-        </Button>
+            <div>
+                {!hideIcon && (
+                    <Icon className="rp-biaoqian"/>
+                )}
+                {children}
+                {selected && (
+                    <Icon className="rp-guanbi" onClick={remove}/>
+                )}
+            </div>
+        </div>
     );
 });

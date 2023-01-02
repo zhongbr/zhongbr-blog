@@ -29,7 +29,7 @@ const Switch: React.FC<IProps> = props => {
     return (
         <div
             onClick={onClick}
-            className={clsx(size, styles.switch)}
+            className={clsx(size, styles.switch, 'blur')}
             data-value={states.value || false}
         >
             {states.value && onContent}
