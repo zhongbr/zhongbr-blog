@@ -4,12 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="27b3b0e5-1ac3-4b25-8173-a590bd44bf60" name="变更" comment="feat: 删除 mui 依赖">
-      <change afterPath="$PROJECT_DIR$/img.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.github/workflows/build-posts.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/build-posts.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.github/workflows/build-website.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/build-website.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+    <list default="true" id="27b3b0e5-1ac3-4b25-8173-a590bd44bf60" name="变更" comment="feat: 修改readme">
+      <change beforePath="$PROJECT_DIR$/posts/2022-08-25-移动端h5开发常见问题.md" beforeDir="false" afterPath="$PROJECT_DIR$/posts/2022-08-25-移动端h5开发常见问题.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -209,14 +205,7 @@
       <workItem from="1672405508991" duration="40878000" />
       <workItem from="1672496848931" duration="29000" />
       <workItem from="1672496896543" duration="4180000" />
-      <workItem from="1672538124325" duration="65020000" />
-    </task>
-    <task id="LOCAL-00024" summary="feat: modify path">
-      <created>1662221474038</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
-      <option name="project" value="LOCAL" />
-      <updated>1662221474038</updated>
+      <workItem from="1672538124325" duration="65197000" />
     </task>
     <task id="LOCAL-00025" summary="feat: modify path">
       <created>1662221646204</created>
@@ -554,7 +543,14 @@
       <option name="project" value="LOCAL" />
       <updated>1672647622588</updated>
     </task>
-    <option name="localTasksCounter" value="73" />
+    <task id="LOCAL-00073" summary="feat: 修改readme">
+      <created>1672654237097</created>
+      <option name="number" value="00073" />
+      <option name="presentableId" value="LOCAL-00073" />
+      <option name="project" value="LOCAL" />
+      <updated>1672654237097</updated>
+    </task>
+    <option name="localTasksCounter" value="74" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -573,7 +569,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
-    <MESSAGE value="feat: add resources" />
     <MESSAGE value="feat: change styles" />
     <MESSAGE value="feat: add code block component" />
     <MESSAGE value="feat: change the dir structure" />
@@ -598,7 +593,8 @@
     <MESSAGE value="feat: 增加样式响应式计算" />
     <MESSAGE value="feat: 增加主题切换" />
     <MESSAGE value="feat: 删除 mui 依赖" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: 删除 mui 依赖" />
+    <MESSAGE value="feat: 修改readme" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: 修改readme" />
   </component>
   <component name="VgoProject">
     <integration-enabled>false</integration-enabled>
