@@ -4,19 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="27b3b0e5-1ac3-4b25-8173-a590bd44bf60" name="变更" comment="feat: 修复滚动条bug">
-      <change afterPath="$PROJECT_DIR$/packages/website/src/hooks/useResponsive.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/components/Layout/header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/components/Layout/header.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/components/Layout/style.module.less" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/components/Layout/style.module.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/container/Passage/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/container/Passage/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/container/Passage/style.module.less" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/container/Passage/style.module.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/container/TagIndex/modules/Catalogue/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/container/TagIndex/modules/Catalogue/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/container/Topics/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/container/Topics/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/hooks/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/hooks/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/hooks/usePageConfig.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/hooks/usePageConfig.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/hooks/useThemeManager.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/hooks/useThemeManager.ts" afterDir="false" />
+    <list default="true" id="27b3b0e5-1ac3-4b25-8173-a590bd44bf60" name="变更" comment="feat: 支持响应式布局">
+      <change beforePath="$PROJECT_DIR$/packages/website/src/hooks/useResponsive.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/hooks/useResponsive.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -216,14 +205,7 @@
       <workItem from="1672405508991" duration="40878000" />
       <workItem from="1672496848931" duration="29000" />
       <workItem from="1672496896543" duration="4180000" />
-      <workItem from="1672538124325" duration="76831000" />
-    </task>
-    <task id="LOCAL-00028" summary="feat: modify path">
-      <created>1662222181549</created>
-      <option name="number" value="00028" />
-      <option name="presentableId" value="LOCAL-00028" />
-      <option name="project" value="LOCAL" />
-      <updated>1662222181549</updated>
+      <workItem from="1672538124325" duration="77280000" />
     </task>
     <task id="LOCAL-00029" summary="feat: modify path">
       <created>1662222301985</created>
@@ -561,7 +543,14 @@
       <option name="project" value="LOCAL" />
       <updated>1672664305876</updated>
     </task>
-    <option name="localTasksCounter" value="77" />
+    <task id="LOCAL-00077" summary="feat: 支持响应式布局">
+      <created>1672669670884</created>
+      <option name="number" value="00077" />
+      <option name="presentableId" value="LOCAL-00077" />
+      <option name="project" value="LOCAL" />
+      <updated>1672669670884</updated>
+    </task>
+    <option name="localTasksCounter" value="78" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -580,7 +569,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
-    <MESSAGE value="feat: change the dir structure" />
     <MESSAGE value="feat: change style of code block" />
     <MESSAGE value="feat: change github workflow" />
     <MESSAGE value="feat: change index page path" />
@@ -605,7 +593,8 @@
     <MESSAGE value="feat: 修改readme" />
     <MESSAGE value="feat: 修复bug" />
     <MESSAGE value="feat: 修复滚动条bug" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: 修复滚动条bug" />
+    <MESSAGE value="feat: 支持响应式布局" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: 支持响应式布局" />
   </component>
   <component name="VgoProject">
     <integration-enabled>false</integration-enabled>

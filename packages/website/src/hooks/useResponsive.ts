@@ -1,5 +1,7 @@
+import { useEffect } from 'react';
 import useEventListener from './useEventListener';
 import useDebounce from "./useDebounce";
+import usePersistFn from "./useDebounce";
 
 export enum ResponsiveEnum {
     /** 极窄：屏幕宽度小于 800px */
@@ -17,8 +19,7 @@ export enum ResponsiveEnum {
  * @param onLevelChange
  */
 export default function useResponsive(onLevelChange: (level: ResponsiveEnum, width: number) => void) {
-    useEventListener('resize', useDebounce(() => {
-        const width = window.innerWidth;
+    const responsive = usePersistFn((width: number) => {
         let level = ResponsiveEnum.large;
         if (width <= 800) {
             level = ResponsiveEnum.tiny;
@@ -30,5 +31,13 @@ export default function useResponsive(onLevelChange: (level: ResponsiveEnum, wid
             level = ResponsiveEnum.normal;
         }
         onLevelChange(level, width);
+    });
+
+    useEventListener('resize', useDebounce(() => {
+        responsive(window.innerWidth);
     }));
+
+    useEffect(() => {
+        responsive(window.innerWidth);
+    }, [responsive]);
 }
