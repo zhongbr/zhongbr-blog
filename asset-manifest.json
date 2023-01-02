@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/static/css/main.2c9e26c6.css",
-    "main.js": "/static/js/main.ace80f14.js",
-    "static/css/7185.54ab3ddb.chunk.css": "/static/css/7185.54ab3ddb.chunk.css",
-    "static/js/7185.d4626d03.chunk.js": "/static/js/7185.d4626d03.chunk.js",
-    "static/css/2802.8f768b84.chunk.css": "/static/css/2802.8f768b84.chunk.css",
-    "static/js/2802.f2f51d21.chunk.js": "/static/js/2802.f2f51d21.chunk.js",
-    "static/css/4208.4497666d.chunk.css": "/static/css/4208.4497666d.chunk.css",
-    "static/js/4208.14df20be.chunk.js": "/static/js/4208.14df20be.chunk.js",
-    "static/css/8695.e6f750a4.chunk.css": "/static/css/8695.e6f750a4.chunk.css",
-    "static/js/8695.df675eb8.chunk.js": "/static/js/8695.df675eb8.chunk.js",
+    "main.css": "/static/css/main.8957d08c.css",
+    "main.js": "/static/js/main.dcd05586.js",
+    "static/css/4445.6ac32be5.chunk.css": "/static/css/4445.6ac32be5.chunk.css",
+    "static/js/4445.627ad587.chunk.js": "/static/js/4445.627ad587.chunk.js",
+    "static/css/2802.e7818a32.chunk.css": "/static/css/2802.e7818a32.chunk.css",
+    "static/js/2802.2e7b5b33.chunk.js": "/static/js/2802.2e7b5b33.chunk.js",
+    "static/css/4208.ed480ab0.chunk.css": "/static/css/4208.ed480ab0.chunk.css",
+    "static/js/4208.098cbe88.chunk.js": "/static/js/4208.098cbe88.chunk.js",
+    "static/css/8695.2d4cab30.chunk.css": "/static/css/8695.2d4cab30.chunk.css",
+    "static/js/8695.2f4c62e2.chunk.js": "/static/js/8695.2f4c62e2.chunk.js",
     "static/js/9086.5326de4a.chunk.js": "/static/js/9086.5326de4a.chunk.js",
     "react-syntax-highlighter/refractor-core-import.js": "/static/js/react-syntax-highlighter/refractor-core-import.f5f94d4f.chunk.js",
     "react-syntax-highlighter_languages_refractor_abap.js": "/static/js/react-syntax-highlighter_languages_refractor_abap.5787d2be.chunk.js",
@@ -164,13 +164,12 @@
     "react-syntax-highlighter_languages_refractor_xquery.js": "/static/js/react-syntax-highlighter_languages_refractor_xquery.5ff72b0d.chunk.js",
     "react-syntax-highlighter_languages_refractor_yaml.js": "/static/js/react-syntax-highlighter_languages_refractor_yaml.9516974b.chunk.js",
     "static/js/902.1ddd541c.chunk.js": "/static/js/902.1ddd541c.chunk.js",
-    "static/js/3168.4d9199f4.chunk.js": "/static/js/3168.4d9199f4.chunk.js",
-    "static/js/9829.f902958a.chunk.js": "/static/js/9829.f902958a.chunk.js",
-    "static/js/8804.32de8550.chunk.js": "/static/js/8804.32de8550.chunk.js",
+    "static/js/2004.6071eca7.chunk.js": "/static/js/2004.6071eca7.chunk.js",
+    "static/js/5418.83d6fbb6.chunk.js": "/static/js/5418.83d6fbb6.chunk.js",
     "index.html": "/index.html"
   },
   "entrypoints": [
-    "static/css/main.2c9e26c6.css",
-    "static/js/main.ace80f14.js"
+    "static/css/main.8957d08c.css",
+    "static/js/main.dcd05586.js"
   ]
 }
