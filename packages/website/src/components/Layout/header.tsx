@@ -34,7 +34,8 @@ const Header: React.FC<IProps> = (props) => {
     }, [navLinks]);
 
     const navigator = useNavigate();
-    const { setTheme } = usePageConfig();
+    const { setTheme, theme } = usePageConfig();
+    console.log('theme3', theme);
 
     const onNavigate = (target: string) => {
         navigator(target);
@@ -70,6 +71,7 @@ const Header: React.FC<IProps> = (props) => {
                         </div>
                     ))}
                     <Switch
+                        value={theme === 'dark-theme'}
                         onChange={onChangeTheme}
                         onContent={<span>dark mode</span>}
                         offContent={<span>light mode</span>}

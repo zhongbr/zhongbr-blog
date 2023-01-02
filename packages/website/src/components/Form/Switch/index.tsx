@@ -13,8 +13,10 @@ export interface IProps {
 }
 
 const Switch: React.FC<IProps> = props => {
-    const { value, disabled, onChange, onContent, offContent, size } = props;
+    const { value = false, disabled, onChange, onContent, offContent, size } = props;
     const [states, setStates] = usePropsStates({ value });
+
+    console.log('states', JSON.stringify(states));
 
     const onClick = () => {
         if (disabled) {
@@ -30,7 +32,7 @@ const Switch: React.FC<IProps> = props => {
         <div
             onClick={onClick}
             className={clsx(size, styles.switch, 'blur')}
-            data-value={states.value || false}
+            data-value={states.value}
         >
             {states.value && onContent}
             {!states.value && offContent}

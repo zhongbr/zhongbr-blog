@@ -12,22 +12,40 @@ import routers from "@/config/routers";
 import { title as titleText, navLinks, titleLink } from '@/config/meta';
 
 import { Layout, Icon, Splash, MessageProvider } from './components';
-import { PageConfigContext, IPageConfig, useStates, usePersistFn, useDarkMode } from './hooks';
+import { PageConfigContext, IPageConfig, useStates, usePersistFn, useThemeManager } from './hooks';
 import { useScrollRate } from './animations';
 
 import "./app.less";
 
+const setBodyTheme = (theme: string) => {
+    document.body.classList.forEach((className) => {
+        if (className.endsWith('-theme')) {
+            document.body.classList.remove(className);
+        }
+    });
+    document.body.classList.add(theme);
+};
+
 function App() {
     const element = useRoutes(routers);
-
-    const { setTheme, theme } = useDarkMode();
 
     const { rate, ref } = useScrollRate<HTMLDivElement>(60);
     const [states, setStates, resetStates] = useStates<IPageConfig>({
         title: titleText,
         target: titleLink,
-        loading: true
+        loading: true,
+        theme: 'light-theme'
     });
+
+    const setTheme = usePersistFn((theme: string) => {
+        setStates({ theme });
+        setBodyTheme(theme);
+    });
+
+    useThemeManager({
+        onThemeChange: setTheme
+    });
+    console.log('theme2', states.theme);
 
     const onPageReady = usePersistFn(() => {
         console.log('on page ready');
@@ -46,7 +64,7 @@ function App() {
     const splash = <Splash texts="🚀🚀页面加载中..."/>;
 
     return (
-        <PageConfigContext.Provider value={{ ...states, theme, rate, scrollRef: ref, setStates, resetStates, setTheme, onPageReady }}>
+        <PageConfigContext.Provider value={{ ...states, rate, scrollRef: ref, setStates, resetStates, setTheme, onPageReady }}>
             <MessageProvider>
                 <Layout
                     rate={rate}
