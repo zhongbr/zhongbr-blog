@@ -40,6 +40,7 @@ const CodeBlock: React.FC<IBaseProps> = (props) => {
                     backgroundColor: 'transparent'
                 }}
                 wrapLongLines
+                codeBlock
             />
             {node.lang && (
                 <div className={styles.footer}>

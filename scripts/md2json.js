@@ -105,6 +105,9 @@ async function startCompile() {
 
     // start compile markdown files
     const files = await readdir(markdownFilesPath);
+    files.sort((f1, f2) => {
+        return new Date(f2.slice(0, 10)) - new Date(f1.slice(0, 10));
+    });
     for (const file of files) {
         console.log('->', file);
         if (!file.endsWith('.md')) {
