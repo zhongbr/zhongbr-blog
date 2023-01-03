@@ -50,7 +50,7 @@ const MessageProvider: React.FC<IMessageContext & { children: React.ReactNode; }
     const showMessages = useRef<Array<IMessage>>([]);
 
     // 通知消息显示
-    const alive = () => {
+    const onNextMessage = () => {
         while (showMessages.current.length < maxMessageCount && messagesQueue.current.length) {
             // 从消息队列取出一个消息
             const message = messagesQueue.current.shift();
@@ -61,7 +61,7 @@ const MessageProvider: React.FC<IMessageContext & { children: React.ReactNode; }
                     // 关闭当前的消息
                     message.close?.();
                     // 通知显示下一个消息
-                    alive();
+                    onNextMessage();
                 }, duration);
                 setMessages([...showMessages.current]);
             }
@@ -81,7 +81,7 @@ const MessageProvider: React.FC<IMessageContext & { children: React.ReactNode; }
                     resolve();
                 }
             });
-            alive();
+            onNextMessage();
         })
     });
 
