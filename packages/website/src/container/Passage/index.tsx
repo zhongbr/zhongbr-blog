@@ -22,7 +22,7 @@ type IPageParam = Record<'path', string | undefined>;
 
 const Passage = () => {
     const { setStates, rate = 0, onPageReady, widthLevel } = usePageConfig();
-    const { path } = useParams<IPageParam>();
+    const { path: path_ } = useParams<IPageParam>();
 
     const [fetchPassage, res] = useAsyncFn(passage.passage);
     const [sketch, setSketch] = useState<Title[]>([]);
@@ -42,9 +42,10 @@ const Passage = () => {
     }, [setStates, res?.data?.catalogue?.title]);
 
     useAsyncEffect(async () => {
-        if (!path) {
+        if (!path_) {
             return;
         }
+        const path = decodeURIComponent(path_);
         const [res, catalogue] = await Promise.all([
             fetchPassage({ path }),
             passage.catalogue()
@@ -57,7 +58,7 @@ const Passage = () => {
         setSketch(sketch);
         // show page
         onPageReady?.();
-    }, [fetchPassage, path]);
+    }, [fetchPassage, path_]);
 
     return (
         <div className={styles.passageContainer}>

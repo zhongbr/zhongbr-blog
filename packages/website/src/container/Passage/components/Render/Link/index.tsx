@@ -7,12 +7,15 @@
  */
 import React from 'react';
 import { IBaseProps } from '@/types/markdown';
+import { staticResourceUrl } from "../../../utils/static-resource-url";
 
 const Link: React.FC<IBaseProps> = (props) => {
     const { node, children } = props;
 
+    const url = staticResourceUrl(node.url);
+
     return (
-        <a id={node.key} href={node.url}>{children}</a>
+        <a id={node.key} href={url}>{children}</a>
     );
 };
 

@@ -1,3 +1,8 @@
+const path = require('path');
+const fs = require('fs');
+const utils = require('./utils');
+const { markdownFilesPath } = require('../../config/paths');
+
 /**
  * 随机返回数组内的一个元素
  * @returns {*}
@@ -45,7 +50,41 @@ function randomEmojiIcon() {
     return emojiPools.random();
 }
 
+async function parse(filePath, ast) {
+    const filename = path.basename(filePath);
+    const date = filename.match(/20(?:-?\d{2}){3}/)?.[0];
+    const title = filename
+        // 去掉文件名开头的日期
+        .replace(/\.md$/, '').replace(/20(\d{2}-){3}/, '')
+        // 去掉文件中哈希值
+        .replace(/[0-9a-e]{10}[0-9a-f]*/, '')
+        .trim();
+    const children = ast?.children || [];
+    const ymlChild = children?.[0];
+    const jsonPath = filePath.replace(/\.md$/, '.json').replace(/^\.\//, '');
+
+    if (ymlChild?.type !== 'Yaml') {
+        return {
+            title,
+            'json-path': jsonPath,
+            mdate: (await new Promise(resolve => fs.stat(path.join(markdownFilesPath, filename), resolve))).mdate,
+            cover: randomCoverImage(),
+            icon: randomEmojiIcon(),
+            tags: ['无标签']
+        };
+    }
+
+    const doc = await utils.readYaml(ymlChild?.value);
+    return {
+        title,
+        'json-path': jsonPath,
+        mdate: date,
+        cover: randomCoverImage(),
+        icon: randomEmojiIcon(),
+        ...doc
+    };
+}
+
 module.exports = {
-    randomEmojiIcon,
-    randomCoverImage
+    parse
 };

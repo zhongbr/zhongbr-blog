@@ -48,11 +48,11 @@ const Catalogue: React.FC<Props> = (props) => {
 
     const onOpenPassage = (passage: IPassage) => {
         onEnterPassage?.(passage);
-        navigator(`/passage/${passage['json-path']}`);
+        navigator(`/passage/${encodeURIComponent(passage['json-path'])}`);
     };
 
     const onCopy = async (passage: IPassage) => {
-        await copy(`${window.location.protocol}//${window.location.host}/#/passage/${passage['json-path']}`);
+        await copy(`${window.location.protocol}//${window.location.host}/#/passage/${encodeURIComponent(passage['json-path'])}`);
     };
 
     return (

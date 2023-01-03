@@ -1,0 +1,4 @@
+﻿Name,Tags,Date
+CommonJS(exports/require),"exports, module.exports, require",
+ESM(import/export),"exports, import",
+AMD(define/require),"define, require",

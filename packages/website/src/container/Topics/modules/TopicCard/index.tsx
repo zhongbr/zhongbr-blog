@@ -18,7 +18,7 @@ const TopicCard: React.FC<ITopic> = props => {
     const navigate = useNavigate();
 
     const onOpenPassage = (passage: IPassage) => {
-        navigate(`/passage/${passage['json-path']}`);
+        navigate(`/passage/${encodeURIComponent(passage['json-path'])}`);
     };
 
     return (
