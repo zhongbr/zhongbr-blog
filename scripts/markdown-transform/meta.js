@@ -52,6 +52,7 @@ function randomEmojiIcon() {
 
 async function parse(filePath, ast) {
     const filename = path.basename(filePath);
+    // 尝试匹配发布日期
     const date = filename.match(/20(?:-?\d{2}){3}/)?.[0];
     const title = filename
         // 去掉文件名开头的日期
@@ -63,6 +64,7 @@ async function parse(filePath, ast) {
     const ymlChild = children?.[0];
     const jsonPath = filePath.replace(/\.md$/, '.json').replace(/^\.\//, '');
 
+    // 没有设置元数据的文章默认不显示
     if (ymlChild?.type !== 'Yaml') {
         return {
             title,
@@ -70,7 +72,8 @@ async function parse(filePath, ast) {
             mdate: (await new Promise(resolve => fs.stat(path.join(markdownFilesPath, filename), resolve))).mdate,
             cover: randomCoverImage(),
             icon: randomEmojiIcon(),
-            tags: ['无标签']
+            tags: ['无标签'],
+            visible: false
         };
     }
 
@@ -81,6 +84,7 @@ async function parse(filePath, ast) {
         mdate: date,
         cover: randomCoverImage(),
         icon: randomEmojiIcon(),
+        visible: true,
         ...doc
     };
 }

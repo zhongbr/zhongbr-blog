@@ -17,6 +17,7 @@ export interface IPassage {
     'json-path': string;
     cover: string;
     icon: string;
+    visible: boolean;
 }
 
 export interface ICatalogue {

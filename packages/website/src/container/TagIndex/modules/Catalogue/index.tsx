@@ -43,7 +43,8 @@ const Catalogue: React.FC<Props> = (props) => {
     const cardWidth = Math.floor((passagesListWidth - 20 * 2 - 10 * (rowCount - 1) - 2 * rowCount) / rowCount);
 
     const passages = useMemo(() => {
-        return Object.values(catalogue || {});
+        // 过滤掉不显示的文章
+        return Object.values(catalogue || {}).filter(passage => passage.visible);
     }, [catalogue]);
 
     const onOpenPassage = (passage: IPassage) => {
