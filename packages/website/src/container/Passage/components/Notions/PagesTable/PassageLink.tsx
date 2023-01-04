@@ -45,7 +45,10 @@ const PassageLink: React.FC<IProps> = props => {
     return (
         <span style={{ cursor: 'pointer', display: 'flex', gap: '8px', alignItems: 'center' }} onClick={onOpenPassage}>
             <Icon className="rp-dingdanbianji" />
-            {passage?.title || keyword_}
+            <span>文章</span>
+            <span>
+                {passage?.title || keyword_}
+            </span>
         </span>
     );
 };

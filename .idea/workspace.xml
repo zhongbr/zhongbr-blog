@@ -4,12 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="27b3b0e5-1ac3-4b25-8173-a590bd44bf60" name="变更" comment="feat: 支持渲染 Notion 到处的 csv">
+    <list default="true" id="27b3b0e5-1ac3-4b25-8173-a590bd44bf60" name="变更" comment="feat: 修改文章">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/container/TagIndex/modules/Catalogue/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/container/TagIndex/modules/Catalogue/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/service/passage/catalogue.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/service/passage/catalogue.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/posts/JS模块化/模块化规范 819d6c57d4154f94bdf0781db857fdb7.md" beforeDir="false" afterPath="$PROJECT_DIR$/posts/JS模块化/2023-01-03-模块化规范 819d6c57d4154f94bdf0781db857fdb7.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/markdown-transform/meta.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/markdown-transform/meta.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/container/Passage/components/Notions/PagesTable/PassageLink.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/container/Passage/components/Notions/PagesTable/PassageLink.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -218,13 +215,6 @@
       <workItem from="1672496848931" duration="29000" />
       <workItem from="1672496896543" duration="4180000" />
       <workItem from="1672538124325" duration="80477000" />
-    </task>
-    <task id="LOCAL-00034" summary="feat: code transform">
-      <created>1662818121114</created>
-      <option name="number" value="00034" />
-      <option name="presentableId" value="LOCAL-00034" />
-      <option name="project" value="LOCAL" />
-      <updated>1662818121114</updated>
     </task>
     <task id="LOCAL-00035" summary="feat: code transform">
       <created>1671637953195</created>
@@ -562,7 +552,14 @@
       <option name="project" value="LOCAL" />
       <updated>1672824143912</updated>
     </task>
-    <option name="localTasksCounter" value="83" />
+    <task id="LOCAL-00083" summary="feat: 修改文章">
+      <created>1672829598594</created>
+      <option name="number" value="00083" />
+      <option name="presentableId" value="LOCAL-00083" />
+      <option name="project" value="LOCAL" />
+      <updated>1672829598594</updated>
+    </task>
+    <option name="localTasksCounter" value="84" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -581,7 +578,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
-    <MESSAGE value="feat: test commit" />
     <MESSAGE value="feat: modify path" />
     <MESSAGE value="feat: support use command to generate a npm to umd js" />
     <MESSAGE value="feat: code transform" />
@@ -606,7 +602,8 @@
     <MESSAGE value="feat: 增加文章" />
     <MESSAGE value="feat: posts 目录内支持解析不在顶层的 markdown" />
     <MESSAGE value="feat: 支持渲染 Notion 到处的 csv" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: 支持渲染 Notion 到处的 csv" />
+    <MESSAGE value="feat: 修改文章" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: 修改文章" />
   </component>
   <component name="VgoProject">
     <integration-enabled>false</integration-enabled>
