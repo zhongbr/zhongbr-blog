@@ -5,7 +5,7 @@ on:
       - main
     paths:
       - 'posts/**'
-      - 'scripts/md2json.js'
+      - 'scripts/markdown-transform/**/*'
       - 'config/**/*.js'
 permissions:
   contents: write

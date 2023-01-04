@@ -3,6 +3,10 @@ const path = require('path');
 const { markdownFilesPath } = require('../../config/paths');
 const utils = require('./utils');
 
+const compareMeta = ({ mdate: m1 }, { mdate: m2 }) => {
+    return new Date(m2) - new Date(m1);
+};
+
 let topicsJson;
 let topicsTagsIndexes;
 const newestTopicNum = 10;
@@ -42,15 +46,22 @@ function attachPostMetas(metas) {
             }
         })
     }
+    // 如果文章有设置推荐，则加入对应的栏目
+    if (metas.recommend && topicsTagsIndexes[metas.recommend]) {
+        topicsTagsIndexes[metas.recommend].passages = topicsTagsIndexes[metas.recommend].passages || [];
+        topicsTagsIndexes[metas.recommend].passages.push(metas);
+    }
     // 根据 meta 内的 mdate 排序，只保存前 newestTopicsCount 篇文章
     newestTopicJson.passages.push(metas);
-    newestTopicJson.passages.sort(({ mdate: m1 }, { mdate: m2 }) => {
-        return new Date(m2) - new Date(m1);
-    });
+    newestTopicJson.passages.sort(compareMeta);
     newestTopicJson.passages = newestTopicJson.passages.slice(0, newestTopicNum);
 }
 
 function getTopicsJson() {
+    // 为所有主题的文章进行排序
+    topicsJson.topics?.forEach(topic => {
+       topic.passages?.sort(compareMeta);
+    });
     // 将未分类文章的标签转为数组
     othersTopicJson.tags = Array.from(othersTopicJson.tags);
     // 整理最新更新的标签
