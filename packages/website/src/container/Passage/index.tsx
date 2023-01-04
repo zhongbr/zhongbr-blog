@@ -5,17 +5,19 @@
  * @LastEditors: 张盼宏
  * @LastEditTime: 2022-09-08 23:40:46
  */
-import {memo, useEffect, useState} from 'react';
-import {useParams} from 'react-router-dom';
+import { memo, useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 import clsx from 'clsx';
+import { basename } from 'path-browserify';
 
-import {ResponsiveEnum, useAsyncEffect, useAsyncFn, usePageConfig, useTags} from "@/hooks";
-import {passage} from '@/service';
-import {IPassage} from "@/service/passage/catalogue";
-import {Tag} from "@/components";
+import { ResponsiveEnum, useAsyncEffect, useAsyncFn, usePageConfig, useTags } from "@/hooks";
+import { passage } from '@/service';
+import { IPassage } from "@/service/passage/catalogue";
+import { Tag } from "@/components";
 
-import {Render, Sketch} from './components';
-import {generateSketch, Title, traverseAst} from './utils/traverse';
+import { Context } from './context';
+import { Render, Sketch } from './components';
+import { generateSketch , Title, traverseAst} from './utils/traverse';
 import styles from './style.module.less';
 
 type IPageParam = Record<'path', string | undefined>;
@@ -25,6 +27,7 @@ const Passage = () => {
     const { path: path_ } = useParams<IPageParam>();
 
     const [fetchPassage, res] = useAsyncFn(passage.passage);
+    const [fetchCatalogue, catalogueRes] = useAsyncFn(passage.catalogue);
     const [sketch, setSketch] = useState<Title[]>([]);
     const [catalogue, setCatalogue] = useState<IPassage>();
 
@@ -48,9 +51,9 @@ const Passage = () => {
         const path = decodeURIComponent(path_);
         const [res, catalogue] = await Promise.all([
             fetchPassage({ path }),
-            passage.catalogue()
+            fetchCatalogue()
         ]);
-        setCatalogue(catalogue?.data?.[path.replace(/\.json$/, '.md')]);
+        setCatalogue(catalogue?.data?.[basename(path.replace(/\.json$/, '.md'))]);
         // traverse markdown ast and mark the parent and siblings
         traverseAst(res.data.ast);
         // generate sketch
@@ -61,36 +64,38 @@ const Passage = () => {
     }, [fetchPassage, path_]);
 
     return (
-        <div className={styles.passageContainer}>
-            <div
-                className={clsx(
-                    styles.sketch,
-                    {
-                        [styles.display]: [ResponsiveEnum.normal, ResponsiveEnum.large].includes(widthLevel || ResponsiveEnum.normal)
-                    }
-                )}
-                style={{
-                    top: `${155 - 75 * rate}px`
-                }}
-            >
-                <Sketch sketch={sketch}/>
-            </div>
-            <div className={styles.passage}>
-                <div className={clsx('content', 'blur')}>
-                    <div className="tags">
-                        {res?.data?.catalogue?.tags?.map(tag => (
-                            <Tag key={tag} onClick={() => onOpenTags([tag])}>{tag}</Tag>
-                        ))}
-                    </div>
-
-                    {catalogue?.cover && (
-                        <img alt="cover" className="cover-image" src={catalogue.cover}/>
+        <Context.Provider value={{ catalogue: catalogueRes?.data, curCatalogue: catalogue }}>
+            <div className={styles.passageContainer}>
+                <div
+                    className={clsx(
+                        styles.sketch,
+                        {
+                            [styles.display]: [ResponsiveEnum.normal, ResponsiveEnum.large].includes(widthLevel || ResponsiveEnum.normal)
+                        }
                     )}
+                    style={{
+                        top: `${155 - 75 * rate}px`
+                    }}
+                >
+                    <Sketch sketch={sketch}/>
+                </div>
+                <div className={styles.passage}>
+                    <div className={clsx('content', 'blur')}>
+                        <div className="tags">
+                            {res?.data?.catalogue?.tags?.map(tag => (
+                                <Tag key={tag} onClick={() => onOpenTags([tag])}>{tag}</Tag>
+                            ))}
+                        </div>
 
-                    <Render node={res?.data?.ast}/>
+                        {catalogue?.cover && (
+                            <img alt="cover" className="cover-image" src={catalogue.cover}/>
+                        )}
+
+                        <Render node={res?.data?.ast}/>
+                    </div>
                 </div>
             </div>
-        </div>
+        </Context.Provider>
     );
 }
 

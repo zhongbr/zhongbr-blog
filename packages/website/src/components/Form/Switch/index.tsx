@@ -16,8 +16,6 @@ const Switch: React.FC<IProps> = props => {
     const { value = false, disabled, onChange, onContent, offContent, size } = props;
     const [states, setStates] = usePropsStates({ value });
 
-    console.log('states', JSON.stringify(states));
-
     const onClick = () => {
         if (disabled) {
             return;

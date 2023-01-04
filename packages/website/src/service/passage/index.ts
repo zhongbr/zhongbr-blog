@@ -8,3 +8,4 @@
 export { default as catalogue } from './catalogue';
 export { default as passage } from './passage';
 export { default as topics } from './topics';
+export { getNotionPageTableCsv } from './notion';

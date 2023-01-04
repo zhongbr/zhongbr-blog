@@ -4,32 +4,27 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="27b3b0e5-1ac3-4b25-8173-a590bd44bf60" name="变更" comment="feat: 增加文章">
-      <change afterPath="$PROJECT_DIR$/packages/website/src/container/Passage/utils/static-resource-url.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/posts/JS模块化/模块化规范 819d6c57d4154f94bdf0781db857fdb7.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/posts/JS模块化/模块化规范 819d6c57d4154f94bdf0781db857fdb7/Untitled.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/posts/JS模块化/模块化规范 819d6c57d4154f94bdf0781db857fdb7/模块化规范 0976128fbb0648a791aca022b8a2f01b.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/posts/JS模块化/模块化规范 819d6c57d4154f94bdf0781db857fdb7/模块化规范 0976128fbb0648a791aca022b8a2f01b/AMD(define require) d43cef4ccdd6439ea88ef4dbf8e775f8.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/posts/JS模块化/模块化规范 819d6c57d4154f94bdf0781db857fdb7/模块化规范 0976128fbb0648a791aca022b8a2f01b/CommonJS(exports require) 587c60e0e3754d63a252e9326f5c3d1e.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/posts/JS模块化/模块化规范 819d6c57d4154f94bdf0781db857fdb7/模块化规范 0976128fbb0648a791aca022b8a2f01b/ESM(import export) 3804676a20cb4fbaad218fcce635ab01.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/scripts/markdown-transform/catalogue.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/scripts/markdown-transform/file-traverse.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/scripts/markdown-transform/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/scripts/markdown-transform/markdown-to-json.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/scripts/markdown-transform/meta.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/scripts/markdown-transform/topics.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/scripts/markdown-transform/utils.js" afterDir="false" />
+    <list default="true" id="27b3b0e5-1ac3-4b25-8173-a590bd44bf60" name="变更" comment="feat: posts 目录内支持解析不在顶层的 markdown">
+      <change afterPath="$PROJECT_DIR$/packages/website/src/container/Passage/components/Notions/PagesTable/PassageLink.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/website/src/container/Passage/components/Notions/PagesTable/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/website/src/container/Passage/components/Notions/PagesTable/style.module.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/website/src/container/Passage/components/Notions/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/website/src/container/Passage/context.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/website/src/hooks/useSuspense.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/website/src/service/passage/notion.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/website/src/types/utils.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/packages/website/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/components/Form/Switch/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/components/Form/Switch/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/components/Splash/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/components/Splash/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/components/Splash/style.module.less" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/components/Splash/style.module.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/components/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/components/index.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/packages/website/src/container/Passage/components/Render/Image/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/container/Passage/components/Render/Image/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/packages/website/src/container/Passage/components/Render/Link/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/container/Passage/components/Render/Link/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/packages/website/src/container/Passage/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/container/Passage/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/container/TagIndex/modules/Catalogue/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/container/TagIndex/modules/Catalogue/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/container/Topics/modules/TopicCard/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/container/Topics/modules/TopicCard/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/hooks/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/hooks/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/service/passage/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/service/passage/index.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pnpm-lock.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pnpm-lock.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/md2json.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/random.js" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,10 +35,10 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="HTML File" />
-        <option value="TypeScript JSX File" />
-        <option value="Less File" />
         <option value="JavaScript File" />
         <option value="TypeScript File" />
+        <option value="TypeScript JSX File" />
+        <option value="Less File" />
       </list>
     </option>
   </component>
@@ -238,13 +233,6 @@
       <workItem from="1672496848931" duration="29000" />
       <workItem from="1672496896543" duration="4180000" />
       <workItem from="1672538124325" duration="80477000" />
-    </task>
-    <task id="LOCAL-00032" summary="feat: code transform">
-      <created>1662286798895</created>
-      <option name="number" value="00032" />
-      <option name="presentableId" value="LOCAL-00032" />
-      <option name="project" value="LOCAL" />
-      <updated>1662286798895</updated>
     </task>
     <task id="LOCAL-00033" summary="feat: code transform">
       <created>1662286982526</created>
@@ -582,7 +570,14 @@
       <option name="project" value="LOCAL" />
       <updated>1672741616243</updated>
     </task>
-    <option name="localTasksCounter" value="81" />
+    <task id="LOCAL-00081" summary="feat: posts 目录内支持解析不在顶层的 markdown">
+      <created>1672766404480</created>
+      <option name="number" value="00081" />
+      <option name="presentableId" value="LOCAL-00081" />
+      <option name="project" value="LOCAL" />
+      <updated>1672766404480</updated>
+    </task>
+    <option name="localTasksCounter" value="82" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -601,7 +596,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
-    <MESSAGE value="feat: change index page path" />
     <MESSAGE value="feat: fix workflow bug" />
     <MESSAGE value="feat: test commit" />
     <MESSAGE value="feat: modify path" />
@@ -626,7 +620,8 @@
     <MESSAGE value="feat: 支持响应式布局" />
     <MESSAGE value="feat: 调整排序方式" />
     <MESSAGE value="feat: 增加文章" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: 增加文章" />
+    <MESSAGE value="feat: posts 目录内支持解析不在顶层的 markdown" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: posts 目录内支持解析不在顶层的 markdown" />
   </component>
   <component name="VgoProject">
     <integration-enabled>false</integration-enabled>

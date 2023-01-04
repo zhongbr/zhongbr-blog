@@ -5,7 +5,7 @@
  * @LastEditors: 张盼宏
  * @LastEditTime: 2022-09-03 19:19:24
  */
-import React, { useMemo } from 'react';
+import React from 'react';
 
 import { IBaseProps } from '@/types/markdown';
 import { staticResourceUrl } from '../../../utils/static-resource-url';
