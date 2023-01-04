@@ -13,7 +13,7 @@ import { basename } from 'path-browserify';
 import { ResponsiveEnum, useAsyncEffect, useAsyncFn, usePageConfig, useTags } from "@/hooks";
 import { passage } from '@/service';
 import { IPassage } from "@/service/passage/catalogue";
-import { Tag } from "@/components";
+import {Icon, Tag} from "@/components";
 
 import { Context } from './context';
 import { Render, Sketch } from './components';
@@ -86,6 +86,13 @@ const Passage = () => {
                                 <Tag key={tag} onClick={() => onOpenTags([tag])}>{tag}</Tag>
                             ))}
                         </div>
+
+                        {catalogue?.mdate && (
+                        <div className="date">
+                            <Icon className="rp-naozhong"/>
+                            <span>发布日期</span>
+                            <span>{catalogue.mdate}</span>
+                        </div>)}
 
                         {catalogue?.cover && (
                             <img alt="cover" className="cover-image" src={catalogue.cover}/>

@@ -61,15 +61,23 @@ const Render: React.FC<Partial<IBaseProps>> = (props) => {
         return <Splash texts="🚀🚀文章加载中..."/>;
     }
 
-    const children = node.children?.map(child => <Render key={child.key} node={child}/>);
+    const children = node.children?.filter(child => child.visible !== false)?.map(child => <Render key={child.key} node={child}/>);
 
     if (node.type === NodeType.Document) {
-        return <>{children}</>;
+        return (
+            <>
+                {children}
+            </>
+        );
     }
 
     const Component = ComponentsMap.get(node.type);
     if (!Component) {
-        return <>{children}</>;
+        return (
+            <>
+                {children}
+            </>
+        );
     }
 
     return (

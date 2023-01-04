@@ -76,7 +76,8 @@ export interface Node {
     previousSibling?: Node;
     _js?: string;
     imports?: string[];
-    _sources?: ISource[]
+    _sources?: ISource[];
+    visible?: boolean;
 }
 
 export interface IBaseProps {

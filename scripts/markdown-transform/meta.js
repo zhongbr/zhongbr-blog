@@ -78,6 +78,8 @@ async function parse(filePath, ast) {
     }
 
     const doc = await utils.readYaml(ymlChild?.value);
+    // 隐藏元数据的代码块
+    ymlChild.visible = false;
     return {
         title,
         'json-path': jsonPath,

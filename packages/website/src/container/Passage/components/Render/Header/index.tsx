@@ -7,7 +7,6 @@
  */
 import React from 'react';
 
-import { useNavigate } from "@/hooks";
 import { IBaseProps } from '@/types/markdown';
 
 import styles from './style.module.less';
@@ -15,16 +14,9 @@ import styles from './style.module.less';
 const Header: React.FC<IBaseProps> = (props) => {
     const { node, children } = props;
 
-    const navigator = useNavigate();
-
-    const onClickTitle = () => {
-        navigator(`#${node.key}`);
-    };
-
     const props_ = {
         id: node.key,
-        className: styles.title,
-        onClick: onClickTitle
+        className: styles.title
     };
 
     switch (node.depth) {
