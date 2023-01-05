@@ -37,7 +37,7 @@ topics.init()
             catalogue.attachPostMetas(metas, filePath);
 
             // 让专栏判断并收集文章的 metas
-            topics.attachPostMetas(metas);
+            topics.attachPostMetas(metas, filePath);
 
             const targetPath = path.join(markdownJsonPath, filePath.replace(/.md$/, '.json'));
             utils.ensurePath(path.dirname(targetPath));
