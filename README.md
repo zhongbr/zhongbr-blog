@@ -4,7 +4,7 @@
 
 You can preview in [Zhongbr's Blog](https://zhongbr.cn)
 
-![img_1.png](img_1.png)
+![img_1.png](./readme/img_1.png)
 
 This is a React Blog website based on GitHub Pages and GitHub Actions.
 
@@ -42,7 +42,7 @@ Open the repository settings tab, and modify the repository secrets DOMAIN to yo
 
 This domain will be your blog website domain. So you should set a valid dns record before deploy.
 
-![img.png](img.png)
+![img.png](./readme/img.png)
 
 ### 3. write your posts and push to the `main` branch
 
@@ -59,15 +59,22 @@ It will be deployed about 5 minutes after you push them to the `main` branch.
 > ---
 > ```
 
-> There is a `topics.yaml` file in the `posts` directory, it defines the topics displayed in blog index page.
-> Each item of topics arrays has the following properties:
+> You can create directories in `/posts`, all the files end with `.md` will be translated to ast json file,
+> and others file will be copied to `.md-cache/md` directly.
+> 
+> The first level directories in `/posts` with a `topic.yaml` file in it will be displayed on the entry page of
+> your blog website.
+> 
+> Blog posts in this directory will be divided into this topic.
+> 
+> You can define the topic name, icon, main color, descriptions and id in the `topic.yaml` 
+> with the following config fields:
+> 
 > ```yaml
-> - id: 'topic-id, used in the post meta `recommend` property'
-> - topicName: 'name of the topic'
-> - desc: 'some descriptions text of this topic'
-> - tags:
->   - 'tag1'
->   - 'tag2'
-> - icon: 'icon font class name of the topic'
-> - color: 'color of the topic card'
+> topic:
+>   id: 'topic-id, used in the post meta `recommend` property'
+>   topicName: 'name of the topic, should be same with the directory name'
+>   desc: 'some descriptions text of this topic'
+>   icon: 'icon font class name of the topic'
+>   color: 'color of the topic card'
 > ```
