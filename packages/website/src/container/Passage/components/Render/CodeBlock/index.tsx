@@ -5,7 +5,7 @@
  * @LastEditors: 张盼宏
  * @LastEditTime: 2022-09-07 22:37:06
  */
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import clsx from "clsx";
 import { Code, codepen, github } from 'react-code-blocks';
 
@@ -16,10 +16,20 @@ import { usePageConfig } from '@/hooks';
 
 import styles from './style.module.less';
 
+const shouldPreview = (lang: string, code: string) => {
+    if (!['jsx', 'tsx', 'js'].includes(lang)) {
+        return false;
+    }
+    return /\/\/\s*<live-demo>/.test(code);
+}
+
 const CodeBlock: React.FC<IBaseProps> = (props) => {
     const { node } = props;
+
+    const previewable = useMemo(() => shouldPreview(node.lang || '', node.value || ''), [node.lang, node.value]);
+
     const [copied, setCopied] = useState(false);
-    const [preview, setPreview] = useState(true);
+    const [preview, setPreview] = useState(previewable);
 
     const { theme } = usePageConfig();
     // 深色模式使用 codepen 主题，浅色 使用 github
@@ -50,7 +60,7 @@ const CodeBlock: React.FC<IBaseProps> = (props) => {
             )}
             {node.lang && (
                 <div className={styles.footer}>
-                    {['jsx', 'tsx'].includes(node.lang) && (
+                    {previewable && (
                         <div className={styles.item} onClick={() => setPreview(!preview)}>
                             <Icon className="rp-xuanxiang"/>
                             {preview ? '关闭预览' : '预览'}
