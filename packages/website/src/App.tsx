@@ -5,7 +5,7 @@
  * @LastEditors: 张盼宏
  * @LastEditTime: 2022-09-11 10:46:58
  */
-import React, { Suspense } from 'react';
+import React, { Suspense, useRef } from 'react';
 import { useRoutes } from 'react-router-dom';
 
 import routers from "@/config/routers";
@@ -13,7 +13,6 @@ import { navLinks, title as titleText, titleLink } from '@/config/meta';
 
 import { Icon, Layout, MessageProvider, Splash } from './components';
 import { IPageConfig, PageConfigContext, ResponsiveEnum, usePersistFn, useStates, useThemeManager, useResponsive } from './hooks';
-import { useScrollRate } from './animations';
 
 import "./app.less";
 
@@ -28,8 +27,8 @@ const setBodyTheme = (theme: string) => {
 
 function App() {
     const element = useRoutes(routers);
+    const ref = useRef<HTMLDivElement>(null);
 
-    const { rate, ref } = useScrollRate<HTMLDivElement>(60);
     const [states, setStates, resetStates] = useStates<IPageConfig>({
         title: titleText,
         target: titleLink,
@@ -69,10 +68,9 @@ function App() {
     const splash = <Splash texts="🚀🚀页面加载中..."/>;
 
     return (
-        <PageConfigContext.Provider value={{ ...states, rate, scrollRef: ref, setStates, resetStates, setTheme, onPageReady }}>
+        <PageConfigContext.Provider value={{ ...states, scrollRef: ref, setStates, resetStates, setTheme, onPageReady }}>
             <MessageProvider>
                 <Layout
-                    rate={rate}
                     title={title}
                     navLinks={navLinks}
                     contentRef={ref}

@@ -13,7 +13,8 @@ import { basename } from 'path-browserify';
 import { ResponsiveEnum, useAsyncEffect, useAsyncFn, usePageConfig, useTags } from "@/hooks";
 import { passage } from '@/service';
 import { IPassage } from "@/service/passage/catalogue";
-import {Icon, Tag} from "@/components";
+import { Icon, Tag } from "@/components";
+import { useScrollRate } from '@/animations';
 
 import { Context } from './context';
 import { Render, Sketch } from './components';
@@ -23,7 +24,7 @@ import styles from './style.module.less';
 type IPageParam = Record<'path', string | undefined>;
 
 const Passage = () => {
-    const { setStates, rate = 0, onPageReady, widthLevel } = usePageConfig();
+    const { setStates, onPageReady, widthLevel, scrollRef } = usePageConfig();
     const { path: path_ } = useParams<IPageParam>();
 
     const [fetchPassage, res] = useAsyncFn(passage.passage);
@@ -32,6 +33,8 @@ const Passage = () => {
     const [catalogue, setCatalogue] = useState<IPassage>();
 
     const { onOpenTags } = useTags();
+
+    const { rate } = useScrollRate(scrollRef);
 
     useEffect(() => {
         setStates?.({

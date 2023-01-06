@@ -6,12 +6,13 @@
  * @LastEditTime: 2022-08-28 01:18:50
  */
 
-import React from "react";
+import React, { useRef } from "react";
 
 import { useInitCopy } from '@/utils/copy';
 import Header, { IProps as HeaderProps } from './header';
 import Footer, { IProps as FooterProps } from './footer';
 import styles from './style.module.less';
+import { useScrollRate } from "@/animations";
 
 export interface IProps {
     /** website logo */
@@ -22,8 +23,6 @@ export interface IProps {
     navLinks?: HeaderProps['navLinks'];
     /** children */
     children?: React.ReactNode;
-    /** rate */
-    rate?: number;
     /** content ref */
     contentRef?: React.LegacyRef<HTMLDivElement>;
     /** footer */
@@ -31,7 +30,11 @@ export interface IProps {
 }
 
 const Layout: React.FC<IProps> = (props) => {
-    const { title = 'react-press', navLinks, children, rate, contentRef, footerProps } = props;
+    const { title = 'react-press', navLinks, children, contentRef, footerProps } = props;
+
+    const ref_ = useRef<HTMLDivElement>(null);
+
+    const { rate } = useScrollRate(contentRef || ref_, 60);
 
     useInitCopy();
 

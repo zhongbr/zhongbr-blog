@@ -4866,7 +4866,7 @@ packages:
       typescript: 4.8.2
     transitivePeerDependencies:
       - '@babel/plugin-syntax-flow'
-      - '@babel/plugin-transform-react-jsx'
+      - '@babel/plugin-transform-react-jsx-core'
       - eslint-import-resolver-typescript
       - eslint-import-resolver-webpack
       - jest

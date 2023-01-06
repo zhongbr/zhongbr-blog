@@ -23,6 +23,7 @@ const WorkboxWebpackPlugin = require('workbox-webpack-plugin');
 const ModuleScopePlugin = require('react-dev-utils/ModuleScopePlugin');
 const getCSSModuleLocalIdent = require('react-dev-utils/getCSSModuleLocalIdent');
 const ESLintPlugin = require('eslint-webpack-plugin');
+const WorkerPlugin = require('worker-plugin');
 const { TsconfigPathsPlugin } = require('tsconfig-paths-webpack-plugin');
 const paths = require('./paths');
 const modules = require('./modules');
@@ -156,7 +157,7 @@ module.exports = function (webpackEnv) {
                   // Adds PostCSS Normalize as the reset css with default options,
                   // so that it honors browserslist config in package.json
                   // which in turn let's users customize the target behavior as per their needs.
-                  'postcss-normalize',
+                  'postcss-normalize'
                 ]
               : [
                   'tailwindcss',
@@ -169,7 +170,7 @@ module.exports = function (webpackEnv) {
                       },
                       stage: 3,
                     },
-                  ],
+                  ]
                 ],
           },
           sourceMap: isEnvProduction ? shouldUseSourceMap : isEnvDevelopment,
@@ -349,6 +350,11 @@ module.exports = function (webpackEnv) {
           configFile: path.resolve(paths.appPath, 'tsconfig.json'),
         })
       ],
+    },
+    resolveLoader: {
+      alias: {
+        worker: 'worker-plugin/loader?esModule'
+      }
     },
     module: {
       strictExportPresence: true,
@@ -608,6 +614,7 @@ module.exports = function (webpackEnv) {
       ].filter(Boolean),
     },
     plugins: [
+      // new WorkerPlugin(),
       // Generates an `index.html` file with the <script> injected.
       new HtmlWebpackPlugin(
         Object.assign(

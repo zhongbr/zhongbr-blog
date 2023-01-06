@@ -8,7 +8,7 @@ const hasJsxRuntime = (() => {
   }
 
   try {
-    require.resolve('react/jsx-runtime');
+    require.resolve('react/jsx-core-runtime');
     return true;
   } catch (e) {
     return false;

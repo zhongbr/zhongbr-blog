@@ -5,17 +5,19 @@
  * @LastEditors: 张盼宏
  * @LastEditTime: 2022-08-29 23:10:27
  */
-import {useEffect, useRef, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 
-export default function useScrollRate<T extends Element>(base = 500) {
-    const ref = useRef<T>(null);
+export default function useScrollRate<T extends Element>(ref: React.LegacyRef<T> | undefined, base = 60) {
     const [rate, setRate] = useState(0);
 
     useEffect(() => {
-        const ele = ref.current;
+        if (!ref) {
+            return;
+        }
+        const ele = (ref as React.RefObject<T>).current;
 
         const handler = () => {
-            const scrollTop = Math.min(base, Math.max(0, ref.current?.scrollTop || 0));
+            const scrollTop = Math.min(base, Math.max(0, (ref as React.RefObject<T>).current?.scrollTop || 0));
             setRate(scrollTop / base);
         };
 
@@ -24,7 +26,7 @@ export default function useScrollRate<T extends Element>(base = 500) {
         return () => {
             ele?.removeEventListener('scroll', handler);
         };
-    }, [setRate, base])
+    }, [setRate, base, ref])
 
     return { ref, rate };
 }

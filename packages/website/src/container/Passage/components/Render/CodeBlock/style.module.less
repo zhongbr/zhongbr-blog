@@ -5,6 +5,14 @@
     position: relative;
     background-color: var(--codeblock-background-color);
     padding: 16px;
+    display: flex;
+
+    .preview {
+        flex: 1;
+        padding-left: 8px;
+        margin-left: 8px;
+        border-left: var(--border-color) solid 1px;
+    }
 
     .footer {
         position: absolute;
@@ -19,6 +27,7 @@
             display: flex;
             gap: 8px;
             align-items: center;
+            cursor: pointer;
         }
 
         .copy {
@@ -28,10 +37,20 @@
 
     // 下面的样式是为了修复 react-code-blocks 组件行号和行对不齐的bug
     & > span {
+        flex: 1;
         display: flex !important;
 
         & > code:nth-child(1) {
             float: unset !important;
+        }
+
+        & > code:nth-child(2) {
+            white-space: pre;
+            overflow-x: auto;
+
+            &::-webkit-scrollbar {
+                display: unset;
+            }
         }
     }
 }

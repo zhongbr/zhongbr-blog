@@ -97,7 +97,7 @@ const path = require('path');
 module.exports = {
     target: "electron-renderer",
     resolve: {
-        extensions: ['.ts', '.tsx', '.d.ts', '.js', '.jsx', '.d.js', '.css']
+        extensions: ['.ts', '.tsx', '.d.ts', '.js', '.jsx-core', '.d.js', '.css']
     },
     entry: {
         ui: path.resolve(__dirname, 'src','ui','index.js')

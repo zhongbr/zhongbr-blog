@@ -10,7 +10,7 @@ import clsx from "clsx";
 import { Code, codepen, github } from 'react-code-blocks';
 
 import { IBaseProps } from '@/types/markdown';
-import { Icon } from "@/components";
+import { Icon, JsxDemoDisplay } from "@/components";
 import { copy } from "@/utils/copy";
 import { usePageConfig } from '@/hooks';
 
@@ -19,6 +19,7 @@ import styles from './style.module.less';
 const CodeBlock: React.FC<IBaseProps> = (props) => {
     const { node } = props;
     const [copied, setCopied] = useState(false);
+    const [preview, setPreview] = useState(true);
 
     const { theme } = usePageConfig();
     // 深色模式使用 codepen 主题，浅色 使用 github
@@ -42,8 +43,19 @@ const CodeBlock: React.FC<IBaseProps> = (props) => {
                 wrapLongLines
                 codeBlock
             />
+            {preview && (
+                <div className={styles.preview}>
+                    <JsxDemoDisplay jsx={node.value} />
+                </div>
+            )}
             {node.lang && (
                 <div className={styles.footer}>
+                    {['jsx', 'tsx'].includes(node.lang) && (
+                        <div className={styles.item} onClick={() => setPreview(!preview)}>
+                            <Icon className="rp-xuanxiang"/>
+                            {preview ? '关闭预览' : '预览'}
+                        </div>
+                    )}
                     <div className={styles.item}>
                         <Icon className="rp-faxian"></Icon>
                         {node.lang}

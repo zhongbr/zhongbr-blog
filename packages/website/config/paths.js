@@ -40,7 +40,7 @@ const moduleFileExtensions = [
   'web.tsx',
   'tsx',
   'json',
-  'web.jsx',
+  'web.jsx-core',
   'jsx',
 ];
 
@@ -77,7 +77,8 @@ module.exports = {
   appTsBuildInfoFile: resolveApp('node_modules/.cache/tsconfig.tsbuildinfo'),
   swSrc: resolveModule(resolveApp, 'src/service-worker'),
   publicUrlOrPath,
-  markdownJsonPath: resolveApp('../../.md-cache/md')
+  markdownJsonPath: resolveApp('../../.md-cache/md'),
+  jsxServiceWorkerPath: resolveApp('src/jsx-service-worker'),
 };
 
 

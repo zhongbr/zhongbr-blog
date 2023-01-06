@@ -5,10 +5,62 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="27b3b0e5-1ac3-4b25-8173-a590bd44bf60" name="变更" comment="feat: 修改目录结构">
+      <change afterPath="$PROJECT_DIR$/packages/jsx-service/es/jsx-core/babel-plugin.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/jsx-service/es/jsx-core/babel-plugin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/jsx-service/es/jsx-core/babel-plugin.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/jsx-service/es/jsx-core/compile.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/jsx-service/es/jsx-core/compile.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/jsx-service/es/jsx-core/compile.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/jsx-service/es/jsx-core/index.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/jsx-service/es/jsx-core/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/jsx-service/es/jsx-core/index.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/jsx-service/es/main/index.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/jsx-service/es/main/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/jsx-service/es/main/index.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/jsx-service/es/types/worker.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/jsx-service/es/types/worker.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/jsx-service/es/types/worker.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/jsx-service/es/worker/index.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/jsx-service/es/worker/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/jsx-service/es/worker/index.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/jsx-service/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/jsx-service/src/jsx-core/babel-plugin.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/jsx-service/src/jsx-core/compile.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/jsx-service/src/jsx-core/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/jsx-service/src/main/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/jsx-service/src/types/worker.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/jsx-service/src/worker/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/jsx-service/tsconfig.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/website/src/components/JsxDemoDisplay/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/website/src/components/JsxDemoDisplay/module.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/website/src/jsx-service.worker.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/website/src/utils/amd.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/posts/前端开发/2023-01-06-如何在网页上直接运行 React JSX.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img.png" beforeDir="false" afterPath="$PROJECT_DIR$/readme/img.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img_1.png" beforeDir="false" afterPath="$PROJECT_DIR$/readme/img_1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/build/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/build/logo192.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/build/logo512.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/build/manifest.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/build/robots.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/config/jest/babelTransform.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/config/jest/babelTransform.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/config/paths.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/config/paths.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/config/webpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/config/webpack.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/pnpm-lock.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/pnpm-lock.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/animations/useScrollRate.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/animations/useScrollRate.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/components/Layout/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/components/Layout/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/components/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/components/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/container/Passage/components/Render/CodeBlock/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/container/Passage/components/Render/CodeBlock/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/container/Passage/components/Render/CodeBlock/style.module.less" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/container/Passage/components/Render/CodeBlock/style.module.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/container/Passage/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/container/Passage/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/container/Topics/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/container/Topics/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/hooks/usePageConfig.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/hooks/usePageConfig.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/react-app-env.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/react-app-env.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pnpm-lock.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pnpm-lock.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/posts/前端开发/2020-11-28-建立typescript+react+webpack+electron的桌面应用项目.md" beforeDir="false" afterPath="$PROJECT_DIR$/posts/前端开发/2020-11-28-建立typescript+react+webpack+electron的桌面应用项目.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/posts/前端开发/2022-08-25-移动端h5开发常见问题.md" beforeDir="false" afterPath="$PROJECT_DIR$/posts/前端开发/2022-08-25-移动端h5开发常见问题.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,9 +72,10 @@
       <list>
         <option value="HTML File" />
         <option value="JavaScript File" />
+        <option value="Less File" />
+        <option value="tsconfig.json" />
         <option value="TypeScript File" />
         <option value="TypeScript JSX File" />
-        <option value="Less File" />
       </list>
     </option>
   </component>
@@ -63,10 +116,6 @@
   <component name="GoLibraries">
     <option name="indexEntireGoPath" value="true" />
   </component>
-  <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/node_modules/.pnpm/@types+react@18.0.26/node_modules/@types/react/index.d.ts" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/node_modules/.pnpm/react-code-blocks@0.0.9-0_biqbaboplfbrettd7655fr4n2y/node_modules/react-code-blocks/src/ThemedCodeBlock.tsx" root0="SKIP_INSPECTION" />
-  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -74,6 +123,9 @@
     <dismissed value="$PROJECT_DIR$/package.json" />
   </component>
   <component name="ProjectId" id="2E2AoGRG3E7atFlG4rNkN4eaViN" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="autoscrollFromSource" value="true" />
     <option name="autoscrollToSource" value="true" />
@@ -81,31 +133,32 @@
     <option name="showLibraryContents" value="true" />
     <option name="showMembers" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.go.formatter.settings.were.checked": "true",
-    "RunOnceActivity.go.migrated.go.modules.settings": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "go.import.settings.migrated": "true",
-    "javascript.nodejs.core.library.configured.version": "14.17.4",
-    "javascript.nodejs.core.library.typings.version": "14.17.4",
-    "last_opened_file_path": "/Users/zhangpanhong/Documents/zhongbr_projects/react-press/posts",
-    "list.type.of.created.stylesheet": "Less",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.standard": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.standard": "",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "pnpm",
-    "settings.editor.selected.configurable": "reference.settingsdialog.IDE.editor.colors.控制台字体",
-    "ts.external.directory.path": "/Users/zhangpanhong/Documents/zhongbr_projects/react-press/packages/website/node_modules/typescript/lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.formatter.settings.were.checked&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.migrated.go.modules.settings&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
+    &quot;javascript.nodejs.core.library.configured.version&quot;: &quot;14.17.4&quot;,
+    &quot;javascript.nodejs.core.library.typings.version&quot;: &quot;14.17.4&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/zhangpanhong/Documents/zhongbr_projects/react-press/posts&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;Less&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.standard&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.standard&quot;: &quot;&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;pnpm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.IDE.editor.colors.配色方案字体&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Users/zhangpanhong/Documents/zhongbr_projects/react-press/packages/jsx-service/node_modules/typescript/lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/posts" />
@@ -114,11 +167,11 @@
       <recent name="$PROJECT_DIR$/packages/umd-factory" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/readme" />
       <recent name="$PROJECT_DIR$/posts/前端开发" />
+      <recent name="$PROJECT_DIR$/packages/website/src/components/JsxDemoDisplay" />
+      <recent name="$PROJECT_DIR$/packages/website/src/components/JsxDemoDisplay/index.tsx" />
+      <recent name="$PROJECT_DIR$/readme" />
       <recent name="$PROJECT_DIR$/posts/数据结构" />
-      <recent name="$PROJECT_DIR$/posts/操作系统" />
-      <recent name="$PROJECT_DIR$/posts/计算机网络" />
     </key>
   </component>
   <component name="RunAnythingCache">
@@ -134,16 +187,6 @@
     </option>
   </component>
   <component name="RunManager" selected="npm.build-markdown">
-    <configuration name="build-jsx-core" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
-      <package-json value="$PROJECT_DIR$/package.json" />
-      <command value="run" />
-      <scripts>
-        <script value="build-jsx-core" />
-      </scripts>
-      <node-interpreter value="project" />
-      <envs />
-      <method v="2" />
-    </configuration>
     <configuration name="build-markdown" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="run" />
@@ -154,31 +197,41 @@
       <envs />
       <method v="2" />
     </configuration>
-    <configuration name="compile" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
-      <package-json value="$PROJECT_DIR$/packages/umd-factory/package.json" />
+    <configuration name="build" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/packages/website/package.json" />
       <command value="run" />
       <scripts>
-        <script value="compile" />
+        <script value="build" />
       </scripts>
       <node-interpreter value="project" />
       <envs />
       <method v="2" />
     </configuration>
-    <configuration name="pack-umd" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
-      <package-json value="$PROJECT_DIR$/package.json" />
+    <configuration name="es" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/packages/jsx-service/package.json" />
       <command value="run" />
       <scripts>
-        <script value="pack-umd" />
+        <script value="es" />
       </scripts>
       <node-interpreter value="project" />
       <envs />
       <method v="2" />
     </configuration>
-    <configuration name="start-website" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
-      <package-json value="$PROJECT_DIR$/package.json" />
+    <configuration name="start" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/packages/website/package.json" />
       <command value="run" />
       <scripts>
-        <script value="start-website" />
+        <script value="start" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="test" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/packages/jsx-service/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="test" />
       </scripts>
       <node-interpreter value="project" />
       <envs />
@@ -187,10 +240,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="npm.build-markdown" />
-        <item itemvalue="npm.start-website" />
-        <item itemvalue="npm.pack-umd" />
-        <item itemvalue="npm.compile" />
-        <item itemvalue="npm.build-jsx-core" />
+        <item itemvalue="npm.start" />
+        <item itemvalue="npm.es" />
+        <item itemvalue="npm.build" />
+        <item itemvalue="npm.test" />
       </list>
     </recent_temporary>
   </component>
@@ -218,13 +271,8 @@
       <workItem from="1672496848931" duration="29000" />
       <workItem from="1672496896543" duration="4180000" />
       <workItem from="1672538124325" duration="80477000" />
-    </task>
-    <task id="LOCAL-00041" summary="feat: 修改文案">
-      <created>1671719398046</created>
-      <option name="number" value="00041" />
-      <option name="presentableId" value="LOCAL-00041" />
-      <option name="project" value="LOCAL" />
-      <updated>1671719398046</updated>
+      <workItem from="1672933535056" duration="27297000" />
+      <workItem from="1672998178645" duration="13284000" />
     </task>
     <task id="LOCAL-00042" summary="feat: 修改文案">
       <created>1671719471522</created>
@@ -562,7 +610,14 @@
       <option name="project" value="LOCAL" />
       <updated>1672887479159</updated>
     </task>
-    <option name="localTasksCounter" value="90" />
+    <task id="LOCAL-00090" summary="feat: 修改目录结构">
+      <created>1672894632823</created>
+      <option name="number" value="00090" />
+      <option name="presentableId" value="LOCAL-00090" />
+      <option name="project" value="LOCAL" />
+      <updated>1672894632823</updated>
+    </task>
+    <option name="localTasksCounter" value="91" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -581,6 +636,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="feat: delete md-cache" />
     <MESSAGE value="feat: 修改文案" />
     <MESSAGE value="feat: 支持渲染 latex 公式" />
@@ -619,13 +675,21 @@
           <condition expression="topicsIndexes[topic].tags === undefined" language="JavaScript" />
           <url>file://$PROJECT_DIR$/scripts/markdown-transform/topics.js</url>
           <line>84</line>
-          <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/packages/jsx-service/test/index.ts</url>
+          <line>3</line>
+          <option name="timeStamp" value="11" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
         <breakpoint enabled="true" type="javascript-exception" />
       </default-breakpoints>
     </breakpoint-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

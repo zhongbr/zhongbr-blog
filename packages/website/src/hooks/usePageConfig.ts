@@ -15,7 +15,6 @@ export interface IPageContext {
     footer?: LayoutProps['footerProps'];
     scrollRef?: React.LegacyRef<Element>;
     loading?: boolean;
-    rate?: number;
     theme?: string;
     screenWidth?: number;
     widthLevel?: ResponsiveEnum;

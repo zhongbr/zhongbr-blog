@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, { memo, useEffect } from 'react';
 
 import {ResponsiveEnum, useAsyncEffect, useAsyncFn, usePageConfig} from '@/hooks';
 import {topics} from '@/service/passage';
@@ -51,4 +51,4 @@ const Topics: React.FC = props => {
 };
 
 Topics.displayName = 'Topics';
-export default Topics;
+export default memo(Topics);
