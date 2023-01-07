@@ -1,13 +1,15 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import clsx from "clsx";
 
 import Hover, { HoverContext } from '../Hover';
+import { GroupContext } from './group';
 
-import styles from "@/components/Card/normal.module.less";
+import styles from "@/components/PassageCard/normal.module.less";
 
 export interface IProps {
+    className?: string;
     /** card width */
-    width?: string;
+    width?: number;
     /** head image */
     headerImage?: React.ReactNode;
     /** icon at the left of title */
@@ -25,6 +27,7 @@ export interface IProps {
 
 const Card: React.FC<IProps> = props => {
     const {
+        className,
         headerImage,
         icon = "🚀",
         title,
@@ -32,14 +35,19 @@ const Card: React.FC<IProps> = props => {
         extraInfo,
         hoverContent,
         onClickImage,
-        width = '400px',
+        width,
     } = props;
+
+    const { cardWidth } = useContext(GroupContext);
 
     return (
         <Hover>
             <HoverContext.Consumer>
                 {({ hovered }) => (
-                    <div className={clsx(styles.cardNormal, 'border-radius-normal')} style={{ '--width': width } as any}>
+                    <div
+                        className={clsx(className, styles.cardNormal, 'border-radius-normal')}
+                        style={{ '--width': `${width || cardWidth}px` } as React.CSSProperties}
+                    >
                         <div className={styles.header} onClick={onClickImage}>
                             {typeof headerImage === 'string' ? <img src={headerImage} alt="Cover"/> : headerImage}
                         </div>
@@ -66,4 +74,6 @@ const Card: React.FC<IProps> = props => {
 };
 
 Card.displayName = 'Card';
+
+export { default as Group } from './group';
 export default Card;

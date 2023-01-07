@@ -1,14 +1,12 @@
 import React from "react";
-import clsx from "clsx";
 
-import { Splash } from "@/components";
+import { Splash, PassageCardGroup, Icon } from "@/components";
 import { useAsyncEffect, useAsyncFn } from '@/hooks';
 import { Node } from "@/types/markdown";
 import { getNotionPageTableCsv } from '@/service/passage';
 
 import { staticResourceUrl } from "../../../utils/static-resource-url";
 import PassageLink from './PassageLink';
-import styles from './style.module.less';
 
 export interface IProps {
     node: Node;
@@ -26,30 +24,32 @@ const PagesTable: React.FC<IProps> = props => {
         return <Splash texts="🚀🚀子模块加载中" full={false}/>;
     }
 
+    if (!res?.data) {
+        return null;
+    }
+
     return (
-        <table
+        <PassageCardGroup
             id={node.key}
-            className={styles.passageTable}
+            maxWidth={1000}
+            rowCountOffset={-1}
+            containerPadding={40}
+            outerPadding={20}
+            headContent={
+                <div style={{ textAlign: 'center' }}>
+                    <Icon className="rp-wenjiandaochu" />
+                    <span style={{ marginLeft: '8px' }}>相关文章</span>
+                </div>}
         >
-            <thead>
-                {res?.data?.[0]?.map((value, index) => (
-                    <td className={clsx(styles.tableCell, styles.header)} key={index}>{value}</td>
-                ))}
-            </thead>
-            {res?.data?.slice(1)?.map((value, index) => (
-                <tr key={index}>
-                    {value.map((value, index) => (
-                        <td className={styles.tableCell}>
-                            {index === 0 ? (
-                                <PassageLink key={index} keyword={value}/>
-                            ) : (
-                                value
-                            )}
-                        </td>
-                    ))}
-                </tr>
+            {res.data.slice(1)?.map((value, index) => (
+                <PassageLink
+                    key={index}
+                    keyword={value[0]}
+                    extraInfos={value.slice(1)}
+                    extraHeaders={res.data[0].slice(1)}
+                />
             ))}
-        </table>
+        </PassageCardGroup>
     );
 };
 PagesTable.displayName = 'PagesTable';

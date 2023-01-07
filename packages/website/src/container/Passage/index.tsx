@@ -92,7 +92,7 @@ const Passage = () => {
 
                         {catalogue?.mdate && (
                         <div className="date">
-                            <Icon className="rp-naozhong"/>
+                            <Icon className="rp-rili"/>
                             <span>发布日期</span>
                             <span>{catalogue.mdate}</span>
                         </div>)}

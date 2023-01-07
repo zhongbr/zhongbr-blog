@@ -5,23 +5,15 @@
  * @LastEditors: 张盼宏
  * @LastEditTime: 2022-09-03 18:45:34
  */
-import React, {useMemo} from "react";
+import React, { useMemo } from "react";
 import clsx from "clsx";
 
-import {Card, Icon, Tag} from '@/components';
-import {ResponsiveEnum, useNavigate, usePageConfig, useTags} from '@/hooks';
-import {ICatalogue, IPassage} from "@/service/passage/catalogue";
-import {copy} from "@/utils/copy";
+import { PassageCard, PassageCardGroup, Icon, Tag } from '@/components';
+import { useNavigate, useTags } from '@/hooks';
+import { ICatalogue, IPassage } from "@/service/passage/catalogue";
+import { copy } from "@/utils/copy";
 
 import styles from './style.module.less';
-
-const maxWidth = 1416;
-const RowCountsMap = new Map([
-    [ResponsiveEnum.tiny, 1],
-    [ResponsiveEnum.mid, 2],
-    [ResponsiveEnum.normal, 3],
-    [ResponsiveEnum.large, 3]
-]);
 
 export interface Props {
     /** trigger when entry passage */
@@ -36,11 +28,6 @@ const Catalogue: React.FC<Props> = (props) => {
     const navigator = useNavigate();
 
     const { onReplaceTags, onRemoveTag, onSelectTag, tags } = useTags();
-
-    const { screenWidth, widthLevel } = usePageConfig();
-    const rowCount = RowCountsMap.get(widthLevel || ResponsiveEnum.normal) || 3;
-    const passagesListWidth = Math.min(maxWidth, screenWidth || window.innerWidth);
-    const cardWidth = Math.floor((passagesListWidth - 20 * 2 - 10 * (rowCount - 1) - 2 * rowCount) / rowCount);
 
     const passages = useMemo(() => {
         // 过滤掉不显示的文章
@@ -57,8 +44,10 @@ const Catalogue: React.FC<Props> = (props) => {
     };
 
     return (
-        <div className={styles.container} style={{ '--passages-list-width': `${passagesListWidth}px` } as React.CSSProperties}>
-            {!!tags.length && (
+        <PassageCardGroup
+            className={styles.container}
+            cardsContainerClassName={styles.passagesContainer}
+            headContent={!!tags.length && (
                 <div className={clsx('blur', 'border-radius-normal', styles.selectedTags)}>
                     {tags?.map(tag => (
                         <Tag
@@ -73,39 +62,36 @@ const Catalogue: React.FC<Props> = (props) => {
                     </Tag>
                 </div>
             )}
-
-            <div className={styles.passagesContainer}>
-                {passages.map(passage => (
-                    <Card
-                        width={`${cardWidth}px`}
-                        onClickImage={() => onOpenPassage(passage)}
-                        title={passage.title}
-                        icon={passage.icon}
-                        headerImage={passage.cover}
-                        extraInfoHover={passage.mdate}
-                        extraInfo={(
-                            <div>
-                                {passage?.tags?.map?.(tag => <Tag key={tag} onClick={() => onSelectTag(tag)}>{tag}</Tag>)}
-                            </div>
-                        )}
-                        hoverContent={(
-                            <div className={styles.passageOperations}>
-                                <Icon
-                                    className="rp-faxian"
-                                    text="阅读"
-                                    onClick={() => onOpenPassage(passage)}
-                                />
-                                <Icon
-                                    className="rp-fuzhi"
-                                    text="复制"
-                                    onClick={() => onCopy(passage)}
-                                />
-                            </div>
-                        )}
-                    />
-                ))}
-            </div>
-        </div>
+        >
+            {passages.map(passage => (
+                <PassageCard
+                    onClickImage={() => onOpenPassage(passage)}
+                    title={passage.title}
+                    icon={passage.icon}
+                    headerImage={passage.cover}
+                    extraInfoHover={passage.mdate}
+                    extraInfo={(
+                        <div>
+                            {passage?.tags?.map?.(tag => <Tag key={tag} onClick={() => onSelectTag(tag)}>{tag}</Tag>)}
+                        </div>
+                    )}
+                    hoverContent={(
+                        <div className={styles.passageOperations}>
+                            <Icon
+                                className="rp-faxian"
+                                text="阅读"
+                                onClick={() => onOpenPassage(passage)}
+                            />
+                            <Icon
+                                className="rp-fuzhi"
+                                text="复制"
+                                onClick={() => onCopy(passage)}
+                            />
+                        </div>
+                    )}
+                />
+            ))}
+        </PassageCardGroup>
     );
 };
 

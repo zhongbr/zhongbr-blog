@@ -21,7 +21,7 @@ export type { IProps as IMathJaxProp } from './MathJax';
 export { default as Hover, useHover } from './Hover';
 export type { IProps as IHoverProps } from './Hover';
 
-export { default as Card } from './Card';
+export { default as PassageCard, Group as PassageCardGroup } from './PassageCard';
 export { default as MessageProvider, useMessage } from './Message';
 
 export * as Form from './Form';

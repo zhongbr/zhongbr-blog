@@ -70,8 +70,8 @@ const Header: React.FC<IProps> = (props) => {
                 <Switch
                     value={theme === 'dark-theme'}
                     onChange={onChangeTheme}
-                    onContent={<span>dark mode</span>}
-                    offContent={<span>light mode</span>}
+                    onContent={<span>🌛</span>}
+                    offContent={<span>☀️</span>}
                 />
             </div>
         </div>
