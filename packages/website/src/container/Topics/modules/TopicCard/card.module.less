@@ -1,9 +1,7 @@
-.border(@color) {
-  border: @color 1px solid;
-}
-
 .hover-container {
   width: calc(100% / var(--row-count) - var(--gap) * var(--row-count) / (var(--row-count) + 1));
+  box-shadow: 5px 5px 20px var(--color);
+  border-radius: var(--border-radius-mid);
 }
 
 .card {
@@ -18,8 +16,6 @@
   position: relative;
   overflow: hidden;
   z-index: 100;
-
-  .border(var(--gray-3));
 
   .hovered {
     box-shadow: 3px 3px var(--color);
@@ -89,9 +85,8 @@
   flex-direction: column;
   height: calc(100% - 2px);
   width: calc(100% - 2px);
+  margin: 1px 0 0 1px;
   color: var(--font-color);
-
-  .border(var(--gray-3));
 
   .head {
     margin: 16px;

@@ -16,9 +16,10 @@
 
   --inner-height: calc(var(--height) - 2px);
 
-  background-color: var(--gray-3);
+  background-color: var(--gray-4);
+  box-shadow: 2px 2px 8px var(--gray-4);
   border-radius: calc(var(--height) / 2);
-  min-width: calc(2 * var(--height));
+  min-width: calc(1.5 * var(--height));
   min-height: var(--height);
   max-height: var(--height);
   padding: 0 8px;
@@ -31,6 +32,7 @@
     width: var(--inner-height);
     border-radius: calc(var(--inner-height) / 2);
     background-color: var(--form-primary-color);
+    box-shadow: 2px 2px 4px var(--form-primary-color);
   }
 
   &[data-value=true] {

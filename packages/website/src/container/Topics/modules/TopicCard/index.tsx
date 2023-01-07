@@ -24,6 +24,7 @@ const TopicCard: React.FC<ITopic> = props => {
     return (
         <Hover
             className={styles.hoverContainer}
+            style={{ '--color': color } as React.CSSProperties}
             triggerInHover={false}
             hoverContent={(
                 <HoverContext.Consumer>
@@ -61,10 +62,7 @@ const TopicCard: React.FC<ITopic> = props => {
         >
             <HoverContext.Consumer>
                 {({ toggle, hovered }) => (
-                    <div
-                        className={clsx('border-radius-normal', styles.card, { [styles.hoverd]: hovered })}
-                        style={{ '--color': color } as any}
-                    >
+                    <div className={clsx('border-radius-normal', styles.card, { [styles.hoverd]: hovered })}>
                         <div className={styles.icon}>
                             <Icon className={icon}/>
                         </div>
