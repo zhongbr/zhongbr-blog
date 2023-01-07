@@ -34,7 +34,10 @@ const TopicCard: React.FC<ITopic> = props => {
                                     <Icon className="rp-arrow-left-bold"/>
                                     返回
                                 </div>
-                                <div className={styles.title}>精选文章</div>
+                                <div className={styles.title}>
+                                    <Icon className={icon}/>
+                                    精选文章
+                                </div>
                             </div>
                             <div className={styles.passagesList}>
                                 {passages?.map((passage) => (
@@ -57,8 +60,14 @@ const TopicCard: React.FC<ITopic> = props => {
             )}
         >
             <HoverContext.Consumer>
-                {({ toggle }) => (
-                    <div className={clsx('border-radius-normal', styles.card)} style={{ '--color': color } as any}>
+                {({ toggle, hovered }) => (
+                    <div
+                        className={clsx('border-radius-normal', styles.card, { [styles.hoverd]: hovered })}
+                        style={{ '--color': color } as any}
+                    >
+                        <div className={styles.icon}>
+                            <Icon className={icon}/>
+                        </div>
                         <div className={styles.head}>
                             <div className={styles.title}>{topicName}</div>
                             <div className={styles.operation} onClick={() => toggle(true)}>
@@ -67,10 +76,9 @@ const TopicCard: React.FC<ITopic> = props => {
                             </div>
                         </div>
                         <div className={styles.desc}>
-                            <span className={styles.title}>{desc}</span>
-                            <div className={styles.icon}>
-                                <Icon className={icon}/>
-                            </div>
+                            <span className={styles.title}>
+                                {desc}
+                            </span>
                         </div>
                         <div className={styles.tags}>
                             {tags?.map(tag => (

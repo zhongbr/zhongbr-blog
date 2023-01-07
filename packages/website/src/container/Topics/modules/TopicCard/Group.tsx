@@ -11,7 +11,7 @@ export interface IProps {
 }
 
 const Group: React.FC<IProps> = props => {
-    const { rowCount=3, gap='8px', className, children } = props;
+    const { rowCount=3, gap='16px', className, children } = props;
 
     return (
         <div

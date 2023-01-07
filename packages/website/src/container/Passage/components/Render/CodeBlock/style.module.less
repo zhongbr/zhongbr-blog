@@ -10,8 +10,18 @@
     .preview {
         flex: 1;
         padding-left: 8px;
-        margin-left: 8px;
         border-left: var(--border-color) solid 1px;
+    }
+
+    &.narrow-width-screen {
+        flex-direction: column;
+
+        .preview {
+            border-left: none;
+            padding-left: unset;
+            border-top: var(--border-color) solid 1px;
+            padding-top: 8px;
+        }
     }
 
     .footer {

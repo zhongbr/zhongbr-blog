@@ -5,14 +5,14 @@
  * @LastEditors: 张盼宏
  * @LastEditTime: 2022-09-07 22:37:06
  */
-import React, { useState, useMemo } from 'react';
+import React, {useMemo, useState} from 'react';
 import clsx from "clsx";
-import { Code, codepen, github } from 'react-code-blocks';
+import {Code, codepen, github} from 'react-code-blocks';
 
-import { IBaseProps } from '@/types/markdown';
-import { Icon, JsxDemoDisplay } from "@/components";
-import { copy } from "@/utils/copy";
-import { usePageConfig } from '@/hooks';
+import {IBaseProps} from '@/types/markdown';
+import {Icon, JsxDemoDisplay} from "@/components";
+import {copy} from "@/utils/copy";
+import {ResponsiveEnum, usePageConfig} from '@/hooks';
 
 import styles from './style.module.less';
 
@@ -31,7 +31,7 @@ const CodeBlock: React.FC<IBaseProps> = (props) => {
     const [copied, setCopied] = useState(false);
     const [preview, setPreview] = useState(previewable);
 
-    const { theme } = usePageConfig();
+    const { theme, widthLevel } = usePageConfig();
     // 深色模式使用 codepen 主题，浅色 使用 github
     const blockTheme = theme === 'dark-theme' ? codepen : github;
 
@@ -41,7 +41,15 @@ const CodeBlock: React.FC<IBaseProps> = (props) => {
     };
 
     return (
-        <div id={node.key} className={styles.container}>
+        <div
+            id={node.key}
+            className={clsx(
+                styles.container,
+                {
+                    [styles.narrowWidthScreen]: [ResponsiveEnum.tiny].includes(widthLevel || ResponsiveEnum.normal)
+                }
+            )}
+        >
             <Code
                 showLineNumbers
                 text={node.value}
