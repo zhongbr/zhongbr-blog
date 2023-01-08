@@ -6,7 +6,6 @@
  * @LastEditTime: 2022-09-07 23:00:17
  */
 interface Window {
-    react: any;
-    'react-dom': any;
-    'react-router-dom': any;
+    React: any;
+    ReactDom: any;
 }

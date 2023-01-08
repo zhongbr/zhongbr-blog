@@ -29,3 +29,6 @@ export * as Form from './Form';
 export { default as JsxDemoDisplay } from './JsxDemoDisplay';
 
 export { default as ErrorBoundary } from './ErrorBoundary';
+
+export { default as ErrorDisplay } from './ErrorDisplay';
+export type { IProps as IErrorDisplayProps } from './ErrorDisplay';

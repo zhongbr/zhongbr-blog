@@ -5,14 +5,9 @@ import { getService } from 'jsx-service';
 // eslint-disable-next-line import/no-webpack-loader-syntax
 import worker from 'worker!@/jsx-service.worker.js';
 
-import { useMessage } from '@/components';
+import { createEventSubscribeManager } from './event-subscribe';
 
 const service = getService(new Worker(worker));
-let message: ReturnType<typeof useMessage>;
-
-export function useInitAmd() {
-    message = useMessage();
-}
 
 export interface IModule {
     'default': any;
@@ -31,6 +26,7 @@ export interface RequireFunc {
  * 创建一个 AMD 模块管理对象，对外提供 define 和 _require 函数
  */
 export function createAmdManager() {
+    const eventSubscribeManager = createEventSubscribeManager();
     const factories = new Map<string, Factory | string>();
     const cache = new Map<string, IModule>();
 
@@ -46,6 +42,8 @@ export function createAmdManager() {
         if (cache.has(moduleName)) {
             cache.delete(moduleName);
         }
+        // 通知该模块的更新
+        eventSubscribeManager.trigger('update', moduleName);
         factories.set(moduleName, factory);
         return () => {
             factories.delete(moduleName);
@@ -70,17 +68,8 @@ export function createAmdManager() {
             if (!res.params.code) {
                 throw new Error(`[amd] module error: ${moduleName} failed to compile code`);
             }
-            try {
-                // eslint-disable-next-line no-eval
-                _module = await eval(res.params.code)(_require);
-            }
-            catch (e) {
-                message.fail({
-                    title: '运行出错',
-                    content: 'Demo代码执行出错，具体请查看 F12 控制台'
-                });
-                return;
-            }
+            // eslint-disable-next-line no-eval
+            _module = await eval(res.params.code)(_require);
         }
         else {
             _module = await factory(_require);
@@ -100,6 +89,19 @@ export function createAmdManager() {
         return generateModule(moduleNames);
     }
 
+    /**
+     * 监听模块更新
+     * @param targets 要监听的模块
+     * @param cb 回调函数
+     */
+    function onModuleUpdate(targets: string[] | undefined, cb: (moduleNames: string[]) => void) {
+        return  eventSubscribeManager.listen('update', (moduleName) => {
+            if(!targets || targets.includes(moduleName as string)) {
+                cb([moduleName as string]);
+            }
+        });
+    }
+
     _require.cache = cache;
     _require.factories = factories;
 
@@ -109,10 +111,13 @@ export function createAmdManager() {
         ...ReactNamespace
     }));
 
-    return { _require, define };
+    return { _require, define, onModuleUpdate };
 }
+
+export type IAmdManager = ReturnType<typeof createAmdManager>;
 
 /**
  * 创建一个全局使用的默认 AMD 管理上下文
  */
-export const { define, _require } = createAmdManager();
+export const defaultManager = createAmdManager();
+export const { define, _require } = defaultManager;

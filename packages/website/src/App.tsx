@@ -11,7 +11,6 @@ import { useRoutes } from 'react-router-dom';
 import routers from "@/config/routers";
 import { navLinks, title as titleText, titleLink } from '@/config/meta';
 import { useInitCopy } from '@/utils/copy';
-import { useInitAmd } from '@/utils/amd';
 
 import { Icon, Layout, MessageProvider, Splash } from './components';
 import { IPageConfig, PageConfigContext, ResponsiveEnum, usePersistFn, useStates, useThemeManager, useResponsive } from './hooks';
@@ -45,7 +44,6 @@ function App() {
         setBodyTheme(theme);
     });
 
-    useInitAmd();
     useInitCopy();
 
     useThemeManager(setTheme);

@@ -1,4 +1,4 @@
-import React, { useRef, useLayoutEffect } from 'react';
+import React, { useRef, useLayoutEffect, useState } from 'react';
 import { editor, KeyCode, KeyMod, languages } from 'monaco-editor';
 import clsx from 'clsx';
 
@@ -21,23 +21,40 @@ languages.typescript.typescriptDefaults.setCompilerOptions({
 });
 
 export interface IProps {
-    defaultValue?: string;
-    value?: string;
-    onChange?: (value: string) => void;
-    onSave?: (value: string) => void;
+    defaultValues?: string[];
+    values?: string[];
+    tabsName?: string[];
+    onChange?: (value: string, index: number) => void;
+    onSave?: (value: string, index: number) => void;
     className?: string;
     style?: React.CSSProperties;
+    saveDisabled?: (index: number) => boolean;
 }
 
 const Editor: React.FC<IProps> = (props) => {
-    const { defaultValue, value, onChange: _onChange = () => {}, onSave: _onSave = () => {}, className, style } = props;
+    const { defaultValues, values, tabsName, onChange: _onChange = () => {}, onSave: _onSave = () => {}, saveDisabled, className, style } = props;
     const ref = useRef<HTMLDivElement>(null);
     const editorInst = useRef<editor.IStandaloneCodeEditor>();
+    const [index, setIndex] = useState(0);
 
     const { theme } = usePageConfig();
 
-    const onChange = usePersistFn(_onChange);
-    const onSave = usePersistFn(_onSave);
+    const valuesRef = useRef<string[]>([]);
+
+    const defaultValueRef = useRef<string>();
+    defaultValueRef.current = defaultValues?.[index];
+
+    const onChange = usePersistFn((value: string) => {
+        valuesRef.current[index] = value;
+        _onChange?.(value, index);
+    });
+
+    const onSave = usePersistFn((value: string) => {
+        if (saveDisabled?.(index)) {
+            return;
+        }
+        _onSave?.(value, index);
+    });
 
     useLayoutEffect(() => {
         if (!ref.current) {
@@ -51,7 +68,7 @@ const Editor: React.FC<IProps> = (props) => {
 
         editorInst.current = editor_;
 
-        editor_.setValue(defaultValue || '');
+        editor_.setValue(defaultValueRef.current || '');
 
         editor_.onDidChangeModelContent(() => {
             onChange?.(editor_.getValue());
@@ -73,18 +90,22 @@ const Editor: React.FC<IProps> = (props) => {
         return () => {
             editor_.dispose();
         };
-    }, [onChange, onSave, defaultValue]);
+    }, [onChange, onSave]);
 
     const onClickSave = () => {
         onSave?.(editorInst.current?.getValue() || '');
     };
 
     useLayoutEffect(() => {
-        if (!value) {
+        editorInst.current?.setValue( valuesRef.current[index] || defaultValues?.[index] || '');
+    }, [index, defaultValues]);
+
+    useLayoutEffect(() => {
+        if (!values) {
             return;
         }
-        editorInst.current?.setValue(value);
-    }, [value]);
+        editorInst.current?.setValue(values[index]);
+    }, [values, index]);
 
     useLayoutEffect(() => {
         editorInst.current?.updateOptions({
@@ -95,7 +116,20 @@ const Editor: React.FC<IProps> = (props) => {
     return (
         <div className={clsx(className, styles.container)}>
             <div className={styles.operations}>
-                <div className={styles.item} onClick={onClickSave}>
+                <div className={styles.tabs}>
+                    {tabsName?.map((tab, index_) => (
+                        <div
+                            key={index_}
+                            className={styles.item}
+                            onClick={() => setIndex(index_)}
+                            data-selected={index_ === index}
+                        >
+                            <Icon className="rp-baogao"/>
+                            <span>{tab}</span>
+                        </div>
+                    ))}
+                </div>
+                <div className={styles.item} data-disabled={saveDisabled?.(index)} onClick={onClickSave}>
                     <Icon className="rp-baogao"/>
                     <span>保存</span>
                 </div>
