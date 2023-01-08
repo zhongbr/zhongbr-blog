@@ -1,20 +1,12 @@
-import React, { useMemo, Suspense, useState } from 'react';
-import * as ReactNamespace from 'react';
-import { getService } from 'jsx-service';
+import React, { Suspense, useEffect, useMemo, useRef } from 'react';
 
-import { useAsyncEffect } from '@/hooks';
-import { define, IModule, _require } from '@/utils/amd';
+import { _require, define, IModule } from '@/utils/amd';
 import { ISuspenseWrapper, suspensePromise } from '@/hooks/useSuspense';
 
 import Splash from '../Splash';
+import ErrorBoundary from '../ErrorBoundary';
 import Module from './module';
-
-// @ts-ignore
-// eslint-disable-next-line import/no-webpack-loader-syntax
-import worker from 'worker!@/jsx-service.worker.js';
-
-// JSX代码转换 worker 服务
-const service = getService(new Worker(worker, { type: 'module' }));
+import styles from './style.module.less';
 
 export interface IProps {
     jsx: string;
@@ -23,37 +15,57 @@ export interface IProps {
 // 用于区分每个组件对应模块的id
 let displayId = 0;
 
-// 声明 AMD 模块供内部调用
-define('react', async () => ({
-    'default': React,
-    ...ReactNamespace
-}));
-
 const JsxDemoDisplay: React.FC<IProps> = props => {
     const { jsx } = props;
 
     const moduleName = useMemo(() => `DisplayModule${displayId++}`, []);
-    const [ready, setReady] = useState(false);
+    const ref = useRef(['', '']);
 
-    useAsyncEffect(async () => {
-        setReady(false);
-        const result = await service.transformJsxCode(jsx, 10000);
-        // eslint-disable-next-line no-eval
-        define(moduleName, eval(result.params.code));
-        setReady(true);
-    }, [jsx, moduleName]);
+    const [previousJsx, previousModuleName] = ref.current || [];
 
-    const fallback = <Splash texts="🚀 加载中" />;
+    let dispose = () => {};
+    const onFallback = (reset: () => void, error?: Error) => {
+        const fallback = () => {
+            dispose = define(moduleName, previousJsx);
+            reset();
+        };
 
-    if (!ready) {
-        return fallback;
+        return (
+            <div className={styles.errorFallback}>
+                <div className={styles.title}>
+                    ❌ Demo执行出错了，检查下代码吧 😭😭
+                </div>
+                <div className={styles.errorStack}>
+                    <div className={styles.title}>
+                        {error?.name}: {error?.message}
+                    </div>
+                    <div className={styles.content}>
+                        {error?.stack}
+                    </div>
+                </div>
+                <div>
+                    <button className={styles.retryBtn} onClick={fallback}>点击此处重试</button>
+                </div>
+            </div>
+        );
     }
+
+    if (previousJsx !== jsx || previousModuleName !== moduleName) {
+        ref.current = [jsx, moduleName];
+        dispose = define(moduleName, jsx);
+    }
+
+    useEffect(() => dispose, []);
 
     const _module = suspensePromise(_require(moduleName));
 
     return (
-        <Suspense fallback={fallback}>
-            <Module _module={_module as ISuspenseWrapper<IModule>}/>
+        <Suspense fallback={<Splash texts="🚀 加载中" />}>
+            <ErrorBoundary
+                renderFallback={onFallback}
+            >
+                <Module _module={_module as ISuspenseWrapper<IModule>}/>
+            </ErrorBoundary>
         </Suspense>
     );
 };

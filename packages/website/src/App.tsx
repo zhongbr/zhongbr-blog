@@ -10,6 +10,8 @@ import { useRoutes } from 'react-router-dom';
 
 import routers from "@/config/routers";
 import { navLinks, title as titleText, titleLink } from '@/config/meta';
+import { useInitCopy } from '@/utils/copy';
+import { useInitAmd } from '@/utils/amd';
 
 import { Icon, Layout, MessageProvider, Splash } from './components';
 import { IPageConfig, PageConfigContext, ResponsiveEnum, usePersistFn, useStates, useThemeManager, useResponsive } from './hooks';
@@ -42,6 +44,9 @@ function App() {
         setStates({ theme });
         setBodyTheme(theme);
     });
+
+    useInitAmd();
+    useInitCopy();
 
     useThemeManager(setTheme);
 
@@ -78,7 +83,7 @@ function App() {
                 >
                     <Suspense fallback={splash}>
                         {states.loading && splash}
-                        <div style={{ display: states.loading ? 'none' : 'block' }}>
+                        <div style={{ visibility: states.loading ? 'hidden' : 'visible', height: '100%' }}>
                             {element}
                         </div>
                     </Suspense>

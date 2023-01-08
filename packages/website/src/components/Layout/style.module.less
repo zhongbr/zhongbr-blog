@@ -20,7 +20,6 @@
             margin-bottom: 10px;
 
             .title-container {
-                line-height: 100%;
                 white-space: nowrap;
                 overflow: hidden;
                 text-overflow: ellipsis;
@@ -89,6 +88,7 @@
 
                     &:hover {
                         background-color: var(--hover-background-color);
+                        box-shadow: var(--box-shadow);
                         color: var(--hover-font-color);
                     }
                 }
@@ -111,18 +111,24 @@
     .content-container {
         height: 100vh;
         width: 100vw;
-        background: no-repeat url("https://i.328888.xyz/2023/01/01/nL10A.png");
-        background-size: 100%;
+        background: url("https://i.328888.xyz/2023/01/01/nL10A.png");
+        background-size: 100% 100%;
         overflow-y: auto;
         overflow-x: hidden;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+
+        &::before {
+            content: ' ';
+            display: inline-block;
+            min-height: 146px;
+        }
 
         .content {
-            min-height: calc(100vh - 80px);
+            flex: 1;
         }
 
-        .padding {
-            opacity: 0;
-            height: 145px;
-        }
+        .footer {}
     }
 }

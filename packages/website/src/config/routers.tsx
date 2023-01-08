@@ -11,6 +11,7 @@ import { RouteObject } from 'react-router-dom';
 const Topics = lazy(() => import('@/container/Topics'));
 const TagIndex = lazy(() => import('@/container/TagIndex'));
 const Passage = lazy(() => import('@/container/Passage'));
+const Playground = lazy(() => import('@/container/Playground'));
 
 const routers: RouteObject[] = [
     {
@@ -20,6 +21,10 @@ const routers: RouteObject[] = [
     {
         path: '/tags',
         element: <TagIndex/>
+    },
+    {
+        path: '/playground',
+        element: <Playground/>
     },
     {
         path: '/',

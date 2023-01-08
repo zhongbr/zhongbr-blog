@@ -8,7 +8,6 @@
 
 import React, { useRef } from "react";
 
-import { useInitCopy } from '@/utils/copy';
 import Header, { IProps as HeaderProps } from './header';
 import Footer, { IProps as FooterProps } from './footer';
 import styles from './style.module.less';
@@ -36,8 +35,6 @@ const Layout: React.FC<IProps> = (props) => {
 
     const { rate } = useScrollRate(contentRef || ref_, 60);
 
-    useInitCopy();
-
     return (
         <div className={styles.layout}>
             <Header
@@ -46,12 +43,14 @@ const Layout: React.FC<IProps> = (props) => {
                 rate={rate}
             />
             <div className={styles.contentContainer} ref={contentRef}>
-                <div className={styles.padding} />
                 <div className={styles.content}>
                     {children}
                 </div>
                 {footerProps && (
-                    <Footer {...footerProps}/>
+                    <Footer
+                        className={styles.footer}
+                        {...footerProps}
+                    />
                 )}
             </div>
         </div>
