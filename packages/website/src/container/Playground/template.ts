@@ -1,3 +1,5 @@
+import {IPlaygroundCode} from "@/types/utils";
+
 export const DefaultDemoCode =
 `import React from 'react';
 import Hello from 'hello-module';
@@ -31,29 +33,11 @@ export const DepsCommonHeader =
 `//============================================================
 // Do not modify following import and export statements
 import React from 'react';
-import { define } from 'module-manager';
+import { define, importScript } from 'module-manager';
 export default 'module-valid';
 //============================================================
-
-// 🚀🚀 This is a tool function for import umd script
-export function importScript(url, objectName) {
-    return () => new Promise((resolve, reject) => {
-        const script = document.createElement('script');
-        script.onload = () => {
-          resolve({ 'default': window[objectName], ...window[objectName] });
-        }
-        
-        script.onerror = () => {
-          reject(new Error('import script failed'));
-        }
-        
-        script.crossOrigin = 'anonymous';
-        script.src = url;
-        script.type = 'text/javascript';
-        
-        document.body.appendChild(script);
-    });
-}
+// 🚀🚀 This is a tool function for import umd script module
+const _import = (url, obj) => importScript(url, obj, document.body);
 
 // 🚀🚀 You can define your dependencies here:
 define('version', () => ({ 'default': '1.0.0' }));
@@ -62,17 +46,25 @@ define('version', () => ({ 'default': '1.0.0' }));
 export const DefaultDepsCode = `${DepsCommonHeader}
 // 🚀 eg.1 Custom Module: call define functions, pass the module name and an async module function to it just like:
 define('hello-module', async _require => {
-    // You can call \`_require\` function ** async ** to get others modules, please pay attention to de ** cycle dependencies **.
-    const React = await _require('react');
+    // 🚀You can call \`_require\` function ** asynchronously ** to get others modules.
+    // Please pay attention to the ** cycle dependencies **.
+    const { default: jq } = await _require('jquery');
     
     // Some others statements to generate the module.
     
-    // Return things you want to export as an object, you can specific \`default\` property for the ES Module default import.
+    // Return things you want to export as an object, you can specify \`default\` property for the ES Module default import.
     return {
-        // Jsx can be used ! 🚀
-        'default': () => <div>module hello world</div>
+        // 🚀Jsx can be used ! 
+        'default': () => {
+            const onclick = () => jq('#_hello_demo')[0].style = 'color: red;';
+            return <div id="_hello_demo" onClick={onclick}>module hello world</div>;
+        }
     }
 });
 
 // 🚀 eg.2 Public umd scripts
-define('jquery', importScript('https://unpkg.com/jquery@3.6.3/dist/jquery.js', '$'));`
+define('jquery', _import('https://unpkg.com/jquery@3.6.3/dist/jquery.js', '$'));`
+
+export const formatDeps = (deps: IPlaygroundCode['deps']) => [DepsCommonHeader, deps?.map(dep => {
+    return `define('${dep.id}', _import('${dep.url}', '${dep.obj}'));`;
+})].join('\n');

@@ -6,7 +6,7 @@ import { JsxDemoDisplay, Icon, Splash, ErrorDisplay } from '@/components';
 import { createAmdManager, IAmdManager, IModule } from '@/utils/amd';
 import { PlaygroundGetCodeSymbol, IPlaygroundCode } from '@/types/utils';
 
-import { DefaultDemoCode, DefaultDepsCode, DepsCommonHeader } from './template';
+import { DefaultDemoCode, DefaultDepsCode, formatDeps } from './template';
 import { Editor } from './modules';
 import styles from './style.module.less';
 
@@ -18,10 +18,7 @@ if (window.opener && typeof window.opener[PlaygroundGetCodeSymbol] === 'function
     const res = window.opener[PlaygroundGetCodeSymbol]() as IPlaygroundCode;
     if (res) {
         defaultDemoCode = res.demo || DefaultDemoCode;
-        defaultDepsCode = [
-            DepsCommonHeader,
-            (res.deps || []).map(dep => `define('${dep.id}', importScript('${dep.url}'), '${dep.obj}')`)
-        ].join('\n');
+        defaultDepsCode = formatDeps(res.deps);
     }
 }
 

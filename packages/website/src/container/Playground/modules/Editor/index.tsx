@@ -1,5 +1,5 @@
 import React, { useRef, useLayoutEffect, useState } from 'react';
-import { editor, KeyCode, KeyMod, languages } from 'monaco-editor';
+import { editor, KeyCode, KeyMod, languages, Uri } from 'monaco-editor';
 import clsx from 'clsx';
 
 import { Icon } from '@/components';
@@ -62,13 +62,15 @@ const Editor: React.FC<IProps> = (props) => {
         }
 
         const editor_ = editor.create(ref.current, {
-            language: 'typescript',
-            automaticLayout: true
+            automaticLayout: true,
+            minimap: { enabled: false },
+            fontSize: 15,
+            readOnly: false,
+            value: defaultValueRef.current || '',
+            language: 'typescript'
         });
 
         editorInst.current = editor_;
-
-        editor_.setValue(defaultValueRef.current || '');
 
         editor_.onDidChangeModelContent(() => {
             onChange?.(editor_.getValue());
@@ -97,7 +99,7 @@ const Editor: React.FC<IProps> = (props) => {
     };
 
     useLayoutEffect(() => {
-        editorInst.current?.setValue( valuesRef.current[index] || defaultValues?.[index] || '');
+        editorInst.current?.setValue(valuesRef.current[index] || defaultValues?.[index] || '');
     }, [index, defaultValues]);
 
     useLayoutEffect(() => {

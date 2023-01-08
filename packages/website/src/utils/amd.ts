@@ -102,6 +102,25 @@ export function createAmdManager() {
         });
     }
 
+    function importScript(url: string, objectName: string, target: HTMLElement) {
+        return () => new Promise((resolve, reject) => {
+            const script = document.createElement('script');
+            script.onload = () => {
+                resolve({ 'default': Reflect.get(window, objectName), ...Reflect.get(window, objectName) });
+            }
+
+            script.onerror = () => {
+                reject(new Error('import script failed'));
+            }
+
+            script.crossOrigin = 'anonymous';
+            script.src = url;
+            script.type = 'text/javascript';
+
+            target.appendChild(script);
+        });
+    }
+
     _require.cache = cache;
     _require.factories = factories;
 
@@ -111,7 +130,7 @@ export function createAmdManager() {
         ...ReactNamespace
     }));
 
-    return { _require, define, onModuleUpdate };
+    return { _require, define, onModuleUpdate, importScript };
 }
 
 export type IAmdManager = ReturnType<typeof createAmdManager>;
@@ -120,4 +139,4 @@ export type IAmdManager = ReturnType<typeof createAmdManager>;
  * 创建一个全局使用的默认 AMD 管理上下文
  */
 export const defaultManager = createAmdManager();
-export const { define, _require } = defaultManager;
+export const { define, _require, onModuleUpdate, importScript } = defaultManager;

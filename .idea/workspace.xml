@@ -4,12 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="27b3b0e5-1ac3-4b25-8173-a590bd44bf60" name="变更" comment="feat: 支持引入依赖">
+    <list default="true" id="27b3b0e5-1ac3-4b25-8173-a590bd44bf60" name="变更" comment="feat: demo支持直接打开playground">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/packages/website/src/container/Passage/components/Render/CodeBlock/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/container/Passage/components/Render/CodeBlock/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/packages/website/src/container/Playground/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/container/Playground/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/container/Playground/modules/Editor/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/container/Playground/modules/Editor/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/packages/website/src/container/Playground/template.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/container/Playground/template.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/types/utils.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/types/utils.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/utils/amd.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/utils/amd.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -222,14 +223,7 @@
       <workItem from="1672538124325" duration="80477000" />
       <workItem from="1672933535056" duration="27297000" />
       <workItem from="1672998178645" duration="27112000" />
-      <workItem from="1673095377183" duration="41798000" />
-    </task>
-    <task id="LOCAL-00052" summary="feat: 支持渲染 latex 公式">
-      <created>1672416082608</created>
-      <option name="number" value="00052" />
-      <option name="presentableId" value="LOCAL-00052" />
-      <option name="project" value="LOCAL" />
-      <updated>1672416082608</updated>
+      <workItem from="1673095377183" duration="45856000" />
     </task>
     <task id="LOCAL-00053" summary="feat: 支持渲染 latex 公式">
       <created>1672416103955</created>
@@ -567,7 +561,14 @@
       <option name="project" value="LOCAL" />
       <updated>1673167024660</updated>
     </task>
-    <option name="localTasksCounter" value="101" />
+    <task id="LOCAL-00101" summary="feat: demo支持直接打开playground">
+      <created>1673175845635</created>
+      <option name="number" value="00101" />
+      <option name="presentableId" value="LOCAL-00101" />
+      <option name="project" value="LOCAL" />
+      <updated>1673175845635</updated>
+    </task>
+    <option name="localTasksCounter" value="102" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -587,7 +588,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="feat: 请求时增加随机数，避免浏览器使用缓存" />
     <MESSAGE value="feat: 增加首页栏目" />
     <MESSAGE value="feat: 优化 splash" />
     <MESSAGE value="feat: 增加封面图" />
@@ -612,7 +612,8 @@
     <MESSAGE value="feat: 增加阴影" />
     <MESSAGE value="feat: 增加 Playground" />
     <MESSAGE value="feat: 支持引入依赖" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: 支持引入依赖" />
+    <MESSAGE value="feat: demo支持直接打开playground" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: demo支持直接打开playground" />
   </component>
   <component name="VgoProject">
     <integration-enabled>false</integration-enabled>
