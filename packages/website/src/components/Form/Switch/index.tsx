@@ -32,8 +32,9 @@ const Switch: React.FC<IProps> = props => {
             className={clsx(size, styles.switch)}
             data-value={states.value}
         >
-            {states.value && onContent}
-            {!states.value && offContent}
+            <span className={styles.content}>
+                {states.value ? onContent : offContent}
+            </span>
         </div>
     );
 };
