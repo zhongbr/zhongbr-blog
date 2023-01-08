@@ -1,21 +1,35 @@
-import React, { useLayoutEffect, useState, useRef, useMemo } from 'react';
+import React, {useLayoutEffect, useState, useRef, useMemo, useEffect} from 'react';
 import clsx from 'clsx';
 
 import { ResponsiveEnum, usePageConfig, useAsyncEffect, useAsyncFn } from '@/hooks';
 import { JsxDemoDisplay, Icon, Splash, ErrorDisplay } from '@/components';
 import { createAmdManager, IAmdManager, IModule } from '@/utils/amd';
+import { PlaygroundGetCodeSymbol, IPlaygroundCode } from '@/types/utils';
 
-import { DefaultDemoCode, DefaultDepsCode } from './template';
+import { DefaultDemoCode, DefaultDepsCode, DepsCommonHeader } from './template';
 import { Editor } from './modules';
 import styles from './style.module.less';
 
 let playgroundId = 0;
+let defaultDemoCode = DefaultDemoCode, defaultDepsCode = DefaultDepsCode;
+
+// 向来源的页面发送消息，尝试获取填充的代码
+if (window.opener && typeof window.opener[PlaygroundGetCodeSymbol] === 'function') {
+    const res = window.opener[PlaygroundGetCodeSymbol]() as IPlaygroundCode;
+    if (res) {
+        defaultDemoCode = res.demo || DefaultDemoCode;
+        defaultDepsCode = [
+            DepsCommonHeader,
+            (res.deps || []).map(dep => `define('${dep.id}', importScript('${dep.url}'), '${dep.obj}')`)
+        ].join('\n');
+    }
+}
 
 const Playground: React.FC = () => {
     const { onPageReady, setStates, widthLevel } = usePageConfig();
     const [code, setCode] = useState('');
 
-    const [depCode, setDepCode] = useState(DefaultDepsCode);
+    const [depCode, setDepCode] = useState(defaultDepsCode);
     const [depsError, setDepsError] = useState<Error>();
 
     const moduleName = useMemo(() => `PlaygroundDeps${playgroundId++}`, []);
@@ -46,11 +60,11 @@ const Playground: React.FC = () => {
     // 保存代码，区分是依赖导入还是 demo 代码
     const onCodeSave = (code: string, index: number) => {
         switch (index) {
-            case 1: {
+            case 0: {
                 setCode(code);
                 break;
             }
-            case 0: {
+            case 1: {
                 setDepCode(code);
                 break;
             }
@@ -80,9 +94,9 @@ const Playground: React.FC = () => {
             <Editor
                 className={styles.editor}
                 onSave={onCodeSave}
-                defaultValues={[DefaultDepsCode, DefaultDemoCode]}
-                tabsName={['Dependencies', 'Demo']}
-                saveDisabled={index => index === 1 && (!depsValid || loading)}
+                defaultValues={[defaultDemoCode, defaultDepsCode]}
+                tabsName={['Demo代码', '依赖导入']}
+                saveDisabled={index => index === 0 && (!depsValid || loading)}
             />
             <div className={styles.display}>
                 {(() => {

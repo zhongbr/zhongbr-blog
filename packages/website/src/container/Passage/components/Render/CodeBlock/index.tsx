@@ -15,6 +15,7 @@ import {copy} from "@/utils/copy";
 import {ResponsiveEnum, usePageConfig} from '@/hooks';
 
 import styles from './style.module.less';
+import {PlaygroundGetCodeSymbol} from "@/types/utils";
 
 const shouldPreview = (lang: string, code: string) => {
     if (!['jsx', 'tsx', 'js'].includes(lang)) {
@@ -38,6 +39,13 @@ const CodeBlock: React.FC<IBaseProps> = (props) => {
     const onCopyCode = async () => {
         await copy(node.value);
         setCopied(true);
+    };
+
+    const onOpenPlayground = () => {
+        Reflect.set(window, PlaygroundGetCodeSymbol, () => {
+            return { demo: node.value, deps: [] };
+        });
+        window.open('/#/playground', '_blank');
     };
 
     return (
@@ -69,10 +77,16 @@ const CodeBlock: React.FC<IBaseProps> = (props) => {
             {node.lang && (
                 <div className={styles.footer}>
                     {previewable && (
-                        <div className={styles.item} onClick={() => setPreview(!preview)}>
-                            <Icon className="rp-xuanxiang"/>
-                            {preview ? '关闭预览' : '预览'}
-                        </div>
+                        <>
+                            <div className={styles.item} onClick={onOpenPlayground}>
+                                <Icon className="rp-jiaoxue"/>
+                                Playground
+                            </div>
+                            <div className={styles.item} onClick={() => setPreview(!preview)}>
+                                <Icon className="rp-xuanxiang"/>
+                                {preview ? '关闭预览' : '预览'}
+                            </div>
+                        </>
                     )}
                     <div className={styles.item}>
                         <Icon className="rp-faxian"></Icon>

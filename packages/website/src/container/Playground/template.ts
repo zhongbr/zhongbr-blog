@@ -27,7 +27,7 @@ const TestFC = (props) => {
 
 export default TestFC;`;
 
-export const DefaultDepsCode =
+export const DepsCommonHeader =
 `//============================================================
 // Do not modify following import and export statements
 import React from 'react';
@@ -36,7 +36,7 @@ export default 'module-valid';
 //============================================================
 
 // 🚀🚀 This is a tool function for import umd script
-function importScript(url, objectName) {
+export function importScript(url, objectName) {
     return () => new Promise((resolve, reject) => {
         const script = document.createElement('script');
         script.onload = () => {
@@ -56,7 +56,10 @@ function importScript(url, objectName) {
 }
 
 // 🚀🚀 You can define your dependencies here:
+define('version', () => ({ 'default': '1.0.0' }));
+`;
 
+export const DefaultDepsCode = `${DepsCommonHeader}
 // 🚀 eg.1 Custom Module: call define functions, pass the module name and an async module function to it just like:
 define('hello-module', async _require => {
     // You can call \`_require\` function ** async ** to get others modules, please pay attention to de ** cycle dependencies **.
@@ -72,5 +75,4 @@ define('hello-module', async _require => {
 });
 
 // 🚀 eg.2 Public umd scripts
-define('jquery', importScript('https://unpkg.com/jquery@3.6.3/dist/jquery.js', '$'));
-`;
+define('jquery', importScript('https://unpkg.com/jquery@3.6.3/dist/jquery.js', '$'));`
