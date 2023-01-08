@@ -7,7 +7,7 @@ import worker from 'worker!@/jsx-service.worker.js';
 
 import { createEventSubscribeManager } from './event-subscribe';
 
-const service = getService(new Worker(worker));
+let service: ReturnType<typeof getService>;
 
 export interface IModule {
     'default': any;
@@ -55,6 +55,10 @@ export function createAmdManager() {
      * @param moduleName 模块的标识
      */
     const generateModule = async (moduleName: string) => {
+        // 初始化 service
+        if (!service) {
+            service = getService(new Worker(worker));
+        }
         if (cache.has(moduleName)) {
             return cache.get(moduleName);
         }
