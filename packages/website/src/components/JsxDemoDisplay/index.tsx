@@ -20,11 +20,9 @@ let displayId = 0;
 
 const JsxDemoDisplay: React.FC<IProps> = (props) => {
     const { jsx, moduleManagerRef } = props;
+    console.log('jsx demo display rendered');
 
     const moduleName = useMemo(() => `DisplayModule${displayId++}`, []);
-    const ref = useRef(['', '']);
-
-    const [previousJsx, previousModuleName] = ref.current || [];
 
     const onFallback = (reset: () => void, error?: Error) => {
         const fallback = () => {
@@ -45,12 +43,15 @@ const JsxDemoDisplay: React.FC<IProps> = (props) => {
         );
     }
 
+    const ref = useRef(['', '']);
+    const [previousJsx, previousModuleName] = ref.current;
+
     let moduleDispose = () => {};
     let eventDispose = () => {};
     const [,forceUpdate] = useState({});
     if (previousJsx !== jsx || previousModuleName !== moduleName) {
         ref.current = [jsx, moduleName];
-        moduleDispose = (moduleManagerRef?.current || defaultManager).define(moduleName, [], jsx);
+        moduleDispose = (moduleManagerRef?.current || defaultManager).define(moduleName, ['require'], jsx);
         // 监听模块更新，刷新 demo
         // TODO: 目前监听了所有的模块更新，后续支持只监听使用到的模块
         eventDispose = (moduleManagerRef?.current || defaultManager).onModuleUpdate(undefined, () => {

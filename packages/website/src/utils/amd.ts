@@ -1,5 +1,7 @@
 import React from "react";
 import * as ReactNamespace from "react";
+import ReactDOM from "react-dom";
+import * as ReactDomNamespace from "react-dom";
 import path from 'path-browserify';
 
 import { getService } from 'jsx-service';
@@ -17,7 +19,7 @@ export interface IModule {
     [key: string]: any;
 }
 
-export type Factory = (require: RequireFunc, exports: Object, ...modules: unknown[]) => Promise<IModule>;
+export type Factory = (...modules: unknown[]) => Promise<IModule>;
 export type DefineDispose = () => void;
 
 export type IRequireCallback = (modules: IModule | (IModule | undefined)[] | undefined) => void;
@@ -145,7 +147,7 @@ export function createAmdManager(baseDir = '/', scriptTimeout = 5000) {
         if (Array.isArray(moduleName)) {
             factory = dependencies_ as (Factory | string);
             dependencies_ = moduleName;
-            moduleName = '_';
+            moduleName = loadingModuleName;
         }
         const modulePath = resolve(moduleName);
         if (factories.has(modulePath)) {
@@ -229,7 +231,6 @@ export function createAmdManager(baseDir = '/', scriptTimeout = 5000) {
             deps = await requireFunc(depModuleNames) as IModule[];
         }
 
-        let exports: IModule = { 'default': null };
         let exportsReturn: IModule;
 
         if (typeof factory === 'string') {
@@ -238,13 +239,13 @@ export function createAmdManager(baseDir = '/', scriptTimeout = 5000) {
                 throw new Error(`[amd] module error: ${modulePath} failed to compile code`);
             }
             // eslint-disable-next-line no-eval
-            exportsReturn = await eval(res.params.code)(requireFunc, exports, ...deps);
+            exportsReturn = await eval(res.params.code)(...deps);
         }
         else {
-            exportsReturn = await factory(requireFunc, exports, ...deps);
+            exportsReturn = await factory(...deps);
         }
-        cache.set(modulePath, exportsReturn || exports);
-        return exportsReturn || exports;
+        cache.set(modulePath, exportsReturn);
+        return exportsReturn;
     };
 
     /**
@@ -285,12 +286,12 @@ export function createAmdManager(baseDir = '/', scriptTimeout = 5000) {
      */
     function importGlobalObjectScript(target: HTMLElement, url: string, name: string): Factory {
         // 返回一个导入脚本的异步函数作为模块的声明
-        return async (_require, exports, modules) => {
+        return async (_require) => {
             await loadScript(target, url);
-            return  Object.assign(exports, {
+            return {
                 'default': Reflect.get(window, name),
                 ...Reflect.get(window, name)
-            });
+            };
         };
     }
 
@@ -325,12 +326,22 @@ export function createAmdManager(baseDir = '/', scriptTimeout = 5000) {
     // 在 define 函数上挂载一个 amd 属性，支持标准 amd API
     Reflect.set(define, 'amd', {});
 
-
     // 默认导入 react AMD 模块，供内部 JSX 调用
-    define('react', [], async (require, exports) => {
-        return  Object.assign(exports, {
+    define('react', [], async () => {
+        return {
             'default': React,
             ...ReactNamespace
+        };
+    });
+    define('react-dom', [], async () => {
+        return {
+            'default': ReactDOM,
+            ...ReactDomNamespace
+        };
+    });
+    define('require', [], async () => {
+        return Object.assign(require_, {
+            default: require_
         });
     });
 

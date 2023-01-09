@@ -51,12 +51,12 @@ export async function resolve(packageName, version, file) {
 }
 
 // 🚀🚀 You can define your dependencies here:
-define('version', [], (require, exports) => (Object.assign(exports, { 'default': '1.0.0' })));
+define('version', [], () => ({ 'default': '1.0.0' }));
 `;
 
 export const DefaultDepsCode = `${DepsCommonHeader}
 // 🚀 e.g.1 Custom Module: call define functions, pass the module name and an async module function to it just like:
-define('hello-module', ['jquery'], async (require, exports, jq) => {
+define('hello-module', ['require', 'jquery'], async (require, jq) => {
     // 🚀You can call \`_require\` function ** asynchronously ** to get others modules.
     // Please pay attention to the ** cycle dependencies **.
     const jq2 = await require('jquery');
@@ -64,13 +64,13 @@ define('hello-module', ['jquery'], async (require, exports, jq) => {
     // Some others statements to generate the module.
     
     // Return things you want to export as an object, you can specify \`default\` property for the ES Module default import.
-    return Object.assign(exports, {
+    return {
         // 🚀Jsx can be used ! 
         'default': () => {
             const onclick = () => jq('#_hello_demo')[0].style = 'color: red;';
             return <div id="_hello_demo" onClick={onclick}>module hello world</div>;
         }
-    });
+    };
 });
 
 // 🚀 e.g.2 Public scripts that mount export result on window or global.
@@ -78,5 +78,5 @@ define('hello-module', ['jquery'], async (require, exports, jq) => {
 // define('module-name', [], _import('https://xxxx.xxxx', 'objectName'));`
 
 export const formatDeps = (deps: IPlaygroundCode['deps']) => [DepsCommonHeader, deps?.map(dep => {
-    return `define('${dep.id}', [], _import('${dep.url}', '${dep.obj}'));`;
+    return `define('${dep.id}', ['require'], _import('${dep.url}', '${dep.obj}'));`;
 })].join('\n');

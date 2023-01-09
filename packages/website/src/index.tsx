@@ -15,9 +15,6 @@ import reportWebVitals from './reportWebVitals';
 
 import './index.less';
 
-window['React'] = React;
-window['ReactDom'] = ReactDOM;
-
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );

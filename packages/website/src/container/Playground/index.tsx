@@ -45,7 +45,7 @@ const Playground: React.FC = () => {
     // 刷新依赖代码
     const [onRefreshDeps, depsValid, loading] = useAsyncFn(async () => {
         // 把依赖代码也声明成一个模块，然后立即导入执行
-        moduleManagerRef.current?.define(moduleName, [], depCode);
+        moduleManagerRef.current?.define(moduleName, ['require'], depCode);
         // 导入依赖模块，校验 default 是否是 'module-valid'，判断代码是否正常
         try {
             const module_ = await moduleManagerRef.current?.require_(moduleName) as IModule;
@@ -61,18 +61,19 @@ const Playground: React.FC = () => {
     });
 
     // 保存代码，区分是依赖导入还是 demo 代码
-    const onCodeSave = (code: string, index: number) => {
+    const onCodeSave = (newCode: string, index: number) => {
         switch (index) {
             case 0: {
-                setCode(code);
+                setCode(newCode);
                 break;
             }
             case 1: {
-                setDepCode(code);
+                setDepCode(newCode);
                 break;
             }
         }
     };
+    console.log('playground rerender', code);
 
     // 如果依赖发生变化，就刷新依赖
     useAsyncEffect(async () => {
