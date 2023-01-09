@@ -4,12 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="27b3b0e5-1ac3-4b25-8173-a590bd44bf60" name="变更" comment="feat: 兼容匿名模块">
+    <list default="true" id="27b3b0e5-1ac3-4b25-8173-a590bd44bf60" name="变更" comment="feat: 修改不符合 umd 规范地方">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/components/JsxDemoDisplay/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/components/JsxDemoDisplay/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/container/Playground/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/container/Playground/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/packages/website/src/container/Playground/template.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/container/Playground/template.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/packages/website/src/utils/amd.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/utils/amd.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -224,14 +221,7 @@
       <workItem from="1672933535056" duration="27297000" />
       <workItem from="1672998178645" duration="27112000" />
       <workItem from="1673095377183" duration="46543000" />
-      <workItem from="1673229865205" duration="30760000" />
-    </task>
-    <task id="LOCAL-00056" summary="feat: 支持渲染 latex 公式">
-      <created>1672416759377</created>
-      <option name="number" value="00056" />
-      <option name="presentableId" value="LOCAL-00056" />
-      <option name="project" value="LOCAL" />
-      <updated>1672416759377</updated>
+      <workItem from="1673229865205" duration="32790000" />
     </task>
     <task id="LOCAL-00057" summary="feat: 支持渲染 latex 公式">
       <created>1672416791854</created>
@@ -569,7 +559,14 @@
       <option name="project" value="LOCAL" />
       <updated>1673254279148</updated>
     </task>
-    <option name="localTasksCounter" value="105" />
+    <task id="LOCAL-00105" summary="feat: 修改不符合 umd 规范地方">
+      <created>1673273233576</created>
+      <option name="number" value="00105" />
+      <option name="presentableId" value="LOCAL-00105" />
+      <option name="project" value="LOCAL" />
+      <updated>1673273233576</updated>
+    </task>
+    <option name="localTasksCounter" value="106" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -589,7 +586,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="feat: 增加样式响应式计算" />
     <MESSAGE value="feat: 增加主题切换" />
     <MESSAGE value="feat: 删除 mui 依赖" />
     <MESSAGE value="feat: 修改readme" />
@@ -614,7 +610,8 @@
     <MESSAGE value="feat: 调整 playground" />
     <MESSAGE value="feat: 支持自动导入 unpkg.com 上的依赖" />
     <MESSAGE value="feat: 兼容匿名模块" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: 兼容匿名模块" />
+    <MESSAGE value="feat: 修改不符合 umd 规范地方" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: 修改不符合 umd 规范地方" />
   </component>
   <component name="VgoProject">
     <integration-enabled>false</integration-enabled>

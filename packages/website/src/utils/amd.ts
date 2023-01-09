@@ -92,14 +92,14 @@ export function createAmdManager(baseDir = '/', scriptTimeout = 5000) {
 
     // 解析模块名称
     const parseModuleName = function(moduleName: string): [string, string | undefined, string | undefined] {
-        const [, name, version, file] = moduleName.match(/([^/@]+)(?:@([^/]+))?(.*)/) || [];
+        const [, name, version, file] = moduleName.match(/(^@?[^/@]+)(?:@([^/]+))?(.*)/) || [];
         return [name!, version, file];
     }
 
     // 获取本地不存在的依赖的 url 的方法
     let resolveDeps = async function (packageName: string, version?: string, file?: string): Promise<string | boolean> {
         const versionSuffix = version ? `@${version}` : '';
-        const fileSuffix = file ? `/${file}` : '';
+        const fileSuffix = file ? `${file}` : '';
         // `return false` to cancel auto require deps.
         return `https://unpkg.com/${packageName}${versionSuffix}${fileSuffix}`;
     }
