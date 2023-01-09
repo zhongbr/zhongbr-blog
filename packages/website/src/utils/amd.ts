@@ -1,6 +1,9 @@
 import React from "react";
 import * as ReactNamespace from "react";
+import path from 'path-browserify';
+
 import { getService } from 'jsx-service';
+
 // @ts-ignore
 // eslint-disable-next-line import/no-webpack-loader-syntax
 import worker from 'worker!@/jsx-service.worker.js';
@@ -14,83 +17,229 @@ export interface IModule {
     [key: string]: any;
 }
 
-export type Factory = (_require: RequireFunc) => Promise<IModule>;
+export type Factory = (require: RequireFunc, exports: Object, ...modules: unknown[]) => Promise<IModule>;
+export type DefineDispose = () => void;
+
+export type IRequireCallback = (modules: IModule | (IModule | undefined)[] | undefined) => void;
 
 export interface RequireFunc {
-    (moduleNames: string[] | string): Promise<IModule | (IModule | undefined)[] | undefined>;
+    (moduleNames: string[] | string, cb?: IRequireCallback): Promise<IModule | (IModule | undefined)[] | undefined>;
     cache: Map<string, IModule>;
     factories: Map<string, Factory | string>;
+    resolve: (modulePath: string, __dirname?: string) => string;
+}
+
+export interface RequireContext {
+    __dirname: string;
+}
+
+const loadScript = (dom: HTMLElement, url: string) => {
+    return new Promise((resolve, reject) => {
+        const script = document.createElement('script');
+        script.onload = () => {
+            resolve(null);
+        }
+
+        script.onerror = () => {
+            reject(new Error('import script failed'));
+        }
+
+        script.crossOrigin = 'anonymous';
+        script.src = url;
+        script.type = 'text/javascript';
+
+        dom.appendChild(script);
+    });
 }
 
 /**
  * 创建一个 AMD 模块管理对象，对外提供 define 和 _require 函数
  */
-export function createAmdManager() {
+export function createAmdManager(baseDir = '/') {
+    // 事件分发
     const eventSubscribeManager = createEventSubscribeManager();
+    // 模块的声明
     const factories = new Map<string, Factory | string>();
+    // 模块加载前的依赖信息
+    const dependencies = new Map<string, string[]>();
+    // 加载过的模块缓存
     const cache = new Map<string, IModule>();
+    // 加载中的模块
+    const loading = new Map<string, [Function, Function][]>();
+
+    // 解析模块名称
+    const parseModuleName = function(moduleName: string): [string, string | undefined, string | undefined] {
+        const [, name, version, file] = moduleName.match(/([^/@]+)(?:@([^/]+))?(.*)/) || [];
+        return [name!, version, file];
+    }
+
+    // 获取本地不存在的依赖的 url 的方法
+    let resolveDeps = async function (packageName: string, version?: string, file?: string): Promise<string | boolean> {
+        const versionSuffix = version ? `@${version}` : '';
+        const fileSuffix = file ? `/${file}` : '';
+        // `return false` to cancel auto require deps.
+        return `https://unpkg.com/${packageName}${versionSuffix}${fileSuffix}`;
+    }
+
+    // 本地插入脚本时的目标 dom
+    let insertScriptTarget: HTMLElement = document.body;
 
     /**
-     * 声明一个模块
-     * @param moduleName 模块的名称
-     * @param factory 生成模块的函数，或者字符串
+     * 计算相对路径
+     * @param modulePath_ 模块的路径
+     * @param __dirname 当前的模块路径
      */
-    function define(moduleName: string, factory: Factory | string) {
-        if (factories.has(moduleName)) {
-            factories.delete(moduleName);
+    function resolve(modulePath_: string, __dirname?: string): string {
+        const [modulePath] = parseModuleName(modulePath_);
+        if (path.isAbsolute(modulePath!)) {
+            return modulePath!;
         }
-        if (cache.has(moduleName)) {
-            cache.delete(moduleName);
+        if (modulePath!.startsWith('.')) {
+            if (!__dirname) {
+                throw new Error(`[amd] can't not resolve relative path ${modulePath} without __dirname`);
+            }
+            return path.resolve(__dirname, modulePath!);
+        }
+        return path.resolve(baseDir, 'node_modules', modulePath!);
+    }
+
+    function _getRequireFunc(requireCtx: RequireContext): RequireFunc {
+        return Object.assign(requirePrototype.bind(null, requireCtx), {
+            factories: requirePrototype.factories,
+            cache: requirePrototype.cache,
+            resolve: requirePrototype.resolve
+        });
+    }
+
+
+    function define(dependencies_: string[], factory: Factory | string): DefineDispose;
+    function define(moduleName: string, dependencies_: string[], factory: Factory | string): DefineDispose;
+    function define(moduleName: string | Array<string>, dependencies_: Factory | string | string[], factory?: Factory | string): DefineDispose {
+        if (Array.isArray(moduleName)) {
+            factory = dependencies_ as (Factory | string);
+            dependencies_ = moduleName;
+            moduleName = '_';
+        }
+        const modulePath = resolve(moduleName);
+        if (factories.has(modulePath)) {
+            factories.delete(modulePath);
+        }
+        if (cache.has(modulePath)) {
+            cache.delete(modulePath);
+        }
+        if (dependencies.has(modulePath)) {
+            dependencies.delete(modulePath);
         }
         // 通知该模块的更新
-        eventSubscribeManager.trigger('update', moduleName);
-        factories.set(moduleName, factory);
+        eventSubscribeManager.trigger('update', modulePath);
+        factories.set(modulePath, factory!);
+        dependencies.set(modulePath, dependencies_ as string[]);
         return () => {
-            factories.delete(moduleName);
+            factories.delete(modulePath);
         }
     }
 
     /**
      * 调用生成模块
      * @param moduleName 模块的标识
+     * @param callerModuleThis 调用模块的上下文信息
      */
-    const generateModule = async (moduleName: string) => {
+    const generateModule = async (moduleName: string, callerModuleThis: RequireContext) => {
         // 初始化 service
         if (!service) {
             service = getService(new Worker(worker));
         }
-        if (cache.has(moduleName)) {
-            return cache.get(moduleName);
+
+        // 计算模块的绝对路径
+        const modulePath = resolve(moduleName, callerModuleThis?.__dirname);
+        if (cache.has(modulePath)) {
+            return cache.get(modulePath);
         }
-        const factory = await factories.get(moduleName);
+
+        const requireCtx: RequireContext = { __dirname: modulePath };
+        const requireFunc = _getRequireFunc(requireCtx);
+
+        // 尝试从模块声明的 Map 里读取
+        let factory = factories.get(modulePath);
+        console.log('amd', modulePath, factory);
         if (!factory) {
-            throw new Error(`[amd] module error: ${moduleName} does not exist.`);
+            console.log('amd', modulePath, 'is not exist');
+            // 如果不是绝对路径或者相对路径，且本地没有，先尝试自动引入依赖，并调用其 factory
+            if (!moduleName.startsWith('.') && !path.isAbsolute(moduleName)) {
+                // 没有加载中，开始加载
+                if (!loading.get(modulePath)) {
+                    console.log('amd', modulePath, 'loading');
+                    // 加载中的脚本，加个标志
+                    loading.set(modulePath, []);
+                    const [name, version, file] = parseModuleName(moduleName);
+                    const scriptUrl = await resolveDeps(name, version, file);
+                    // 成功获取到链接之后，就动态导入该脚本
+                    if (typeof scriptUrl === 'string') {
+                        // 先插入脚本
+                        await loadScript(insertScriptTarget, scriptUrl);
+                        // 重新读取 factory
+                        factory = factories.get(modulePath);
+                    }
+                    // 将加载期间的其他 require 调用的 resolve 也调用了
+                    const queue = loading.get(modulePath);
+                    loading.delete(modulePath);
+                    queue?.forEach(([resolve, reject]) => {
+                        !!factory ? resolve(factory) : reject();
+                    });
+                }
+                // 否则等待加载中的任务完成，避免重复加载
+                else {
+                    console.log('amd', modulePath, 'is already stared');
+                    factory = await new Promise((resolve, reject) => loading.get(modulePath)?.push([resolve, reject]));
+                }
+                console.log('amd', modulePath, 'loaded', factory);
+            }
+            // 如果仍然没有 factory ，报错
+            if (!factory) {
+                throw new Error(`[amd] module error: ${modulePath} does not exist.`);
+            }
         }
-        let _module: IModule;
+
+        const depModuleNames = dependencies.get(modulePath);
+        let deps: IModule[] = [];
+        // 先请求所有的依赖模块
+        if (depModuleNames?.length) {
+            deps = await requireFunc(depModuleNames) as IModule[];
+        }
+
+        let exports: IModule = { 'default': null };
+        let exportsReturn: IModule;
+
         if (typeof factory === 'string') {
             const res = await service.transformJsxCode(factory);
             if (!res.params.code) {
-                throw new Error(`[amd] module error: ${moduleName} failed to compile code`);
+                throw new Error(`[amd] module error: ${modulePath} failed to compile code`);
             }
             // eslint-disable-next-line no-eval
-            _module = await eval(res.params.code)(_require);
+            exportsReturn = await eval(res.params.code)(requireFunc, exports, ...deps);
         }
         else {
-            _module = await factory(_require);
+            exportsReturn = await factory(requireFunc, exports, ...deps);
         }
-        cache.set(moduleName, _module);
-        return _module;
+        cache.set(modulePath, exportsReturn || exports);
+        return exportsReturn || exports;
     };
 
     /**
      * 导入模块
+     * @param ctx require 的上下文，包含有调用方的信息
      * @param moduleNames 模块的标识
      */
-    async function _require(moduleNames: string | string[]) {
+    async function requirePrototype(ctx: RequireContext, moduleNames: string | string[], cb?: IRequireCallback) {
+        let modules: IModule | (IModule | undefined)[] | undefined;
         if (Array.isArray(moduleNames)) {
-            return Promise.all(moduleNames.map(moduleName => generateModule(moduleName)));
+            modules = await Promise.all(moduleNames.map(moduleName => generateModule(moduleName, ctx)));
         }
-        return generateModule(moduleNames);
+        else {
+            modules = await generateModule(moduleNames, ctx);
+        }
+        cb?.(modules);
+        return modules;
     }
 
     /**
@@ -106,35 +255,79 @@ export function createAmdManager() {
         });
     }
 
-    function importScript(url: string, objectName: string, target: HTMLElement) {
-        return () => new Promise((resolve, reject) => {
-            const script = document.createElement('script');
-            script.onload = () => {
-                resolve({ 'default': Reflect.get(window, objectName), ...Reflect.get(window, objectName) });
-            }
-
-            script.onerror = () => {
-                reject(new Error('import script failed'));
-            }
-
-            script.crossOrigin = 'anonymous';
-            script.src = url;
-            script.type = 'text/javascript';
-
-            target.appendChild(script);
-        });
+    /**
+     * 导入挂载对象到全局的脚本
+     * @param target
+     * @param url
+     * @param name
+     */
+    function importGlobalObjectScript(target: HTMLElement, url: string, name: string): Factory {
+        // 返回一个导入脚本的异步函数作为模块的声明
+        return async (_require, exports, modules) => {
+            await loadScript(target, url);
+            return  Object.assign(exports, {
+                'default': Reflect.get(window, name),
+                ...Reflect.get(window, name)
+            });
+        };
     }
 
-    _require.cache = cache;
-    _require.factories = factories;
+    let unmountFromGlobal: () => void = () => {};
+    /**
+     * 将当前 AMD 模块上下文挂载到全局
+     */
+    function mountToGlobal() {
+        const currentDefine = Reflect.get(window, 'define');
+        const currentRequire = Reflect.get(window, 'require');
+
+        Reflect.set(window, 'define', define);
+        Reflect.set(window, 'require', require_);
+
+        unmountFromGlobal = () => {
+            Reflect.set(window, 'define', currentDefine);
+            Reflect.set(window, 'require', currentRequire);
+        };
+        return unmountFromGlobal;
+    }
+
+    requirePrototype.cache = cache;
+    requirePrototype.factories = factories;
+    requirePrototype.resolve = resolve;
+
+    // 基准的 require 上下文
+    const baseRequireCtx = {
+        __dirname: baseDir
+    };
+    const require_ = _getRequireFunc(baseRequireCtx);
+
+    // 在 define 函数上挂载一个 amd 属性，支持标准 amd API
+    Reflect.set(define, 'amd', {});
+
 
     // 默认导入 react AMD 模块，供内部 JSX 调用
-    define('react', async () => ({
-        'default': React,
-        ...ReactNamespace
-    }));
+    define('react', [], async (require, exports) => {
+        return  Object.assign(exports, {
+            'default': React,
+            ...ReactNamespace
+        });
+    });
 
-    return { _require, define, onModuleUpdate, importScript };
+    return {
+        require_,
+        define,
+        onModuleUpdate,
+        _import: importGlobalObjectScript.bind(null, insertScriptTarget),
+        mountToGlobal,
+        unmountFromGlobal,
+        set: ({ target, resolve: _resolve }: { target?: HTMLElement, resolve?: typeof resolveDeps; }) => {
+            if (_resolve) {
+                resolveDeps = _resolve;
+            }
+            if (target) {
+                insertScriptTarget = target;
+            }
+        }
+    };
 }
 
 export type IAmdManager = ReturnType<typeof createAmdManager>;
@@ -143,4 +336,4 @@ export type IAmdManager = ReturnType<typeof createAmdManager>;
  * 创建一个全局使用的默认 AMD 管理上下文
  */
 export const defaultManager = createAmdManager();
-export const { define, _require, onModuleUpdate, importScript } = defaultManager;
+export const { define, require_, onModuleUpdate, _import, mountToGlobal } = defaultManager;

@@ -8,6 +8,7 @@ import Splash from '../Splash';
 import ErrorBoundary from '../ErrorBoundary';
 import Module from './module';
 import styles from './style.module.less';
+import {PromiseRes} from "@/types/utils";
 
 export interface IProps {
     jsx: string;
@@ -27,7 +28,7 @@ const JsxDemoDisplay: React.FC<IProps> = (props) => {
 
     const onFallback = (reset: () => void, error?: Error) => {
         const fallback = () => {
-            moduleDispose = (moduleManagerRef?.current || defaultManager).define(moduleName, previousJsx);
+            moduleDispose = (moduleManagerRef?.current || defaultManager).define(moduleName, [], previousJsx);
             reset();
         };
 
@@ -49,12 +50,12 @@ const JsxDemoDisplay: React.FC<IProps> = (props) => {
     const [,forceUpdate] = useState({});
     if (previousJsx !== jsx || previousModuleName !== moduleName) {
         ref.current = [jsx, moduleName];
-        moduleDispose = (moduleManagerRef?.current || defaultManager).define(moduleName, jsx);
+        moduleDispose = (moduleManagerRef?.current || defaultManager).define(moduleName, [], jsx);
         // 监听模块更新，刷新 demo
         // TODO: 目前监听了所有的模块更新，后续支持只监听使用到的模块
         eventDispose = (moduleManagerRef?.current || defaultManager).onModuleUpdate(undefined, () => {
             // 删除模块的缓存
-            (moduleManagerRef?.current || defaultManager)._require.cache.delete(moduleName);
+            (moduleManagerRef?.current || defaultManager).require_.cache.delete(moduleName);
             // 强制刷新组件
             forceUpdate({});
         });
@@ -65,14 +66,14 @@ const JsxDemoDisplay: React.FC<IProps> = (props) => {
         eventDispose();
     }, []);
 
-    const _module = suspensePromise((moduleManagerRef?.current || defaultManager)._require(moduleName));
+    const module_ = suspensePromise((moduleManagerRef?.current || defaultManager).require_(moduleName));
 
     return (
         <Suspense fallback={<Splash texts="🚀 加载中" />}>
             <ErrorBoundary
                 renderFallback={onFallback}
             >
-                <Module _module={_module as ISuspenseWrapper<IModule>}/>
+                <Module _module={module_ as ISuspenseWrapper<IModule>}/>
             </ErrorBoundary>
         </Suspense>
     );

@@ -1,4 +1,4 @@
-import React, {useLayoutEffect, useState, useRef, useMemo, useEffect} from 'react';
+import React, { useLayoutEffect, useState, useRef, useMemo } from 'react';
 import clsx from 'clsx';
 
 import { ResponsiveEnum, usePageConfig, useAsyncEffect, useAsyncFn } from '@/hooks';
@@ -35,8 +35,9 @@ const Playground: React.FC = () => {
     const moduleManagerRef = useRef<IAmdManager>();
     if (!moduleManagerRef.current) {
         moduleManagerRef.current = createAmdManager();
+        moduleManagerRef.current?.mountToGlobal();
         // 将包管理器声明到内部
-        moduleManagerRef.current?.define('module-manager', async () => {
+        moduleManagerRef.current?.define('module-manager', [], async () => {
             return { ...moduleManagerRef.current, 'default': moduleManagerRef.current };
         });
     }
@@ -44,10 +45,15 @@ const Playground: React.FC = () => {
     // 刷新依赖代码
     const [onRefreshDeps, depsValid, loading] = useAsyncFn(async () => {
         // 把依赖代码也声明成一个模块，然后立即导入执行
-        moduleManagerRef.current?.define(moduleName, depCode);
+        moduleManagerRef.current?.define(moduleName, [], depCode);
         // 导入依赖模块，校验 default 是否是 'module-valid'，判断代码是否正常
         try {
-            const module_ = await moduleManagerRef.current?._require(moduleName) as IModule;
+            const module_ = await moduleManagerRef.current?.require_(moduleName) as IModule;
+            // 将依赖导出的 resolve 和 body 设置到 amd 上下文里
+            moduleManagerRef.current?.set({
+                target: module_?.body,
+                resolve: module_?.resolve
+            });
             return module_?.['default'] === 'module-valid';
         } catch (e) {
             setDepsError(e as Error);
