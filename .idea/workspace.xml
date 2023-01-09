@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="27b3b0e5-1ac3-4b25-8173-a590bd44bf60" name="变更" comment="feat: 调整 service 加载时机">
+    <list default="true" id="27b3b0e5-1ac3-4b25-8173-a590bd44bf60" name="变更" comment="feat: 支持自动导入 unpkg.com 上的依赖">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/components/JsxDemoDisplay/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/components/JsxDemoDisplay/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/container/Playground/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/container/Playground/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/packages/website/src/container/Playground/template.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/container/Playground/template.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/packages/website/src/utils/amd.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/utils/amd.ts" afterDir="false" />
     </list>
@@ -223,14 +221,7 @@
       <workItem from="1672933535056" duration="27297000" />
       <workItem from="1672998178645" duration="27112000" />
       <workItem from="1673095377183" duration="46543000" />
-      <workItem from="1673229865205" duration="19655000" />
-    </task>
-    <task id="LOCAL-00054" summary="feat: 支持渲染 latex 公式">
-      <created>1672416446231</created>
-      <option name="number" value="00054" />
-      <option name="presentableId" value="LOCAL-00054" />
-      <option name="project" value="LOCAL" />
-      <updated>1672416446231</updated>
+      <workItem from="1673229865205" duration="21936000" />
     </task>
     <task id="LOCAL-00055" summary="feat: 支持渲染 latex 公式">
       <created>1672416751157</created>
@@ -568,7 +559,14 @@
       <option name="project" value="LOCAL" />
       <updated>1673184398427</updated>
     </task>
-    <option name="localTasksCounter" value="103" />
+    <task id="LOCAL-00103" summary="feat: 支持自动导入 unpkg.com 上的依赖">
+      <created>1673251698067</created>
+      <option name="number" value="00103" />
+      <option name="presentableId" value="LOCAL-00103" />
+      <option name="project" value="LOCAL" />
+      <updated>1673251698067</updated>
+    </task>
+    <option name="localTasksCounter" value="104" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -588,7 +586,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="feat: 优化 splash" />
     <MESSAGE value="feat: 增加封面图" />
     <MESSAGE value="feat: 增加样式响应式计算" />
     <MESSAGE value="feat: 增加主题切换" />
@@ -613,7 +610,8 @@
     <MESSAGE value="feat: 支持引入依赖" />
     <MESSAGE value="feat: demo支持直接打开playground" />
     <MESSAGE value="feat: 调整 playground" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: 调整 playground" />
+    <MESSAGE value="feat: 支持自动导入 unpkg.com 上的依赖" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: 支持自动导入 unpkg.com 上的依赖" />
   </component>
   <component name="VgoProject">
     <integration-enabled>false</integration-enabled>

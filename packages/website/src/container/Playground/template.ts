@@ -4,11 +4,14 @@ export const DefaultDemoCode =
 `import React from 'react';
 import Hello from 'hello-module';
 import * as jq from 'jquery';
+import * as moment from 'moment';
 
 const TestFC = (props) => {
     const [state, setState] = React.useState(0);
+    const [date, setDate] = React.useState(0);
 
     React.useEffect(() => {
+        setDate(moment().format('YYYY-MM-DD HH:mm:ss'));
         if (state === 5) throw new Error('Error Boundary test');
     }, [state]);
     
@@ -20,7 +23,7 @@ const TestFC = (props) => {
         <div>
             <Hello/>
             <div id="target" onClick={onChangeColor}>
-                click to change bg color
+                click to change bg color {date}
             </div>
             <button onClick={() => setState(state => state+1)}>Click Me To Change State!({state})</button>
         </div>

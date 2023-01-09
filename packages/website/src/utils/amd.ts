@@ -33,29 +33,10 @@ export interface RequireContext {
     __dirname: string;
 }
 
-const loadScript = (dom: HTMLElement, url: string) => {
-    return new Promise((resolve, reject) => {
-        const script = document.createElement('script');
-        script.onload = () => {
-            resolve(null);
-        }
-
-        script.onerror = () => {
-            reject(new Error('import script failed'));
-        }
-
-        script.crossOrigin = 'anonymous';
-        script.src = url;
-        script.type = 'text/javascript';
-
-        dom.appendChild(script);
-    });
-}
-
 /**
  * 创建一个 AMD 模块管理对象，对外提供 define 和 _require 函数
  */
-export function createAmdManager(baseDir = '/') {
+export function createAmdManager(baseDir = '/', scriptTimeout = 5000) {
     // 事件分发
     const eventSubscribeManager = createEventSubscribeManager();
     // 模块的声明
@@ -66,6 +47,46 @@ export function createAmdManager(baseDir = '/') {
     const cache = new Map<string, IModule>();
     // 加载中的模块
     const loading = new Map<string, [Function, Function][]>();
+    // 加载中的模块的名称，供匿名模块使用
+    let loadingModuleName = '';
+    const waitingModuleQueue: Function[] = [];
+
+    const loadScript = async (dom: HTMLElement, url: string, moduleName = 'globalObj') => {
+        // 由于有可能存在匿名模块，为了能区分开这些模块，一次只能加载一个脚本
+        if (loadingModuleName) {
+            await new Promise(resolve => waitingModuleQueue.push(resolve));
+        }
+        return new Promise((resolve, reject) => {
+            const script = document.createElement('script');
+            script.onload = () => {
+                resolve(null);
+                loadingModuleName = '';
+                // 加载下一个脚本
+                waitingModuleQueue.shift()?.();
+            }
+
+            script.onerror = (err) => {
+                reject(err);
+                loadingModuleName = '';
+                // 加载下一个脚本
+                waitingModuleQueue.shift()?.();
+            }
+
+            // 设置一个超时时间
+            setTimeout(() => {
+                reject(new Error(`load module ${moduleName} timeout`));
+                // 加载下一个脚本
+                waitingModuleQueue.shift()?.();
+            }, scriptTimeout);
+
+            script.crossOrigin = 'anonymous';
+            script.src = url;
+            script.type = 'text/javascript';
+
+            loadingModuleName = moduleName;
+            dom.appendChild(script);
+        });
+    }
 
     // 解析模块名称
     const parseModuleName = function(moduleName: string): [string, string | undefined, string | undefined] {
@@ -112,9 +133,15 @@ export function createAmdManager(baseDir = '/') {
     }
 
 
+    function define(factory: Factory | string): DefineDispose;
     function define(dependencies_: string[], factory: Factory | string): DefineDispose;
     function define(moduleName: string, dependencies_: string[], factory: Factory | string): DefineDispose;
-    function define(moduleName: string | Array<string>, dependencies_: Factory | string | string[], factory?: Factory | string): DefineDispose {
+    function define(moduleName: string | Array<string> | Factory, dependencies_?: Factory | string | string[], factory?: Factory | string): DefineDispose {
+        if (typeof moduleName === 'function') {
+            factory = moduleName;
+            dependencies_ = [];
+            moduleName = loadingModuleName;
+        }
         if (Array.isArray(moduleName)) {
             factory = dependencies_ as (Factory | string);
             dependencies_ = moduleName;
@@ -161,14 +188,11 @@ export function createAmdManager(baseDir = '/') {
 
         // 尝试从模块声明的 Map 里读取
         let factory = factories.get(modulePath);
-        console.log('amd', modulePath, factory);
         if (!factory) {
-            console.log('amd', modulePath, 'is not exist');
             // 如果不是绝对路径或者相对路径，且本地没有，先尝试自动引入依赖，并调用其 factory
             if (!moduleName.startsWith('.') && !path.isAbsolute(moduleName)) {
                 // 没有加载中，开始加载
                 if (!loading.get(modulePath)) {
-                    console.log('amd', modulePath, 'loading');
                     // 加载中的脚本，加个标志
                     loading.set(modulePath, []);
                     const [name, version, file] = parseModuleName(moduleName);
@@ -176,7 +200,7 @@ export function createAmdManager(baseDir = '/') {
                     // 成功获取到链接之后，就动态导入该脚本
                     if (typeof scriptUrl === 'string') {
                         // 先插入脚本
-                        await loadScript(insertScriptTarget, scriptUrl);
+                        await loadScript(insertScriptTarget, scriptUrl, moduleName);
                         // 重新读取 factory
                         factory = factories.get(modulePath);
                     }
@@ -189,10 +213,8 @@ export function createAmdManager(baseDir = '/') {
                 }
                 // 否则等待加载中的任务完成，避免重复加载
                 else {
-                    console.log('amd', modulePath, 'is already stared');
                     factory = await new Promise((resolve, reject) => loading.get(modulePath)?.push([resolve, reject]));
                 }
-                console.log('amd', modulePath, 'loaded', factory);
             }
             // 如果仍然没有 factory ，报错
             if (!factory) {
