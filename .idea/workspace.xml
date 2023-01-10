@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="27b3b0e5-1ac3-4b25-8173-a590bd44bf60" name="变更" comment="feat: 修复依赖引入bug">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/components/JsxDemoDisplay/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/components/JsxDemoDisplay/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/packages/website/src/utils/amd.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/utils/amd.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -186,8 +185,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="npm.es" />
         <item itemvalue="npm.start" />
+        <item itemvalue="npm.es" />
         <item itemvalue="npm.build-markdown" />
         <item itemvalue="npm.build" />
         <item itemvalue="npm.test" />
@@ -221,14 +220,7 @@
       <workItem from="1672933535056" duration="27297000" />
       <workItem from="1672998178645" duration="27112000" />
       <workItem from="1673095377183" duration="46543000" />
-      <workItem from="1673229865205" duration="38982000" />
-    </task>
-    <task id="LOCAL-00061" summary="feat: 标题内不显示日期">
-      <created>1672498912260</created>
-      <option name="number" value="00061" />
-      <option name="presentableId" value="LOCAL-00061" />
-      <option name="project" value="LOCAL" />
-      <updated>1672498912260</updated>
+      <workItem from="1673229865205" duration="39964000" />
     </task>
     <task id="LOCAL-00062" summary="feat: 标题内不显示日期">
       <created>1672499265932</created>
@@ -566,7 +558,14 @@
       <option name="project" value="LOCAL" />
       <updated>1673317251886</updated>
     </task>
-    <option name="localTasksCounter" value="110" />
+    <task id="LOCAL-00110" summary="feat: 修复依赖引入bug">
+      <created>1673317739039</created>
+      <option name="number" value="00110" />
+      <option name="presentableId" value="LOCAL-00110" />
+      <option name="project" value="LOCAL" />
+      <updated>1673317739040</updated>
+    </task>
+    <option name="localTasksCounter" value="111" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

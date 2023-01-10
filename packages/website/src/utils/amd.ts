@@ -231,9 +231,11 @@ export function createAmdManager(baseDir = '/', scriptTimeout = 5000) {
         if (depModuleNames?.length) {
             deps = await requireFunc(depModuleNames) as IModule[];
         }
+        // 从依赖的模块中找到 exports ，有些模块会将要导出的内容挂载到这个对象上
+        const exports = deps?.find((_, index) => depModuleNames?.[index] === 'exports');
 
+        // 通过 factory 函数返回的依赖信息
         let exportsReturn: IModule;
-
         if (typeof factory === 'string') {
             const res = await service.transformJsxCode(factory);
             if (!res.params.code) {
@@ -245,8 +247,11 @@ export function createAmdManager(baseDir = '/', scriptTimeout = 5000) {
         else {
             exportsReturn = await factory(...deps);
         }
-        cache.set(modulePath, exportsReturn);
-        return exportsReturn;
+
+        // 先判断 exports 对象是否挂载了内容，如果没有就使用 factory 的返回值
+        const module_ = exports || exportsReturn;
+        cache.set(modulePath, module_);
+        return module_;
     };
 
     /**
@@ -344,6 +349,11 @@ export function createAmdManager(baseDir = '/', scriptTimeout = 5000) {
     define('require', [], async () => {
         return Object.assign(require_, {
             default: require_
+        });
+    });
+    define('exports', [], async () => {
+        return Object.assign({}, {
+            default: {}
         });
     });
 
