@@ -37,6 +37,7 @@ const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin'
 const createEnvironmentHash = require('./webpack/persistentCache/createEnvironmentHash');
 const WorkerPlugin = require("worker-plugin");
 const MonacoEditorWebpackPlugin = require('monaco-editor-webpack-plugin');
+const HtmlWebpackInjectPreload = require('@principalstudio/html-webpack-inject-preload');
 
 // Source maps are resource heavy and can cause out of memory issue for large source files.
 const shouldUseSourceMap = process.env.GENERATE_SOURCEMAP !== 'false';
@@ -645,6 +646,25 @@ module.exports = function (webpackEnv) {
             : undefined
         )
       ),
+
+      // Preload <link rel="pre-fetch"/>
+      new HtmlWebpackInjectPreload({
+        files: [
+          {
+            match: /chunks\.[a-z-0-9]*\.css$/,
+            attributes: { as: 'style' },
+          },
+          {
+            match: /chunks\.[a-z-0-9]*\.js$/,
+            attributes: { as: 'script' },
+          },
+          {
+            match: /worker\.js$/,
+            attributes: { as: 'script' }
+          }
+        ],
+      }),
+
       // Inlines the webpack runtime script. This script is too small to warrant
       // a network request.
       // https://github.com/facebook/create-react-app/issues/5358

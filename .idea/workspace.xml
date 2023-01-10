@@ -6,7 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="27b3b0e5-1ac3-4b25-8173-a590bd44bf60" name="变更" comment="feat: 修复依赖引入bug">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/utils/amd.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/utils/amd.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/config/webpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/config/webpack.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/scripts/newPassage.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/container/Playground/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/container/Playground/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pnpm-lock.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pnpm-lock.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,32 +83,32 @@
     <option name="showLibraryContents" value="true" />
     <option name="showMembers" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.go.formatter.settings.were.checked&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.go.migrated.go.modules.settings&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
-    &quot;javascript.nodejs.core.library.configured.version&quot;: &quot;14.17.4&quot;,
-    &quot;javascript.nodejs.core.library.typings.version&quot;: &quot;14.17.4&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/zhangpanhong/Documents/zhongbr_projects/react-press/posts&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;Less&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.standard&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.standard&quot;: &quot;&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;pnpm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;MTConfigurable&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;/Users/zhangpanhong/Documents/zhongbr_projects/react-press/packages/jsx-service/node_modules/typescript/lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.go.formatter.settings.were.checked": "true",
+    "RunOnceActivity.go.migrated.go.modules.settings": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "go.import.settings.migrated": "true",
+    "javascript.nodejs.core.library.configured.version": "16.15.0",
+    "javascript.nodejs.core.library.typings.version": "16.18.11",
+    "last_opened_file_path": "/Users/zhangpanhong/Documents/zhongbr_projects/react-press/posts",
+    "list.type.of.created.stylesheet": "Less",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.standard": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.standard": "",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "pnpm",
+    "settings.editor.selected.configurable": "MTConfigurable",
+    "ts.external.directory.path": "/Users/zhangpanhong/Documents/zhongbr_projects/react-press/packages/jsx-service/node_modules/typescript/lib",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/posts" />
@@ -132,7 +136,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="npm.es">
+  <component name="RunManager" selected="npm.start">
     <configuration name="build-markdown" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="run" />
@@ -629,6 +633,24 @@
           <url>file://$PROJECT_DIR$/packages/jsx-service/test/index.ts</url>
           <line>3</line>
           <option name="timeStamp" value="11" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/packages/website/scripts/start.js</url>
+          <line>121</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="16" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/packages/website/scripts/start.js</url>
+          <line>109</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="17" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/node_modules/.pnpm/react-dev-utils@12.0.1_kgnh4j6wpxso4vy7sn4qiyjkzi/node_modules/react-dev-utils/WebpackDevServerUtils.js</url>
+          <line>118</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="18" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>

@@ -10,6 +10,7 @@
     "@emotion/react": "^11.10.4",
     "@emotion/styled": "^11.10.4",
     "@pmmmwh/react-refresh-webpack-plugin": "^0.5.3",
+    "@principalstudio/html-webpack-inject-preload": "^1.2.7",
     "@svgr/webpack": "^5.5.0",
     "@testing-library/dom": "^8.17.1",
     "@testing-library/jest-dom": "^5.16.5",

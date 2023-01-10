@@ -73,7 +73,6 @@ const Playground: React.FC = () => {
             }
         }
     };
-    console.log('playground rerender', code);
 
     // 如果依赖发生变化，就刷新依赖
     useAsyncEffect(async () => {
