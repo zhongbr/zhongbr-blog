@@ -5,9 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="27b3b0e5-1ac3-4b25-8173-a590bd44bf60" name="变更" comment="feat: 增加支持 commonjs">
+      <change afterPath="$PROJECT_DIR$/packages/website/src/utils/amd/define.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/website/src/utils/amd/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/website/src/utils/amd/require.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/website/src/utils/amd/scriptLoader.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/website/src/utils/amd/types.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/packages/website/src/components/JsxDemoDisplay/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/components/JsxDemoDisplay/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/utils/amd.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/utils/amd.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/components/JsxDemoDisplay/module.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/components/JsxDemoDisplay/module.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/container/Playground/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/container/Playground/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/utils/amd.ts" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -133,7 +140,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="npm.build">
+  <component name="RunManager" selected="npm.start">
     <configuration name="build-markdown" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="run" />
@@ -222,13 +229,6 @@
       <workItem from="1672998178645" duration="27112000" />
       <workItem from="1673095377183" duration="46543000" />
       <workItem from="1673229865205" duration="39964000" />
-    </task>
-    <task id="LOCAL-00064" summary="feat: 请求时增加随机数，避免浏览器使用缓存">
-      <created>1672499796760</created>
-      <option name="number" value="00064" />
-      <option name="presentableId" value="LOCAL-00064" />
-      <option name="project" value="LOCAL" />
-      <updated>1672499796760</updated>
     </task>
     <task id="LOCAL-00065" summary="feat: 增加首页栏目">
       <created>1672570565477</created>
@@ -566,7 +566,14 @@
       <option name="project" value="LOCAL" />
       <updated>1673343105782</updated>
     </task>
-    <option name="localTasksCounter" value="113" />
+    <task id="LOCAL-00113" summary="feat: 增加支持 commonjs">
+      <created>1673346828820</created>
+      <option name="number" value="00113" />
+      <option name="presentableId" value="LOCAL-00113" />
+      <option name="project" value="LOCAL" />
+      <updated>1673346828820</updated>
+    </task>
+    <option name="localTasksCounter" value="114" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

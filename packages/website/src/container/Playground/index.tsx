@@ -3,7 +3,8 @@ import clsx from 'clsx';
 
 import { ResponsiveEnum, usePageConfig, useAsyncEffect, useAsyncFn } from '@/hooks';
 import { JsxDemoDisplay, Icon, Splash, ErrorDisplay } from '@/components';
-import { createAmdManager, IAmdManager, IModule } from '@/utils/amd';
+import { createAmdManager, IAmdManager } from '@/utils/amd';
+import { IModule } from "@/utils/amd/types";
 import { PlaygroundGetCodeSymbol, IPlaygroundCode } from '@/types/utils';
 
 import { DefaultDemoCode, DefaultDepsCode, formatDeps } from './template';

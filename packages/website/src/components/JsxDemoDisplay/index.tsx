@@ -1,6 +1,7 @@
 import React, { Suspense, useEffect, useMemo, useRef, useState } from 'react';
 
-import { defaultManager, IModule, IAmdManager } from '@/utils/amd';
+import { defaultManager, IAmdManager } from '@/utils/amd';
+import { IModule } from '@/utils/amd/types';
 import { ISuspenseWrapper, suspensePromise } from '@/hooks/useSuspense';
 
 import ErrorDisplay from '../ErrorDisplay';

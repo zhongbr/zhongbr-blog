@@ -1,5 +1,5 @@
 import React from 'react';
-import { IModule } from "@/utils/amd";
+import { IModule } from "@/utils/amd/types";
 import { ISuspenseWrapper } from "@/hooks/useSuspense";
 
 export interface IProps {
