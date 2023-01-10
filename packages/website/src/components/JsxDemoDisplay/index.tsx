@@ -59,6 +59,7 @@ const JsxDemoDisplay: React.FC<IProps> = (props) => {
             forceUpdate({});
         });
     }
+
     // 组件卸载后，卸载对应的模块和时间监听
     useEffect(() => {
         moduleDispose();

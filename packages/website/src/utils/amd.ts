@@ -168,6 +168,7 @@ export function createAmdManager(baseDir = '/', scriptTimeout = 5000) {
         factories.set(modulePath, factory!);
         dependencies.set(modulePath, dependencies_ as string[]);
         return () => {
+            console.log('[amd] module dispose', moduleName);
             factories.delete(modulePath);
         }
     }
