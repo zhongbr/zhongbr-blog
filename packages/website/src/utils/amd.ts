@@ -113,6 +113,9 @@ export function createAmdManager(baseDir = '/', scriptTimeout = 5000) {
      * @param __dirname 当前的模块路径
      */
     function resolve(modulePath_: string, __dirname?: string): string {
+        if (['require', 'module', 'exports'].includes(modulePath_)) {
+            return modulePath_;
+        }
         const [modulePath] = parseModuleName(modulePath_);
         if (path.isAbsolute(modulePath!)) {
             return modulePath!;
@@ -141,7 +144,7 @@ export function createAmdManager(baseDir = '/', scriptTimeout = 5000) {
     function define(moduleName: string | Array<string> | Factory, dependencies_?: Factory | string | string[], factory?: Factory | string): DefineDispose {
         if (typeof moduleName === 'function') {
             factory = moduleName;
-            dependencies_ = [];
+            dependencies_ = ['require', 'exports', 'module'];
             moduleName = loadingModuleName;
         }
         if (Array.isArray(moduleName)) {
@@ -225,14 +228,31 @@ export function createAmdManager(baseDir = '/', scriptTimeout = 5000) {
             }
         }
 
+        // require、exports 和 module 三件套
+        const _exports = {};
+        const commonjs = {
+            require: requireFunc,
+            module: { exports: _exports },
+            exports: _exports
+        };
         const depModuleNames = dependencies.get(modulePath);
         let deps: IModule[] = [];
         // 先请求所有的依赖模块
         if (depModuleNames?.length) {
-            deps = await requireFunc(depModuleNames) as IModule[];
+            // 从依赖中剔除掉 commonjs 的三件套，这三个不是一般的模块，记录三个对象的位置
+            const [indexes, depsNames] = depModuleNames?.reduce(([indexes, depsNames], item, index) => {
+                if (Object.keys(commonjs).includes(item)) {
+                    return [Object.assign(indexes, { [item]: index }), depsNames];
+                }
+                return [indexes, depsNames.concat(item)];
+            }, [{}, [] as string[]])
+            deps = await requireFunc(depsNames) as IModule[];
+            // 把 commonjs 三件套按照原来的位置放回去
+            Object.entries(indexes).forEach(([dep, index]) => {
+                // @ts-ignore
+                deps = [...deps.slice(0, index - 1), commonjs[dep], ...deps.slice(index)];
+            });
         }
-        // 从依赖的模块中找到 exports ，有些模块会将要导出的内容挂载到这个对象上
-        const exports = deps?.find((_, index) => depModuleNames?.[index] === 'exports');
 
         // 通过 factory 函数返回的依赖信息
         let exportsReturn: IModule;
@@ -249,7 +269,15 @@ export function createAmdManager(baseDir = '/', scriptTimeout = 5000) {
         }
 
         // 先判断 exports 对象是否挂载了内容，如果没有就使用 factory 的返回值
-        const module_ = exports || exportsReturn;
+        const module_ = (() => {
+            if (Object.keys(commonjs.exports).length) {
+                return commonjs.exports;
+            }
+            if (Object.keys(commonjs.module.exports).length) {
+                return commonjs.module.exports;
+            }
+            return exportsReturn;
+        })() as IModule;
         cache.set(modulePath, module_);
         return module_;
     };
@@ -345,16 +373,6 @@ export function createAmdManager(baseDir = '/', scriptTimeout = 5000) {
             'default': ReactDOM,
             ...ReactDomNamespace
         };
-    });
-    define('require', [], async () => {
-        return Object.assign(require_, {
-            default: require_
-        });
-    });
-    define('exports', [], async () => {
-        return Object.assign({}, {
-            default: {}
-        });
     });
 
     return {

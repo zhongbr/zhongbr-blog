@@ -651,16 +651,8 @@ module.exports = function (webpackEnv) {
       new HtmlWebpackInjectPreload({
         files: [
           {
-            match: /chunks\.[a-z-0-9]*\.css$/,
-            attributes: { as: 'style' },
-          },
-          {
-            match: /chunks\.[a-z-0-9]*\.js$/,
-            attributes: { as: 'script' },
-          },
-          {
             match: /worker\.js$/,
-            attributes: { as: 'script' }
+            attributes: { as: 'script', rel: 'preload' }
           }
         ],
       }),
