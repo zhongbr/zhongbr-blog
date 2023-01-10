@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="27b3b0e5-1ac3-4b25-8173-a590bd44bf60" name="变更" comment="feat: 修复识别带 @ 号的包出错的bug">
+    <list default="true" id="27b3b0e5-1ac3-4b25-8173-a590bd44bf60" name="变更" comment="feat: 注释掉背景">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/components/Layout/style.module.less" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/components/Layout/style.module.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/components/JsxDemoDisplay/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/components/JsxDemoDisplay/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/components/Layout/footer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/components/Layout/footer.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -220,14 +221,7 @@
       <workItem from="1672933535056" duration="27297000" />
       <workItem from="1672998178645" duration="27112000" />
       <workItem from="1673095377183" duration="46543000" />
-      <workItem from="1673229865205" duration="34126000" />
-    </task>
-    <task id="LOCAL-00058" summary="feat: 调整样式">
-      <created>1672482844486</created>
-      <option name="number" value="00058" />
-      <option name="presentableId" value="LOCAL-00058" />
-      <option name="project" value="LOCAL" />
-      <updated>1672482844486</updated>
+      <workItem from="1673229865205" duration="37770000" />
     </task>
     <task id="LOCAL-00059" summary="feat: 调整样式">
       <created>1672496443022</created>
@@ -565,7 +559,14 @@
       <option name="project" value="LOCAL" />
       <updated>1673276109915</updated>
     </task>
-    <option name="localTasksCounter" value="107" />
+    <task id="LOCAL-00107" summary="feat: 注释掉背景">
+      <created>1673278860283</created>
+      <option name="number" value="00107" />
+      <option name="presentableId" value="LOCAL-00107" />
+      <option name="project" value="LOCAL" />
+      <updated>1673278860283</updated>
+    </task>
+    <option name="localTasksCounter" value="108" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -585,7 +586,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="feat: 删除 mui 依赖" />
     <MESSAGE value="feat: 修改readme" />
     <MESSAGE value="feat: 修复bug" />
     <MESSAGE value="feat: 修复滚动条bug" />
@@ -610,7 +610,8 @@
     <MESSAGE value="feat: 兼容匿名模块" />
     <MESSAGE value="feat: 修改不符合 umd 规范地方" />
     <MESSAGE value="feat: 修复识别带 @ 号的包出错的bug" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: 修复识别带 @ 号的包出错的bug" />
+    <MESSAGE value="feat: 注释掉背景" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: 注释掉背景" />
   </component>
   <component name="VgoProject">
     <integration-enabled>false</integration-enabled>

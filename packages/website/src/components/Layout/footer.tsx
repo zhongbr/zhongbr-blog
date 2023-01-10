@@ -37,9 +37,14 @@ const Footer: React.FC<IProps> = (props) => {
                     </a>}
                 </div>
             )}
-            {showCopyRight && <div>
-                ©{AuthorCopyRight} {date.year()}
-            </div>}
+            {showCopyRight && (
+                <div
+                    style={{ cursor: 'pointer' }}
+                    onClick={() => window.open('https://github.com/zhongbr/zhongbr-blog', '_blank')}
+                >
+                    ©{AuthorCopyRight} {date.year()}
+                </div>
+            )}
             {content}
         </div>
     );

@@ -26,7 +26,7 @@ const JsxDemoDisplay: React.FC<IProps> = (props) => {
 
     const onFallback = (reset: () => void, error?: Error) => {
         const fallback = () => {
-            moduleDispose = (moduleManagerRef?.current || defaultManager).define(moduleName, [], previousJsx);
+            moduleDispose = (moduleManagerRef?.current || defaultManager).define(moduleName, ['require'], previousJsx);
             reset();
         };
 
