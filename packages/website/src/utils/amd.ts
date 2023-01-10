@@ -192,7 +192,7 @@ export function createAmdManager(baseDir = '/', scriptTimeout = 5000) {
         let factory = factories.get(modulePath);
         if (!factory) {
             // 如果不是绝对路径或者相对路径，且本地没有，先尝试自动引入依赖，并调用其 factory
-            if (!moduleName.startsWith('.') && !path.isAbsolute(moduleName)) {
+            if (!moduleName.startsWith('.') && !moduleName.startsWith('__') && !path.isAbsolute(moduleName)) {
                 // 没有加载中，开始加载
                 if (!loading.get(modulePath)) {
                     // 加载中的脚本，加个标志

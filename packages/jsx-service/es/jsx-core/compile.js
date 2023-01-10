@@ -21,9 +21,6 @@ export function transformJsxComponentCode(code) {
                 ['es-module-factory', { dependencies, namedExport }]
             ]
         });
-        console.log('---------- 🚀 transform jsx code finish ----------');
-        console.log('-----> deps:', dependencies);
-        console.log('-----> code:', normalJs);
         return [dependencies, normalJs];
     });
 }

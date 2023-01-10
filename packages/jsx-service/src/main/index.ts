@@ -4,11 +4,11 @@ export function getService(worker: Worker) {
     const resolvers = new Map<Event['EventId'], Function>([]);
     worker.onmessage = (event) => {
         const data = event.data as IEvent;
+        console.log('main, receive message', event);
         resolvers.get(data.EventId)?.(data);
     };
 
     console.log('---------- worker service bound ------------');
-    console.log(worker, resolvers);
 
     return {
         transformJsxCode: (code: string, timeoutMs=10000): Promise<IEvent<IJsxCodeTransformResp>> => {

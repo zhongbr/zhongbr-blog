@@ -22,10 +22,6 @@ export async function transformJsxComponentCode(code: string): Promise<[IImportD
         ]
     });
 
-    console.log('---------- 🚀 transform jsx code finish ----------');
-    console.log('-----> deps:', dependencies);
-    console.log('-----> code:', normalJs);
-
 
     return [dependencies, normalJs];
 }

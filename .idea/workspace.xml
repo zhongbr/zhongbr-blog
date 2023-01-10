@@ -4,10 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="27b3b0e5-1ac3-4b25-8173-a590bd44bf60" name="变更" comment="feat: 注释掉背景">
+    <list default="true" id="27b3b0e5-1ac3-4b25-8173-a590bd44bf60" name="变更" comment="feat: 修复重试报错的bug">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/jsx-service/es/jsx-core/compile.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/jsx-service/es/jsx-core/compile.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/jsx-service/es/jsx-core/compile.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/packages/jsx-service/es/jsx-core/compile.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/jsx-service/es/main/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/jsx-service/es/main/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/jsx-service/es/main/index.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/packages/jsx-service/es/main/index.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/jsx-service/src/jsx-core/compile.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/jsx-service/src/jsx-core/compile.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/jsx-service/src/main/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/jsx-service/src/main/index.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/packages/website/src/components/JsxDemoDisplay/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/components/JsxDemoDisplay/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/components/Layout/footer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/components/Layout/footer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/container/Playground/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/container/Playground/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/utils/amd.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/utils/amd.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -133,7 +140,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="npm.start">
+  <component name="RunManager" selected="npm.es">
     <configuration name="build-markdown" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="run" />
@@ -186,9 +193,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="npm.es" />
         <item itemvalue="npm.start" />
         <item itemvalue="npm.build-markdown" />
-        <item itemvalue="npm.es" />
         <item itemvalue="npm.build" />
         <item itemvalue="npm.test" />
       </list>
@@ -221,14 +228,7 @@
       <workItem from="1672933535056" duration="27297000" />
       <workItem from="1672998178645" duration="27112000" />
       <workItem from="1673095377183" duration="46543000" />
-      <workItem from="1673229865205" duration="37770000" />
-    </task>
-    <task id="LOCAL-00059" summary="feat: 调整样式">
-      <created>1672496443022</created>
-      <option name="number" value="00059" />
-      <option name="presentableId" value="LOCAL-00059" />
-      <option name="project" value="LOCAL" />
-      <updated>1672496443022</updated>
+      <workItem from="1673229865205" duration="38717000" />
     </task>
     <task id="LOCAL-00060" summary="feat: 调整页面">
       <created>1672498442822</created>
@@ -566,7 +566,14 @@
       <option name="project" value="LOCAL" />
       <updated>1673278860283</updated>
     </task>
-    <option name="localTasksCounter" value="108" />
+    <task id="LOCAL-00108" summary="feat: 修复重试报错的bug">
+      <created>1673315878999</created>
+      <option name="number" value="00108" />
+      <option name="presentableId" value="LOCAL-00108" />
+      <option name="project" value="LOCAL" />
+      <updated>1673315878999</updated>
+    </task>
+    <option name="localTasksCounter" value="109" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -586,7 +593,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="feat: 修改readme" />
     <MESSAGE value="feat: 修复bug" />
     <MESSAGE value="feat: 修复滚动条bug" />
     <MESSAGE value="feat: 支持响应式布局" />
@@ -611,7 +617,8 @@
     <MESSAGE value="feat: 修改不符合 umd 规范地方" />
     <MESSAGE value="feat: 修复识别带 @ 号的包出错的bug" />
     <MESSAGE value="feat: 注释掉背景" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: 注释掉背景" />
+    <MESSAGE value="feat: 修复重试报错的bug" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: 修复重试报错的bug" />
   </component>
   <component name="VgoProject">
     <integration-enabled>false</integration-enabled>

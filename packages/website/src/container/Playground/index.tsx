@@ -29,7 +29,7 @@ const Playground: React.FC = () => {
     const [depCode, setDepCode] = useState(defaultDepsCode);
     const [depsError, setDepsError] = useState<Error>();
 
-    const moduleName = useMemo(() => `PlaygroundDeps${playgroundId++}`, []);
+    const moduleName = useMemo(() => `__PlaygroundDeps${playgroundId++}`, []);
 
     // 预览环境使用的 Amd 模块管理的实例
     const moduleManagerRef = useRef<IAmdManager>();

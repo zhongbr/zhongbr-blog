@@ -4,10 +4,10 @@ export function getService(worker) {
     worker.onmessage = (event) => {
         var _a;
         const data = event.data;
+        console.log('main, receive message', event);
         (_a = resolvers.get(data.EventId)) === null || _a === void 0 ? void 0 : _a(data);
     };
     console.log('---------- worker service bound ------------');
-    console.log(worker, resolvers);
     return {
         transformJsxCode: (code, timeoutMs = 10000) => {
             return new Promise((resolve, reject) => {

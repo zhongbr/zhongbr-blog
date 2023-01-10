@@ -20,9 +20,8 @@ let displayId = 0;
 
 const JsxDemoDisplay: React.FC<IProps> = (props) => {
     const { jsx, moduleManagerRef } = props;
-    console.log('jsx demo display rendered');
 
-    const moduleName = useMemo(() => `DisplayModule${displayId++}`, []);
+    const moduleName = useMemo(() => `__DisplayModule${displayId++}`, []);
 
     const onFallback = (reset: () => void, error?: Error) => {
         const fallback = () => {
