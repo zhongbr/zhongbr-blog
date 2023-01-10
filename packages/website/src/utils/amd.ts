@@ -149,6 +149,7 @@ export function createAmdManager(baseDir = '/', scriptTimeout = 5000) {
             dependencies_ = moduleName;
             moduleName = loadingModuleName;
         }
+        console.log('[amd] define module', moduleName, dependencies_);
         const modulePath = resolve(moduleName);
         if (factories.has(modulePath)) {
             factories.delete(modulePath);
@@ -254,6 +255,7 @@ export function createAmdManager(baseDir = '/', scriptTimeout = 5000) {
      * @param moduleNames 模块的标识
      */
     async function requirePrototype(ctx: RequireContext, moduleNames: string | string[], cb?: IRequireCallback) {
+        console.log('[amd] require modules', ctx.__dirname, moduleNames);
         let modules: IModule | (IModule | undefined)[] | undefined;
         if (Array.isArray(moduleNames)) {
             modules = await Promise.all(moduleNames.map(moduleName => generateModule(moduleName, ctx)));

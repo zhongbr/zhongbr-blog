@@ -8,7 +8,6 @@ import Splash from '../Splash';
 import ErrorBoundary from '../ErrorBoundary';
 import Module from './module';
 import styles from './style.module.less';
-import {PromiseRes} from "@/types/utils";
 
 export interface IProps {
     jsx: string;

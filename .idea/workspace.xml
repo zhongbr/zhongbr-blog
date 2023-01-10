@@ -4,16 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="27b3b0e5-1ac3-4b25-8173-a590bd44bf60" name="变更" comment="feat: 修复重试报错的bug">
+    <list default="true" id="27b3b0e5-1ac3-4b25-8173-a590bd44bf60" name="变更" comment="feat: 修复依赖引入bug">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/jsx-service/es/jsx-core/compile.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/jsx-service/es/jsx-core/compile.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/jsx-service/es/jsx-core/compile.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/packages/jsx-service/es/jsx-core/compile.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/jsx-service/es/main/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/jsx-service/es/main/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/jsx-service/es/main/index.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/packages/jsx-service/es/main/index.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/jsx-service/src/jsx-core/compile.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/jsx-service/src/jsx-core/compile.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/jsx-service/src/main/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/jsx-service/src/main/index.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/packages/website/src/components/JsxDemoDisplay/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/components/JsxDemoDisplay/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/container/Playground/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/container/Playground/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/packages/website/src/utils/amd.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/utils/amd.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -228,14 +221,7 @@
       <workItem from="1672933535056" duration="27297000" />
       <workItem from="1672998178645" duration="27112000" />
       <workItem from="1673095377183" duration="46543000" />
-      <workItem from="1673229865205" duration="38717000" />
-    </task>
-    <task id="LOCAL-00060" summary="feat: 调整页面">
-      <created>1672498442822</created>
-      <option name="number" value="00060" />
-      <option name="presentableId" value="LOCAL-00060" />
-      <option name="project" value="LOCAL" />
-      <updated>1672498442822</updated>
+      <workItem from="1673229865205" duration="38982000" />
     </task>
     <task id="LOCAL-00061" summary="feat: 标题内不显示日期">
       <created>1672498912260</created>
@@ -573,7 +559,14 @@
       <option name="project" value="LOCAL" />
       <updated>1673315878999</updated>
     </task>
-    <option name="localTasksCounter" value="109" />
+    <task id="LOCAL-00109" summary="feat: 修复依赖引入bug">
+      <created>1673317251885</created>
+      <option name="number" value="00109" />
+      <option name="presentableId" value="LOCAL-00109" />
+      <option name="project" value="LOCAL" />
+      <updated>1673317251886</updated>
+    </task>
+    <option name="localTasksCounter" value="110" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -593,7 +586,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="feat: 修复bug" />
     <MESSAGE value="feat: 修复滚动条bug" />
     <MESSAGE value="feat: 支持响应式布局" />
     <MESSAGE value="feat: 调整排序方式" />
@@ -618,7 +610,8 @@
     <MESSAGE value="feat: 修复识别带 @ 号的包出错的bug" />
     <MESSAGE value="feat: 注释掉背景" />
     <MESSAGE value="feat: 修复重试报错的bug" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: 修复重试报错的bug" />
+    <MESSAGE value="feat: 修复依赖引入bug" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: 修复依赖引入bug" />
   </component>
   <component name="VgoProject">
     <integration-enabled>false</integration-enabled>
