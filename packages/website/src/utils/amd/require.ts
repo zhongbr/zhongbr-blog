@@ -5,7 +5,7 @@ import { getService } from 'jsx-service';
 import worker from 'worker!@/jsx-service.worker.js';
 
 import { PromiseRes } from "@/types/utils";
-import { IAmdModuleManagerContext, IRequireCtx, IRequireFunc, IModule } from "./types";
+import { IAmdModuleManagerContext, IRequireCtx, IRequireFunc, IModule, IEventTypes } from "./types";
 
 let service: ReturnType<typeof getService>;
 
@@ -97,6 +97,8 @@ export default function bindRequireToCtx (ctx: IAmdModuleManagerContext) {
             if (!moduleName.startsWith('.') && !moduleName.startsWith('__') && !path.isAbsolute(moduleName)) {
                 const [name, version, file] = parseModuleName(moduleName);
                 const scriptUrl = await require_.resolveDeps(name, version, file);
+                // 分发加载模块的事件
+                ctx.eventSubscribeManager.trigger(IEventTypes.LoadingScript, moduleName, scriptUrl);
                 if (typeof scriptUrl === 'string') {
                     await ctx.scriptLoader.loadScript(ctx.scriptContainerDom, scriptUrl, moduleName);
                     factory = factories.get(modulePath);

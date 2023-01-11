@@ -8,9 +8,10 @@
 import clsx from "clsx";
 import Loading from './Loading';
 import styles from './style.module.less';
+import React from "react";
 
 export interface Props {
-    texts: string;
+    texts: React.ReactNode;
     full?: boolean;
 }
 

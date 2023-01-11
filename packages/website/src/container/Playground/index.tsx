@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useState, useRef, useMemo } from 'react';
+import React, { useLayoutEffect, useState, useRef, useMemo, useEffect } from 'react';
 import clsx from 'clsx';
 
 import { ResponsiveEnum, usePageConfig, useAsyncEffect, useAsyncFn } from '@/hooks';
@@ -36,6 +36,7 @@ const Playground: React.FC = () => {
     const moduleManagerRef = useRef<IAmdManager>();
     if (!moduleManagerRef.current) {
         moduleManagerRef.current = createAmdManager();
+        // 将当前的包管理器挂载到全局
         moduleManagerRef.current?.mountToGlobal();
         // 将包管理器声明到内部
         moduleManagerRef.current?.define('module-manager', [], async () => {
@@ -104,11 +105,16 @@ const Playground: React.FC = () => {
             />
             <div className={styles.display}>
                 {(() => {
-                    if (loading) return <Splash texts="🚀依赖加载中..."/>;
+                    if (loading) return <Splash
+                        texts="🚀 依赖解析中..."
+                    />;
                     if (!depsValid) return (
                         <div className={styles.depsInvalid}>
                             <span>❌ 依赖解析出错了哦</span>
                             <ErrorDisplay error={depsError}/>
+                            <div>
+                                <button onClick={onRefreshDeps}>点击此处重试</button>
+                            </div>
                         </div>
                     );
                     if (code) return (
@@ -123,7 +129,8 @@ const Playground: React.FC = () => {
                                 <Icon className="rp-jiaoxue"/>
                                 <span style={{ marginLeft: '8px' }}>React JSX Playground</span>
                             </h3>
-                            <p>在左侧的代码块内输入 React JSX 代码，将要渲染的组件 default 导出，点击保存即可预览效果</p>
+                            <p>在左侧的代码块内输入 React JSX 代码，将要渲染的组件 default 导出，点击保存即可预览效果 🚀</p>
+                            <p>满足 <a href="https://unpkg.com">unpkg.com</a> 规范的包，可以直接 import 导入 😁</p>
                         </div>
                     );
                 })()}

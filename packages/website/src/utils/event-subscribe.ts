@@ -1,17 +1,17 @@
 export interface Handler {
-    (params: unknown): void;
+    (...params: unknown[]): void;
     once?: boolean;
 }
 
 export const createEventSubscribeManager = () => {
-    const eventsHandlersMap = new Map<string, Array<Handler>>;
+    const eventsHandlersMap = new Map<string, Array<Handler>>();
 
-    const trigger = (key: string, params: unknown) => {
+    const trigger = (key: string, ...params: unknown[]) => {
         const handlers = eventsHandlersMap.get(key);
         if (handlers) {
             const drops = new Map<number, boolean>();
             handlers.forEach((handler, index) => {
-                handler(params);
+                handler(...params);
                 if (handler.once) {
                     drops.set(index, true);
                 }

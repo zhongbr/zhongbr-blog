@@ -44,16 +44,22 @@ const JsxDemoDisplay: React.FC<IProps> = (props) => {
 
     const ref = useRef(['', '']);
     const [previousJsx, previousModuleName] = ref.current;
+    const [loadingModule, setLoadingModule] = useState(['', '']);
 
     let moduleDispose = () => {};
-    let eventDispose = () => {};
+    let moduleUpdateDispose = () => {};
+    let moduleLoadingDispose = () => {};
     const [,forceUpdate] = useState({});
     if (previousJsx !== jsx || previousModuleName !== moduleName) {
         ref.current = [jsx, moduleName];
         moduleDispose = (moduleManagerRef?.current || defaultManager).define(moduleName, ['require'], jsx);
+        // 监听加载模块
+        moduleLoadingDispose = (moduleManagerRef?.current || defaultManager).onModuleLoading((moduleName, url) => {
+            setLoadingModule([moduleName, url]);
+        });
         // 监听模块更新，刷新 demo
         // TODO: 目前监听了所有的模块更新，后续支持只监听使用到的模块
-        eventDispose = (moduleManagerRef?.current || defaultManager).onModuleUpdate(undefined, () => {
+        moduleUpdateDispose = (moduleManagerRef?.current || defaultManager).onModuleUpdate(undefined, () => {
             // 删除模块的缓存
             (moduleManagerRef?.current || defaultManager).require_.cache.delete(moduleName);
             // 强制刷新组件
@@ -64,13 +70,24 @@ const JsxDemoDisplay: React.FC<IProps> = (props) => {
     // 组件卸载后，卸载对应的模块和时间监听
     useEffect(() => {
         moduleDispose();
-        eventDispose();
+        moduleUpdateDispose();
     }, []);
 
     const module_ = suspensePromise((moduleManagerRef?.current || defaultManager).require_(moduleName));
 
     return (
-        <Suspense fallback={<Splash texts="🚀 加载中" />}>
+        <Suspense
+            fallback={(
+                <Splash
+                    texts={(
+                        <div className={styles.loading}>
+                            <div>🚀 {loadingModule[0]} 加载中...</div>
+                            <div>{loadingModule[1]}</div>
+                        </div>
+                    )}
+                />
+            )}
+        >
             <ErrorBoundary
                 renderFallback={onFallback}
             >

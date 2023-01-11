@@ -43,12 +43,12 @@ export default 'module-valid';
 export const body = document.body;
 
 // 🚀🚀 This is a function declared how to resolve module script when require a module doesn't exist.
-export async function resolve(packageName, version, file) {
-    const versionSuffix = version ? \`@\${version}\` : '';
-    const fileSuffix = file ? \`\${file}\` : '';
-    // \`return false\` to cancel auto require deps.
-    return \`https://unpkg.com/\${packageName}\${versionSuffix}\${fileSuffix}\`;
-}
+// export async function resolve(packageName, version, file) {
+//     const versionSuffix = version ? \`@\${version}\` : '';
+//     const fileSuffix = file ? \`\${file}\` : '';
+//     // \`return false\` to cancel auto require deps.
+//     return \`https://unpkg.com/\${packageName}\${versionSuffix}\${fileSuffix}\`;
+// }
 
 // 🚀🚀 You can define your dependencies here:
 define('version', [], () => ({ 'default': '1.0.0' }));

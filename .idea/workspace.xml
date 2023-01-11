@@ -6,7 +6,17 @@
   <component name="ChangeListManager">
     <list default="true" id="27b3b0e5-1ac3-4b25-8173-a590bd44bf60" name="变更" comment="feat: 整理 amd 代码">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/app.less" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/app.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/components/JsxDemoDisplay/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/components/JsxDemoDisplay/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/components/JsxDemoDisplay/style.module.less" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/components/JsxDemoDisplay/style.module.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/components/Splash/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/components/Splash/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/container/Playground/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/container/Playground/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/container/Playground/template.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/container/Playground/template.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/utils/amd/define.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/utils/amd/define.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/utils/amd/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/utils/amd/index.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/packages/website/src/utils/amd/require.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/utils/amd/require.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/utils/amd/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/utils/amd/types.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/utils/event-subscribe.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/utils/event-subscribe.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

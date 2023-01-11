@@ -1,5 +1,5 @@
 import { IAmdModuleManagerContext } from "./types";
-import { IDefineDispose, Factory } from "./types";
+import { IDefineDispose, Factory, IEventTypes } from "./types";
 
 export default function bindDefineToCtx(ctx: IAmdModuleManagerContext) {
     function define(factory: Factory | string): IDefineDispose;
@@ -31,7 +31,7 @@ export default function bindDefineToCtx(ctx: IAmdModuleManagerContext) {
             dependencies.delete(modulePath);
         }
         // 通知该模块的更新
-        ctx.eventSubscribeManager.trigger('update', modulePath);
+        ctx.eventSubscribeManager.trigger(IEventTypes.ModuleUpdate, modulePath);
         factories.set(modulePath, factory!);
         dependencies.set(modulePath, dependencies_ as string[]);
         return () => {

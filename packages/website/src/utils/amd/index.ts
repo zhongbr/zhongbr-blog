@@ -6,7 +6,7 @@ import * as ReactDomNamespace from "react-dom";
 import bindScriptLoaderToCtx from './scriptLoader';
 import bindDefineToCtx from "./define";
 import bindRequireToCtx from "./require";
-import { IAmdModuleManagerContext } from './types';
+import { IAmdModuleManagerContext, IEventTypes } from './types';
 import { createEventSubscribeManager } from "../event-subscribe";
 import { Factory } from "./types";
 
@@ -48,32 +48,10 @@ export function createAmdManager(root='/', scriptTimeout=10000) {
 
     console.log('create context', ctx);
 
-    let unmountFromGlobal: () => void = () => {};
     return {
         require_: ctx.require_,
         define: ctx.define,
-        onModuleUpdate(targets: string[] | undefined, cb: (moduleNames: string[]) => void) {
-            return ctx.eventSubscribeManager.listen('update', (moduleName) => {
-                if(!targets || targets.includes(moduleName as string)) {
-                    cb([moduleName as string]);
-                }
-            });
-        },
         _import: importGlobalObjectScript.bind(null, ctx.scriptContainerDom),
-        mountToGlobal() {
-            const currentDefine = Reflect.get(window, 'define');
-            const currentRequire = Reflect.get(window, 'require');
-
-            Reflect.set(window, 'define', ctx.define);
-            Reflect.set(window, 'require', ctx.require_);
-
-            unmountFromGlobal = () => {
-                Reflect.set(window, 'define', currentDefine);
-                Reflect.set(window, 'require', currentRequire);
-            };
-            return unmountFromGlobal;
-        },
-        unmountFromGlobal,
         set: ({ target, resolve: _resolve }: { target?: HTMLElement, resolve?: IAmdModuleManagerContext['require_']['resolveDeps']; }) => {
             if (_resolve) {
                 ctx.require_.resolveDeps = _resolve;
@@ -81,7 +59,31 @@ export function createAmdManager(root='/', scriptTimeout=10000) {
             if (target) {
                 ctx.scriptContainerDom = target;
             }
-        }
+        },
+        onModuleUpdate(targets: string[] | undefined, cb: (moduleNames: string[]) => void) {
+            return ctx.eventSubscribeManager.listen(IEventTypes.ModuleUpdate, (moduleName) => {
+                if(!targets || targets.includes(moduleName as string)) {
+                    cb([moduleName as string]);
+                }
+            });
+        },
+        onModuleLoading(cb: (moduleName: string, url: string) => void) {
+            return ctx.eventSubscribeManager.listen(IEventTypes.LoadingScript, (moduleName, url) => {
+                cb(moduleName as string, url as string);
+            });
+        },
+        mountToGlobal() {
+            const currentDefine = Reflect.get(window, 'define');
+            const currentRequire = Reflect.get(window, 'require');
+
+            Reflect.set(window, 'define', ctx.define);
+            Reflect.set(window, 'require', ctx.require_);
+
+            return () => {
+                Reflect.set(window, 'define', currentDefine);
+                Reflect.set(window, 'require', currentRequire);
+            };
+        },
     };
 }
 

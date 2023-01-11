@@ -47,3 +47,8 @@ export interface IAmdModuleManagerContext {
     define(moduleName: string | Array<string> | Factory, dependencies_?: Factory | string | string[], factory?: Factory | string): IDefineDispose;
     require_: IRequireFunc;
 }
+
+export enum IEventTypes {
+    ModuleUpdate = 'module-update',
+    LoadingScript = 'loading-script'
+}
