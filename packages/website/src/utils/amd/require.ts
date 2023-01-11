@@ -49,32 +49,37 @@ export default function bindRequireToCtx (ctx: IAmdModuleManagerContext) {
 
         const modulePath = resolve(moduleName, _this.__dirname);
 
-        // 加载到模块的函数
-        const clearAllTasks = (err: Error | undefined, module_?: IModule) => {
-            moduleRequiringTasks.get(modulePath)?.forEach(([resolve, reject]) => {
-                if (err) {
-                    reject(err);
-                    return;
-                }
-                console.log('resolve ', modulePath, module_!);
-                resolve(module_!);
+        // 检查本模块是否有其他的 require 任务正在运行，如果有直接等待第一个任务的结果，避免重复生成模块
+        if (moduleRequiringTasks.has(modulePath)) {
+            return await new Promise((resolve, reject) => {
+                const tasks = moduleRequiringTasks.get(modulePath);
+                tasks!.push([resolve, reject]);
+                console.log(`[amd] require ${moduleName}, already has task requiring, waiting tasks: ${tasks!.length}.`);
             });
-            console.log('>>>', moduleRequiringTasks.get(modulePath));
+        }
+        console.log('[amd] start require', modulePath);
+        moduleRequiringTasks.set(modulePath, []);
+
+        // 加载到模块后调用这个函数
+        const clearAllTasks = (err: Error | undefined, module_?: IModule) => {
+            // resolve 掉在加载过程中又触发的其他加载请求
+            const tasks = moduleRequiringTasks.get(modulePath);
+            if (tasks?.length) {
+                tasks.forEach(([resolve, reject], index) => {
+                    console.log('[amd] resolve item', index, moduleName);
+                    if (err) return reject(err);
+                    resolve(module_!);
+                });
+            }
             moduleRequiringTasks.delete(modulePath);
             return module_!;
         }
 
-        // 检查本模块是否有其他的 require 任务正在运行，如果有直接等待第一个任务的结果，避免重复生成模块
-        if (moduleRequiringTasks.has(modulePath)) {
-            console.log('requiring ', modulePath);
-            return await new Promise((resolve, reject) => {
-                moduleRequiringTasks.get(modulePath)?.push([resolve, reject]);
-            });
-        }
-        console.log('start require', modulePath);
-        moduleRequiringTasks.set(modulePath, []);
-
-        if (cache.has(modulePath)) return clearAllTasks(undefined, cache.get(modulePath)!);
+        // 检查缓存，如果缓存中有直接取缓存里的
+        if (cache.has(modulePath)) {
+            console.log(`[amd] require ${moduleName}, resolved from cache`);
+            return clearAllTasks(undefined, cache.get(modulePath)!);
+        };
 
         const require_ = getRequireFunc({ __dirname: modulePath });
 
@@ -89,7 +94,7 @@ export default function bindRequireToCtx (ctx: IAmdModuleManagerContext) {
                 if (typeof scriptUrl === 'string') {
                     await ctx.scriptLoader.loadScript(ctx.scriptContainerDom, scriptUrl, moduleName);
                     factory = factories.get(modulePath);
-                    console.log('script loaded', factory, modulePath);
+                    console.log('[amd] script loaded', factory, modulePath);
                 }
             }
             // 加载完后，仍然没有模块声明的，抛出异常
@@ -126,47 +131,54 @@ export default function bindRequireToCtx (ctx: IAmdModuleManagerContext) {
             });
         }
 
-        // 执行 factory ，拿到模块
-        let exportsReturn: IModule;
-        if (typeof factory === 'string') {
-            const res = await service.transformJsxCode(factory);
-            if (!res.params.code) {
-                throw new Error(`[amd] module error: ${modulePath} failed to compile code`);
+        try {
+            // 执行 factory ，拿到模块
+            let exportsReturn: IModule;
+            if (typeof factory === 'string') {
+                const res = await service.transformJsxCode(factory);
+                if (!res.params.code) {
+                    throw new Error(`[amd] module error: ${modulePath} failed to compile code`);
+                }
+                // eslint-disable-next-line no-eval
+                exportsReturn = await eval(res.params.code)(...deps);
             }
-            // eslint-disable-next-line no-eval
-            exportsReturn = await eval(res.params.code)(...deps).catch((err: Error) => clearAllTasks(err, undefined));
-        }
-        else {
-            exportsReturn = await factory(...deps).catch((err: Error) => clearAllTasks(err, undefined));
-        }
+            else {
+                exportsReturn = await factory(...deps);
+            }
 
-        // 先判断 exports 对象是否挂载了内容，如果没有就使用 factory 的返回值
-        const module_ = (() => {
-            if (Object.keys(commonjs.exports).length) {
-                return commonjs.exports;
-            }
-            if (Object.keys(commonjs.module.exports).length) {
-                return commonjs.module.exports;
-            }
-            return exportsReturn;
-        })() as IModule;
-        cache.set(modulePath, module_);
-        console.log('first require resolve module', modulePath, module_);
-
-        return clearAllTasks(undefined, module_);
+            // 先判断 exports 对象是否挂载了内容，如果没有就使用 factory 的返回值
+            const module_ = (() => {
+                if (Object.keys(commonjs.exports).length) {
+                    return commonjs.exports;
+                }
+                if (Object.keys(commonjs.module.exports).length) {
+                    return commonjs.module.exports;
+                }
+                return exportsReturn;
+            })() as IModule;
+            cache.set(modulePath, module_);
+            console.log('[amd] resolve module tasks head', modulePath, module_);
+            return clearAllTasks(undefined, module_);
+        } catch (err) {
+            return clearAllTasks(err as Error, undefined);
+        }
     };
 
     const requireProto= async (_this: IRequireCtx, ...args: Parameters<IRequireFunc>) => {
-        const [moduleNames, cb] = args;
-        let modules: PromiseRes<ReturnType<IRequireFunc>>;
-        if (Array.isArray(moduleNames)) {
-            modules = await Promise.all(moduleNames.map(name => moduleFactory(name, _this)));
+        try {
+            const [moduleNames, cb] = args;
+            let modules: PromiseRes<ReturnType<IRequireFunc>>;
+            if (Array.isArray(moduleNames)) {
+                modules = await Promise.all(moduleNames.map(name => moduleFactory(name, _this)));
+            }
+            else {
+                modules = await moduleFactory(moduleNames, _this);
+            }
+            cb?.(modules);
+            return modules;
+        } catch (e) {
+            console.error(e);
         }
-        else {
-            modules = await moduleFactory(moduleNames, _this);
-        }
-        cb?.(modules);
-        return modules;
     };
 
     const getRequireFunc = (_this: IRequireCtx): IRequireFunc => {

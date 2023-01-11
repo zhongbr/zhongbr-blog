@@ -1,9 +1,8 @@
 import { IAmdModuleManagerContext, IScriptLoader, IScriptLoadTask } from './types';
 
-let loadingModuleName = '';
-const scriptLoadingTasks: IScriptLoader['scriptLoadingTasks'] = [];
-
 export default function bindScriptLoaderToCtx(ctx: IAmdModuleManagerContext) {
+    let loadingModuleName = '';
+    const scriptLoadingTasks: IScriptLoader['scriptLoadingTasks'] = [];
     const loadScript = async (dom: HTMLElement, url: string, moduleName = 'globalObj') => {
         // 由于有可能存在匿名模块，为了能区分开这些模块，一次只能加载一个脚本
         if (loadingModuleName) {
@@ -14,34 +13,37 @@ export default function bindScriptLoaderToCtx(ctx: IAmdModuleManagerContext) {
         }
         return new Promise((resolve, reject) => {
             const script = document.createElement('script');
+            // 设置一个超时时间
+            const timeout = setTimeout(() => {
+                    console.log('[amd] script load timeout ' + moduleName);
+                    reject(new Error(`load module ${moduleName} timeout`));
+                    // 加载下一个脚本
+                    scriptLoadingTasks.shift()?.();
+                }, ctx.scriptTimeout);
+
             script.onload = () => {
+                console.log('[amd] script resolved', loadingModuleName);
+                clearTimeout(timeout);
                 resolve(null);
-                console.log('script resolved', loadingModuleName);
                 loadingModuleName = '';
                 // 加载下一个脚本
                 scriptLoadingTasks.shift()?.();
             }
 
             script.onerror = (err) => {
+                console.log('[amd] script rejected', loadingModuleName);
+                clearTimeout(timeout);
                 reject(err);
-                console.log('script rejected', loadingModuleName);
                 loadingModuleName = '';
                 // 加载下一个脚本
                 scriptLoadingTasks.shift()?.();
             }
 
-            // 设置一个超时时间
-            setTimeout(() => {
-                reject(new Error(`load module ${moduleName} timeout`));
-                // 加载下一个脚本
-                scriptLoadingTasks.shift()?.();
-            }, ctx.scriptTimeout);
-
             script.crossOrigin = 'anonymous';
             script.src = url;
             script.type = 'text/javascript';
 
-            console.log('start load script', moduleName);
+            console.log('[amd] start load script', moduleName);
             loadingModuleName = moduleName;
             dom.appendChild(script);
         });
