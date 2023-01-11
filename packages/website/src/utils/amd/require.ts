@@ -67,11 +67,17 @@ export default function bindRequireToCtx (ctx: IAmdModuleManagerContext) {
             if (tasks?.length) {
                 tasks.forEach(([resolve, reject], index) => {
                     console.log('[amd] resolve item', index, moduleName);
-                    if (err) return reject(err);
+                    if (err) {
+                        reject(err);
+                    }
                     resolve(module_!);
                 });
             }
+            // 等到触发了其他任务的 resolve 后把 Error 抛出去
             moduleRequiringTasks.delete(modulePath);
+            if (err) {
+                throw err;
+            }
             return module_!;
         }
 
@@ -165,20 +171,16 @@ export default function bindRequireToCtx (ctx: IAmdModuleManagerContext) {
     };
 
     const requireProto= async (_this: IRequireCtx, ...args: Parameters<IRequireFunc>) => {
-        try {
-            const [moduleNames, cb] = args;
-            let modules: PromiseRes<ReturnType<IRequireFunc>>;
-            if (Array.isArray(moduleNames)) {
-                modules = await Promise.all(moduleNames.map(name => moduleFactory(name, _this)));
-            }
-            else {
-                modules = await moduleFactory(moduleNames, _this);
-            }
-            cb?.(modules);
-            return modules;
-        } catch (e) {
-            console.error(e);
+        const [moduleNames, cb] = args;
+        let modules: PromiseRes<ReturnType<IRequireFunc>>;
+        if (Array.isArray(moduleNames)) {
+            modules = await Promise.all(moduleNames.map(name => moduleFactory(name, _this)));
         }
+        else {
+            modules = await moduleFactory(moduleNames, _this);
+        }
+        cb?.(modules);
+        return modules;
     };
 
     const getRequireFunc = (_this: IRequireCtx): IRequireFunc => {
