@@ -25,7 +25,7 @@ if (window.opener && typeof window.opener[PlaygroundGetCodeSymbol] === 'function
 
 const Playground: React.FC = () => {
     const { onPageReady, setStates, widthLevel } = usePageConfig();
-    const defaultCodes = [defaultDemoCode, defaultIndexCode, defaultDemoCode];
+    const defaultCodes = [defaultDemoCode, defaultIndexCode, defaultDepsCode];
     const tags = ['App.tsx', 'index.tsx', 'Settings.tsx'];
     const [codes, setCodes] = useState<string[]>([defaultDemoCode, '', defaultDepsCode]);
 
