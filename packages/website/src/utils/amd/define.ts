@@ -1,5 +1,5 @@
 import { IAmdModuleManagerContext } from "./types";
-import { IDefineDispose, Factory, IEventTypes } from "./types";
+import { IDefineDispose, IDefine, Factory, IEventTypes } from "./types";
 
 export default function bindDefineToCtx(ctx: IAmdModuleManagerContext) {
     function define(factory: Factory | string): IDefineDispose;
@@ -40,7 +40,7 @@ export default function bindDefineToCtx(ctx: IAmdModuleManagerContext) {
         }
     }
 
-    Reflect.set(define, 'amd', {});
-
-    ctx.define = define;
+    ctx.define = Object.assign(define, {
+        amd: {}
+    }) as IDefine;
 }

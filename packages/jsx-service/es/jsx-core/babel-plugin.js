@@ -2,19 +2,27 @@ import babel from '@babel/standalone';
 babel.registerPlugin('es-module-factory', (context, params) => {
     const { types: t } = context;
     let defaultExport;
+    let importCount = 0;
     return {
         visitor: {
             ImportDeclaration: (path) => {
-                let properties = `{${path.node.specifiers.map(spec => {
+                let defaultImport = '';
+                let properties = `{${path.node.specifiers.reduce((pre, spec) => {
                     if (t.isImportDefaultSpecifier(spec)) {
-                        return `'default': ${spec.local.name}`;
+                        defaultImport = spec.local.name;
+                        return pre;
                     }
-                    return spec.local.name;
-                }).join(',')}}`;
+                    return `${pre}, ${spec.local.name}`;
+                }, '').slice(1)}}`;
                 if (t.isImportNamespaceSpecifier(path.node.specifiers[0])) {
                     properties = path.node.specifiers[0].local.name;
                 }
-                const requireStatement = context.template(`const ${properties} = await _require('${path.node.source.value}');`);
+                const moduleId = `__import_module_${importCount++}`;
+                const requireStatement = context.template([
+                    `const ${moduleId} = await _require('${path.node.source.value}')`,
+                    ...properties ? [`,${properties} = ${moduleId}`] : [],
+                    ...defaultImport ? [`,${defaultImport} = __default_import(${moduleId})`] : [],
+                ].join(''));
                 path.replaceWith(requireStatement());
             },
             ExportDefaultDeclaration: (path) => {
@@ -72,9 +80,10 @@ babel.registerPlugin('es-module-factory', (context, params) => {
                 t.expressionStatement(t.arrowFunctionExpression([
                     t.identifier('_require'),
                 ], t.blockStatement([
+                    context.template(`const __default_import = m => Reflect.has(m, 'default') ? m['default'] : m;`)(),
                     ...state.path.node.body,
                     t.returnStatement(t.objectExpression([
-                        t.objectProperty(t.identifier('default'), t.identifier('__default')),
+                        ...!!defaultExport ? [t.objectProperty(t.identifier('default'), t.identifier('__default'))] : [],
                         ...params.namedExport.map(name => t.objectProperty(t.identifier(name), t.identifier(name))),
                     ]))
                 ]), true))

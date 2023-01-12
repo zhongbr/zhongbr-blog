@@ -4,19 +4,42 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="27b3b0e5-1ac3-4b25-8173-a590bd44bf60" name="变更" comment="feat: 整理 amd 代码">
+    <list default="true" id="27b3b0e5-1ac3-4b25-8173-a590bd44bf60" name="变更" comment="feat: 修改文案和样式">
+      <change afterPath="$PROJECT_DIR$/packages/website/public/iframe.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/website/src/components/Sandbox/hooks/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/website/src/components/Sandbox/hooks/useIframeModule.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/website/src/components/Sandbox/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/website/src/components/Sandbox/style.module.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/website/src/hooks/useMessage.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/website/src/iframe-amd.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/website/src/types/iframe-sandbox.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/website/src/utils/amd/define-react.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/website/src/utils/post-message.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/react-press.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/react-press.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/app.less" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/app.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/components/JsxDemoDisplay/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/components/JsxDemoDisplay/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/components/JsxDemoDisplay/style.module.less" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/components/JsxDemoDisplay/style.module.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/components/Splash/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/components/Splash/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/jsx-service/es/jsx-core/babel-plugin.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/jsx-service/es/jsx-core/babel-plugin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/jsx-service/es/jsx-core/babel-plugin.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/packages/jsx-service/es/jsx-core/babel-plugin.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/jsx-service/src/jsx-core/babel-plugin.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/jsx-service/src/jsx-core/babel-plugin.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/config/paths.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/config/paths.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/config/webpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/config/webpack.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/public/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/public/logo192.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/public/logo512.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/public/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/public/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/scripts/start.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/scripts/start.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/components/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/components/index.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/packages/website/src/container/Playground/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/container/Playground/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/container/Playground/style.module.less" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/container/Playground/style.module.less" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/packages/website/src/container/Playground/template.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/container/Playground/template.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/hooks/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/hooks/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/types/utils.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/types/utils.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/packages/website/src/utils/amd/define.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/utils/amd/define.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/packages/website/src/utils/amd/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/utils/amd/index.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/packages/website/src/utils/amd/require.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/utils/amd/require.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/packages/website/src/utils/amd/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/utils/amd/types.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/utils/event-subscribe.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/utils/event-subscribe.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pnpm-lock.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pnpm-lock.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,9 +49,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="JavaScript File" />
         <option value="tsconfig.json" />
+        <option value="HTML File" />
         <option value="TypeScript JSX File" />
         <option value="Less File" />
         <option value="TypeScript File" />
@@ -89,32 +112,35 @@
     <option name="showLibraryContents" value="true" />
     <option name="showMembers" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.go.formatter.settings.were.checked&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.go.migrated.go.modules.settings&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
-    &quot;javascript.nodejs.core.library.configured.version&quot;: &quot;16.15.0&quot;,
-    &quot;javascript.nodejs.core.library.typings.version&quot;: &quot;16.18.11&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/zhangpanhong/Documents/zhongbr_projects/react-press/posts&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;Less&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.standard&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.standard&quot;: &quot;&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;pnpm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;MTConfigurable&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;/Users/zhangpanhong/Documents/zhongbr_projects/react-press/packages/jsx-service/node_modules/typescript/lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.go.formatter.settings.were.checked": "true",
+    "RunOnceActivity.go.migrated.go.modules.settings": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "go.import.settings.migrated": "true",
+    "javascript.nodejs.core.library.configured.version": "14.17.4",
+    "javascript.nodejs.core.library.typings.version": "14.17.4",
+    "last_opened_file_path": "/Users/zhangpanhong/Documents/zhongbr_projects/react-press/posts",
+    "list.type.of.created.stylesheet": "Less",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.standard": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.standard": "",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "pnpm",
+    "project.structure.last.edited": "项目",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "MTConfigurable",
+    "ts.external.directory.path": "/Users/zhangpanhong/Documents/zhongbr_projects/react-press/packages/jsx-service/node_modules/typescript/lib",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/posts" />
@@ -123,11 +149,11 @@
       <recent name="$PROJECT_DIR$/packages/umd-factory" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/packages/website/src" />
       <recent name="$PROJECT_DIR$/posts/前端开发" />
       <recent name="$PROJECT_DIR$/packages/website/src/components/JsxDemoDisplay" />
       <recent name="$PROJECT_DIR$/packages/website/src/components/JsxDemoDisplay/index.tsx" />
       <recent name="$PROJECT_DIR$/readme" />
-      <recent name="$PROJECT_DIR$/posts/数据结构" />
     </key>
   </component>
   <component name="RunAnythingCache">
@@ -142,7 +168,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="npm.start">
+  <component name="RunManager" selected="npm.es">
     <configuration name="build-markdown" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="run" />
@@ -196,8 +222,8 @@
     <recent_temporary>
       <list>
         <item itemvalue="npm.start" />
-        <item itemvalue="npm.build" />
         <item itemvalue="npm.es" />
+        <item itemvalue="npm.build" />
         <item itemvalue="npm.build-markdown" />
         <item itemvalue="npm.test" />
       </list>
@@ -235,6 +261,7 @@
       <workItem from="1673431678512" duration="436000" />
       <workItem from="1673432192924" duration="98000" />
       <workItem from="1673432295642" duration="1681000" />
+      <workItem from="1673511386415" duration="15543000" />
     </task>
     <task id="LOCAL-00066" summary="feat: 增加首页栏目">
       <created>1672571210687</created>
@@ -658,6 +685,136 @@
           <url>file://$PROJECT_DIR$/node_modules/.pnpm/react-dev-utils@12.0.1_kgnh4j6wpxso4vy7sn4qiyjkzi/node_modules/react-dev-utils/WebpackDevServerUtils.js</url>
           <line>118</line>
           <option name="timeStamp" value="18" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/packages/website/scripts/start.js</url>
+          <line>76</line>
+          <option name="timeStamp" value="20" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/packages/website/scripts/start.js</url>
+          <line>80</line>
+          <option name="timeStamp" value="21" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/packages/website/scripts/start.js</url>
+          <line>100</line>
+          <option name="timeStamp" value="22" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/packages/website/scripts/start.js</url>
+          <line>92</line>
+          <option name="timeStamp" value="23" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/packages/website/scripts/start.js</url>
+          <line>110</line>
+          <option name="timeStamp" value="24" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/packages/website/scripts/start.js</url>
+          <line>116</line>
+          <option name="timeStamp" value="25" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/packages/website/scripts/start.js</url>
+          <line>124</line>
+          <option name="timeStamp" value="26" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/packages/website/scripts/start.js</url>
+          <line>128</line>
+          <option name="timeStamp" value="27" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/packages/website/scripts/start.js</url>
+          <line>136</line>
+          <option name="timeStamp" value="28" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/packages/website/scripts/start.js</url>
+          <line>142</line>
+          <option name="timeStamp" value="29" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/packages/website/scripts/start.js</url>
+          <line>150</line>
+          <option name="timeStamp" value="30" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/packages/website/scripts/start.js</url>
+          <line>157</line>
+          <option name="timeStamp" value="31" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/packages/website/node_modules/webpack-dev-server/lib/Server.js</url>
+          <line>3201</line>
+          <option name="timeStamp" value="32" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/packages/website/node_modules/webpack-dev-server/lib/Server.js</url>
+          <line>3204</line>
+          <option name="timeStamp" value="33" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/packages/website/node_modules/webpack-dev-server/lib/Server.js</url>
+          <line>3241</line>
+          <option name="timeStamp" value="34" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/node_modules/.pnpm/webpack-dev-server@4.11.1_webpack@5.74.0/node_modules/webpack-dev-server/lib/Server.js</url>
+          <line>3250</line>
+          <option name="timeStamp" value="35" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/node_modules/.pnpm/webpack-dev-server@4.11.1_webpack@5.74.0/node_modules/webpack-dev-server/lib/Server.js</url>
+          <line>3256</line>
+          <option name="timeStamp" value="36" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/node_modules/.pnpm/webpack-dev-server@4.11.1_webpack@5.74.0/node_modules/webpack-dev-server/lib/Server.js</url>
+          <line>3259</line>
+          <option name="timeStamp" value="37" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/node_modules/.pnpm/webpack-dev-server@4.11.1_webpack@5.74.0/node_modules/webpack-dev-server/lib/Server.js</url>
+          <line>3260</line>
+          <option name="timeStamp" value="38" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/node_modules/.pnpm/webpack-dev-server@4.11.1_webpack@5.74.0/node_modules/webpack-dev-server/lib/Server.js</url>
+          <line>3265</line>
+          <option name="timeStamp" value="39" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/node_modules/.pnpm/webpack-dev-server@4.11.1_webpack@5.74.0/node_modules/webpack-dev-server/lib/Server.js</url>
+          <line>3275</line>
+          <option name="timeStamp" value="40" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/node_modules/.pnpm/webpack-dev-server@4.11.1_webpack@5.74.0/node_modules/webpack-dev-server/lib/Server.js</url>
+          <line>3267</line>
+          <option name="timeStamp" value="41" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/node_modules/.pnpm/webpack-dev-server@4.11.1_webpack@5.74.0/node_modules/webpack-dev-server/lib/Server.js</url>
+          <line>3276</line>
+          <option name="timeStamp" value="42" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/node_modules/.pnpm/webpack-dev-server@4.11.1_webpack@5.74.0/node_modules/webpack-dev-server/lib/Server.js</url>
+          <line>3279</line>
+          <option name="timeStamp" value="43" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/node_modules/.pnpm/webpack-dev-server@4.11.1_webpack@5.74.0/node_modules/webpack-dev-server/lib/Server.js</url>
+          <line>3283</line>
+          <option name="timeStamp" value="44" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/node_modules/.pnpm/webpack-dev-server@4.11.1_webpack@5.74.0/node_modules/webpack-dev-server/lib/Server.js</url>
+          <line>3286</line>
+          <option name="timeStamp" value="45" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>

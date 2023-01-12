@@ -33,6 +33,11 @@ export interface IRequireFunc {
     moduleRequiringTasks: Map<string, [resolve: Function, reject: Function][]>;
 }
 
+export interface IDefine {
+    (moduleName: string | Array<string> | Factory, dependencies_?: Factory | string | string[], factory?: Factory | string): IDefineDispose;
+    amd: any;
+}
+
 export type IDefineDispose = () => void;
 
 export interface IAmdModuleManagerContext {
@@ -44,7 +49,7 @@ export interface IAmdModuleManagerContext {
      */
     eventSubscribeManager: ReturnType<typeof createEventSubscribeManager>;
     scriptLoader: IScriptLoader;
-    define(moduleName: string | Array<string> | Factory, dependencies_?: Factory | string | string[], factory?: Factory | string): IDefineDispose;
+    define: IDefine;
     require_: IRequireFunc;
 }
 

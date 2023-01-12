@@ -30,3 +30,5 @@ export { default as useThemeManager } from './useThemeManager';
 export { default as useResponsive, ResponsiveEnum } from './useResponsive';
 
 export { useSuspense, suspensePromise } from './useSuspense';
+
+export { default as useMessage } from './useMessage';

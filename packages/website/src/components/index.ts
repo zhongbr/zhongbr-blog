@@ -27,6 +27,7 @@ export { default as MessageProvider, useMessage } from './Message';
 export * as Form from './Form';
 
 export { default as JsxDemoDisplay } from './JsxDemoDisplay';
+export { default as Sandbox } from './Sandbox';
 
 export { default as ErrorBoundary } from './ErrorBoundary';
 

@@ -20,26 +20,32 @@ export default function bindRequireToCtx (ctx: IAmdModuleManagerContext) {
         return [name!, version, file];
     }
 
-    const resolve: IRequireFunc['resolve'] = (moduleName, __dirname) => {
+    const resolve: IRequireFunc['resolve'] = (moduleName, __filepath) => {
         if (['require', 'module', 'exports'].includes(moduleName)) {
             return moduleName;
         }
-        const [modulePath] = parseModuleName(moduleName);
-        if (path.isAbsolute(modulePath!)) {
-            return modulePath!;
+        if (path.isAbsolute(moduleName)) {
+            return moduleName;
         }
-        if (modulePath!.startsWith('.')) {
-            if (!__dirname) {
-                throw new Error(`[amd] can't not resolve relative path ${modulePath} without __dirname`);
+        if (moduleName.startsWith('.')) {
+            if (!__filepath) {
+                throw new Error(`[amd] can't not resolve relative path ${moduleName} without __dirname`);
             }
-            return path.resolve(__dirname, modulePath!);
+            return path.resolve(path.dirname(__filepath), moduleName);
         }
+        const [modulePath] = parseModuleName(moduleName);
         return path.resolve(ctx.root, 'node_modules', modulePath!);
     };
 
     const resolveDeps: IRequireFunc['resolveDeps'] = async (packageName, version, file) => {
         const versionSuffix = version ? `@${version}` : '';
-        const fileSuffix = file ? `${file}` : '';
+        let file_ = file;
+        // React and React dom doesn't specific `unpkg` filed in `package.json`,
+        // set umd path manually.
+        if (['react', 'react-dom'].includes(packageName) && !file_) {
+            file_ = `/umd/${packageName}.production.min.js`;
+        }
+        const fileSuffix = file_ ? `${file_}` : '';
         // `return false` to cancel auto require deps.
         return `https://unpkg.com/${packageName}${versionSuffix}${fileSuffix}`;
     };

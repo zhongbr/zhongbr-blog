@@ -22,5 +22,6 @@
     <orderEntry type="library" name="font_3613812_r7cdih6dw5e" level="application" />
     <orderEntry type="library" name="font_3613812_ej2l7oe2xa" level="application" />
     <orderEntry type="library" name="font_3613812_2higggngn2" level="application" />
+    <orderEntry type="library" name="vconsole" level="application" />
   </component>
 </module>

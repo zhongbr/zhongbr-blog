@@ -3,8 +3,8 @@ import {IPlaygroundCode} from "@/types/utils";
 export const DefaultDemoCode =
 `import React from 'react';
 import Hello from 'hello-module';
-import * as jq from 'jquery';
-import * as moment from 'moment';
+import jq from 'jquery';
+import moment from 'moment';
 
 const TestFC = (props) => {
     const [state, setState] = React.useState(0);
@@ -29,13 +29,19 @@ const TestFC = (props) => {
         </div>
     );
 }
-
 export default TestFC;`;
+
+export const DefaultIndexCode =
+`import React from 'react';
+import ReactDom from 'react-dom';
+import App from './App';
+
+ReactDom.render(<App/>, document.getElementById('root'));`;
 
 export const DepsCommonHeader =
 `//============================================================
 // Do not modify following import and export statements
-import React from 'react';
+import * as React from 'react';
 import { define, _import } from 'module-manager';
 export default 'module-valid';
 //=============================================================

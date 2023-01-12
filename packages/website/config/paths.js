@@ -64,6 +64,7 @@ module.exports = {
   appBuild: resolveApp(buildPath),
   appPublic: resolveApp('public'),
   appHtml: resolveApp('public/index.html'),
+  iframeHtml: resolveApp('public/iframe.html'),
   appIndexJs: resolveModule(resolveApp, 'src/index'),
   appPackageJson: resolveApp('package.json'),
   appSrc: resolveApp('src'),
@@ -79,6 +80,7 @@ module.exports = {
   publicUrlOrPath,
   markdownJsonPath: resolveApp('../../.md-cache/md'),
   jsxServiceWorkerPath: resolveApp('src/jsx-service-worker'),
+  iframeAmdPath: resolveApp('src/iframe-amd')
 };
 
 

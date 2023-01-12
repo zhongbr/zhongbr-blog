@@ -1,8 +1,3 @@
-import React from 'react';
-import * as ReactNamespace from 'react';
-import ReactDom from "react-dom";
-import * as ReactDomNamespace from "react-dom";
-
 import bindScriptLoaderToCtx from './scriptLoader';
 import bindDefineToCtx from "./define";
 import bindRequireToCtx from "./require";
@@ -32,23 +27,9 @@ export function createAmdManager(root='/', scriptTimeout=10000) {
         };
     }
 
-    // 默认导入 react AMD 模块，供内部 JSX 调用
-    ctx.define('react', [], async () => {
-        return {
-            'default': React,
-            ...ReactNamespace
-        };
-    });
-    ctx.define('react-dom', [], async () => {
-        return {
-            'default': ReactDom,
-            ...ReactDomNamespace
-        };
-    });
-
     console.log('create context', ctx);
 
-    return {
+    const module_ = {
         require_: ctx.require_,
         define: ctx.define,
         _import: importGlobalObjectScript.bind(null, ctx.scriptContainerDom),
@@ -72,7 +53,7 @@ export function createAmdManager(root='/', scriptTimeout=10000) {
                 cb(moduleName as string, url as string);
             });
         },
-        mountToGlobal() {
+        mountToGlobal(global_ = window) {
             const currentDefine = Reflect.get(window, 'define');
             const currentRequire = Reflect.get(window, 'require');
 
@@ -85,6 +66,13 @@ export function createAmdManager(root='/', scriptTimeout=10000) {
             };
         },
     };
+
+    ctx.define('module-manager', [], async () => ({
+        default: module_,
+        ...module_
+    }));
+
+    return module_;
 }
 
 export type IAmdManager = ReturnType<typeof createAmdManager>;

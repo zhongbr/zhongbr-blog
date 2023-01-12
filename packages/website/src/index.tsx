@@ -1,5 +1,5 @@
 /*
- * @Description: desc
+ * @Description: 单页应用入口文件
  * @Author: 张盼宏
  * @Date: 2022-08-27 13:57:29
  * @LastEditors: 张盼宏

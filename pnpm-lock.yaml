@@ -62,7 +62,6 @@ importers:
       '@emotion/react': ^11.10.4
       '@emotion/styled': ^11.10.4
       '@pmmmwh/react-refresh-webpack-plugin': ^0.5.3
-      '@principalstudio/html-webpack-inject-preload': ^1.2.7
       '@svgr/webpack': ^5.5.0
       '@testing-library/dom': ^8.17.1
       '@testing-library/jest-dom': ^5.16.5
@@ -125,6 +124,7 @@ importers:
       react-router-dom: ^6.3.0
       resolve: ^1.20.0
       resolve-url-loader: ^4.0.0
+      resource-hints-webpack-plugin: ^0.0.2
       sass-loader: ^12.3.0
       semver: ^7.3.5
       source-map-loader: ^3.0.0
@@ -146,7 +146,6 @@ importers:
       '@emotion/react': 11.10.5_sbyr3oy6tvo55d4xl4f6kmx2ci
       '@emotion/styled': 11.10.5_o5hr44kzpvyjawhlyeuwpeixlq
       '@pmmmwh/react-refresh-webpack-plugin': 0.5.10_prxwy2zxcolvdag5hfkyuqbcze
-      '@principalstudio/html-webpack-inject-preload': 1.2.7_dseqt6curza6cwqlyc3eowsnru
       '@svgr/webpack': 5.5.0
       '@testing-library/dom': 8.19.0
       '@testing-library/jest-dom': 5.16.5
@@ -223,6 +222,7 @@ importers:
       express: 4.18.2
       less: 4.1.3
       less-loader: 11.0.0_less@4.1.3+webpack@5.74.0
+      resource-hints-webpack-plugin: 0.0.2
       worker-plugin: 5.0.1_webpack@5.74.0
 
 packages:
@@ -2387,17 +2387,6 @@ packages:
       source-map: 0.7.4
       webpack: 5.74.0
       webpack-dev-server: 4.11.1_webpack@5.74.0
-    dev: false
-
-  /@principalstudio/html-webpack-inject-preload/1.2.7_dseqt6curza6cwqlyc3eowsnru:
-    resolution: {integrity: sha512-KJKkiKG63ugBjf8U0e9jUcI9CLPTFIsxXplEDE0oi3mPpxd90X9SJovo3W2l7yh/ARKIYXhQq8fSXUN7M29TzQ==}
-    engines: {node: '>=10.23'}
-    peerDependencies:
-      html-webpack-plugin: ^4.0.0 || ^5.0.0
-      webpack: ^4.0.0 || ^5.0.0
-    dependencies:
-      html-webpack-plugin: 5.5.0_webpack@5.74.0
-      webpack: 5.74.0
     dev: false
 
   /@remix-run/router/1.1.0:
@@ -8258,7 +8247,6 @@ packages:
   /object-assign/4.1.1:
     resolution: {integrity: sha512-rJgTQnkUnH1sFw8yT6VSU3zD3sWmu6sZhIseY8VX+GRu3P6F7Fu+JNDoXfklElbLJSnc3FUQHVe4cU5hj+BcUg==}
     engines: {node: '>=0.10.0'}
-    dev: false
 
   /object-hash/3.0.0:
     resolution: {integrity: sha512-RSn9F68PjH9HqtltsSnqYC1XXoWe9Bju5+213R98cNGttag9q9yAOTzdbsqvIa7aNm5WffBZFpWYr2aWrklWAw==}
@@ -10015,6 +10003,13 @@ packages:
       path-parse: 1.0.7
       supports-preserve-symlinks-flag: 1.0.0
     dev: false
+
+  /resource-hints-webpack-plugin/0.0.2:
+    resolution: {integrity: sha512-/7W7ingbP/TGbny8B4I5pRa1/kyhmfVgi9oMT6Yl4vsIlHzyWJEuAIFSM3Xs1v7axV5eqMNWbOI6N6JmBwQEoA==}
+    dependencies:
+      minimatch: 3.1.2
+      object-assign: 4.1.1
+    dev: true
 
   /retry/0.13.1:
     resolution: {integrity: sha512-XQBQ3I8W1Cge0Seh+6gjj03LbmRFWuoszgK9ooCpwYIrhhoO80pfq4cUkU5DkknwfOfFteRwlZ56PYOGYyFWdg==}

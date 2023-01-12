@@ -121,7 +121,7 @@ checkBrowsers(paths.appPath, isInteractive)
     };
     const devServer = new WebpackDevServer(serverConfig, compiler);
     // Launch WebpackDevServer.
-    devServer.startCallback(() => {
+    devServer.startCallback((...args) => {
       if (isInteractive) {
         clearConsole();
       }
