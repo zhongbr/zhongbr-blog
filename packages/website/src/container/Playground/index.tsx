@@ -25,26 +25,15 @@ if (window.opener && typeof window.opener[PlaygroundGetCodeSymbol] === 'function
 
 const Playground: React.FC = () => {
     const { onPageReady, setStates, widthLevel } = usePageConfig();
-    const [code, setCode] = useState(defaultDemoCode);
-    const [indexCode, setIndexCode] = useState('');
-    const [depCode, setDepCode] = useState(defaultDepsCode);
+    const defaultCodes = [defaultDemoCode, defaultIndexCode, defaultDemoCode];
+    const tags = ['App.tsx', 'index.tsx', 'Settings.tsx'];
+    const [codes, setCodes] = useState<string[]>([defaultDemoCode, '', defaultDepsCode]);
 
     // 保存代码，区分是依赖导入还是 demo 代码
     const onCodeSave = (newCode: string, index: number) => {
-        switch (index) {
-            case 0: {
-                setCode(newCode);
-                break;
-            }
-            case 1: {
-                setIndexCode(newCode);
-                break;
-            }
-            case 2: {
-                setDepCode(newCode);
-                break;
-            }
-        }
+        setCodes(codes => codes.map((code, _index) => {
+            return index === _index ? newCode : code || defaultCodes[_index];
+        }));
     };
 
     // 设置页面标题等信息
@@ -65,14 +54,14 @@ const Playground: React.FC = () => {
             <Editor
                 className={styles.editor}
                 onSave={onCodeSave}
-                defaultValues={[defaultDemoCode, defaultIndexCode, defaultDepsCode]}
-                tabsName={['App.tsx', 'index.tsx', 'Settings.tsx']}
+                defaultValues={defaultCodes}
+                tabsName={tags}
             />
             <Sandbox
                 className={styles.display}
-                settingsCode={depCode}
-                demoCode={code}
-                indexCode={indexCode}
+                settingsCode={codes[2]}
+                demoCode={codes[0]}
+                indexCode={codes[1]}
             />
         </div>
     );

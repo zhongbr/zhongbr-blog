@@ -5,6 +5,7 @@ export enum IMessageType {
     RunModule = 'run-module',
     Reply = 'reply',
     Error = 'error',
+    LoadingModule = 'load-module'
 }
 
 export interface IEvent {

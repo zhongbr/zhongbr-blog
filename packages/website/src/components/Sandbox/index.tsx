@@ -1,15 +1,12 @@
-import React, { useRef, useMemo } from 'react';
+import React, { useRef, useMemo, useState } from 'react';
 import clsx from 'clsx';
 
-import { useAsyncEffect } from '@/hooks';
-import { sendMessage } from "@/utils/post-message";
+import { useMessage } from '@/hooks';
 
 import Splash from '../Splash';
 import { useIframeModule } from './hooks';
 import styles from './style.module.less';
-import {IMessageType} from "@/types/iframe-sandbox";
-
-let id = 0;
+import { IMessageType } from "@/types/iframe-sandbox";
 
 export interface IProps {
     indexCode: string;
@@ -21,9 +18,9 @@ export interface IProps {
 const Sandbox: React.FC<IProps> = props => {
     const { settingsCode, demoCode, indexCode, className } = props;
     const ref = useRef<HTMLIFrameElement>(null);
+    const [loadingModuleName, setLoadingModuleName] = useState(['', '']);
 
     const [depsName, indexName, moduleName] = useMemo(() => {
-        id++;
         return [`/Settings`, '/index', `/App`];
     }, []);
 
@@ -37,12 +34,23 @@ const Sandbox: React.FC<IProps> = props => {
     const [indexLoading, refreshIndex] = useIframeModule(ref.current, indexName, [moduleName], indexCode);
 
     const loading = settingsLoading || modulesLoading || indexLoading;
+    useMessage((e) => {
+        return e.source === ref.current?.contentWindow && e.data?.type === IMessageType.LoadingModule;
+    }, (e: MessageEvent) => {
+        const [moduleName, url] = e.data.payload || [];
+        setLoadingModuleName([moduleName, url]);
+    });
 
     return (
         <div className={clsx(className, styles.sandboxContainer)}>
             {loading && (
                 <div className={styles.splash}>
-                    <Splash texts={"🚀 加载中..."}/>
+                    <Splash texts={
+                        <div style={{ textAlign: 'center' }}>
+                            <div>🚀 {loadingModuleName?.[0]} 加载中...</div>
+                            <div>{loadingModuleName?.[1]}</div>
+                        </div>}
+                    />
                 </div>
             )}
             <iframe

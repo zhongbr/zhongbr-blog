@@ -133,7 +133,7 @@ const Editor: React.FC<IProps> = (props) => {
                 </div>
                 <div className={styles.item} data-disabled={saveDisabled?.(index)} onClick={onClickSave}>
                     <Icon className="rp-baogao"/>
-                    <span>保存</span>
+                    <span>运行</span>
                 </div>
             </div>
             <div
