@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="27b3b0e5-1ac3-4b25-8173-a590bd44bf60" name="变更" comment="feat: 增加iframe隔离playgroud代码">
+    <list default="true" id="27b3b0e5-1ac3-4b25-8173-a590bd44bf60" name="变更" comment="feat: 修复bug">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/container/Playground/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/container/Playground/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/components/JsxDemoDisplay/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/components/JsxDemoDisplay/index.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -103,7 +103,7 @@
     "project.structure.last.edited": "项目",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "MTConfigurable",
+    "settings.editor.selected.configurable": "reference.settingsdialog.IDE.editor.colors.控制台字体",
     "ts.external.directory.path": "/Users/zhangpanhong/Documents/zhongbr_projects/react-press/packages/jsx-service/node_modules/typescript/lib",
     "vue.rearranger.settings.migration": "true"
   }
@@ -228,14 +228,9 @@
       <workItem from="1673431678512" duration="436000" />
       <workItem from="1673432192924" duration="98000" />
       <workItem from="1673432295642" duration="1681000" />
-      <workItem from="1673511386415" duration="20133000" />
-    </task>
-    <task id="LOCAL-00068" summary="feat: 增加封面图">
-      <created>1672584939432</created>
-      <option name="number" value="00068" />
-      <option name="presentableId" value="LOCAL-00068" />
-      <option name="project" value="LOCAL" />
-      <updated>1672584939432</updated>
+      <workItem from="1673511386415" duration="20911000" />
+      <workItem from="1673538832164" duration="47000" />
+      <workItem from="1673538891953" duration="303000" />
     </task>
     <task id="LOCAL-00069" summary="feat: 增加样式响应式计算">
       <created>1672591454446</created>
@@ -573,7 +568,14 @@
       <option name="project" value="LOCAL" />
       <updated>1673534956243</updated>
     </task>
-    <option name="localTasksCounter" value="117" />
+    <task id="LOCAL-00117" summary="feat: 修复bug">
+      <created>1673535605880</created>
+      <option name="number" value="00117" />
+      <option name="presentableId" value="LOCAL-00117" />
+      <option name="project" value="LOCAL" />
+      <updated>1673535605880</updated>
+    </task>
+    <option name="localTasksCounter" value="118" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -593,7 +595,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="feat: 增加文章" />
     <MESSAGE value="feat: posts 目录内支持解析不在顶层的 markdown" />
     <MESSAGE value="feat: 支持渲染 Notion 到处的 csv" />
     <MESSAGE value="feat: 修改文章" />
@@ -618,7 +619,8 @@
     <MESSAGE value="feat: 增加支持 commonjs" />
     <MESSAGE value="feat: 整理 amd 代码" />
     <MESSAGE value="feat: 增加iframe隔离playgroud代码" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: 增加iframe隔离playgroud代码" />
+    <MESSAGE value="feat: 修复bug" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: 修复bug" />
   </component>
   <component name="VgoProject">
     <integration-enabled>false</integration-enabled>

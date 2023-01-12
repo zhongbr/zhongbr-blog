@@ -1,6 +1,7 @@
 import React, { Suspense, useEffect, useMemo, useRef, useState } from 'react';
 
 import { defaultManager, IAmdManager } from '@/utils/amd';
+import { defineReact } from '@/utils/amd/define-react';
 import { IModule } from '@/utils/amd/types';
 import { ISuspenseWrapper, suspensePromise } from '@/hooks/useSuspense';
 
@@ -48,20 +49,22 @@ const JsxDemoDisplay: React.FC<IProps> = (props) => {
 
     let moduleDispose = () => {};
     let moduleUpdateDispose = () => {};
-    let moduleLoadingDispose = () => {};
     const [,forceUpdate] = useState({});
     if (previousJsx !== jsx || previousModuleName !== moduleName) {
         ref.current = [jsx, moduleName];
-        moduleDispose = (moduleManagerRef?.current || defaultManager).define(moduleName, ['require'], jsx);
+        const moduleManager = moduleManagerRef?.current || defaultManager;
+        // 在模块管理器里声明 React 和 ReactDom
+        defineReact(moduleManager.define);
+        moduleDispose = moduleManager.define(moduleName, ['require'], jsx);
         // 监听加载模块
-        moduleLoadingDispose = (moduleManagerRef?.current || defaultManager).onModuleLoading((moduleName, url) => {
+        moduleManager.onModuleLoading((moduleName, url) => {
             setLoadingModule([moduleName, url]);
         });
         // 监听模块更新，刷新 demo
         // TODO: 目前监听了所有的模块更新，后续支持只监听使用到的模块
-        moduleUpdateDispose = (moduleManagerRef?.current || defaultManager).onModuleUpdate(undefined, () => {
+        moduleUpdateDispose = moduleManager.onModuleUpdate(undefined, () => {
             // 删除模块的缓存
-            (moduleManagerRef?.current || defaultManager).require_.cache.delete(moduleName);
+            moduleManager.require_.cache.delete(moduleName);
             // 强制刷新组件
             forceUpdate({});
         });
