@@ -62,9 +62,11 @@ declare module '*.svg' {
   export default src;
 }
 
-declare module '*.worker.js' {
-  const url: string;
-  export default url;
+declare module '*.worker' {
+  class Worker_ extends Worker {
+    constructor();
+  }
+  export default Worker_;
 }
 
 declare module '*.module.css' {

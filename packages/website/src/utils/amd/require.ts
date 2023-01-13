@@ -1,14 +1,13 @@
 import path from 'path-browserify';
 import { getService } from 'jsx-service';
-// @ts-ignore
-// eslint-disable-next-line import/no-webpack-loader-syntax
-import worker from 'worker!@/jsx-service.worker.js';
+
+import Worker from '@/jsx-service.worker';
 
 import { PromiseRes } from "@/types/utils";
 import { IAmdModuleManagerContext, IRequireCtx, IRequireFunc, IModule, IEventTypes } from "./types";
 
 let service: ReturnType<typeof getService>;
-
+console.log('worker', Worker, typeof Worker);
 export default function bindRequireToCtx (ctx: IAmdModuleManagerContext) {
     const cache: IRequireFunc['cache'] = new Map();
     const factories: IRequireFunc['factories'] = new Map();
@@ -51,7 +50,7 @@ export default function bindRequireToCtx (ctx: IAmdModuleManagerContext) {
     };
 
     const moduleFactory = async (moduleName: string, _this: IRequireCtx): Promise<IModule | undefined> => {
-        if (!service) service = getService(new Worker(worker, { type: 'module' }));
+        if (!service) service = getService(new Worker());
 
         const modulePath = resolve(moduleName, _this.__dirname);
 

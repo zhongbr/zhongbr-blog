@@ -35,7 +35,6 @@ const ForkTsCheckerWebpackPlugin =
 const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 
 const createEnvironmentHash = require('./webpack/persistentCache/createEnvironmentHash');
-const WorkerPlugin = require("worker-plugin");
 const MonacoEditorWebpackPlugin = require('monaco-editor-webpack-plugin');
 const ResourceHintWebpackPlugin = require('resource-hints-webpack-plugin');
 
@@ -199,6 +198,36 @@ module.exports = function (webpackEnv) {
     return loaders;
   };
 
+  const JsLoader = {
+    loader: require.resolve('babel-loader'),
+    options: {
+      customize: require.resolve(
+          'babel-preset-react-app/webpack-overrides'
+      ),
+      presets: [
+        [
+          require.resolve('babel-preset-react-app'),
+          {
+            runtime: hasJsxRuntime ? 'automatic' : 'classic',
+          },
+        ],
+      ],
+
+      plugins: [
+        isEnvDevelopment &&
+        shouldUseReactRefresh &&
+        require.resolve('react-refresh/babel'),
+      ].filter(Boolean),
+      // This is a feature of `babel-loader` for webpack (not Babel itself).
+      // It enables caching results in ./node_modules/.cache/babel-loader/
+      // directory for faster rebuilds.
+      cacheDirectory: true,
+      // See #6846 for context on why cacheCompression is disabled
+      cacheCompression: false,
+      compact: isEnvProduction,
+    },
+  };
+
   return {
     target: ['browserslist'],
     // Webpack noise constrained to errors and warnings
@@ -353,12 +382,10 @@ module.exports = function (webpackEnv) {
         // alias config
         new TsconfigPathsPlugin({
           configFile: path.resolve(paths.appPath, 'tsconfig.json'),
-        })
+        }),
       ],
-    },
-    resolveLoader: {
-      alias: {
-        worker: 'worker-plugin/loader?esModule'
+      fallback: {
+        process: require.resolve('process/browser')
       }
     },
     module: {
@@ -376,6 +403,18 @@ module.exports = function (webpackEnv) {
           // match the requirements. When no loader matches it will fall
           // back to the "file" loader at the end of the loader list.
           oneOf: [
+            {
+              test: /\.worker$/,
+              use: [
+                {
+                  loader: require.resolve('worker-loader'),
+                  options: {
+                    inline: 'fallback'
+                  }
+                },
+                JsLoader,
+              ]
+            },
             // TODO: Merge this config once `image/avif` is in the mime-db
             // https://github.com/jshttp/mime-db
             {
@@ -431,33 +470,7 @@ module.exports = function (webpackEnv) {
             {
               test: /\.(js|mjs|jsx|ts|tsx)$/,
               include: paths.appSrc,
-              loader: require.resolve('babel-loader'),
-              options: {
-                customize: require.resolve(
-                  'babel-preset-react-app/webpack-overrides'
-                ),
-                presets: [
-                  [
-                    require.resolve('babel-preset-react-app'),
-                    {
-                      runtime: hasJsxRuntime ? 'automatic' : 'classic',
-                    },
-                  ],
-                ],
-
-                plugins: [
-                  isEnvDevelopment &&
-                    shouldUseReactRefresh &&
-                    require.resolve('react-refresh/babel'),
-                ].filter(Boolean),
-                // This is a feature of `babel-loader` for webpack (not Babel itself).
-                // It enables caching results in ./node_modules/.cache/babel-loader/
-                // directory for faster rebuilds.
-                cacheDirectory: true,
-                // See #6846 for context on why cacheCompression is disabled
-                cacheCompression: false,
-                compact: isEnvProduction,
-              },
+              ...JsLoader
             },
             // Process any JS outside of the app with Babel.
             // Unlike the application JS, we only compile the standard ES features.
@@ -619,7 +632,6 @@ module.exports = function (webpackEnv) {
       ].filter(Boolean),
     },
     plugins: [
-      new WorkerPlugin(),
       new MonacoEditorWebpackPlugin({
         languages: ['javascript', 'typescript', 'html', 'css']
       }),

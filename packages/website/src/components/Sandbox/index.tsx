@@ -7,7 +7,6 @@ import Splash from '../Splash';
 import { useIframeModule } from './hooks';
 import styles from './style.module.less';
 import { IMessageType } from "@/types/iframe-sandbox";
-import * as process from "process";
 
 export interface IProps {
     indexCode: string;
@@ -15,8 +14,6 @@ export interface IProps {
     demoCode: string;
     className?: string;
 }
-
-const PublicUrl = process.env.PUBLIC_URL;
 
 const Sandbox: React.FC<IProps> = props => {
     const { settingsCode, demoCode, indexCode, className } = props;
@@ -60,7 +57,7 @@ const Sandbox: React.FC<IProps> = props => {
                 className={styles.iframe}
                 title="display demo"
                 ref={ref}
-                src={`${PublicUrl}${PublicUrl.endsWith('/') ? '' : '/'}iframe.html`}
+                src="/iframe.html"
                 allowFullScreen
             />
         </div>
