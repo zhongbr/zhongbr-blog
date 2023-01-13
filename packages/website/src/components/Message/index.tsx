@@ -89,7 +89,7 @@ const MessageProvider: React.FC<IMessageContext & { children: React.ReactNode; }
         <MessageContext.Provider value={{ ...context, message }}>
             {children}
             {ReactDom.createPortal(
-                <Fragment>
+                <>
                     {messages?.map(message => (
                         <Message
                             key={message.id}
@@ -97,7 +97,7 @@ const MessageProvider: React.FC<IMessageContext & { children: React.ReactNode; }
                             {...message}
                         />
                     ))}
-                </Fragment>,
+                </>,
                 ToastMessageElement
             )}
         </MessageContext.Provider>

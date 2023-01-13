@@ -12,7 +12,7 @@ import routers from "@/config/routers";
 import { navLinks, title as titleText, titleLink } from '@/config/meta';
 import { useInitCopy } from '@/utils/copy';
 
-import { Icon, Layout, MessageProvider, Splash } from './components';
+import { Icon, Layout, MessageProvider, Splash, useMessage } from './components';
 import { IPageConfig, PageConfigContext, ResponsiveEnum, usePersistFn, useStates, useThemeManager, useResponsive } from './hooks';
 
 import "./app.less";
@@ -30,6 +30,8 @@ function App() {
     const element = useRoutes(routers);
     const ref = useRef<HTMLDivElement>(null);
 
+    const message = useMessage();
+
     const [states, setStates, resetStates] = useStates<IPageConfig>({
         title: titleText,
         target: titleLink,
@@ -46,7 +48,18 @@ function App() {
 
     useInitCopy();
 
-    useThemeManager(setTheme);
+    useThemeManager((theme) => {
+        if (localStorage.getItem('theme')) {
+            setTheme(localStorage.getItem('theme') as string);
+            const change = () => setStates({ theme });
+            message.success({
+                title: '主题变化提醒',
+                content: <span>检测到系统主题发生变化，<span style={{ cursor: 'pointer' }} onClick={change}>点击同步切换</span></span>
+            });
+            return;
+        }
+        setTheme(theme);
+    });
 
     useResponsive((level, width) => {
         setStates({

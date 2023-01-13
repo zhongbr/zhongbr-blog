@@ -67,7 +67,8 @@ const Editor: React.FC<IProps> = (props) => {
             fontSize: 15,
             readOnly: false,
             value: defaultValueRef.current || '',
-            language: 'typescript'
+            language: 'typescript',
+            fontFamily: 'fira-code, smile-sans, monospace'
         });
 
         editorInst.current = editor_;

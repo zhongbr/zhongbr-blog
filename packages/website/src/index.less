@@ -1,9 +1,11 @@
 @font-face {
-    font-family: "siyuan-song";
-    font-weight: 400;
-    src: url("//at.alicdn.com/wf/webfont/b7NiFHqrorLz/KaCbc9y7h8464AIibByWB.woff2") format("woff2"),
-         url("//at.alicdn.com/wf/webfont/b7NiFHqrorLz/l-qSVODgwpMtSkOjsJ1eV.woff") format("woff");
-    font-display: swap;
+    font-family: "smile-sans";
+    src: url("https://fastly.jsdelivr.net/npm/font-smiley-sans@1.0.0/SmileySans-Oblique.ttf.woff2");
+}
+
+@font-face {
+    font-family: "fira-code";
+    src: url("https://fastly.jsdelivr.net/npm/firacode@6.2.0/distr/woff2/FiraCode-Regular.woff2");
 }
 
 @import "./components/Form/style/index.less";
@@ -12,4 +14,7 @@ body {
     height: 100vw;
     overflow: hidden;
     margin: 0;
+
+    --title-font: 'fira-code', 'smile-sans', sans-serif;
+    --font-family: 'fira-code', PingFangSC, 'Microsoft Yahei';
 }

@@ -45,9 +45,11 @@ const Header: React.FC<IProps> = (props) => {
 
     const onChangeTheme: ISwitchProps['onChange'] = (value) => {
         if (value) {
+            localStorage.setItem('theme', 'dark-theme');
             setTheme?.('dark-theme');
             return;
         }
+        localStorage.setItem('theme', 'light-theme');
         setTheme?.('light-theme');
     };
 
