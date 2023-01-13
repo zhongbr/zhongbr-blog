@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="27b3b0e5-1ac3-4b25-8173-a590bd44bf60" name="变更" comment="feat: 重命名 .env">
+    <list default="true" id="27b3b0e5-1ac3-4b25-8173-a590bd44bf60" name="变更" comment="feat: 修改 cdn 的地址">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/.env.production" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/.env.production" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/utils/amd/require.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/utils/amd/require.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -231,14 +231,7 @@
       <workItem from="1673511386415" duration="20911000" />
       <workItem from="1673538832164" duration="47000" />
       <workItem from="1673538891953" duration="2525000" />
-      <workItem from="1673589276641" duration="16763000" />
-    </task>
-    <task id="LOCAL-00076" summary="feat: 修复滚动条bug">
-      <created>1672664305876</created>
-      <option name="number" value="00076" />
-      <option name="presentableId" value="LOCAL-00076" />
-      <option name="project" value="LOCAL" />
-      <updated>1672664305876</updated>
+      <workItem from="1673589276641" duration="17085000" />
     </task>
     <task id="LOCAL-00077" summary="feat: 支持响应式布局">
       <created>1672669670884</created>
@@ -576,7 +569,14 @@
       <option name="project" value="LOCAL" />
       <updated>1673618841105</updated>
     </task>
-    <option name="localTasksCounter" value="125" />
+    <task id="LOCAL-00125" summary="feat: 修改 cdn 的地址">
+      <created>1673620084773</created>
+      <option name="number" value="00125" />
+      <option name="presentableId" value="LOCAL-00125" />
+      <option name="project" value="LOCAL" />
+      <updated>1673620084773</updated>
+    </task>
+    <option name="localTasksCounter" value="126" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -596,7 +596,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="feat: 整理帖子" />
     <MESSAGE value="feat: 修改目录结构" />
     <MESSAGE value="feat: 支持 JSX 预览" />
     <MESSAGE value="feat: 修复样式问题" />
@@ -621,7 +620,8 @@
     <MESSAGE value="feat: 调整 console.log 展示等级，发布后不显示" />
     <MESSAGE value="feat: 增加 .env.local" />
     <MESSAGE value="feat: 重命名 .env" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: 重命名 .env" />
+    <MESSAGE value="feat: 修改 cdn 的地址" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: 修改 cdn 的地址" />
   </component>
   <component name="VgoProject">
     <integration-enabled>false</integration-enabled>

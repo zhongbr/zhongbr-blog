@@ -39,14 +39,14 @@ export default function bindRequireToCtx (ctx: IAmdModuleManagerContext) {
     const resolveDeps: IRequireFunc['resolveDeps'] = async (packageName, version, file) => {
         const versionSuffix = version ? `@${version}` : '';
         let file_ = file;
-        // React and React dom doesn't specific `unpkg` filed in `package.json`,
+        // React and React dom doesn't specific `unpkg` or `jsdelivr` filed in `package.json`,
         // set umd path manually.
         if (['react', 'react-dom'].includes(packageName) && !file_) {
             file_ = `/umd/${packageName}.production.min.js`;
         }
         const fileSuffix = file_ ? `${file_}` : '';
         // `return false` to cancel auto require deps.
-        return `https://unpkg.com/${packageName}${versionSuffix}${fileSuffix}`;
+        return `https://cdn.jsdelivr.net/npm/${packageName}${versionSuffix}${fileSuffix}`;
     };
 
     const moduleFactory = async (moduleName: string, _this: IRequireCtx): Promise<IModule | undefined> => {
