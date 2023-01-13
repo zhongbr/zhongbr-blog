@@ -4,13 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="27b3b0e5-1ac3-4b25-8173-a590bd44bf60" name="变更" comment="feat: 修复bug">
-      <change afterPath="$PROJECT_DIR$/packages/website/.env" afterDir="false" />
+    <list default="true" id="27b3b0e5-1ac3-4b25-8173-a590bd44bf60" name="变更" comment="feat: 使用 jsdelivr">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/container/Playground/modules/Editor/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/container/Playground/modules/Editor/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/utils/amd/require.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/utils/amd/require.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pnpm-lock.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pnpm-lock.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/.env" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/components/Sandbox/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/components/Sandbox/index.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -235,14 +232,7 @@
       <workItem from="1673511386415" duration="20911000" />
       <workItem from="1673538832164" duration="47000" />
       <workItem from="1673538891953" duration="2525000" />
-      <workItem from="1673589276641" duration="2770000" />
-    </task>
-    <task id="LOCAL-00070" summary="feat: 增加主题切换">
-      <created>1672644693730</created>
-      <option name="number" value="00070" />
-      <option name="presentableId" value="LOCAL-00070" />
-      <option name="project" value="LOCAL" />
-      <updated>1672644693730</updated>
+      <workItem from="1673589276641" duration="3947000" />
     </task>
     <task id="LOCAL-00071" summary="feat: 增加主题切换">
       <created>1672645554213</created>
@@ -580,7 +570,14 @@
       <option name="project" value="LOCAL" />
       <updated>1673539239694</updated>
     </task>
-    <option name="localTasksCounter" value="119" />
+    <task id="LOCAL-00119" summary="feat: 使用 jsdelivr">
+      <created>1673594186712</created>
+      <option name="number" value="00119" />
+      <option name="presentableId" value="LOCAL-00119" />
+      <option name="project" value="LOCAL" />
+      <updated>1673594186712</updated>
+    </task>
+    <option name="localTasksCounter" value="120" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -600,7 +597,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="feat: posts 目录内支持解析不在顶层的 markdown" />
     <MESSAGE value="feat: 支持渲染 Notion 到处的 csv" />
     <MESSAGE value="feat: 修改文章" />
     <MESSAGE value="feat: 修改帖子编译的脚本" />
@@ -625,7 +621,8 @@
     <MESSAGE value="feat: 整理 amd 代码" />
     <MESSAGE value="feat: 增加iframe隔离playgroud代码" />
     <MESSAGE value="feat: 修复bug" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: 修复bug" />
+    <MESSAGE value="feat: 使用 jsdelivr" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: 使用 jsdelivr" />
   </component>
   <component name="VgoProject">
     <integration-enabled>false</integration-enabled>
