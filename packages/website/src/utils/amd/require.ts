@@ -46,7 +46,7 @@ export default function bindRequireToCtx (ctx: IAmdModuleManagerContext) {
         }
         const fileSuffix = file_ ? `${file_}` : '';
         // `return false` to cancel auto require deps.
-        return `https://fastly.jsdelivr.net/npm/${packageName}${versionSuffix}${fileSuffix}`;
+        return `https://unpkg.com/${packageName}${versionSuffix}${fileSuffix}`;
     };
 
     const moduleFactory = async (moduleName: string, _this: IRequireCtx): Promise<IModule | undefined> => {
