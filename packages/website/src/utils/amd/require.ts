@@ -51,7 +51,7 @@ export default function bindRequireToCtx (ctx: IAmdModuleManagerContext) {
     };
 
     const moduleFactory = async (moduleName: string, _this: IRequireCtx): Promise<IModule | undefined> => {
-        if (!service) service = getService(new Worker(worker));
+        if (!service) service = getService(new Worker(worker, { type: 'module' }));
 
         const modulePath = resolve(moduleName, _this.__dirname);
 

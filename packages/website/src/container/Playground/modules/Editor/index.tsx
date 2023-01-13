@@ -1,5 +1,5 @@
 import React, { useRef, useLayoutEffect, useState } from 'react';
-import { editor, KeyCode, KeyMod, languages, Uri } from 'monaco-editor';
+import { editor, KeyCode, KeyMod, languages } from 'monaco-editor';
 import clsx from 'clsx';
 
 import { Icon } from '@/components';

@@ -16,6 +16,7 @@
     "start-jsx-core": "cd ./packages/jsx-core && pnpm run start"
   },
   "devDependencies": {
+    "cross-env": "^7.0.3",
     "js-yaml": "^4.1.0",
     "md2json": "workspace:^1.0.0"
   },
