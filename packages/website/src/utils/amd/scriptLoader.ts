@@ -1,3 +1,4 @@
+import logger from '@/utils/logger';
 import { IAmdModuleManagerContext, IScriptLoader, IScriptLoadTask } from './types';
 
 export default function bindScriptLoaderToCtx(ctx: IAmdModuleManagerContext) {
@@ -15,14 +16,14 @@ export default function bindScriptLoaderToCtx(ctx: IAmdModuleManagerContext) {
             const script = document.createElement('script');
             // 设置一个超时时间
             const timeout = setTimeout(() => {
-                    console.log('[amd] script load timeout ' + moduleName);
+                    logger.log('[amd] script load timeout ' + moduleName);
                     reject(new Error(`load module ${moduleName} timeout`));
                     // 加载下一个脚本
                     scriptLoadingTasks.shift()?.();
                 }, ctx.scriptTimeout);
 
             script.onload = () => {
-                console.log('[amd] script resolved', loadingModuleName);
+                logger.log('[amd] script resolved', loadingModuleName);
                 clearTimeout(timeout);
                 resolve(null);
                 loadingModuleName = '';
@@ -31,7 +32,7 @@ export default function bindScriptLoaderToCtx(ctx: IAmdModuleManagerContext) {
             }
 
             script.onerror = (err) => {
-                console.log('[amd] script rejected', loadingModuleName);
+                logger.log('[amd] script rejected', loadingModuleName);
                 clearTimeout(timeout);
                 reject(err);
                 loadingModuleName = '';
@@ -43,7 +44,7 @@ export default function bindScriptLoaderToCtx(ctx: IAmdModuleManagerContext) {
             script.src = url;
             script.type = 'text/javascript';
 
-            console.log('[amd] start load script', moduleName);
+            logger.log('[amd] start load script', moduleName);
             loadingModuleName = moduleName;
             dom.appendChild(script);
         });

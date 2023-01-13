@@ -1,5 +1,6 @@
 import { IAmdModuleManagerContext } from "./types";
 import { IDefineDispose, IDefine, Factory, IEventTypes } from "./types";
+import logger from '@/utils/logger';
 
 export default function bindDefineToCtx(ctx: IAmdModuleManagerContext) {
     function define(factory: Factory | string): IDefineDispose;
@@ -16,7 +17,7 @@ export default function bindDefineToCtx(ctx: IAmdModuleManagerContext) {
             dependencies_ = moduleName;
             moduleName = ctx.scriptLoader.getLoadingModuleName();
         }
-        console.log('[amd] define module', moduleName, dependencies_);
+        logger.log('[amd] define module', moduleName, dependencies_);
 
         const modulePath = ctx.require_.resolve(moduleName);
         const { factories, cache, dependencies } = ctx.require_;
@@ -35,7 +36,7 @@ export default function bindDefineToCtx(ctx: IAmdModuleManagerContext) {
         factories.set(modulePath, factory!);
         dependencies.set(modulePath, dependencies_ as string[]);
         return () => {
-            console.log('[amd] module dispose', moduleName);
+            logger.log('[amd] module dispose', moduleName);
             factories.delete(modulePath);
         }
     }

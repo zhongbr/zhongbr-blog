@@ -2,12 +2,12 @@ import path from 'path-browserify';
 import { getService } from 'jsx-service';
 
 import Worker from '@/jsx-service.worker';
+import logger from '@/utils/logger';
 
 import { PromiseRes } from "@/types/utils";
 import { IAmdModuleManagerContext, IRequireCtx, IRequireFunc, IModule, IEventTypes } from "./types";
 
 let service: ReturnType<typeof getService>;
-console.log('worker', Worker, typeof Worker);
 export default function bindRequireToCtx (ctx: IAmdModuleManagerContext) {
     const cache: IRequireFunc['cache'] = new Map();
     const factories: IRequireFunc['factories'] = new Map();
@@ -59,10 +59,10 @@ export default function bindRequireToCtx (ctx: IAmdModuleManagerContext) {
             return await new Promise((resolve, reject) => {
                 const tasks = moduleRequiringTasks.get(modulePath);
                 tasks!.push([resolve, reject]);
-                console.log(`[amd] require ${moduleName}, already has task requiring, waiting tasks: ${tasks!.length}.`);
+                logger.log(`[amd] require ${moduleName}, already has task requiring, waiting tasks: ${tasks!.length}.`);
             });
         }
-        console.log('[amd] start require', modulePath);
+        logger.log('[amd] start require', modulePath);
         moduleRequiringTasks.set(modulePath, []);
 
         // 加载到模块后调用这个函数
@@ -71,7 +71,7 @@ export default function bindRequireToCtx (ctx: IAmdModuleManagerContext) {
             const tasks = moduleRequiringTasks.get(modulePath);
             if (tasks?.length) {
                 tasks.forEach(([resolve, reject], index) => {
-                    console.log('[amd] resolve item', index, moduleName);
+                    logger.log('[amd] resolve item', index, moduleName);
                     if (err) {
                         reject(err);
                     }
@@ -88,7 +88,7 @@ export default function bindRequireToCtx (ctx: IAmdModuleManagerContext) {
 
         // 检查缓存，如果缓存中有直接取缓存里的
         if (cache.has(modulePath)) {
-            console.log(`[amd] require ${moduleName}, resolved from cache`);
+            logger.log(`[amd] require ${moduleName}, resolved from cache`);
             return clearAllTasks(undefined, cache.get(modulePath)!);
         };
 
@@ -107,7 +107,7 @@ export default function bindRequireToCtx (ctx: IAmdModuleManagerContext) {
                 if (typeof scriptUrl === 'string') {
                     await ctx.scriptLoader.loadScript(ctx.scriptContainerDom, scriptUrl, moduleName);
                     factory = factories.get(modulePath);
-                    console.log('[amd] script loaded', factory, modulePath);
+                    logger.log('[amd] script loaded', factory, modulePath);
                 }
             }
             // 加载完后，仍然没有模块声明的，抛出异常
@@ -170,7 +170,7 @@ export default function bindRequireToCtx (ctx: IAmdModuleManagerContext) {
                 return exportsReturn;
             })() as IModule;
             cache.set(modulePath, module_);
-            console.log('[amd] resolve module tasks head', modulePath, module_);
+            logger.log('[amd] resolve module tasks head', modulePath, module_);
             return clearAllTasks(undefined, module_);
         } catch (err) {
             return clearAllTasks(err as Error, undefined);

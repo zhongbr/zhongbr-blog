@@ -1,12 +1,13 @@
-import {createAmdManager} from './utils/amd';
-import {IEvent, IMessageType} from './types/iframe-sandbox';
+import { createAmdManager } from './utils/amd';
+import { IEvent, IMessageType } from './types/iframe-sandbox';
+import logger from '@/utils/logger';
 
 const moduleManager = createAmdManager();
 // 先在 iframe 内部挂载一个 AMD 模块管理的实例
 moduleManager.mountToGlobal();
 
 const parent = window.parent || window.opener;
-console.log('[sandbox] parent', parent);
+logger.log('[sandbox] parent', parent);
 
 // 监听加载第三方包，并转发到父页面
 moduleManager.onModuleLoading((moduleName, url) => {
@@ -20,10 +21,10 @@ moduleManager.onModuleLoading((moduleName, url) => {
 // 监听来自其他页面的消息，并根据消息渲染页面
 window.addEventListener('message', async (e) => {
     if (e.source !== parent) {
-        console.log('[sandbox] is not from parent window, ignored.', e);
+        logger.log('[sandbox] is not from parent window, ignored.', e);
     }
     const event = e.data as IEvent;
-    console.log('[sandbox] receive message', event);
+    logger.log('[sandbox] receive message', event);
     let res: unknown[] = [];
     try {
         switch (event.type) {
@@ -49,7 +50,7 @@ window.addEventListener('message', async (e) => {
             payload: [e]
         } as IEvent);
     } finally {
-        console.log('[sandbox] reply message', event);
+        logger.log('[sandbox] reply message', event);
         parent.postMessage({
             id: event.id,
             type: IMessageType.Reply,
@@ -97,5 +98,5 @@ if (parent) {
         type: IMessageType.IFrameReady,
         payload: []
     } as IEvent);
-    console.log('[sandbox] iframe 页面加载完成');
+    logger.log('[sandbox] iframe 页面加载完成');
 }

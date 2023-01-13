@@ -1,3 +1,5 @@
+import logger from '@/utils/logger';
+
 import bindScriptLoaderToCtx from './scriptLoader';
 import bindDefineToCtx from "./define";
 import bindRequireToCtx from "./require";
@@ -27,7 +29,7 @@ export function createAmdManager(root='/', scriptTimeout=10000) {
         };
     }
 
-    console.log('create context', ctx);
+    logger.log('create context', ctx);
 
     const module_ = {
         require_: ctx.require_,
