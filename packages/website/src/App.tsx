@@ -12,7 +12,7 @@ import routers from "@/config/routers";
 import { navLinks, title as titleText, titleLink } from '@/config/meta';
 import { useInitCopy } from '@/utils/copy';
 
-import { Icon, Layout, MessageProvider, Splash, useMessage } from './components';
+import { Icon, Layout, Splash, useMessage } from './components';
 import { IPageConfig, PageConfigContext, ResponsiveEnum, usePersistFn, useStates, useThemeManager, useResponsive } from './hooks';
 
 import "./app.less";
@@ -49,13 +49,26 @@ function App() {
     useInitCopy();
 
     useThemeManager((theme) => {
-        if (localStorage.getItem('theme')) {
+        const localTheme = localStorage.getItem('theme');
+        if (localTheme) {
             setTheme(localStorage.getItem('theme') as string);
-            const change = () => setStates({ theme });
-            message.success({
-                title: '主题变化提醒',
-                content: <span>检测到系统主题发生变化，<span style={{ cursor: 'pointer' }} onClick={change}>点击同步切换</span></span>
-            });
+            if (theme !== localTheme) {
+                message.success({
+                    title: '主题变化提醒',
+                    content:
+                        <span>检测到系统主题发生变化，
+                        <span
+                            style={{ cursor: 'pointer' }}
+                            onClick={() => {
+                                setStates({ theme })
+                            }}
+                        >
+                            <Icon className="rp-faxian"/>
+                            点击同步切换
+                        </span>
+                    </span>
+                });
+            }
             return;
         }
         setTheme(theme);
@@ -85,21 +98,19 @@ function App() {
 
     return (
         <PageConfigContext.Provider value={{ ...states, scrollRef: ref, setStates, resetStates, setTheme, onPageReady }}>
-            <MessageProvider>
-                <Layout
-                    title={title}
-                    navLinks={navLinks}
-                    contentRef={ref}
-                    footerProps={states.footer}
-                >
-                    <Suspense fallback={splash}>
-                        {states.loading && splash}
-                        <div style={{ visibility: states.loading ? 'hidden' : 'visible', height: '100%' }}>
-                            {element}
-                        </div>
-                    </Suspense>
-                </Layout>
-            </MessageProvider>
+            <Layout
+                title={title}
+                navLinks={navLinks}
+                contentRef={ref}
+                footerProps={states.footer}
+            >
+                <Suspense fallback={splash}>
+                    {states.loading && splash}
+                    <div style={{ visibility: states.loading ? 'hidden' : 'visible', height: '100%' }}>
+                        {element}
+                    </div>
+                </Suspense>
+            </Layout>
         </PageConfigContext.Provider>
     );
 }

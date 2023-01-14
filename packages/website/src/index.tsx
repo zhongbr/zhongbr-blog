@@ -7,10 +7,10 @@
  */
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-
 import { HashRouter } from 'react-router-dom';
 
 import App from './App';
+import { MessageProvider } from './components';
 import reportWebVitals from './reportWebVitals';
 
 import './index.less';
@@ -21,7 +21,9 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <HashRouter>
-        <App />
+        <MessageProvider>
+            <App/>
+        </MessageProvider>
     </HashRouter>
   </React.StrictMode>
 );
