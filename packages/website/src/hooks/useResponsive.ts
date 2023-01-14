@@ -33,7 +33,7 @@ export default function useResponsive(onLevelChange: (level: ResponsiveEnum, wid
         onLevelChange(level, width);
     });
 
-    useEventListener('resize', useDebounce(() => {
+    useEventListener(window, 'resize', useDebounce(() => {
         responsive(window.innerWidth);
     }));
 

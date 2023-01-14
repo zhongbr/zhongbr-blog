@@ -7,6 +7,7 @@
  */
 
 import React, { useRef } from "react";
+import clsx from "clsx";
 
 import Header, { IProps as HeaderProps } from './header';
 import Footer, { IProps as FooterProps } from './footer';
@@ -42,7 +43,7 @@ const Layout: React.FC<IProps> = (props) => {
                 navLinks={navLinks}
                 rate={rate}
             />
-            <div className={styles.contentContainer} ref={contentRef}>
+            <div className={clsx(styles.contentContainer)} ref={contentRef}>
                 <div className={styles.content}>
                     {children}
                 </div>

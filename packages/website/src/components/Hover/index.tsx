@@ -25,7 +25,7 @@ export function useHover() {
     return useContext(HoverContext);
 }
 
-const Hover: React.FC<IProps> = props => {
+const Hover: React.ForwardRefRenderFunction<HTMLDivElement, IProps> = (props, ref) => {
     const { className, style, hoverContent, children, triggerInHover=true } = props;
     const [hovered, setHovered] = useState(false);
 
@@ -53,6 +53,7 @@ const Hover: React.FC<IProps> = props => {
 
     return (
         <div
+            ref={ref}
             className={clsx(styles.hoverContainer, className)}
             style={style}
             onMouseEnter={onMouseEnter}
@@ -71,4 +72,4 @@ const Hover: React.FC<IProps> = props => {
 };
 
 Hover.displayName = 'Hover';
-export default Hover;
+export default React.forwardRef(Hover);

@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import clsx from "clsx";
 
+import { useCursorFollow } from '@/animations';
 import { Hover, Icon, Tag } from '@/components';
 import { useTags, useNavigate } from '@/hooks';
 import { HoverContext } from '@/components/Hover';
@@ -13,9 +14,12 @@ export { default as Group } from './Group';
 
 const TopicCard: React.FC<ITopic> = props => {
     const { icon, topicName, desc, color = '#7adfb032', tags, passages } = props;
+    const ref = useRef<HTMLDivElement>(null);
 
     const { onOpenTags } = useTags();
     const navigate = useNavigate();
+
+    useCursorFollow(ref.current);
 
     const onOpenPassage = (passage: IPassage) => {
         navigate(`/passage/${encodeURIComponent(passage['json-path'])}`);
@@ -23,6 +27,7 @@ const TopicCard: React.FC<ITopic> = props => {
 
     return (
         <Hover
+            ref={ref}
             className={styles.hoverContainer}
             style={{ '--color': color } as React.CSSProperties}
             triggerInHover={false}

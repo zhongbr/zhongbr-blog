@@ -2,12 +2,14 @@ import { useEffect } from 'react';
 
 type AddEventListenerParameters = Parameters<Window['addEventListener']>;
 
-export default function useEventListener(...args: AddEventListenerParameters) {
+export default function useEventListener(target: Pick<Window, 'addEventListener' | 'removeEventListener'> | null = window,...args: AddEventListenerParameters) {
     const [type, listener, options] = args;
 
     useEffect(() => {
-        window.addEventListener(type, listener, options);
+        if (!target) return;
+
+        target.addEventListener(type, listener, options);
 
         return () => window.removeEventListener(type, listener, options);
-    }, [type, listener, options]);
+    }, [target, type, listener, options]);
 }

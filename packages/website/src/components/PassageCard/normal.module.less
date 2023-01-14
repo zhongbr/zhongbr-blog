@@ -36,6 +36,7 @@
     }
 
     .title {
+      flex: 1;
       display: flex;
       gap: 8px;
       font-weight: bold;
@@ -43,10 +44,12 @@
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
+      font-family: var(--title-font) !important;
     }
 
     .extra-info {
       font-size: 14px;
+      flex-shrink: 1;
     }
 
     .extra-info-hover {

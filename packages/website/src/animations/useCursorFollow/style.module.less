@@ -1,0 +1,19 @@
+.cur-follow-bg {
+  --cursor-x: 0px;
+  --cursor-y: 0px;
+  overflow: hidden;
+  position: relative;
+
+  .follow {
+    --size: 100px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translateX(calc(var(--cursor-x) - var(--size) / 2)) translateY(calc(var(--cursor-y) - var(--size) / 2));
+    height: var(--size);
+    width: var(--size);
+    border-radius: 50%;
+    background-color: var(--cursor-color);
+    z-index: -1;
+  }
+}
