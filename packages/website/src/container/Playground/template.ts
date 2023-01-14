@@ -2,34 +2,55 @@ import {IPlaygroundCode} from "@/types/utils";
 
 export const DefaultDemoCode =
 `import React from 'react';
-import Hello from 'hello-module';
-import jq from 'jquery';
-import moment from 'moment';
+// Load umd modules support \`unpkg\` like ant-design automatically, you just need to import it.
+// Others umd modules without \`unpkg\` field in package.json, you can specific path manually.
+import { Form, Button, Modal, Input } from 'antd';
+import HelloModule from 'hello-module';
 
-const TestFC = (props) => {
-    const [state, setState] = React.useState(0);
-    const [date, setDate] = React.useState(0);
+const { Item, useForm, useWatch } = Form;
 
-    React.useEffect(() => {
-        setDate(moment().format('YYYY-MM-DD HH:mm:ss'));
-        if (state === 5) throw new Error('Error Boundary test');
-    }, [state]);
+const App = (props) => {
+    const [form] = useForm();
+    const username = useWatch('username', form);
     
-    const onChangeColor = () => {
-        jq('#target')[0].style = "background-color: red";
+    const onFinish = () => {
+        const password = form.getFieldValue('password');
+        if (password !== '123456') {
+            Modal.error({
+                title: '登录失败',
+                content: '登录失败，密码错误！'
+            });
+            return;
+        }
+        Modal.success({
+            title: '登录成功',
+            content: '登录成功'
+        });
     };
 
     return (
-        <div>
-            <Hello/>
-            <div id="target" onClick={onChangeColor}>
-                click to change bg color {date}
-            </div>
-            <button onClick={() => setState(state => state+1)}>Click Me To Change State!({state})</button>
+        <div style={{ textAlign: 'center' }}>
+            <HelloModule/>
+            <Form
+                form={form}
+                onFinish={onFinish}
+                labelCol={{ span: 4 }}
+                wrapperCol={{ span: 20 }}
+            >
+                <Item label="用户名" name="username">
+                    <Input placeholder="请输入用户名"/>
+                </Item>
+                <Item label="密码" name="password">
+                    <Input type="password" placeholder={\`请输入 \${username} 的密码\`} />
+                </Item>
+                <Item>
+                    <Button type="primary" htmlType="submit">提交</Button>
+                </Item>
+            </Form>
         </div>
     );
 }
-export default TestFC;`;
+export default App;`;
 
 export const DefaultIndexCode =
 `import React from 'react';
@@ -73,8 +94,8 @@ define('hello-module', ['require', 'jquery'], async (require, jq) => {
     return {
         // 🚀Jsx can be used ! 
         'default': () => {
-            const onclick = () => jq('#_hello_demo')[0].style = 'color: red;';
-            return <div id="_hello_demo" onClick={onclick}>module hello world</div>;
+            const onclick = () => jq('#_hello_demo')[0].style.setProperty('color', 'red');
+            return <div id="_hello_demo" style={{ marginBottom: '16px' }} onClick={onclick}>Login Page</div>;
         }
     };
 });
