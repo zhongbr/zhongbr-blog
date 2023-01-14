@@ -10,8 +10,6 @@ import ReactDOM from 'react-dom/client';
 
 import { HashRouter } from 'react-router-dom';
 
-import logger from '@/utils/logger';
-
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 

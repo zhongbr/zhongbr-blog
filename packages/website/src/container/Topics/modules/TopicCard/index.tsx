@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import clsx from "clsx";
 
 import { useCursorFollow } from '@/animations';
@@ -14,12 +14,11 @@ export { default as Group } from './Group';
 
 const TopicCard: React.FC<ITopic> = props => {
     const { icon, topicName, desc, color = '#7adfb032', tags, passages } = props;
-    const ref = useRef<HTMLDivElement>(null);
 
     const { onOpenTags } = useTags();
     const navigate = useNavigate();
 
-    useCursorFollow(ref.current, 300, color.slice(0, 7));
+    const [ref] = useCursorFollow(300, color.slice(0, 7));
 
     useEventListener(ref.current, 'mouseenter', () => {
         ref.current?.style?.setProperty('--color', color.slice(0, 7) + '50');

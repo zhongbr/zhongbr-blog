@@ -23,7 +23,7 @@ async function write(target, content) {
 }
 
 function ensurePath(targetPath) {
-    const subTargetPaths = (path.isAbsolute(targetPath) ? path.relative(process.cwd(), targetPath) : targetPath).split('/');
+    const subTargetPaths = (path.isAbsolute(targetPath) ? path.relative(process.cwd(), targetPath) : targetPath).split(path.sep);
     let dir = process.cwd();
     for (const subPath of subTargetPaths) {
         const curDir = path.join(dir, subPath);
