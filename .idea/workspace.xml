@@ -4,24 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="27b3b0e5-1ac3-4b25-8173-a590bd44bf60" name="变更" comment="feat: 修改字体">
-      <change afterPath="$PROJECT_DIR$/packages/website/src/animations/useCursorFollow/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/website/src/animations/useCursorFollow/style.module.less" afterDir="false" />
+    <list default="true" id="27b3b0e5-1ac3-4b25-8173-a590bd44bf60" name="变更" comment="feat: 修改样式">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/packages/website/src/animations/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/animations/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/app.less" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/app.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/components/Hover/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/components/Hover/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/components/Layout/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/components/Layout/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/components/Layout/style.module.less" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/components/Layout/style.module.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/components/PassageCard/normal.module.less" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/components/PassageCard/normal.module.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/animations/useCursorFollow/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/animations/useCursorFollow/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/components/Layout/footer.module.less" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/components/Layout/footer.module.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/components/Layout/footer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/components/Layout/footer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/container/Passage/components/Render/Header/style.module.less" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/container/Passage/components/Render/Header/style.module.less" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/packages/website/src/container/Passage/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/container/Passage/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/packages/website/src/container/Passage/style.module.less" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/container/Passage/style.module.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/container/Topics/modules/TopicCard/card.module.less" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/container/Topics/modules/TopicCard/card.module.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/container/Topics/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/container/Topics/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/packages/website/src/container/Topics/modules/TopicCard/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/container/Topics/modules/TopicCard/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/hooks/useEventListener.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/hooks/useEventListener.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/hooks/useMessage.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/hooks/useMessage.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/hooks/useResponsive.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/hooks/useResponsive.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/utils/amd/require.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/utils/amd/require.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/index.less" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/index.less" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -248,14 +242,7 @@
       <workItem from="1673538832164" duration="47000" />
       <workItem from="1673538891953" duration="2525000" />
       <workItem from="1673589276641" duration="20908000" />
-      <workItem from="1673624714572" duration="15257000" />
-    </task>
-    <task id="LOCAL-00081" summary="feat: posts 目录内支持解析不在顶层的 markdown">
-      <created>1672766404480</created>
-      <option name="number" value="00081" />
-      <option name="presentableId" value="LOCAL-00081" />
-      <option name="project" value="LOCAL" />
-      <updated>1672766404480</updated>
+      <workItem from="1673624714572" duration="20663000" />
     </task>
     <task id="LOCAL-00082" summary="feat: 支持渲染 Notion 到处的 csv">
       <created>1672824143912</created>
@@ -593,7 +580,14 @@
       <option name="project" value="LOCAL" />
       <updated>1673628244323</updated>
     </task>
-    <option name="localTasksCounter" value="130" />
+    <task id="LOCAL-00130" summary="feat: 修改样式">
+      <created>1673671966893</created>
+      <option name="number" value="00130" />
+      <option name="presentableId" value="LOCAL-00130" />
+      <option name="project" value="LOCAL" />
+      <updated>1673671966893</updated>
+    </task>
+    <option name="localTasksCounter" value="131" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -613,7 +607,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="feat: 支持 JSX 预览" />
     <MESSAGE value="feat: 修复样式问题" />
     <MESSAGE value="feat: 修改文章内链" />
     <MESSAGE value="feat: 增加阴影" />
@@ -638,7 +631,8 @@
     <MESSAGE value="feat: 重命名 .env" />
     <MESSAGE value="feat: 修改 cdn 的地址" />
     <MESSAGE value="feat: 修改字体" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: 修改字体" />
+    <MESSAGE value="feat: 修改样式" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: 修改样式" />
   </component>
   <component name="VgoProject">
     <integration-enabled>false</integration-enabled>

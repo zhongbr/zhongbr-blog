@@ -1,8 +1,14 @@
-import { MouseEvent, useLayoutEffect, useRef } from 'react';
+import React, { MouseEvent, useLayoutEffect, useRef } from 'react';
 import { useEventListener } from '@/hooks';
 import styles from './style.module.less';
 
-export default function useCursorFollow(dom: HTMLElement | null, size = 100) {
+/**
+ * 在指定的元素中插入一个可以跟随鼠标指针移动的子元素
+ * @param dom 容器元素
+ * @param size 子元素的尺寸
+ * @param color 子元素的颜色
+ */
+export function useCursorFollow(dom: HTMLElement | null, size = 100, color?: string) {
     const ref = useRef(document.createElement('div'));
 
     useLayoutEffect(() => {
@@ -28,6 +34,9 @@ export default function useCursorFollow(dom: HTMLElement | null, size = 100) {
     });
 
     useEventListener(dom, 'mouseenter', () => {
+        if (color) {
+            ref.current.style.setProperty('--cursor-color', color);
+        }
         ref.current.style.setProperty('display', 'block');
     });
 
@@ -35,3 +44,27 @@ export default function useCursorFollow(dom: HTMLElement | null, size = 100) {
         ref.current.style.setProperty('display', 'none');
     });
 }
+
+export interface IProps {
+    className?: string;
+    color?: string;
+    size?: number;
+    children: React.ReactNode;
+}
+
+const CursorFollow: React.FC<IProps> = props => {
+    const { color, size, className, children } = props;
+    const ref = useRef<HTMLDivElement>(null);
+
+    useCursorFollow(ref.current, size, color);
+
+    return (
+        <div className={className} ref={ref}>
+            {children}
+        </div>
+    );
+};
+
+CursorFollow.displayName = 'CursorFollow';
+
+export default CursorFollow;

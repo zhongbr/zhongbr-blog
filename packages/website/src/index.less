@@ -1,5 +1,12 @@
 @font-face {
-    font-family: "smile-sans";
+    font-family: "smile-sans-light";
+    font-weight: auto;
+    src: url("https://fastly.jsdelivr.net/npm/font-smiley-sans@1.0.0/SmileySans-Oblique.ttf.woff2");
+}
+
+@font-face {
+    font-family: "smile-sans-bold";
+    font-weight: normal;
     src: url("https://fastly.jsdelivr.net/npm/font-smiley-sans@1.0.0/SmileySans-Oblique.ttf.woff2");
 }
 
@@ -15,6 +22,7 @@ body {
     overflow: hidden;
     margin: 0;
 
-    --title-font: 'fira-code', 'smile-sans', sans-serif;
-    --font-family: 'fira-code', PingFangSC, 'Microsoft Yahei';
+    --title-font: 'fira-code', 'smile-sans-bold', sans-serif;
+    --font-family: 'PingFangSC-Regular', 'Microsoft Yahei';
+    --passage-font-family: 'fira-code', var(--font-family);
 }

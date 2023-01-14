@@ -3,7 +3,7 @@ import clsx from "clsx";
 
 import { useCursorFollow } from '@/animations';
 import { Hover, Icon, Tag } from '@/components';
-import { useTags, useNavigate } from '@/hooks';
+import { useTags, useNavigate, useEventListener } from '@/hooks';
 import { HoverContext } from '@/components/Hover';
 import { ITopic } from '@/service/passage/topics';
 import { IPassage } from "@/service/passage/catalogue";
@@ -19,7 +19,15 @@ const TopicCard: React.FC<ITopic> = props => {
     const { onOpenTags } = useTags();
     const navigate = useNavigate();
 
-    useCursorFollow(ref.current);
+    useCursorFollow(ref.current, 300, color.slice(0, 7));
+
+    useEventListener(ref.current, 'mouseenter', () => {
+        ref.current?.style?.setProperty('--color', color.slice(0, 7) + '50');
+    });
+
+    useEventListener(ref.current, 'mouseleave', () => {
+        ref.current?.style?.setProperty('--color', color.slice(0, 7) + '32');
+    });
 
     const onOpenPassage = (passage: IPassage) => {
         navigate(`/passage/${encodeURIComponent(passage['json-path'])}`);

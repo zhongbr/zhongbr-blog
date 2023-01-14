@@ -1,9 +1,8 @@
 import React, { memo, useEffect } from 'react';
 
-import {ResponsiveEnum, useAsyncEffect, useAsyncFn, usePageConfig} from '@/hooks';
-import {topics} from '@/service/passage';
-import {useMessage} from '@/components';
-import {title} from "@/config/meta";
+import { ResponsiveEnum, useAsyncEffect, useAsyncFn, usePageConfig } from '@/hooks';
+import { topics } from '@/service/passage';
+import { title } from "@/config/meta";
 
 import {TopicCard, TopicCardGroup} from './modules';
 import styles from './style.module.less';
@@ -11,7 +10,6 @@ import styles from './style.module.less';
 const Topics: React.FC = props => {
     const [fetchTopics, topicsRes] = useAsyncFn(topics);
     const { setStates, widthLevel, onPageReady } = usePageConfig();
-    const { success } = useMessage();
 
     // 屏幕宽度最窄时，一行只显示一个
     const rowCount = widthLevel === ResponsiveEnum.tiny ? 1 : 2;
@@ -19,10 +17,6 @@ const Topics: React.FC = props => {
     useAsyncEffect(async () => {
         await fetchTopics();
         onPageReady?.();
-        success({
-            title: '页面加载完成',
-            content: '页面加载完成啦！'
-        });
     }, [fetchTopics]);
 
     useEffect(() => {

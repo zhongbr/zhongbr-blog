@@ -5,7 +5,7 @@
  * @LastEditors: 张盼宏
  * @LastEditTime: 2022-09-08 23:40:46
  */
-import { memo, useEffect, useState, useRef } from 'react';
+import { memo, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import clsx from 'clsx';
 import { basename } from 'path-browserify';
@@ -31,7 +31,6 @@ const Passage = () => {
     const [fetchCatalogue, catalogueRes] = useAsyncFn(passage.catalogue);
     const [sketch, setSketch] = useState<Title[]>([]);
     const [catalogue, setCatalogue] = useState<IPassage>();
-    const passageRef = useRef<HTMLDivElement>(null);
 
     const { onOpenTags } = useTags();
 
@@ -92,17 +91,19 @@ const Passage = () => {
                         </div>
 
                         {catalogue?.mdate && (
-                        <div className="date">
-                            <Icon className="rp-rili"/>
-                            <span>发布日期</span>
-                            <span>{catalogue.mdate}</span>
-                        </div>)}
+                            <div className="date">
+                                <Icon className="rp-rili"/>
+                                <span>发布日期</span>
+                                <span>{catalogue.mdate}</span>
+                            </div>)}
 
                         {catalogue?.cover && (
                             <img alt="cover" className="cover-image" src={catalogue.cover}/>
                         )}
 
-                        <Render node={res?.data?.ast}/>
+                        <div className="passage-render">
+                            <Render node={res?.data?.ast}/>
+                        </div>
                     </div>
                 </div>
             </div>
