@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "baseUrl": "/",
+    "module": "esnext",
+    "target": "es6",
+    "sourceMap": false,
+    "skipLibCheck": true,
+    "outDir": "./types",
+    "moduleResolution": "Node",
+    "esModuleInterop": true,
+    "declaration": true,
+    "emitDeclarationOnly": true,
+    "jsx": "react",
+    "paths": {
+      "@/iframe/*": ["src/*"]
+    }
+  },
+  "include": [
+    "src/**/*.tsx",
+    "src/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}

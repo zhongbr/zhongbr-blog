@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module type="WEB_MODULE" version="4">
-  <component name="NewModuleRootManager">
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
     <content url="file://$MODULE_DIR$">
       <excludeFolder url="file://$MODULE_DIR$/temp" />
       <excludeFolder url="file://$MODULE_DIR$/.tmp" />
@@ -11,18 +12,17 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="font_3613812_e0kf6njb2e" level="application" />
+    <orderEntry type="library" name="font_3613812_ej2l7oe2xa" level="application" />
+    <orderEntry type="library" name="vconsole" level="application" />
     <orderEntry type="library" name="font_3613812_7vf6r1yn7us" level="application" />
-    <orderEntry type="library" name="font_3613812_32ql6sln2of" level="application" />
-    <orderEntry type="library" name="font_3613812_zhmrnogn7pd" level="application" />
     <orderEntry type="library" name="font_3613812_o1hsjkaqmyc" level="application" />
     <orderEntry type="library" name="font_3613812_qexa35mahcm" level="application" />
-    <orderEntry type="library" name="font_3613812_e0kf6njb2e" level="application" />
-    <orderEntry type="library" name="font_3613812_a1q3rjt64o" level="application" />
     <orderEntry type="library" name="font_3613812_cgnykc2cxs6" level="application" />
+    <orderEntry type="library" name="font_3613812_zhmrnogn7pd" level="application" />
+    <orderEntry type="library" name="font_3613812_32ql6sln2of" level="application" />
+    <orderEntry type="library" name="font_3613812_2higggngn2" level="application" />
     <orderEntry type="library" name="font_3613812_r7cdih6dw5e" level="application" />
-    <orderEntry type="library" name="font_3613812_ej2l7oe2xa" level="application" />
-    <orderEntry type="library" name="font_3613812_2higggngn2" level="application" />
-    <orderEntry type="library" name="vconsole" level="application" />
-    <orderEntry type="library" name="font_3613812_2higggngn2" level="application" />
+    <orderEntry type="library" name="font_3613812_a1q3rjt64o" level="application" />
   </component>
 </module>

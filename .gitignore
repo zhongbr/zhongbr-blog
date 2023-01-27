@@ -3,3 +3,5 @@
 .idea
 /packages/umd-factory/.temp/
 .md-cache
+/packages/code-sandbox/iframe/
+/packages/code-sandbox/dist/

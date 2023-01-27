@@ -1,0 +1,31 @@
+{
+  "name": "code-sandbox",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "build:main": "pnpm run build:iframe && cross-env TARGET=src/index.tsx FORMATS=es,umd FILE_NAME=main OUT=./dist vite build",
+    "build:iframe": "tsc && cross-env TARGET=src/iframe/iframe.ts FORMATS=es,umd FILE_NAME=iframe OUT=./iframe vite build",
+    "serve": "cross-env TARGET=src/index.tsx FORMATS=es,umd FILE_NAME=main OUT=./dist vite serve"
+  },
+  "unpkg": "./out/code-sandbox.umd.cjs",
+  "jsdelivr": "./out/code-sandbox.umd.cjs",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/standalone": "^7.20.12",
+    "@types/babel__standalone": "^7.1.4",
+    "path-browserify": "^1.0.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.17",
+    "@types/react-dom": "^18.0.6",
+    "@vitejs/plugin-react": "^3.0.1",
+    "typescript": "^4.8.2",
+    "vite": "^4.0.4"
+  }
+}

@@ -1,5 +1,5 @@
-import { Event, Handler, IJsxCodeTransformResp, IJsxCodeTransformParams } from '../types/worker.js';
-import {IImportDependencies, transformJsxComponentCode} from './compile.js';
+import { Handler, IJsxCodeTransformResp, IJsxCodeTransformParams } from '../types/worker';
+import { transformJsxComponentCode } from './compile.js';
 
 export const JsxCodeTransformHandler: Handler<IJsxCodeTransformParams, IJsxCodeTransformResp> = async event => {
     const { code } = event.params;
