@@ -1,10 +1,3 @@
-/*
- * @Description: 入口
- * @Author: 张盼宏
- * @Date: 2022-08-27 10:15:53
- * @LastEditors: 张盼宏
- * @LastEditTime: 2022-09-11 10:46:58
- */
 import React, { Suspense, useRef } from 'react';
 import { useRoutes } from 'react-router-dom';
 
