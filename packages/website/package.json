@@ -44,7 +44,6 @@
     "jest": "^27.4.3",
     "jest-resolve": "^27.4.2",
     "jest-watch-typeahead": "^1.0.0",
-    "jsx-service": "workspace:^1.0.0",
     "mathjax-react": "^2.0.1",
     "mini-css-extract-plugin": "^2.4.5",
     "moment": "^2.29.4",

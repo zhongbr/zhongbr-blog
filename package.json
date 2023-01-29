@@ -7,13 +7,7 @@
     "build-website": "cd ./packages/website && pnpm run build",
     "start-website": "cd ./packages/website && pnpm run start",
     "build-markdown": "node ./scripts/markdown-transform/index.js",
-    "install-pack-umd": "cd ./packages/umd-factory && pnpm install",
-    "build-umd": "cd ./packages/umd-factory && pnpm run compile",
-    "pack-umd": "cd ./packages/umd-factory && pnpm run pack $PACKAGES_PATH",
-    "install-jsx-core": "cd ./packages/jsx-core && pnpm install",
-    "build-jsx-worker": "cd ./packages/jsx-core && pnpm run worker",
-    "build-jsx-core": "cd ./packages/jsx-core && pnpm run compile",
-    "start-jsx-core": "cd ./packages/jsx-core && pnpm run start"
+    "build-code-sandbox": "cd ./packages/code-sandbox && pnpm run build"
   },
   "devDependencies": {
     "cross-env": "^7.0.3",

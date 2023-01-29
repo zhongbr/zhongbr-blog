@@ -12,6 +12,7 @@ on:
     paths:
       # only runs when the website files change
       - 'packages/website/**'
+      - 'packages/code-sandbox/**'
 jobs:
   # use pnpm to build react files
   build:
@@ -26,7 +27,9 @@ jobs:
         with:
           node-version: '14'
       - name: install website dependencies
-        run: pnpm run install-website
+        run: pnpm i
+      - name: build code sandbox
+        run: pnpm run build-code-sandbox
       - name: build website dist resources
         run: pnpm run build-website
       - name: copy index.html to 404.html
