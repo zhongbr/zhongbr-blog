@@ -26,8 +26,12 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: '14'
+      - name: install code-sandbox dependencies
+        run: pnpm run install-code-sandbox
       - name: install website dependencies
         run: pnpm run install-website
+      - name: build code-sandbox
+        run: pnpm run build-code-sandbox
       - name: build website dist resources
         run: pnpm run build-website
       - name: copy index.html to 404.html

@@ -5,13 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="27b3b0e5-1ac3-4b25-8173-a590bd44bf60" name="变更" comment="feat: 提取 code-sandbox">
-      <change afterPath="$PROJECT_DIR$/packages/code-sandbox/.npmignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.github/workflows/build-website.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/build-website.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/code-sandbox/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/code-sandbox/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/code-sandbox/src/core/amd/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/code-sandbox/src/core/amd/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pnpm-lock.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pnpm-lock.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -244,13 +240,6 @@
       <workItem from="1673695567742" duration="183000" />
       <workItem from="1673697149979" duration="3563000" />
       <workItem from="1673709859369" duration="1555000" />
-    </task>
-    <task id="LOCAL-00088" summary="feat: 整理帖子">
-      <created>1672845092351</created>
-      <option name="number" value="00088" />
-      <option name="presentableId" value="LOCAL-00088" />
-      <option name="project" value="LOCAL" />
-      <updated>1672845092351</updated>
     </task>
     <task id="LOCAL-00089" summary="feat: 修改目录结构">
       <created>1672887479158</created>
@@ -588,7 +577,14 @@
       <option name="project" value="LOCAL" />
       <updated>1674988655794</updated>
     </task>
-    <option name="localTasksCounter" value="137" />
+    <task id="LOCAL-00137" summary="feat: 提取 code-sandbox">
+      <created>1675005059487</created>
+      <option name="number" value="00137" />
+      <option name="presentableId" value="LOCAL-00137" />
+      <option name="project" value="LOCAL" />
+      <updated>1675005059487</updated>
+    </task>
+    <option name="localTasksCounter" value="138" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
