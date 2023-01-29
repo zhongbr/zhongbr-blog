@@ -5,17 +5,18 @@
  * @LastEditors: 张盼宏
  * @LastEditTime: 2022-09-07 22:37:06
  */
-import React, {useMemo, useState} from 'react';
+import React, { useMemo, useState } from 'react';
 import clsx from "clsx";
-import {Code, codepen, github} from 'react-code-blocks';
+import { Code, codepen, github } from 'react-code-blocks';
+import CodeSandbox from 'code-sandbox';
 
-import {IBaseProps} from '@/types/markdown';
-import {Icon, JsxDemoDisplay} from "@/components";
-import {copy} from "@/utils/copy";
-import {ResponsiveEnum, usePageConfig} from '@/hooks';
+import { IBaseProps } from '@/types/markdown';
+import { Icon } from "@/components";
+import { copy } from "@/utils/copy";
+import { ResponsiveEnum, usePageConfig } from '@/hooks';
 
 import styles from './style.module.less';
-import {PlaygroundGetCodeSymbol} from "@/types/utils";
+import { PlaygroundGetCodeSymbol } from "@/types/utils";
 
 const shouldPreview = (lang: string, code: string) => {
     if (!['jsx', 'tsx', 'js'].includes(lang)) {
@@ -71,7 +72,7 @@ const CodeBlock: React.FC<IBaseProps> = (props) => {
             />
             {preview && (
                 <div className={styles.preview}>
-                    <JsxDemoDisplay jsx={node.value} />
+                    <CodeSandbox code={node.value} />
                 </div>
             )}
             {node.lang && (

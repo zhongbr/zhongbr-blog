@@ -73,6 +73,9 @@ self.addEventListener('message', e => {
  * @param obj 要被代理的对象
  */
 export function registerProxy<T extends Object>(serviceId: string, obj: T) {
+    if (services.has(serviceId)) {
+        return;
+    }
     // 标记服务已经注册
     services.add(serviceId);
     // 如果有等待这个服务的回调，现在就可以调用了
@@ -99,7 +102,7 @@ export function registerProxy<T extends Object>(serviceId: string, obj: T) {
             let res: unknown = method;
             if (typeof method === "function") {
                 // 调用方法回复结果
-                res = await method(...message.payload);
+                res = await method(...message.payload, e);
             }
             logger.debug('[proxy] reply', self?.location?.href || 'worker', e.source, message.receiver, message.method, (e.source || self));
             (e.source || self).postMessage({

@@ -78,9 +78,7 @@ module.exports = {
   appTsBuildInfoFile: resolveApp('node_modules/.cache/tsconfig.tsbuildinfo'),
   swSrc: resolveModule(resolveApp, 'src/service-worker'),
   publicUrlOrPath,
-  markdownJsonPath: resolveApp('../../.md-cache/md'),
-  jsxServiceWorkerPath: resolveApp('src/jsx-service-worker'),
-  iframeAmdPath: resolveApp('src/iframe-amd')
+  markdownJsonPath: resolveApp('../../.md-cache/md')
 };
 
 

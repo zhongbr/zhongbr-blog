@@ -1,13 +1,15 @@
-import React, { useLayoutEffect, useRef, useCallback } from "react";
-import { waitProxy, callProxy } from './core/proxy';
-import { fallbackHtml, Html } from './iframe/html';
-import { DemoServiceName, IDemoService } from './type';
-import { waitIframe } from './utils/wait-iframe';
+import React, { useLayoutEffect, useRef } from "react";
+
+import { onIframeLoadingModule, initMainThreadService } from './utils/iframe';
+import { getSandboxRefresher, getIframeHTML, iframeStyles } from './iframe';
+import * as DefaultCodes from './default';
 
 // 生成转化 jsx 代码的 worker 服务
 import('./core/jsx').then(({ getJsxService }) => {
     getJsxService();
 });
+
+initMainThreadService();
 
 export interface IProps {
     className?: string;
@@ -17,75 +19,93 @@ export interface IProps {
     css?: string;
     settings?: string;
     style?: React.CSSProperties;
+    placeholder?: string;
+    onLoadingModule?: (moduleName: string, url: string) => void;
+    onReady?: () => void;
 }
 
 const Demo: React.FC<IProps> = (props) => {
-    const { title = 'demo', className, code, index, css, settings, style } = props;
+    const {
+        title = 'demo',
+        className,
+        code = DefaultCodes.DefaultDemoCode,
+        index = DefaultCodes.DefaultIndexCode,
+        css = DefaultCodes.DefaultCssCode,
+        settings= DefaultCodes.DefaultDepsCode,
+        style,
+        placeholder = DefaultCodes.Placeholder,
+        onLoadingModule,
+        onReady
+    } = props;
+
     const iframe = useRef<HTMLIFrameElement>(null);
 
-    const defineAndRunModule = useCallback(async (name: string, deps: string[], code: string) => {
+    const previousCodesRef = useRef<readonly [string, string, string, string]>(null);
+    const currentCode = [settings, code, index, css] as const;
+    useLayoutEffect(() => {
+        (async () => {
+            const { refreshIndex, refreshApp, refreshSettings, refreshStyle } = getSandboxRefresher({
+                iframe: iframe.current,
+                code,
+                index,
+                css,
+                settings
+            });
+
+            const [preSettings, preCode, preIndex, preCss] = previousCodesRef.current || [];
+            const tasks = [];
+            switch (true) {
+                case preSettings !== settings: {
+                    tasks.push(refreshSettings());
+                    break;
+                }
+                case preCode !== code: {
+                    tasks.push(refreshApp());
+                    break;
+                }
+                case preIndex !== index: {
+                    tasks.push(refreshIndex());
+                    break;
+                }
+            }
+            tasks.push(refreshStyle());
+            await Promise.all(tasks);
+            onReady?.();
+            previousCodesRef.current = currentCode;
+        })()
+    }, currentCode);
+
+    const onLoadingModuleRef = useRef(onLoadingModule);
+    onLoadingModuleRef.current = onLoadingModule;
+
+    useLayoutEffect(() => {
         if (!iframe.current) return;
-        // 等待 demo iframe 提供的服务准备好
-        await waitIframe(iframe.current.contentWindow);
-        await waitProxy(iframe.current.contentWindow, DemoServiceName);
-        // 调用 iframe 提供的服务
-        await callProxy<IDemoService, 'defineModule'>({
-            win: iframe.current.contentWindow,
-            serviceId: DemoServiceName,
-            method: 'defineModule',
-            payload: [name, deps, code]
-        });
-        await callProxy<IDemoService, 'executeModule'>({
-            win: iframe.current.contentWindow,
-            serviceId: DemoServiceName,
-            method: 'executeModule',
-            payload: [name]
+        onIframeLoadingModule(iframe.current, (moduleName, extraInfo) => {
+            onLoadingModuleRef.current(moduleName, extraInfo);
         });
     }, []);
 
-    const refreshIndex = () => {
-        defineAndRunModule('/index', ['require'], index);
-    };
-
-    const refreshApp = () => {
-        defineAndRunModule('/App', ['require'], code).then(refreshIndex);
-    };
-
-    useLayoutEffect(() => {
-        if (!iframe.current) return;
-        (async () => {
-            await waitIframe(iframe.current.contentWindow);
-            await waitProxy(iframe.current.contentWindow, DemoServiceName);
-            await callProxy<IDemoService, 'setStyle'>({
-                win: iframe.current.contentWindow,
-                serviceId: DemoServiceName,
-                method: 'setStyle',
-                payload: [css]
-            });
-        })();
-    }, [css]);
-
-    useLayoutEffect(refreshApp, [code, defineAndRunModule]);
-
-    useLayoutEffect(() => {
-        defineAndRunModule('/settings', ['require'], settings).then(refreshApp);
-    }, [settings, defineAndRunModule]);
-
-    useLayoutEffect(refreshIndex, [index, defineAndRunModule]);
+    const [srcDoc, src] = getIframeHTML(placeholder);
 
     return (
-        <iframe
-            ref={iframe}
-            className={className}
-            title={title}
-            src={fallbackHtml}
-            srcDoc={Html}
-            allowFullScreen
-            style={style}
-        />
+        <>
+            <style>
+                {iframeStyles}
+            </style>
+            <iframe
+                ref={iframe}
+                className={`code-sandbox-iframe ${className || ''}`}
+                title={title}
+                src={src}
+                srcDoc={srcDoc}
+                allowFullScreen
+                style={style}
+            />
+        </>
     )
 }
 
 Demo.displayName = 'Demo';
 
+export { DefaultCodes };
 export default Demo;

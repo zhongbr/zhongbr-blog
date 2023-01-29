@@ -3,5 +3,6 @@ export const PlaygroundGetCodeSymbol = 'playground-get-code';
 export interface IPlaygroundCode {
     index?: string;
     demo?: string;
-    deps?: Array<{ url: string; obj: string; id: string; }>
+    deps?: Array<{ url: string; obj: string; id: string; }>;
+    css?: string;
 }

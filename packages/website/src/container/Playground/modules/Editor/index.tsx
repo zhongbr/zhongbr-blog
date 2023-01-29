@@ -6,6 +6,7 @@ import { Icon } from '@/components';
 import { usePersistFn, usePageConfig } from '@/hooks';
 
 import styles from './style.module.less';
+import createModel = editor.createModel;
 
 languages.typescript.typescriptDefaults.setCompilerOptions({
     target: languages.typescript.ScriptTarget.Latest,
@@ -100,15 +101,28 @@ const Editor: React.FC<IProps> = (props) => {
     };
 
     useLayoutEffect(() => {
-        editorInst.current?.setValue(valuesRef.current[index] || defaultValues?.[index] || '');
-    }, [index, defaultValues]);
-
-    useLayoutEffect(() => {
-        if (!values) {
+        if (!tabsName || !defaultValues) {
             return;
         }
-        editorInst.current?.setValue(values[index]);
-    }, [values, index]);
+        if (tabsName[index].endsWith('css')) {
+            editorInst.current?.setModel(createModel(valuesRef.current[index] || defaultValues[index], 'css'));
+        }
+        else {
+            editorInst.current?.setModel(createModel(valuesRef.current[index] || defaultValues[index], 'typescript'));
+        }
+    }, [index, defaultValues, tabsName]);
+
+    useLayoutEffect(() => {
+        if (!values || !tabsName) {
+            return;
+        }
+        if (tabsName[index].endsWith('css')) {
+            editorInst.current?.setModel(createModel(values[index], 'css'));
+        }
+        else {
+            editorInst.current?.setModel(createModel(values[index], 'typescript'));
+        }
+    }, [values, index, tabsName]);
 
     useLayoutEffect(() => {
         editorInst.current?.updateOptions({

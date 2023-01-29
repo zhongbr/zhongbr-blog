@@ -1,45 +1,35 @@
-import React, { useRef, useMemo, useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import clsx from 'clsx';
-
-import { useMessage } from '@/hooks';
+import CodeSandbox from 'code-sandbox';
 
 import Splash from '../Splash';
-import { useIframeModule } from './hooks';
 import styles from './style.module.less';
-import { IMessageType } from "@/types/iframe-sandbox";
 
 export interface IProps {
     indexCode: string;
     settingsCode: string;
     demoCode: string;
+    cssCode: string;
     className?: string;
 }
 
 const Sandbox: React.FC<IProps> = props => {
-    const { settingsCode, demoCode, indexCode, className } = props;
-    const ref = useRef<HTMLIFrameElement>(null);
+    const { settingsCode, demoCode, indexCode, cssCode, className } = props;
+
+    const [loading, setLoading] = useState(true);
     const [loadingModuleName, setLoadingModuleName] = useState(['', '']);
 
-    const [depsName, indexName, moduleName] = useMemo(() => {
-        return [`/Settings`, '/index', `/App`];
-    }, []);
-
-    // 监听各自依赖的代码，变更后与 iframe 内部同步
-    const [settingsLoading] = useIframeModule(ref.current, depsName, [], settingsCode, {
-        onAfterRun: () => refreshIndex()
-    });
-    const [modulesLoading] = useIframeModule(ref.current, moduleName, [depsName], demoCode, {
-        onAfterRun: () => refreshIndex()
-    });
-    const [indexLoading, refreshIndex] = useIframeModule(ref.current, indexName, [moduleName], indexCode);
-
-    const loading = settingsLoading || modulesLoading || indexLoading;
-    useMessage((e) => {
-        return e.source === ref.current?.contentWindow && e.data?.type === IMessageType.LoadingModule;
-    }, (e: MessageEvent) => {
-        const [moduleName, url] = e.data.payload || [];
+    const onLoadingModule = (moduleName: string, url: string) => {
         setLoadingModuleName([moduleName, url]);
-    });
+    };
+
+    const onReady = () => {
+        setLoading(false);
+    }
+
+    useEffect(() => {
+        setLoading(true);
+    }, [demoCode, indexCode, settingsCode, cssCode, setLoading]);
 
     return (
         <div className={clsx(className, styles.sandboxContainer)}>
@@ -53,12 +43,14 @@ const Sandbox: React.FC<IProps> = props => {
                     />
                 </div>
             )}
-            <iframe
+            <CodeSandbox
                 className={styles.iframe}
-                title="display demo"
-                ref={ref}
-                src="/iframe.html"
-                allowFullScreen
+                code={demoCode}
+                index={indexCode}
+                settings={settingsCode}
+                css={cssCode}
+                onLoadingModule={onLoadingModule}
+                onReady={onReady}
             />
         </div>
     );

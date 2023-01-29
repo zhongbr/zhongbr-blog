@@ -4,36 +4,70 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="27b3b0e5-1ac3-4b25-8173-a590bd44bf60" name="变更" comment="feat: 编写 sandbox 组件">
-      <change afterPath="$PROJECT_DIR$/packages/code-sandbox/config/serve.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/code-sandbox/demo/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/code-sandbox/demo/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/code-sandbox/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/code-sandbox/src/core/amd/define-react.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/code-sandbox/src/core/amd/define.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/code-sandbox/src/core/amd/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/code-sandbox/src/core/amd/require.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/code-sandbox/src/core/amd/scriptLoader.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/code-sandbox/src/core/amd/types.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/code-sandbox/src/core/event/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/code-sandbox/src/core/jsx/compile.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/code-sandbox/src/core/jsx/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/code-sandbox/src/core/jsx/plugin.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/code-sandbox/src/core/jsx/types.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/code-sandbox/src/core/jsx/worker.worker.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/code-sandbox/src/core/proxy/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/code-sandbox/src/iframe/html.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/code-sandbox/src/iframe/iframe.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/code-sandbox/src/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/code-sandbox/src/type.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/code-sandbox/src/utils/logger.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/code-sandbox/src/utils/wait-iframe.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/code-sandbox/tsconfig.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/code-sandbox/vite.config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/react-press.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/react-press.iml" afterDir="false" />
+    <list default="true" id="27b3b0e5-1ac3-4b25-8173-a590bd44bf60" name="变更" comment="feat: 修改样式">
+      <change afterPath="$PROJECT_DIR$/packages/code-sandbox/src/default.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/code-sandbox/src/global.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/code-sandbox/src/iframe/iframe.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/code-sandbox/src/iframe/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/code-sandbox/src/webcomponent.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/code-sandbox/types/core/amd/define-react.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/code-sandbox/types/core/amd/define.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/code-sandbox/types/core/amd/index.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/code-sandbox/types/core/amd/require.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/code-sandbox/types/core/amd/scriptLoader.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/code-sandbox/types/core/event/index.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/code-sandbox/types/core/jsx/compile.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/code-sandbox/types/core/jsx/index.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/code-sandbox/types/core/jsx/plugin.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/code-sandbox/types/core/jsx/types.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/code-sandbox/types/core/jsx/worker.worker.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/code-sandbox/types/core/proxy/index.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/code-sandbox/types/default.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/code-sandbox/types/iframe/html.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/code-sandbox/types/iframe/iframe.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/code-sandbox/types/iframe/index.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/code-sandbox/types/index.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/code-sandbox/types/type.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/code-sandbox/types/utils/iframe.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/code-sandbox/types/utils/logger.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/code-sandbox/types/webcomponent.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/code-sandbox/webcomponent/assets/worker.worker-aeb24990.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/code-sandbox/webcomponent/manifest.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/code-sandbox/webcomponent/webcomponent.umd.cjs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/code-sandbox/webcomponent/webcomponent.umd.cjs.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/jsx-service/src/jsx-core/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/jsx-service/src/jsx-core/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/code-sandbox/demo/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/code-sandbox/demo/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/code-sandbox/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/code-sandbox/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/code-sandbox/src/core/event/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/code-sandbox/src/core/event/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/code-sandbox/src/core/proxy/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/code-sandbox/src/core/proxy/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/code-sandbox/src/iframe/html.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/code-sandbox/src/iframe/html.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/code-sandbox/src/iframe/iframe.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/code-sandbox/src/iframe/iframe.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/code-sandbox/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/code-sandbox/src/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/code-sandbox/src/utils/wait-iframe.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/code-sandbox/src/utils/iframe.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/code-sandbox/vite.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/code-sandbox/vite.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/config/paths.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/config/paths.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/config/webpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/config/webpack.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/components/JsxDemoDisplay/index.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/components/JsxDemoDisplay/module.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/components/JsxDemoDisplay/style.module.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/components/Sandbox/hooks/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/components/Sandbox/hooks/useIframeModule.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/components/Sandbox/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/components/Sandbox/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/components/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/components/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/container/Passage/components/Render/CodeBlock/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/container/Passage/components/Render/CodeBlock/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/container/Playground/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/container/Playground/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/container/Playground/modules/Editor/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/container/Playground/modules/Editor/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/container/Playground/template.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/iframe-amd.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/types/utils.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/types/utils.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/utils/amd/define-react.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/utils/amd/define.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/utils/amd/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/utils/amd/require.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/utils/amd/scriptLoader.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/utils/amd/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/code-sandbox/types/core/amd/types.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/utils/post-message.ts" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/pnpm-lock.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pnpm-lock.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -47,9 +81,10 @@
         <option value="JavaScript File" />
         <option value="tsconfig.json" />
         <option value="HTML File" />
-        <option value="TypeScript JSX File" />
-        <option value="TypeScript File" />
         <option value="Less File" />
+        <option value="TypeScript JSX File" />
+        <option value="CSS File" />
+        <option value="TypeScript File" />
       </list>
     </option>
   </component>
@@ -120,7 +155,7 @@
     "javascript.nodejs.core.library.configured.version": "16.15.0",
     "javascript.nodejs.core.library.typings.version": "16.18.11",
     "last_opened_file_path": "C:/Users/panhong.zhang8519/Documents/personal-projects/zhongbr-blog",
-    "list.type.of.created.stylesheet": "Less",
+    "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.standard": "true",
     "node.js.detected.package.tslint": "true",
@@ -145,11 +180,11 @@
       <recent name="$PROJECT_DIR$/packages/umd-factory" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/packages/code-sandbox/src" />
+      <recent name="$PROJECT_DIR$/packages/code-sandbox" />
       <recent name="$PROJECT_DIR$/packages/website" />
       <recent name="$PROJECT_DIR$/packages/website/src" />
       <recent name="$PROJECT_DIR$/posts/前端开发" />
-      <recent name="$PROJECT_DIR$/packages/website/src/components/JsxDemoDisplay" />
-      <recent name="$PROJECT_DIR$/packages/website/src/components/JsxDemoDisplay/index.tsx" />
     </key>
   </component>
   <component name="RunAnythingCache">
@@ -164,19 +199,9 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="npm.start">
-    <configuration name="build-markdown" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
-      <package-json value="$PROJECT_DIR$/package.json" />
-      <command value="run" />
-      <scripts>
-        <script value="build-markdown" />
-      </scripts>
-      <node-interpreter value="project" />
-      <envs />
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="npm.build">
     <configuration name="build" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
-      <package-json value="$PROJECT_DIR$/packages/website/package.json" />
+      <package-json value="$PROJECT_DIR$/packages/code-sandbox/package.json" />
       <command value="run" />
       <scripts>
         <script value="build" />
@@ -185,11 +210,21 @@
       <envs />
       <method v="2" />
     </configuration>
-    <configuration name="es" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
-      <package-json value="$PROJECT_DIR$/packages/jsx-service/package.json" />
+    <configuration name="build:webcomponent" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/packages/code-sandbox/package.json" />
       <command value="run" />
       <scripts>
-        <script value="es" />
+        <script value="build:webcomponent" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="serve" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/packages/code-sandbox/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="serve" />
       </scripts>
       <node-interpreter value="project" />
       <envs />
@@ -205,11 +240,11 @@
       <envs />
       <method v="2" />
     </configuration>
-    <configuration name="test" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
-      <package-json value="$PROJECT_DIR$/packages/jsx-service/package.json" />
+    <configuration name="tsc" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/packages/code-sandbox/package.json" />
       <command value="run" />
       <scripts>
-        <script value="test" />
+        <script value="tsc" />
       </scripts>
       <node-interpreter value="project" />
       <envs />
@@ -217,11 +252,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="npm.start" />
-        <item itemvalue="npm.build-markdown" />
         <item itemvalue="npm.build" />
-        <item itemvalue="npm.es" />
-        <item itemvalue="npm.test" />
+        <item itemvalue="npm.start" />
+        <item itemvalue="npm.tsc" />
+        <item itemvalue="npm.serve" />
+        <item itemvalue="npm.build:webcomponent" />
       </list>
     </recent_temporary>
   </component>
@@ -266,13 +301,6 @@
       <workItem from="1673695567742" duration="183000" />
       <workItem from="1673697149979" duration="3563000" />
       <workItem from="1673709859369" duration="1555000" />
-    </task>
-    <task id="LOCAL-00083" summary="feat: 修改文章">
-      <created>1672829598594</created>
-      <option name="number" value="00083" />
-      <option name="presentableId" value="LOCAL-00083" />
-      <option name="project" value="LOCAL" />
-      <updated>1672829598594</updated>
     </task>
     <task id="LOCAL-00084" summary="feat: 修改文章">
       <created>1672829978022</created>
@@ -610,7 +638,14 @@
       <option name="project" value="LOCAL" />
       <updated>1673699681886</updated>
     </task>
-    <option name="localTasksCounter" value="132" />
+    <task id="LOCAL-00132" summary="feat: 修改样式">
+      <created>1674812246231</created>
+      <option name="number" value="00132" />
+      <option name="presentableId" value="LOCAL-00132" />
+      <option name="project" value="LOCAL" />
+      <updated>1674812246232</updated>
+    </task>
+    <option name="localTasksCounter" value="133" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -653,9 +688,9 @@
     <MESSAGE value="feat: 重命名 .env" />
     <MESSAGE value="feat: 修改 cdn 的地址" />
     <MESSAGE value="feat: 修改字体" />
-    <MESSAGE value="feat: 修改样式" />
     <MESSAGE value="fix: 修复编译 markdown 在 windows 上报错的bug，修复首页特效在切换页面后失效的问题" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: 修复编译 markdown 在 windows 上报错的bug，修复首页特效在切换页面后失效的问题" />
+    <MESSAGE value="feat: 修改样式" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: 修改样式" />
   </component>
   <component name="VgoProject">
     <integration-enabled>false</integration-enabled>

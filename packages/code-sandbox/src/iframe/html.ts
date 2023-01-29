@@ -1,24 +1,22 @@
-// @ts-ignore
-import iframeScript from '@/iframe/iframe?raw';
-// @ts-ignore
 import iframeScriptUrl from '@/iframe/iframe?url';
+import iframeStyles_ from './iframe.css?raw';
 
-const isDev = process.env.NODE_ENV === 'development';
-
-export const Html = `
-<html lang="en">
+export const getIframeHTML = (placeholder: string = '') => {
+    const srcDoc =
+`<html lang="en">
     <head>
         <title>Demo Sandbox</title>
-        <script ${isDev ? `src="${iframeScriptUrl}" type="module"` : ''}>
-            ${isDev ? '' : iframeScript}
-        </script>
+        <script type="module" src="${iframeScriptUrl}"></script>
     </head>
     <body>
         <noscript>Need javascript to run this demo page.</noscript>
-        <div id="root"></div>
+        <div id="root">
+            ${placeholder}
+        </div>
     </body>
-</html>
-`;
+</html>`;
+    const src = `data:text/html,${encodeURIComponent(srcDoc)}`;
+    return [srcDoc, src];
+};
 
-// 降级显示的 html ，用于在不支持 iframe srcdoc 属性的浏览器上显示
-export const fallbackHtml = `data:text/html,${encodeURIComponent(Html)}`;
+export const iframeStyles: string = iframeStyles_;

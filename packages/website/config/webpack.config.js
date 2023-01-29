@@ -243,8 +243,7 @@ module.exports = function (webpackEnv) {
     // These are the "entry points" to our application.
     // This means they will be the "root" imports that are included in JS bundle.
     entry: {
-      main: paths.appIndexJs,
-      'iframe-amd': paths.iframeAmdPath
+      main: paths.appIndexJs
     },
     output: {
       // The build folder.
@@ -662,34 +661,6 @@ module.exports = function (webpackEnv) {
               }
             : undefined
         )
-      ),
-
-      new HtmlWebpackPlugin(
-          Object.assign(
-              {},
-              {
-                inject: true,
-                template: paths.iframeHtml,
-                chunks: ['iframe-amd'],
-                filename: 'iframe.html'
-              },
-              isEnvProduction
-                  ? {
-                    minify: {
-                      removeComments: true,
-                      collapseWhitespace: true,
-                      removeRedundantAttributes: true,
-                      useShortDoctype: true,
-                      removeEmptyAttributes: true,
-                      removeStyleLinkTypeAttributes: true,
-                      keepClosingSlash: true,
-                      minifyJS: true,
-                      minifyCSS: true,
-                      minifyURLs: true,
-                    },
-                  }
-                  : undefined
-          )
       ),
 
       // Preload <link rel="pre-fetch"/>

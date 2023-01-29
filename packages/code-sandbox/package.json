@@ -3,11 +3,17 @@
   "version": "1.0.0",
   "description": "",
   "type": "module",
-  "main": "index.js",
+  "types": "types",
+  "main": "dist/main.js",
   "scripts": {
-    "build:main": "pnpm run build:iframe && cross-env TARGET=src/index.tsx FORMATS=es,umd FILE_NAME=main OUT=./dist vite build",
-    "build:iframe": "tsc && cross-env TARGET=src/iframe/iframe.ts FORMATS=es,umd FILE_NAME=iframe OUT=./iframe vite build",
-    "serve": "cross-env TARGET=src/index.tsx FORMATS=es,umd FILE_NAME=main OUT=./dist vite serve"
+    "main": "cross-env NODE_ENV=production TARGET=src/index.tsx FORMATS=es,umd FILE_NAME=main OUT=./dist vite build",
+    "build:main": "tsc && pnpm run build:iframe && pnpm run main",
+    "webcomponent": "cross-env NODE_ENV=production TARGET=src/webcomponent.tsx FORMATS=umd FILE_NAME=webcomponent OUT=./webcomponent vite build",
+    "build:webcomponent": "tsc && pnpm run build:iframe && pnpm run webcomponent",
+    "build:iframe": "cross-env NODE_ENV=production TARGET=src/iframe/iframe.ts FORMATS=es FILE_NAME=iframe OUT=./iframe vite build",
+    "build": "tsc && pnpm run build:iframe && pnpm run main && pnpm run webcomponent",
+    "serve": "cross-env NODE_ENV=sandbox-development TARGET=src/index.tsx FORMATS=es,umd FILE_NAME=main OUT=./dist vite serve",
+    "tsc": "tsc"
   },
   "unpkg": "./out/code-sandbox.umd.cjs",
   "jsdelivr": "./out/code-sandbox.umd.cjs",
@@ -26,6 +32,11 @@
     "@types/react-dom": "^18.0.6",
     "@vitejs/plugin-react": "^3.0.1",
     "typescript": "^4.8.2",
-    "vite": "^4.0.4"
+    "vite": "^4.0.4",
+    "terser": "^5.16.1"
+  },
+  "peerDependencies": {
+    "react": "^17",
+    "react-dom": "^17"
   }
 }

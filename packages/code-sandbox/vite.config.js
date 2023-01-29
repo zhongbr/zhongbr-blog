@@ -39,7 +39,21 @@ export default defineConfig(({ command }) => {
                 fileName,
                 formats: formats.split(',')
             },
-            outDir: out
+            outDir: out,
+            minify: 'terser',
+            terserOptions: {
+                compress: true,
+                mangle: true
+            },
+            rollupOptions: {
+                external: ['react', 'react-dom'],
+                output: {
+                    globals: {
+                        'react': 'React',
+                        'react-dom': 'ReactDom'
+                    }
+                }
+            }
         },
         plugins: [
             react()
