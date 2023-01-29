@@ -7,8 +7,8 @@
   "main": "dist/main.js",
   "scripts": {
     "main": "cross-env NODE_ENV=production TARGET=src/index.tsx FORMATS=es,umd FILE_NAME=main OUT=./dist vite build",
-    "build:main": "tsc && pnpm run build:iframe && pnpm run main",
     "webcomponent": "cross-env NODE_ENV=production TARGET=src/webcomponent.tsx FORMATS=umd FILE_NAME=webcomponent OUT=./webcomponent vite build",
+    "build:main": "tsc && pnpm run build:iframe && pnpm run main",
     "build:webcomponent": "tsc && pnpm run build:iframe && pnpm run webcomponent",
     "build:iframe": "cross-env NODE_ENV=production TARGET=src/iframe/iframe.ts FORMATS=es FILE_NAME=iframe OUT=./iframe vite build",
     "build": "tsc && pnpm run build:iframe && pnpm run main && pnpm run webcomponent",

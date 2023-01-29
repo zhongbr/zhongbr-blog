@@ -11,6 +11,7 @@
     "build-code-sandbox": "cd ./packages/code-sandbox && pnpm run build"
   },
   "devDependencies": {
+    "@types/node": "^16.11.56",
     "cross-env": "^7.0.3",
     "js-yaml": "^4.1.0",
     "md2json": "workspace:^1.0.0"
