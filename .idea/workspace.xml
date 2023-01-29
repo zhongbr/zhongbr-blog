@@ -6,11 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="27b3b0e5-1ac3-4b25-8173-a590bd44bf60" name="变更" comment="feat: 提取 code-sandbox">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/paths.js" beforeDir="false" afterPath="$PROJECT_DIR$/config/paths.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/animations/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/animations/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/animations/useScrollRate.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/animations/useScrollRate.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/react-app-env.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/react-app-env.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/code-sandbox/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/code-sandbox/tsconfig.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -243,13 +239,6 @@
       <workItem from="1673695567742" duration="183000" />
       <workItem from="1673697149979" duration="3563000" />
       <workItem from="1673709859369" duration="1555000" />
-    </task>
-    <task id="LOCAL-00092" summary="feat: 支持 JSX 预览">
-      <created>1673018527440</created>
-      <option name="number" value="00092" />
-      <option name="presentableId" value="LOCAL-00092" />
-      <option name="project" value="LOCAL" />
-      <updated>1673018527440</updated>
     </task>
     <task id="LOCAL-00093" summary="feat: 修复样式问题">
       <created>1673057874550</created>
@@ -587,7 +576,14 @@
       <option name="project" value="LOCAL" />
       <updated>1675005478241</updated>
     </task>
-    <option name="localTasksCounter" value="141" />
+    <task id="LOCAL-00141" summary="feat: 提取 code-sandbox">
+      <created>1675005585926</created>
+      <option name="number" value="00141" />
+      <option name="presentableId" value="LOCAL-00141" />
+      <option name="project" value="LOCAL" />
+      <updated>1675005585926</updated>
+    </task>
+    <option name="localTasksCounter" value="142" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

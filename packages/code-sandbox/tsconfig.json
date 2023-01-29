@@ -2,7 +2,7 @@
   "compilerOptions": {
     "baseUrl": "/",
     "module": "esnext",
-    "target": "es6",
+    "target": "es2016",
     "sourceMap": false,
     "skipLibCheck": true,
     "outDir": "./types",
