@@ -27,9 +27,7 @@ jobs:
         with:
           node-version: '14'
       - name: install website dependencies
-        run: pnpm i
-      - name: build code sandbox
-        run: pnpm run build-code-sandbox
+        run: pnpm run install-website
       - name: build website dist resources
         run: pnpm run build-website
       - name: copy index.html to 404.html

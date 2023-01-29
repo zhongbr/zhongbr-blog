@@ -43,8 +43,6 @@ export function createAmdManager(root='/', scriptTimeout=10000, logger: IAmdModu
         };
     }
 
-    logger.log('create context', ctx);
-
     const module_ = {
         require_: ctx.require_,
         define: ctx.define,

@@ -1,7 +1,7 @@
 {
-  "name": "code-sandbox",
-  "version": "1.0.0",
-  "description": "",
+  "name": "@zhongbr/code-sandbox",
+  "version": "0.0.0-beta.1",
+  "description": "Display JSX Code demos in your web pages easily.",
   "type": "module",
   "types": "types",
   "main": "dist/main.js",
@@ -15,10 +15,11 @@
     "serve": "cross-env NODE_ENV=sandbox-development TARGET=src/index.tsx FORMATS=es,umd FILE_NAME=main OUT=./dist vite serve",
     "tsc": "tsc"
   },
-  "unpkg": "./out/code-sandbox.umd.cjs",
-  "jsdelivr": "./out/code-sandbox.umd.cjs",
-  "keywords": [],
-  "author": "",
+  "unpkg": "./dist/main.umd.cjs",
+  "jsdelivr": "./dist/main.umd.cjs",
+  "keywords": ["sandbox", "iframe", "jsx", "demo", "code-block"],
+  "author": "zhongbr<zhongbr@icloud.com>(https://zhongbr.cn)",
+  "homepage": "https://github.com/zhongbr/zhongbr-blog/tree/main/packages/code-sandbox",
   "license": "ISC",
   "dependencies": {
     "@babel/standalone": "^7.20.12",
