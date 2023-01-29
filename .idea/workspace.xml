@@ -5,9 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="27b3b0e5-1ac3-4b25-8173-a590bd44bf60" name="变更" comment="feat: 提取 code-sandbox">
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/code-sandbox/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/code-sandbox/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pnpm-lock.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pnpm-lock.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/components/Sandbox/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/components/Sandbox/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/container/Passage/components/Render/CodeBlock/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/container/Passage/components/Render/CodeBlock/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/container/Playground/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/container/Playground/index.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -240,13 +241,6 @@
       <workItem from="1673695567742" duration="183000" />
       <workItem from="1673697149979" duration="3563000" />
       <workItem from="1673709859369" duration="1555000" />
-    </task>
-    <task id="LOCAL-00095" summary="feat: 增加阴影">
-      <created>1673066096584</created>
-      <option name="number" value="00095" />
-      <option name="presentableId" value="LOCAL-00095" />
-      <option name="project" value="LOCAL" />
-      <updated>1673066096584</updated>
     </task>
     <task id="LOCAL-00096" summary="feat: 增加 Playground">
       <created>1673153394942</created>
@@ -584,7 +578,14 @@
       <option name="project" value="LOCAL" />
       <updated>1675006179450</updated>
     </task>
-    <option name="localTasksCounter" value="144" />
+    <task id="LOCAL-00144" summary="feat: 提取 code-sandbox">
+      <created>1675006348408</created>
+      <option name="number" value="00144" />
+      <option name="presentableId" value="LOCAL-00144" />
+      <option name="project" value="LOCAL" />
+      <updated>1675006348408</updated>
+    </task>
+    <option name="localTasksCounter" value="145" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

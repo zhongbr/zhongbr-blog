@@ -1,6 +1,6 @@
 import React, { useLayoutEffect, useState } from 'react';
 import clsx from 'clsx';
-import { DefaultCodes } from 'code-sandbox';
+import { DefaultCodes } from '@zhongbr/code-sandbox';
 
 import { Sandbox } from '@/components';
 import { ResponsiveEnum, usePageConfig } from '@/hooks';

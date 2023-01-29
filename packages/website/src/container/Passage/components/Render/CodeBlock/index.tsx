@@ -8,7 +8,7 @@
 import React, { useMemo, useState } from 'react';
 import clsx from "clsx";
 import { Code, codepen, github } from 'react-code-blocks';
-import CodeSandbox from 'code-sandbox';
+import CodeSandbox from '@zhongbr/code-sandbox';
 
 import { IBaseProps } from '@/types/markdown';
 import { Icon } from "@/components";
