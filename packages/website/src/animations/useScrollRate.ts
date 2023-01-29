@@ -1,10 +1,3 @@
-/*
- * @Description: desc
- * @Author: 张盼宏
- * @Date: 2022-08-27 18:59:34
- * @LastEditors: 张盼宏
- * @LastEditTime: 2022-08-29 23:10:27
- */
 import React, { useEffect, useState } from 'react';
 
 export default function useScrollRate<T extends Element>(ref: React.LegacyRef<T> | undefined, base = 60) {

@@ -1,10 +1,3 @@
-/*
- * @Description: 单页应用入口文件
- * @Author: 张盼宏
- * @Date: 2022-08-27 13:57:29
- * @LastEditors: 张盼宏
- * @LastEditTime: 2022-09-07 23:01:38
- */
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { HashRouter } from 'react-router-dom';

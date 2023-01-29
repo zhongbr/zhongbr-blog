@@ -1,10 +1,3 @@
-/*
- * @Description: desc
- * @Author: 张盼宏
- * @Date: 2022-08-27 10:15:04
- * @LastEditors: 张盼宏
- * @LastEditTime: 2022-08-27 10:15:04
- */
 /// <reference types="node" />
 /// <reference types="react" />
 /// <reference types="react-dom" />

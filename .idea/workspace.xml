@@ -4,7 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="27b3b0e5-1ac3-4b25-8173-a590bd44bf60" name="变更" comment="feat: 提取 code-sandbox" />
+    <list default="true" id="27b3b0e5-1ac3-4b25-8173-a590bd44bf60" name="变更" comment="feat: 提取 code-sandbox">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/paths.js" beforeDir="false" afterPath="$PROJECT_DIR$/config/paths.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/animations/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/animations/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/animations/useScrollRate.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/animations/useScrollRate.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/react-app-env.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/react-app-env.d.ts" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -236,20 +243,6 @@
       <workItem from="1673695567742" duration="183000" />
       <workItem from="1673697149979" duration="3563000" />
       <workItem from="1673709859369" duration="1555000" />
-    </task>
-    <task id="LOCAL-00090" summary="feat: 修改目录结构">
-      <created>1672894632823</created>
-      <option name="number" value="00090" />
-      <option name="presentableId" value="LOCAL-00090" />
-      <option name="project" value="LOCAL" />
-      <updated>1672894632823</updated>
-    </task>
-    <task id="LOCAL-00091" summary="feat: 支持 JSX 预览">
-      <created>1673017042715</created>
-      <option name="number" value="00091" />
-      <option name="presentableId" value="LOCAL-00091" />
-      <option name="project" value="LOCAL" />
-      <updated>1673017042716</updated>
     </task>
     <task id="LOCAL-00092" summary="feat: 支持 JSX 预览">
       <created>1673018527440</created>
@@ -580,7 +573,21 @@
       <option name="project" value="LOCAL" />
       <updated>1675005322500</updated>
     </task>
-    <option name="localTasksCounter" value="139" />
+    <task id="LOCAL-00139" summary="feat: 提取 code-sandbox">
+      <created>1675005387287</created>
+      <option name="number" value="00139" />
+      <option name="presentableId" value="LOCAL-00139" />
+      <option name="project" value="LOCAL" />
+      <updated>1675005387287</updated>
+    </task>
+    <task id="LOCAL-00140" summary="feat: 提取 code-sandbox">
+      <created>1675005478241</created>
+      <option name="number" value="00140" />
+      <option name="presentableId" value="LOCAL-00140" />
+      <option name="project" value="LOCAL" />
+      <updated>1675005478241</updated>
+    </task>
+    <option name="localTasksCounter" value="141" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
