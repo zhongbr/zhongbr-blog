@@ -4,71 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="27b3b0e5-1ac3-4b25-8173-a590bd44bf60" name="变更" comment="feat: 修改样式">
-      <change afterPath="$PROJECT_DIR$/packages/code-sandbox/src/default.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/code-sandbox/src/global.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/code-sandbox/src/iframe/iframe.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/code-sandbox/src/iframe/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/code-sandbox/src/webcomponent.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/code-sandbox/types/core/amd/define-react.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/code-sandbox/types/core/amd/define.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/code-sandbox/types/core/amd/index.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/code-sandbox/types/core/amd/require.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/code-sandbox/types/core/amd/scriptLoader.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/code-sandbox/types/core/event/index.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/code-sandbox/types/core/jsx/compile.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/code-sandbox/types/core/jsx/index.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/code-sandbox/types/core/jsx/plugin.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/code-sandbox/types/core/jsx/types.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/code-sandbox/types/core/jsx/worker.worker.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/code-sandbox/types/core/proxy/index.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/code-sandbox/types/default.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/code-sandbox/types/iframe/html.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/code-sandbox/types/iframe/iframe.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/code-sandbox/types/iframe/index.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/code-sandbox/types/index.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/code-sandbox/types/type.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/code-sandbox/types/utils/iframe.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/code-sandbox/types/utils/logger.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/code-sandbox/types/webcomponent.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/code-sandbox/webcomponent/assets/worker.worker-aeb24990.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/code-sandbox/webcomponent/manifest.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/code-sandbox/webcomponent/webcomponent.umd.cjs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/code-sandbox/webcomponent/webcomponent.umd.cjs.map" afterDir="false" />
+    <list default="true" id="27b3b0e5-1ac3-4b25-8173-a590bd44bf60" name="变更" comment="feat: 提取 code-sandbox">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/code-sandbox/demo/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/code-sandbox/demo/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/code-sandbox/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/code-sandbox/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/code-sandbox/src/core/event/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/code-sandbox/src/core/event/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/code-sandbox/src/core/proxy/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/code-sandbox/src/core/proxy/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/code-sandbox/src/iframe/html.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/code-sandbox/src/iframe/html.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/code-sandbox/src/iframe/iframe.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/code-sandbox/src/iframe/iframe.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/code-sandbox/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/code-sandbox/src/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/code-sandbox/src/utils/wait-iframe.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/code-sandbox/src/utils/iframe.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/packages/code-sandbox/vite.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/code-sandbox/vite.config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/config/paths.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/config/paths.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/config/webpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/config/webpack.config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/components/JsxDemoDisplay/index.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/components/JsxDemoDisplay/module.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/components/JsxDemoDisplay/style.module.less" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/components/Sandbox/hooks/index.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/components/Sandbox/hooks/useIframeModule.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/components/Sandbox/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/components/Sandbox/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/components/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/components/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/container/Passage/components/Render/CodeBlock/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/container/Passage/components/Render/CodeBlock/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/container/Playground/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/container/Playground/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/container/Playground/modules/Editor/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/container/Playground/modules/Editor/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/container/Playground/template.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/iframe-amd.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/types/utils.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/types/utils.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/utils/amd/define-react.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/utils/amd/define.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/utils/amd/index.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/utils/amd/require.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/utils/amd/scriptLoader.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/utils/amd/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/code-sandbox/types/core/amd/types.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/utils/post-message.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pnpm-lock.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pnpm-lock.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -301,13 +240,6 @@
       <workItem from="1673695567742" duration="183000" />
       <workItem from="1673697149979" duration="3563000" />
       <workItem from="1673709859369" duration="1555000" />
-    </task>
-    <task id="LOCAL-00084" summary="feat: 修改文章">
-      <created>1672829978022</created>
-      <option name="number" value="00084" />
-      <option name="presentableId" value="LOCAL-00084" />
-      <option name="project" value="LOCAL" />
-      <updated>1672829978022</updated>
     </task>
     <task id="LOCAL-00085" summary="feat: 修改文章">
       <created>1672843480917</created>
@@ -645,7 +577,14 @@
       <option name="project" value="LOCAL" />
       <updated>1674812246232</updated>
     </task>
-    <option name="localTasksCounter" value="133" />
+    <task id="LOCAL-00133" summary="feat: 提取 code-sandbox">
+      <created>1674986717088</created>
+      <option name="number" value="00133" />
+      <option name="presentableId" value="LOCAL-00133" />
+      <option name="project" value="LOCAL" />
+      <updated>1674986717088</updated>
+    </task>
+    <option name="localTasksCounter" value="134" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -665,7 +604,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="feat: 修改文章内链" />
     <MESSAGE value="feat: 增加阴影" />
     <MESSAGE value="feat: 增加 Playground" />
     <MESSAGE value="feat: 支持引入依赖" />
@@ -690,7 +628,8 @@
     <MESSAGE value="feat: 修改字体" />
     <MESSAGE value="fix: 修复编译 markdown 在 windows 上报错的bug，修复首页特效在切换页面后失效的问题" />
     <MESSAGE value="feat: 修改样式" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: 修改样式" />
+    <MESSAGE value="feat: 提取 code-sandbox" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: 提取 code-sandbox" />
   </component>
   <component name="VgoProject">
     <integration-enabled>false</integration-enabled>

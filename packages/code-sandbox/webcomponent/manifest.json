@@ -1,7 +1,0 @@
-{
-  "src/webcomponent.tsx": {
-    "file": "webcomponent.umd.cjs",
-    "src": "src/webcomponent.tsx",
-    "isEntry": true
-  }
-}

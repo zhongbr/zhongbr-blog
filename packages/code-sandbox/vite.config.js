@@ -53,7 +53,8 @@ export default defineConfig(({ command }) => {
                         'react-dom': 'ReactDom'
                     }
                 }
-            }
+            },
+            reportCompressedSize: false
         },
         plugins: [
             react()

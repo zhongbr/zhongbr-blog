@@ -5,3 +5,5 @@
 .md-cache
 /packages/code-sandbox/iframe/
 /packages/code-sandbox/dist/
+/packages/code-sandbox/types/
+/packages/code-sandbox/webcomponent/
