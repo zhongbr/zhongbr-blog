@@ -26,18 +26,20 @@ ReactDom.render(<CodeSandbox html="<h1>hello world</h1>" />, document.getElement
 es module
 ```html
 <script type="module">
-    import { CodeSandbox, registerPlugins } from 'https://cdn.jsdelivr.net/npm/@zhongbr/code-sandbox@0.0.0-beta.2/webcomponent/webcomponent.js';
-    import { ReactPolyfill } from 'https://cdn.jsdelivr.net/npm/@zhongbr/code-sandbox@0.0.0-beta.2/plugins/react/react.js';
-    import { JsxPlugin } from 'https://cdn.jsdelivr.net/npm/@zhongbr/code-sandbox@0.0.0-beta.2/plugins/babel/babel.js';
-    registerPlugins([
-        new ReactPolyfill(),
-        new JsxPlugin(),
-    ]);
-    if (!customElements.get('code-sandbox')) {
-        customElements.define('code-sandbox', CodeSandbox);
-    }
+  import {
+    CodeSandbox,
+    registerPlugins
+  } from "https://cdn.jsdelivr.net/npm/@zhongbr/code-sandbox@latest/es/webcomponent.js";
+  import { ReactPolyfill } from "https://cdn.jsdelivr.net/npm/@zhongbr/code-sandbox@latest/es/plugins/react/index.js";
+  import { JsxPlugin, EsmToAmdPlugin } from "https://cdn.jsdelivr.net/npm/@zhongbr/code-sandbox@latest/es/plugins/babel/index.js";
+  registerPlugins([new JsxPlugin(), new EsmToAmdPlugin(), new ReactPolyfill()]);
+  if (!customElements.get("code-sandbox")) {
+    customElements.define("code-sandbox", CodeSandbox);
+  }
 </script>
-<code-sandbox html="<h1>hello world</h1>"></code-sandbox>
+<code-sandbox
+  html="<div id='root'>wait...🚀</div>"
+/>
 ```
 
 ## 2. Base usage

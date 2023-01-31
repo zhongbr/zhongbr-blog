@@ -1,5 +1,5 @@
-import { i as initMainThreadService, s as setSandboxPlugins, o as onIframeLoadingModule, a as iframeStyles, d as DefaultHtml, b as DefaultIndexCode, D as DefaultDemoCode, c as DefaultCssCode, g as getSandboxRefresher, e as getPlugins, f as getIframeHTML } from "./index-bbd22918.js";
-import { _, r } from "./index-bbd22918.js";
+import { i as initMainThreadService, s as setSandboxPlugins, o as onIframeLoadingModule, a as iframeStyles, d as DefaultHtml, b as DefaultIndexCode, D as DefaultDemoCode, c as DefaultCssCode, g as getSandboxRefresher, e as getPlugins, f as getIframeHTML } from "./index-82cd26db.js";
+import { _, r } from "./index-82cd26db.js";
 import "./core/event/index.js";
 import "./core/proxy/index.js";
 import "./types-9fd137f3.js";

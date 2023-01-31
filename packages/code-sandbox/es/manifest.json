@@ -4,7 +4,7 @@
     "src": "src/index.tsx",
     "isEntry": true,
     "imports": [
-      "_index-bbd22918.js",
+      "_index-82cd26db.js",
       "src/core/event/index.ts",
       "src/core/proxy/index.ts",
       "_types-9fd137f3.js"
@@ -25,7 +25,7 @@
     "src": "src/webcomponent.tsx",
     "isEntry": true,
     "imports": [
-      "_index-bbd22918.js",
+      "_index-82cd26db.js",
       "src/core/event/index.ts",
       "src/core/proxy/index.ts",
       "_types-9fd137f3.js"
@@ -67,8 +67,8 @@
   "_types-9fd137f3.js": {
     "file": "types-9fd137f3.js"
   },
-  "_index-bbd22918.js": {
-    "file": "index-bbd22918.js",
+  "_index-82cd26db.js": {
+    "file": "index-82cd26db.js",
     "imports": [
       "src/core/event/index.ts",
       "src/core/proxy/index.ts",

@@ -1,6 +1,6 @@
 {
   "name": "@zhongbr/code-sandbox",
-  "version": "0.0.0-beta.4",
+  "version": "0.0.0-beta.5",
   "description": "Display JSX Code demos in your web pages easily.",
   "type": "module",
   "types": "es",
@@ -11,8 +11,6 @@
     "build": "pnpm run build:iframe && vite build",
     "serve": "vite serve"
   },
-  "unpkg": "./dist/main.umd.cjs",
-  "jsdelivr": "./dist/main.umd.cjs",
   "keywords": [
     "sandbox",
     "iframe",

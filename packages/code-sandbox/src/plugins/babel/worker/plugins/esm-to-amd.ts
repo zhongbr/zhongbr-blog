@@ -87,7 +87,7 @@ registerPlugin(esm2Amd, (context, params) => {
                 context.template(`const __default_import = m => Reflect.has(m, 'default') ? m['default'] : m;`)(),
                 ...state.path.node.body,
                 ...exportsAst.length ? [
-                    t.template('module.exports = %%exports%%')({
+                    context.template('module.exports = %%exports%%')({
                         exports: t.objectExpression(exportsAst)
                     })
                 ] : []

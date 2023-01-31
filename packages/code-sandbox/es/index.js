@@ -1,6 +1,6 @@
 import require$$0, { useRef, useLayoutEffect } from "react";
-import { i as initMainThreadService, g as getSandboxRefresher, o as onIframeLoadingModule, s as setSandboxPlugins, a as iframeStyles, D as DefaultDemoCode, b as DefaultIndexCode, c as DefaultCssCode, d as DefaultHtml, e as getPlugins, f as getIframeHTML } from "./index-bbd22918.js";
-import { _, r } from "./index-bbd22918.js";
+import { i as initMainThreadService, g as getSandboxRefresher, o as onIframeLoadingModule, s as setSandboxPlugins, a as iframeStyles, D as DefaultDemoCode, b as DefaultIndexCode, c as DefaultCssCode, d as DefaultHtml, e as getPlugins, f as getIframeHTML } from "./index-82cd26db.js";
+import { _, r } from "./index-82cd26db.js";
 import "./core/event/index.js";
 import "./core/proxy/index.js";
 import "./types-9fd137f3.js";

@@ -14,8 +14,8 @@ import { IPageConfig, PageConfigContext, ResponsiveEnum, usePersistFn, useStates
 import "./app.less";
 
 registerPlugins([
-    new EsmToAmdPlugin(),
     new JsxPlugin(),
+    new EsmToAmdPlugin(),
     new ReactPolyfill()
 ]);
 
