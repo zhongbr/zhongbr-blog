@@ -1,3 +1,0 @@
-import { startJsxServiceWorker } from 'jsx-service/es/worker';
-console.log('web worker started ');
-startJsxServiceWorker();

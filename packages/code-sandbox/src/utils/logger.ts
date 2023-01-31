@@ -1,6 +1,4 @@
-import * as process from "process";
-
-const isProd = process.env.NODE_ENV === 'production';
+const isProd = import.meta.env.PROD;
 
 const debugOnlyLevel: Array<keyof Console> = ['log', 'debug'];
 
@@ -14,4 +12,5 @@ const logger = debugOnlyLevel.reduce((pre, key) => {
         }
     });
 }, {} as Pick<Console, 'log' | 'info' | 'debug' | 'error' | 'warn'>);
+
 export default logger;

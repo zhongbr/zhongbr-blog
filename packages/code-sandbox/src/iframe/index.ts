@@ -1,4 +1,4 @@
-import { waitIframeReady, onIframeLoadingModule } from "../utils/iframe";
+import { waitIframeReady } from "../utils/iframe";
 import { callProxy, waitProxy } from "../core/proxy";
 import { DemoServiceName, IDemoService } from "../type";
 
@@ -6,14 +6,14 @@ export interface IOptions {
     iframe: HTMLIFrameElement | null;
     index?: string;
     code?: string;
-    settings?: string;
+    html?: string;
     css?: string;
     className?: string;
     style?: string;
 }
 
 export const getSandboxRefresher = (opt: IOptions) => {
-    const { iframe, code, index, settings, css, className, style } = opt;
+    const { iframe, code, index, html, css, className, style } = opt;
 
     /**
      * 定义并运行一个模块
@@ -50,8 +50,16 @@ export const getSandboxRefresher = (opt: IOptions) => {
         await refreshIndex();
     }
 
-    const refreshSettings = async () => {
-        await defineAndRunModule('/settings', ['require'], settings);
+    const refreshHtml = async () => {
+        // 等待 demo iframe 提供的服务准备好
+        await waitIframeReady(iframe);
+        await waitProxy(iframe.contentWindow, DemoServiceName);
+        await callProxy<IDemoService>({
+            win: iframe.contentWindow,
+            serviceId: DemoServiceName,
+            method: 'setBodyHtml',
+            payload: [html]
+        });
         await refreshApp();
     }
 
@@ -67,6 +75,17 @@ export const getSandboxRefresher = (opt: IOptions) => {
         });
     };
 
-    return { refreshApp, refreshIndex, refreshSettings, refreshStyle };
+    return { refreshApp, refreshIndex, refreshHtml, refreshStyle };
 };
 export { getIframeHTML, iframeStyles } from './html';
+
+export const setSandboxPlugins = async (iframe: HTMLIFrameElement | null, pluginsId: string[]) => {
+    await waitIframeReady(iframe);
+    await waitProxy(iframe.contentWindow, DemoServiceName);
+    return await callProxy<IDemoService>({
+        win: iframe.contentWindow,
+        serviceId: DemoServiceName,
+        method: 'setPlugins',
+        payload: [pluginsId]
+    });
+};

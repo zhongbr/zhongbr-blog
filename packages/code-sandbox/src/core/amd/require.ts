@@ -1,6 +1,7 @@
 import path from 'path-browserify';
 
 import { IAmdModuleManagerContext, IRequireCtx, IRequireFunc, IModule, IEventTypes } from "./types";
+import {IPlugin} from "../../plugins/types";
 
 type PromiseRes<T> = T extends Promise<infer P> ? P : unknown;
 
@@ -32,22 +33,27 @@ export default function bindRequireToCtx (ctx: IAmdModuleManagerContext) {
         return path.resolve(ctx.root, 'node_modules', modulePath!);
     };
 
-    const resolveDeps: IRequireFunc['resolveDeps'] = async (packageName, version, file) => {
-        const versionSuffix = version ? `@${version}` : '';
-        let file_ = file, packageName_ = packageName;
-        // React and React dom doesn't specific `unpkg` or `jsdelivr` filed in `package.json`,
-        // set umd path manually.
-        if (packageName.toLowerCase() === 'react' && !file_) {
-            packageName_ = 'react';
-            file_ = '/umd/react.production.min.js';
-        }
-        if (packageName.toLowerCase().replace('-', '') === 'reactdom' && !file_) {
-            packageName_ = 'react-dom';
-            file_ = '/umd/react-dom.production.min.js';
-        }
-        const fileSuffix = file_ ? `${file_}` : '';
-        // `return false` to cancel auto require deps.
-        return `https://unpkg.com/${packageName_}${versionSuffix}${fileSuffix}`;
+    const resolveDeps: IRequireFunc['resolveDeps'] = async (_packageName, _version, _file) => {
+        const params = {
+            packageName: _packageName,
+            version: _version,
+            file: _file
+        };
+        // 调用插件的 resolveModuleUrl 钩子
+        const res = await ctx.pluginReduce(
+            async (preValue, plugin) => {
+                const res = await plugin.resolveModuleUrl(preValue as typeof params);
+                if (typeof res === 'string') {
+                    return {
+                        result: res as unknown as typeof preValue,
+                        break: true
+                    };
+                }
+                return { result: res as typeof preValue };
+            },
+            params as string | typeof params
+        );
+        return res as string;
     };
 
     const moduleFactory = async (moduleName: string, _this: IRequireCtx): Promise<IModule | undefined> => {
@@ -116,6 +122,18 @@ export default function bindRequireToCtx (ctx: IAmdModuleManagerContext) {
             }
         }
 
+        let depModuleNames = dependencies.get(modulePath);
+
+        // 拿到声明后，开始调用插件的钩子，修改模块的依赖信息或者声明
+        if (typeof factory === 'string') {
+            const { deps: _depModuleNames, factory: factory_ } = await ctx.pluginReduce(async (preValue, plugin) => {
+                const result = await plugin.beforeModuleGenerate(_this, preValue);
+                return { result: { ...result, name: moduleName } };
+            }, { name: moduleName, deps: depModuleNames, factory } as { name: string, deps?: string[]; factory: string; });
+            factory = factory_ as typeof factory;
+            depModuleNames = _depModuleNames;
+        }
+
         // 拿到声明，开始生成模块，来一个 commonjs 三件套
         const _exports = {};
         const commonjs = {
@@ -125,34 +143,20 @@ export default function bindRequireToCtx (ctx: IAmdModuleManagerContext) {
         };
 
         // 先加载模块的依赖，特殊处理 commonjs 的三个依赖
-        const depModuleNames = dependencies.get(modulePath);
         let deps: IModule[] = [];
         if (depModuleNames?.length) {
-            // 从依赖中剔除掉 commonjs 的三件套，这三个不是一般的模块，记录三个对象的位置
-            const [indexes, depsNames] = depModuleNames?.reduce(([indexes, depsNames], item, index) => {
-                if (Object.keys(commonjs).includes(item)) {
-                    return [Object.assign(indexes, { [item]: index }), depsNames];
-                }
-                return [indexes, depsNames.concat(item)];
-            }, [{}, [] as string[]])
-            deps = await require_(depsNames) as IModule[];
-            // 把 commonjs 三件套按照原来的位置放回去
-            Object.entries(indexes).forEach(([dep, index]) => {
-                // @ts-ignore
-                deps = [...deps.slice(0, index - 1), commonjs[dep], ...deps.slice(index)];
-            });
+            deps = await Promise.all(depModuleNames.map(depName => {
+                if (commonjs[depName]) return commonjs[depName];
+                return require_(depName);
+            }));
         }
 
         try {
             // 执行 factory ，拿到模块
             let exportsReturn: IModule;
             if (typeof factory === 'string') {
-                const res = await ctx.jsxService.transformJsxComponentCode(factory);
-                if (!res?.code) {
-                    throw new Error(`[amd] module error: ${modulePath} failed to compile code`);
-                }
                 // eslint-disable-next-line no-eval
-                exportsReturn = await eval(res.code)(...deps);
+                exportsReturn = await eval(factory)(...deps);
             }
             else {
                 exportsReturn = await factory(...deps);
@@ -160,14 +164,12 @@ export default function bindRequireToCtx (ctx: IAmdModuleManagerContext) {
 
             // 先判断 exports 对象是否挂载了内容，如果没有就使用 factory 的返回值
             const module_ = (() => {
-                if (Object.keys(commonjs.exports).length) {
-                    return commonjs.exports;
-                }
-                if (Object.keys(commonjs.module.exports).length) {
+                if (Object.keys(commonjs.module.exports).length || typeof commonjs.module.exports !== 'object') {
                     return commonjs.module.exports;
                 }
                 return exportsReturn;
             })() as IModule;
+
             cache.set(modulePath, module_);
             ctx.logger.log('[amd] resolve module tasks head', modulePath, module_);
             return clearAllTasks(undefined, module_);
@@ -177,7 +179,15 @@ export default function bindRequireToCtx (ctx: IAmdModuleManagerContext) {
     };
 
     const requireProto= async (_this: IRequireCtx, ...args: Parameters<IRequireFunc>) => {
-        const [moduleNames, cb] = args;
+        const [moduleNames_, cb] = args;
+
+        // 调用 插件 require 钩子，处理模块名称
+        const moduleNames = await ctx.pluginReduce(async (preValue, plugin) => {
+            return {
+                result: await plugin.require(_this, preValue)
+            };
+        }, moduleNames_);
+
         let modules: PromiseRes<ReturnType<IRequireFunc>>;
         if (Array.isArray(moduleNames)) {
             modules = await Promise.all(moduleNames.map(name => moduleFactory(name, _this)));

@@ -4,8 +4,7 @@ import bindRequireToCtx from "./require";
 import { IAmdModuleManagerContext, IEventTypes } from './types';
 import { createEventSubscribeManager } from "../event";
 import { Factory } from "./types";
-import { callProxy, waitProxy } from '../proxy';
-import { ServiceName, IService } from '../jsx/types';
+import { IPlugin } from "../../plugins/types";
 
 export function createAmdManager(root='/', scriptTimeout=10000, logger: IAmdModuleManagerContext['logger'] = console) {
     const ctx = {} as IAmdModuleManagerContext;
@@ -14,18 +13,18 @@ export function createAmdManager(root='/', scriptTimeout=10000, logger: IAmdModu
     ctx.scriptTimeout = scriptTimeout;
     ctx.scriptContainerDom = document.body;
     ctx.logger = logger;
-    ctx.jsxService = {
-        transformJsxComponentCode: async code => {
-            const win = window.top || window.parent || window.opener || window;
-            // 等待jsx服务创建完成，然后再执行后面的操作
-            await waitProxy(win, ServiceName);
-            return await callProxy<IService>({
-                win,
-                serviceId: ServiceName,
-                method: 'transformJsxComponentCode',
-                payload: [code]
-            }) as ReturnType<IService['transformJsxComponentCode']>;
+    ctx.plugins = [];
+    // 遍历插件的方法
+    ctx.pluginReduce = async (reducer, initValue) => {
+        let result: any = initValue;
+        for (const plugin of ctx.plugins) {
+            const { result: res, break: break_ } = await reducer(result, plugin);
+            if (break_) {
+                return res;
+            }
+            result = res;
         }
+        return result;
     };
 
     bindRequireToCtx(ctx);
@@ -79,6 +78,9 @@ export function createAmdManager(root='/', scriptTimeout=10000, logger: IAmdModu
                 Reflect.set(global_, 'require', currentRequire);
             };
         },
+        setPlugins(plugins: IPlugin[]) {
+            ctx.plugins = plugins;
+        }
     };
 
     ctx.define('module-manager', [], async () => ({

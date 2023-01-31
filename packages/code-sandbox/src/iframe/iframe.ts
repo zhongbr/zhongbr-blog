@@ -3,6 +3,7 @@ import { createAmdManager } from '../core/amd';
 import { DemoServiceName, IDemoService } from '../type';
 import { iframeReady, iframeLoadingModule } from '../utils/iframe';
 import logger from '../utils/logger';
+import { generatePlugins } from './generatePlugins';
 
 // 创建一个 AMD 上下文
 const manager = createAmdManager(undefined, undefined, logger);
@@ -26,6 +27,13 @@ registerProxy<IDemoService>(DemoServiceName, {
     setStyle: async (code) => {
         style.innerHTML = code;
         return true;
+    },
+    setPlugins: async (pluginIds: string[]) => {
+        const plugins = generatePlugins(pluginIds);
+        manager.setPlugins(plugins);
+    },
+    setBodyHtml: async (html: string) => {
+        document.body.innerHTML = html;
     }
 });
 

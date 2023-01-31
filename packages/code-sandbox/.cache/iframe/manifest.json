@@ -1,0 +1,7 @@
+{
+  "src/iframe/iframe.ts": {
+    "file": "iframe.js",
+    "src": "src/iframe/iframe.ts",
+    "isEntry": true
+  }
+}

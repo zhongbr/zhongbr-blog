@@ -1,5 +1,5 @@
 import { createEventSubscribeManager } from "../event";
-import { IService } from "../jsx/types";
+import {IPlugin} from "../../plugins/types";
 
 export interface IModule {
     'default': any;
@@ -53,7 +53,8 @@ export interface IAmdModuleManagerContext {
     define: IDefine;
     require_: IRequireFunc;
     logger: Pick<Console, 'log' | 'info' | 'debug' | 'error' | 'warn'>;
-    jsxService: IService;
+    plugins: IPlugin[];
+    pluginReduce: <T=any>(reducer: (preValue: T, plugin: IPlugin) => Promise<{ result: T, break?: boolean; }>, initValue: T) => Promise<T>;
 }
 
 export enum IEventTypes {

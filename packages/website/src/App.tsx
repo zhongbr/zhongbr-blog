@@ -1,5 +1,9 @@
 import React, { Suspense, useRef } from 'react';
 import { useRoutes } from 'react-router-dom';
+import { registerPlugins } from '@zhongbr/code-sandbox';
+import { EsmToAmdPlugin, JsxPlugin } from '@zhongbr/code-sandbox/plugins/babel';
+// @ts-ignore
+import { ReactPolyfill } from '@zhongbr/code-sandbox/plugins/react';
 
 import routers from "@/config/routers";
 import { navLinks, title as titleText, titleLink } from '@/config/meta';
@@ -9,6 +13,12 @@ import { Icon, Layout, Splash, useMessage } from './components';
 import { IPageConfig, PageConfigContext, ResponsiveEnum, usePersistFn, useStates, useThemeManager, useResponsive } from './hooks';
 
 import "./app.less";
+
+registerPlugins([
+    new EsmToAmdPlugin(),
+    new JsxPlugin(),
+    new ReactPolyfill()
+]);
 
 const setBodyTheme = (theme: string) => {
     document.body.classList.forEach((className) => {

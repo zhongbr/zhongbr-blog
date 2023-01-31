@@ -7,14 +7,14 @@ import styles from './style.module.less';
 
 export interface IProps {
     indexCode: string;
-    settingsCode: string;
+    htmlCode: string;
     demoCode: string;
     cssCode: string;
     className?: string;
 }
 
 const Sandbox: React.FC<IProps> = props => {
-    const { settingsCode, demoCode, indexCode, cssCode, className } = props;
+    const { htmlCode, demoCode, indexCode, cssCode, className } = props;
 
     const [loading, setLoading] = useState(true);
     const [loadingModuleName, setLoadingModuleName] = useState(['', '']);
@@ -29,7 +29,7 @@ const Sandbox: React.FC<IProps> = props => {
 
     useEffect(() => {
         setLoading(true);
-    }, [demoCode, indexCode, settingsCode, cssCode, setLoading]);
+    }, [demoCode, indexCode, htmlCode, cssCode, setLoading]);
 
     return (
         <div className={clsx(className, styles.sandboxContainer)}>
@@ -47,7 +47,7 @@ const Sandbox: React.FC<IProps> = props => {
                 className={styles.iframe}
                 code={demoCode}
                 index={indexCode}
-                settings={settingsCode}
+                html={htmlCode}
                 css={cssCode}
                 onLoadingModule={onLoadingModule}
                 onReady={onReady}

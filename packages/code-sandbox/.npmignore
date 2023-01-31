@@ -3,5 +3,6 @@ demo/
 config/
 node_modules/
 config/
+.cache
 tsconfig.json
 vite.config.js

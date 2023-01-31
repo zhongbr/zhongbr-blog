@@ -1,12 +1,8 @@
-import { getIframeHTML, iframeStyles, getSandboxRefresher } from './iframe';
+import { getIframeHTML, iframeStyles, getSandboxRefresher, setSandboxPlugins } from './iframe';
 import * as DefaultCodes from './default';
 import { IProps as IDemoProps } from "./index";
 import { onIframeLoadingModule, initMainThreadService } from './utils/iframe';
-
-// 生成转化 jsx 代码的 worker 服务
-import('./core/jsx').then(({ getJsxService }) => {
-    getJsxService();
-});
+import { getPlugins, registerPlugins } from './plugins';
 
 initMainThreadService();
 
@@ -30,10 +26,12 @@ class CodeSandbox extends HTMLElement {
 
         const shadowRoot = this.attachShadow({ mode: 'open' });
         shadowRoot.append(this.styleElement, this.iframe);
+        // 设置插件
+        setSandboxPlugins(this.iframe, getPlugins());
     }
 
     private initIframe() {
-        const [srcDoc, src] = getIframeHTML(this.getAttribute('placeholder') || DefaultCodes.Placeholder);
+        const [srcDoc, src] = getIframeHTML();
 
         this.iframe = document.createElement('iframe');
         this.iframe.srcdoc = srcDoc;
@@ -57,26 +55,26 @@ class CodeSandbox extends HTMLElement {
     }
 
     static get observedAttributes() {
-        return ['code', 'css', 'index', 'settings', 'class', 'style', 'placeholder'];
+        return ['code', 'css', 'index', 'html', 'class', 'style'];
     }
 
     public async attributeChangedCallback(name: string, oldValue, newValue) {
-        const settings = this.getAttribute('settings') || DefaultCodes.DefaultDepsCode;
+        const html = this.getAttribute('html') || DefaultCodes.DefaultHtml;
         const index = this.getAttribute('index') || DefaultCodes.DefaultIndexCode;
         const code = this.getAttribute('code') || DefaultCodes.DefaultDemoCode;
         const css = this.getAttribute('css') || DefaultCodes.DefaultCssCode;
 
-        const { refreshSettings, refreshApp, refreshIndex, refreshStyle } = getSandboxRefresher({
+        const { refreshHtml, refreshApp, refreshIndex, refreshStyle } = getSandboxRefresher({
             iframe: this.iframe,
-            settings,
+            html,
             index,
             code,
             css
         });
         const tasks = [];
         switch (name) {
-            case 'settings': {
-                tasks.push(refreshSettings())
+            case 'html': {
+                tasks.push(refreshHtml())
                 break;
             }
             case 'code': {
@@ -95,11 +93,10 @@ class CodeSandbox extends HTMLElement {
                 this.iframe.setAttribute(name, newValue);
             }
         }
-        return Promise.all(tasks);
+        const res = Promise.all(tasks);
+        this.dispatchEvent(new CustomEvent('ready'));
+        return res;
     }
 }
 
-if (!customElements.get('code-sandbox')) {
-    customElements.define('code-sandbox', CodeSandbox);
-}
-export { DefaultCodes, CodeSandbox };
+export { DefaultCodes, CodeSandbox, registerPlugins };

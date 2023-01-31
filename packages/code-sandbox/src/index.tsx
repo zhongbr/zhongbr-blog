@@ -1,25 +1,20 @@
 import React, { useLayoutEffect, useRef } from "react";
 
 import { onIframeLoadingModule, initMainThreadService } from './utils/iframe';
-import { getSandboxRefresher, getIframeHTML, iframeStyles } from './iframe';
+import { getSandboxRefresher, getIframeHTML, iframeStyles, setSandboxPlugins } from './iframe';
 import * as DefaultCodes from './default';
-
-// 生成转化 jsx 代码的 worker 服务
-import('./core/jsx').then(({ getJsxService }) => {
-    getJsxService();
-});
+import { registerPlugins, getPlugins } from './plugins';
 
 initMainThreadService();
 
 export interface IProps {
     className?: string;
     title?: string;
+    html?: string;
     code?: string;
     index?: string;
     css?: string;
-    settings?: string;
     style?: React.CSSProperties;
-    placeholder?: string;
     onLoadingModule?: (moduleName: string, url: string) => void;
     onReady?: () => void;
 }
@@ -31,9 +26,8 @@ const Demo: React.FC<IProps> = (props) => {
         code = DefaultCodes.DefaultDemoCode,
         index = DefaultCodes.DefaultIndexCode,
         css = DefaultCodes.DefaultCssCode,
-        settings= DefaultCodes.DefaultDepsCode,
+        html = DefaultCodes.DefaultHtml,
         style,
-        placeholder = DefaultCodes.Placeholder,
         onLoadingModule,
         onReady
     } = props;
@@ -41,22 +35,22 @@ const Demo: React.FC<IProps> = (props) => {
     const iframe = useRef<HTMLIFrameElement>(null);
 
     const previousCodesRef = useRef<readonly [string, string, string, string]>(null);
-    const currentCode = [settings, code, index, css] as const;
+    const currentCode = [html, code, index, css] as const;
     useLayoutEffect(() => {
         (async () => {
-            const { refreshIndex, refreshApp, refreshSettings, refreshStyle } = getSandboxRefresher({
+            const { refreshIndex, refreshApp, refreshHtml, refreshStyle } = getSandboxRefresher({
                 iframe: iframe.current,
                 code,
                 index,
                 css,
-                settings
+                html
             });
 
-            const [preSettings, preCode, preIndex, preCss] = previousCodesRef.current || [];
+            const [preHtml, preCode, preIndex, preCss] = previousCodesRef.current || [];
             const tasks = [];
             switch (true) {
-                case preSettings !== settings: {
-                    tasks.push(refreshSettings());
+                case preHtml !== html: {
+                    tasks.push(refreshHtml());
                     break;
                 }
                 case preCode !== code: {
@@ -83,9 +77,10 @@ const Demo: React.FC<IProps> = (props) => {
         onIframeLoadingModule(iframe.current, (moduleName, extraInfo) => {
             onLoadingModuleRef.current(moduleName, extraInfo);
         });
+        setSandboxPlugins(iframe.current, getPlugins());
     }, []);
 
-    const [srcDoc, src] = getIframeHTML(placeholder);
+    const [srcDoc, src] = getIframeHTML();
 
     return (
         <>
@@ -107,5 +102,5 @@ const Demo: React.FC<IProps> = (props) => {
 
 Demo.displayName = 'Demo';
 
-export { DefaultCodes };
+export { DefaultCodes, registerPlugins };
 export default Demo;

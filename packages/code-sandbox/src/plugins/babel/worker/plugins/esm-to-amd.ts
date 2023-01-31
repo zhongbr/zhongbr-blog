@@ -1,6 +1,8 @@
-import { registerPlugin } from '@babel/standalone';
+import { registerPlugin, transform } from '@babel/standalone';
+import { BasePlugin } from "../../../types";
+export const esm2Amd = 'es-module-factory';
 
-registerPlugin('es-module-factory', (context, params) => {
+registerPlugin(esm2Amd, (context, params) => {
     const { types: t } = context;
     let defaultExport;
     let importCount = 0;
@@ -20,7 +22,7 @@ registerPlugin('es-module-factory', (context, params) => {
                 }
                 const moduleId = `__import_module_${importCount++}`;
                 const requireStatement = context.template([
-                    `const ${moduleId} = await _require('${path.node.source.value}')`,
+                    `const ${moduleId} = await require('${path.node.source.value}')`,
                     ...properties !== '{}' ? [`,${properties} = ${moduleId}`] : [],
                     ...defaultImport ? [`,${defaultImport} = __default_import(${moduleId})`] : [],
                 ].join(''));
@@ -77,23 +79,19 @@ registerPlugin('es-module-factory', (context, params) => {
             }
         },
         post: (state) => {
+            const exportsAst = [
+                ...!!defaultExport ? [t.objectProperty(t.identifier('default'), t.identifier('__default'))] : [],
+                ...params.namedExport.map(name => t.objectProperty(t.identifier(name), t.identifier(name))),
+            ];
             state.path.replaceWith(t.program([
-                t.expressionStatement(t.arrowFunctionExpression(
-                    [
-                        t.identifier('_require'),
-                    ],
-                    t.blockStatement([
-                        context.template(`const __default_import = m => Reflect.has(m, 'default') ? m['default'] : m;`)(),
-                        ...state.path.node.body,
-                        t.returnStatement(t.objectExpression([
-                            ...!!defaultExport ? [t.objectProperty(t.identifier('default'), t.identifier('__default'))] : [],
-                            ...params.namedExport.map(name => t.objectProperty(t.identifier(name), t.identifier(name))),
-                        ]))
-                    ]),
-                    true
-                ))
+                context.template(`const __default_import = m => Reflect.has(m, 'default') ? m['default'] : m;`)(),
+                ...state.path.node.body,
+                ...exportsAst.length ? [
+                    t.template('module.exports = %%exports%%')({
+                        exports: t.objectExpression(exportsAst)
+                    })
+                ] : []
             ]));
         }
     }
 })
-

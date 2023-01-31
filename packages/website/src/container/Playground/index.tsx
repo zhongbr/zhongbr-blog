@@ -9,10 +9,10 @@ import { PlaygroundGetCodeSymbol, IPlaygroundCode } from '@/types/utils';
 import { Editor } from './modules';
 import styles from './style.module.less';
 
-const { DefaultDemoCode, DefaultDepsCode, DefaultIndexCode, DefaultCssCode, formatDeps } = DefaultCodes;
+const { DefaultDemoCode, DefaultHtml, DefaultIndexCode, DefaultCssCode } = DefaultCodes;
 
 let defaultDemoCode = DefaultDemoCode,
-    defaultDepsCode = DefaultDepsCode,
+    defaultHtmlCode = DefaultHtml,
     defaultIndexCode = DefaultIndexCode,
     defaultCssCode = DefaultCssCode;
 
@@ -23,15 +23,15 @@ if (window.opener && typeof window.opener[PlaygroundGetCodeSymbol] === 'function
         defaultIndexCode = res.index || DefaultIndexCode;
         defaultDemoCode = res.demo || DefaultDemoCode;
         defaultCssCode = res.css || DefaultCssCode;
-        defaultDepsCode = formatDeps(res.deps || []);
+        defaultHtmlCode = res.html || DefaultHtml;
     }
 }
 
 const Playground: React.FC = () => {
     const { onPageReady, setStates, widthLevel } = usePageConfig();
-    const defaultCodes = [defaultDemoCode, defaultIndexCode, defaultDepsCode, defaultCssCode];
-    const tags = ['App.tsx', 'index.tsx', 'settings.tsx', 'index.css'];
-    const [codes, setCodes] = useState<string[]>([defaultDemoCode, '', defaultDepsCode, defaultCssCode]);
+    const defaultCodes = [defaultDemoCode, defaultIndexCode, defaultHtmlCode, defaultCssCode];
+    const tags = ['App.js', 'index.js', 'index.html', 'index.css'];
+    const [codes, setCodes] = useState<string[]>([defaultDemoCode, '', defaultHtmlCode, defaultCssCode]);
 
     // 保存代码，区分是依赖导入还是 demo 代码
     const onCodeSave = (newCode: string, index: number) => {
@@ -63,7 +63,7 @@ const Playground: React.FC = () => {
             />
             <Sandbox
                 className={styles.display}
-                settingsCode={codes[2]}
+                htmlCode={codes[2]}
                 demoCode={codes[0]}
                 indexCode={codes[1]}
                 cssCode={codes[3]}

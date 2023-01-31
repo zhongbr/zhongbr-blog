@@ -82,7 +82,7 @@ export function registerProxy<T extends Object>(serviceId: string, obj: T) {
     const callbacks = waitServiceCallbacks.get(serviceId);
     if (callbacks) callbacks.forEach(callback => callback());
     // 监听事件
-    self.addEventListener('message', async e => {
+    const serviceHandler = async e => {
         const message = e.data as IMessageType;
         // 不是代理的消息忽略
         if (Reflect.get(message, '__proxy_internal') !== 'call') {
@@ -102,9 +102,12 @@ export function registerProxy<T extends Object>(serviceId: string, obj: T) {
             let res: unknown = method;
             if (typeof method === "function") {
                 // 调用方法回复结果
-                res = await method(...message.payload, e);
+                res = await method.call(obj, ...message.payload, e);
             }
             logger.debug('[proxy] reply', self?.location?.href || 'worker', e.source, message.receiver, message.method, (e.source || self));
+            if (res instanceof Promise) {
+                debugger;
+            }
             (e.source || self).postMessage({
                 __proxy_internal: 'reply',
                 id: message.id,
@@ -112,7 +115,11 @@ export function registerProxy<T extends Object>(serviceId: string, obj: T) {
                 payload: [res]
             } as IMessageType);
         }
-    });
+    };
+    self.addEventListener('message', serviceHandler);
+    return () => {
+        self.removeEventListener('message', serviceHandler);
+    };
 }
 
 /**
