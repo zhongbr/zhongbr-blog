@@ -30,7 +30,7 @@ const waitServiceCallbacks: Map<string, Function[]> = new Map();
 self.addEventListener('message', e => {
     const message = e.data as IMessageType;
     // 不是代理的消息忽略
-    if (Reflect.get(message, '__proxy_internal') !== 'wait') {
+    if (typeof message !== 'object' || Reflect.get(message, '__proxy_internal') !== 'wait') {
         return;
     }
     // 去除等待服务id
@@ -85,7 +85,7 @@ export function registerProxy<T extends Object>(serviceId: string, obj: T) {
     const serviceHandler = async e => {
         const message = e.data as IMessageType;
         // 不是代理的消息忽略
-        if (Reflect.get(message, '__proxy_internal') !== 'call') {
+        if (typeof message !== 'object' || Reflect.get(message, '__proxy_internal') !== 'call') {
             return;
         }
         if (message.receiver === serviceId) {
@@ -105,9 +105,6 @@ export function registerProxy<T extends Object>(serviceId: string, obj: T) {
                 res = await method.call(obj, ...message.payload, e);
             }
             logger.debug('[proxy] reply', self?.location?.href || 'worker', e.source, message.receiver, message.method, (e.source || self));
-            if (res instanceof Promise) {
-                debugger;
-            }
             (e.source || self).postMessage({
                 __proxy_internal: 'reply',
                 id: message.id,
@@ -139,7 +136,7 @@ export async function waitProxy(win: WindowProxy | Worker, serviceId: string, ti
         const callback: EventListener = (e: MessageEvent) => {
             if ((e.source || self) !== win) return;
             const message = e.data as IMessageType;
-            if (Reflect.get(message, '__proxy_internal') !== 'wait-reply' || message.id !== messageId) {
+            if (typeof message !== 'object' || Reflect.get(message, '__proxy_internal') !== 'wait-reply' || message.id !== messageId) {
                 return;
             }
             resolve(null);
@@ -186,7 +183,7 @@ export async function callProxy<
         const callback: EventListener = (e: MessageEvent) => {
             if (!(win instanceof Worker) && (e.source || self) !== win) return;
             const message = e.data as IMessageType;
-            if (Reflect.get(message, '__proxy_internal') !== 'reply' || message.id !== messageId) return;
+            if (typeof message !== 'object' || Reflect.get(message, '__proxy_internal') !== 'reply' || message.id !== messageId) return;
             handler.removeEventListener('message', callback);
             clearTimeout(timeout_);
             logger.debug('[proxy] receive reply', self?.location?.href || 'worker', message.id);

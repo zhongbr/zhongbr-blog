@@ -1,23 +1,11 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
-import { existsSync } from 'fs';
-import { rm } from 'fs/promises';
 import path from 'path';
 import dts from 'vite-plugin-dts';
 
 import serveConfig from './config/serve';
 
-const target = process.env.TARGET;
-const formats = process.env.FORMATS;
-const fileName = process.env.FILE_NAME;
-const out = process.env.OUT;
-const clean = process.env.CLEAN === 'true';
-
 const cwd = process.cwd();
-
-if (existsSync(out) && clean) {
-    await rm(out, { recursive: true });
-}
 
 export default defineConfig(({ command }) => {
     const isServe = command === 'serve';
@@ -36,12 +24,19 @@ export default defineConfig(({ command }) => {
             sourcemap: true,
             manifest: true,
             lib: {
-                entry: target,
-                name: 'CodeSandbox',
-                fileName,
-                formats: formats.split(',')
+                entry: {
+                    index: 'src/index.tsx',
+                    webcomponent: 'src/webcomponent.tsx',
+                    'plugins/babel/index': 'src/plugins/babel/index.ts',
+                    'plugins/react/index': 'src/plugins/react/index.ts',
+                    'plugins/resolve/index': 'src/plugins/resolve/index.ts',
+                    'core/event/index': 'src/core/event/index.ts',
+                    'core/proxy/index': 'src/core/proxy/index.ts',
+                    'core/amd/index': 'src/core/amd/index.ts'
+                },
+                formats: ['es']
             },
-            outDir: out,
+            outDir: './es',
             minify: 'terser',
             terserOptions: {
                 compress: true,
@@ -60,9 +55,7 @@ export default defineConfig(({ command }) => {
         },
         plugins: [
             react(),
-            dts({
-                insertTypesEntry: true
-            })
+            dts()
         ],
         optimizeDeps: {
             entries: [

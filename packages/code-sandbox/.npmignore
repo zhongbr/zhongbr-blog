@@ -2,7 +2,7 @@ src/
 demo/
 config/
 node_modules/
-config/
 .cache
 tsconfig.json
 vite.config.js
+vite-iframe.config.js

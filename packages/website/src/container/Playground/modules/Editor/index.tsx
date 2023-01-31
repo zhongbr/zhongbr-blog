@@ -113,14 +113,26 @@ const Editor: React.FC<IProps> = (props) => {
     }, [index, defaultValues, tabsName]);
 
     useLayoutEffect(() => {
-        if (!values || !tabsName) {
+        console.log(tabsName, tabsName?.[index]?.endsWith('html'));
+        if (!tabsName) {
             return;
         }
+
+        const changeLanguage = (language: string) => {
+            const model = editorInst.current?.getModel();
+            if (model) {
+                editor.setModelLanguage(model, language);
+            }
+        };
+
         if (tabsName[index].endsWith('css')) {
-            editorInst.current?.setModel(createModel(values[index], 'css'));
+            changeLanguage('css');
+        }
+        else if (tabsName[index].endsWith('html')) {
+            changeLanguage('html');
         }
         else {
-            editorInst.current?.setModel(createModel(values[index], 'typescript'));
+            changeLanguage('typescript');
         }
     }, [values, index, tabsName]);
 

@@ -11,8 +11,8 @@ npm install @zhongbr/code-sandbox
 ```jsx
 import ReactDom from 'react-dom';
 import  CodeSandbox, { registerPlugins } from '@zhongbr/code-sandbox';
-import { ReactPolyfill } from '@zhongbr/code-sandbox/plugins/react';
-import { JsxPlugin } from '@zhongbr/code-sandbox/plugins/babel';
+import { ReactPolyfill } from '@zhongbr/code-sandbox/es/plugins/react';
+import { JsxPlugin } from '@zhongbr/code-sandbox/es/plugins/babel';
 
 registerPlugins([
     new ReactPolyfill(),
@@ -81,6 +81,10 @@ You can use `addEventListener` method of `code-sandbox` dom node to access the e
 ### Internal plugins
 
 Some internal plugins are provided in `plugins` directory of this package.
+
+```javascript
+import { JsxPlugin } from '@zhongbr/code-sandbox/es/plugins/babel';
+```
 
 - `unpkg`: `UnpkgPlugin`, use [https://unpkg.com](https://unpkg.com) to load package not exists.
 - `jsdelivr`: `JsdelivrPlugin`, use [https://jsdelivr.com](https://jsdelivr.com) to load package not exists.

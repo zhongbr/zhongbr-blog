@@ -8,7 +8,7 @@ class JsxPlugin extends BasePlugin {
     }
 
     async beforeModuleGenerate(ctx, meta) {
-        meta.factory = service.jsx(meta.factory);
+        meta.factory = await service.jsx(meta.factory);
         return meta;
     }
 }

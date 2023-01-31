@@ -12,7 +12,7 @@ const services = /* @__PURE__ */ new Set();
 const waitServiceCallbacks = /* @__PURE__ */ new Map();
 self.addEventListener("message", (e) => {
   const message = e.data;
-  if (Reflect.get(message, "__proxy_internal") !== "wait") {
+  if (typeof message !== "object" || Reflect.get(message, "__proxy_internal") !== "wait") {
     return;
   }
   const serviceId = message.receiver;
@@ -55,7 +55,7 @@ function registerProxy(serviceId, obj) {
   const serviceHandler = async (e) => {
     var _a;
     const message = e.data;
-    if (Reflect.get(message, "__proxy_internal") !== "call") {
+    if (typeof message !== "object" || Reflect.get(message, "__proxy_internal") !== "call") {
       return;
     }
     if (message.receiver === serviceId) {
@@ -73,9 +73,6 @@ function registerProxy(serviceId, obj) {
         res = await method.call(obj, ...message.payload, e);
       }
       logger.debug("[proxy] reply", ((_a = self == null ? void 0 : self.location) == null ? void 0 : _a.href) || "worker", e.source, message.receiver, message.method, e.source || self);
-      if (res instanceof Promise) {
-        debugger;
-      }
       (e.source || self).postMessage({
         __proxy_internal: "reply",
         id: message.id,
@@ -100,7 +97,7 @@ async function waitProxy(win, serviceId, timeout = 1e4) {
       if ((e.source || self) !== win)
         return;
       const message = e.data;
-      if (Reflect.get(message, "__proxy_internal") !== "wait-reply" || message.id !== messageId) {
+      if (typeof message !== "object" || Reflect.get(message, "__proxy_internal") !== "wait-reply" || message.id !== messageId) {
         return;
       }
       resolve3(null);
@@ -134,7 +131,7 @@ async function callProxy({ win, serviceId, method, payload, timeout = 1e4 }) {
       if (!(win instanceof Worker) && (e.source || self) !== win)
         return;
       const message = e.data;
-      if (Reflect.get(message, "__proxy_internal") !== "reply" || message.id !== messageId)
+      if (typeof message !== "object" || Reflect.get(message, "__proxy_internal") !== "reply" || message.id !== messageId)
         return;
       handler.removeEventListener("message", callback);
       clearTimeout(timeout_);

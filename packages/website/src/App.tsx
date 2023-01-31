@@ -1,9 +1,8 @@
 import React, { Suspense, useRef } from 'react';
 import { useRoutes } from 'react-router-dom';
 import { registerPlugins } from '@zhongbr/code-sandbox';
-import { EsmToAmdPlugin, JsxPlugin } from '@zhongbr/code-sandbox/plugins/babel';
-// @ts-ignore
-import { ReactPolyfill } from '@zhongbr/code-sandbox/plugins/react';
+import { EsmToAmdPlugin, JsxPlugin } from '@zhongbr/code-sandbox/es/plugins/babel';
+import { ReactPolyfill } from '@zhongbr/code-sandbox/es/plugins/react';
 
 import routers from "@/config/routers";
 import { navLinks, title as titleText, titleLink } from '@/config/meta';
