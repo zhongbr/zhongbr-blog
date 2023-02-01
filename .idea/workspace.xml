@@ -4,16 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="27b3b0e5-1ac3-4b25-8173-a590bd44bf60" name="变更" comment="feat: 优化 babel 加载时机">
+    <list default="true" id="27b3b0e5-1ac3-4b25-8173-a590bd44bf60" name="变更" comment="feat: 修改样式问题">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/code-sandbox/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/code-sandbox/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/components/Sandbox/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/components/Sandbox/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/components/Sandbox/style.module.less" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/components/Sandbox/style.module.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/components/Splash/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/components/Splash/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/packages/website/src/components/Splash/style.module.less" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/components/Splash/style.module.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/container/Passage/components/Render/CodeBlock/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/container/Passage/components/Render/CodeBlock/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/container/Passage/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/container/Passage/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/container/Passage/style.module.less" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/container/Passage/style.module.less" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -144,7 +137,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="npm.build-markdown">
+  <component name="RunManager" selected="npm.start-website">
     <configuration name="build-markdown" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="run" />
@@ -165,21 +158,21 @@
       <envs />
       <method v="2" />
     </configuration>
-    <configuration name="build:dist" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
-      <package-json value="$PROJECT_DIR$/packages/code-sandbox/package.json" />
-      <command value="run" />
-      <scripts>
-        <script value="build:dist" />
-      </scripts>
-      <node-interpreter value="project" />
-      <envs />
-      <method v="2" />
-    </configuration>
     <configuration name="serve" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/packages/code-sandbox/package.json" />
       <command value="run" />
       <scripts>
         <script value="serve" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="start-website" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="start-website" />
       </scripts>
       <node-interpreter value="project" />
       <envs />
@@ -197,11 +190,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="npm.start-website" />
         <item itemvalue="npm.build-markdown" />
         <item itemvalue="npm.start" />
         <item itemvalue="npm.build" />
         <item itemvalue="npm.serve" />
-        <item itemvalue="npm.build:dist" />
       </list>
     </recent_temporary>
   </component>
@@ -246,13 +239,7 @@
       <workItem from="1673695567742" duration="183000" />
       <workItem from="1673697149979" duration="3563000" />
       <workItem from="1673709859369" duration="1555000" />
-    </task>
-    <task id="LOCAL-00100" summary="feat: 支持引入依赖">
-      <created>1673167024660</created>
-      <option name="number" value="00100" />
-      <option name="presentableId" value="LOCAL-00100" />
-      <option name="project" value="LOCAL" />
-      <updated>1673167024660</updated>
+      <workItem from="1675241351839" duration="272000" />
     </task>
     <task id="LOCAL-00101" summary="feat: demo支持直接打开playground">
       <created>1673175845635</created>
@@ -590,7 +577,14 @@
       <option name="project" value="LOCAL" />
       <updated>1675223071364</updated>
     </task>
-    <option name="localTasksCounter" value="149" />
+    <task id="LOCAL-00149" summary="feat: 修改样式问题">
+      <created>1675241125061</created>
+      <option name="number" value="00149" />
+      <option name="presentableId" value="LOCAL-00149" />
+      <option name="project" value="LOCAL" />
+      <updated>1675241125061</updated>
+    </task>
+    <option name="localTasksCounter" value="150" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -610,7 +604,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="feat: 支持引入依赖" />
     <MESSAGE value="feat: demo支持直接打开playground" />
     <MESSAGE value="feat: 调整 playground" />
     <MESSAGE value="feat: 支持自动导入 unpkg.com 上的依赖" />
@@ -635,7 +628,8 @@
     <MESSAGE value="feat: 提取 code-sandbox" />
     <MESSAGE value="feat: 修改 code-sandbox 打包方式" />
     <MESSAGE value="feat: 优化 babel 加载时机" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: 优化 babel 加载时机" />
+    <MESSAGE value="feat: 修改样式问题" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: 修改样式问题" />
   </component>
   <component name="VgoProject">
     <integration-enabled>false</integration-enabled>
