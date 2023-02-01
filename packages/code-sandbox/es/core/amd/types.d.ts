@@ -24,7 +24,6 @@ export interface IRequireFunc {
     factories: Map<string, Factory | string>;
     dependencies: Map<string, string[]>;
     resolve: (moduleName: string, __dirname?: string) => string;
-    resolveDeps: (name: string, version?: string, path?: string) => Promise<string | boolean>;
     moduleRequiringTasks: Map<string, [resolve: Function, reject: Function][]>;
 }
 export interface IDefine {
@@ -34,7 +33,6 @@ export interface IDefine {
 export declare type IDefineDispose = () => void;
 export interface IAmdModuleManagerContext {
     root: string;
-    scriptContainerDom: HTMLElement;
     scriptTimeout: number;
     /**
      * 事件触发

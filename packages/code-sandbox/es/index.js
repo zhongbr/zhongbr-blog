@@ -1,6 +1,6 @@
 import require$$0, { useRef, useLayoutEffect } from "react";
-import { i as initMainThreadService, g as getSandboxRefresher, o as onIframeLoadingModule, s as setSandboxPlugins, a as iframeStyles, D as DefaultDemoCode, b as DefaultIndexCode, c as DefaultCssCode, d as DefaultHtml, e as getPlugins, f as getIframeHTML } from "./index-82cd26db.js";
-import { _, r } from "./index-82cd26db.js";
+import { i as initMainThreadService, g as getSandboxRefresher, o as onIframeLoadingModule, s as setSandboxPlugins, a as iframeStyles, D as DefaultDemoCode, b as DefaultIndexCode, c as DefaultCssCode, d as DefaultHtml, e as getPlugins, f as getIframeHTML } from "./index-a8293c0c.js";
+import { _, r } from "./index-a8293c0c.js";
 import "./core/event/index.js";
 import "./core/proxy/index.js";
 import "./types-9fd137f3.js";
@@ -1000,7 +1000,7 @@ const Demo = (props) => {
     });
     setSandboxPlugins(iframe.current, getPlugins());
   }, []);
-  const [srcDoc, src] = getIframeHTML();
+  const [srcDoc] = getIframeHTML();
   return /* @__PURE__ */ jsxs(Fragment, { children: [
     /* @__PURE__ */ jsx("style", { children: iframeStyles }),
     /* @__PURE__ */ jsx(
@@ -1009,10 +1009,10 @@ const Demo = (props) => {
         ref: iframe,
         className: `code-sandbox-iframe ${className || ""}`,
         title,
-        src,
         srcDoc,
         allowFullScreen: true,
-        style
+        style,
+        sandbox: "allow-scripts"
       }
     )
   ] });

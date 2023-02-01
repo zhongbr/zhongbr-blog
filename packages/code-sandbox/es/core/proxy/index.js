@@ -24,6 +24,8 @@ self.addEventListener("message", (e) => {
       error: true,
       id: message.id,
       payload: [`[proxy]wait for service ${serviceId} timeout.`]
+    }, {
+      targetOrigin: "*"
     });
   }, message.timeout);
   const callback = () => {
@@ -33,6 +35,8 @@ self.addEventListener("message", (e) => {
       id: message.id,
       error: false,
       payload: []
+    }, {
+      targetOrigin: "*"
     });
     const callbacks2 = (waitServiceCallbacks.get(serviceId) || []).filter((c) => c !== callback);
     waitServiceCallbacks.set(serviceId, callbacks2);
@@ -66,6 +70,8 @@ function registerProxy(serviceId, obj) {
           id: message.id,
           error: true,
           payload: [`[proxy] method \`${message.method}\` does not exist on remote object ${message.receiver} or it is not a function.`]
+        }, {
+          targetOrigin: "*"
         });
       }
       let res = method;
@@ -78,6 +84,8 @@ function registerProxy(serviceId, obj) {
         id: message.id,
         error: false,
         payload: [res]
+      }, {
+        targetOrigin: "*"
       });
     }
   };
@@ -111,6 +119,8 @@ async function waitProxy(win, serviceId, timeout = 1e4) {
       payload: [],
       error: false,
       id: messageId
+    }, {
+      targetOrigin: "*"
     });
   });
 }
@@ -151,6 +161,8 @@ async function callProxy({ win, serviceId, method, payload, timeout = 1e4 }) {
       method,
       payload,
       error: false
+    }, {
+      targetOrigin: "*"
     });
   });
 }

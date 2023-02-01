@@ -31,11 +31,11 @@ class CodeSandbox extends HTMLElement {
     }
 
     private initIframe() {
-        const [srcDoc, src] = getIframeHTML();
+        const [srcDoc] = getIframeHTML();
 
         this.iframe = document.createElement('iframe');
         this.iframe.srcdoc = srcDoc;
-        this.iframe.src = src;
+        this.iframe.setAttribute('sandbox', 'allow-scripts');
         this.iframe.setAttribute('class', `code-sandbox-iframe ${this.getAttribute('class') || ''}`);
         this.iframe.setAttribute('style', this.getAttribute('style'));
 

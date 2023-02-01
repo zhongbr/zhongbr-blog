@@ -10,8 +10,7 @@ export const getIframeHTML = () => {
     </head>
     <body></body>
 </html>`;
-    const src = `data:text/html,${encodeURIComponent(srcDoc)}`;
-    return [srcDoc, src];
+    return [srcDoc];
 };
 
 export const iframeStyles: string = iframeStyles_;

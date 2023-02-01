@@ -80,7 +80,7 @@ const Demo: React.FC<IProps> = (props) => {
         setSandboxPlugins(iframe.current, getPlugins());
     }, []);
 
-    const [srcDoc, src] = getIframeHTML();
+    const [srcDoc] = getIframeHTML();
 
     return (
         <>
@@ -91,10 +91,10 @@ const Demo: React.FC<IProps> = (props) => {
                 ref={iframe}
                 className={`code-sandbox-iframe ${className || ''}`}
                 title={title}
-                src={src}
                 srcDoc={srcDoc}
                 allowFullScreen
                 style={style}
+                sandbox="allow-scripts"
             />
         </>
     )

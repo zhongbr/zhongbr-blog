@@ -4,7 +4,7 @@
     "src": "src/index.tsx",
     "isEntry": true,
     "imports": [
-      "_index-82cd26db.js",
+      "_index-a8293c0c.js",
       "src/core/event/index.ts",
       "src/core/proxy/index.ts",
       "_types-9fd137f3.js"
@@ -25,7 +25,7 @@
     "src": "src/webcomponent.tsx",
     "isEntry": true,
     "imports": [
-      "_index-82cd26db.js",
+      "_index-a8293c0c.js",
       "src/core/event/index.ts",
       "src/core/proxy/index.ts",
       "_types-9fd137f3.js"
@@ -38,6 +38,9 @@
     "imports": [
       "src/core/proxy/index.ts",
       "_types-9fd137f3.js"
+    ],
+    "dynamicImports": [
+      "src/plugins/babel/worker/worker.ts?worker&inline"
     ]
   },
   "src/plugins/react/index.ts": {
@@ -67,12 +70,17 @@
   "_types-9fd137f3.js": {
     "file": "types-9fd137f3.js"
   },
-  "_index-82cd26db.js": {
-    "file": "index-82cd26db.js",
+  "_index-a8293c0c.js": {
+    "file": "index-a8293c0c.js",
     "imports": [
       "src/core/event/index.ts",
       "src/core/proxy/index.ts",
       "_types-9fd137f3.js"
     ]
+  },
+  "src/plugins/babel/worker/worker.ts?worker&inline": {
+    "file": "worker-7673604a.js",
+    "src": "src/plugins/babel/worker/worker.ts?worker&inline",
+    "isDynamicEntry": true
   }
 }

@@ -11,7 +11,6 @@ export function createAmdManager(root='/', scriptTimeout=10000, logger: IAmdModu
     ctx.eventSubscribeManager = createEventSubscribeManager();
     ctx.root = root;
     ctx.scriptTimeout = scriptTimeout;
-    ctx.scriptContainerDom = document.body;
     ctx.logger = logger;
     ctx.plugins = [];
     // 遍历插件的方法
@@ -45,15 +44,7 @@ export function createAmdManager(root='/', scriptTimeout=10000, logger: IAmdModu
     const module_ = {
         require_: ctx.require_,
         define: ctx.define,
-        _import: importGlobalObjectScript.bind(null, ctx.scriptContainerDom),
-        set: ({ target, resolve: _resolve }: { target?: HTMLElement, resolve?: IAmdModuleManagerContext['require_']['resolveDeps']; }) => {
-            if (_resolve) {
-                ctx.require_.resolveDeps = _resolve;
-            }
-            if (target) {
-                ctx.scriptContainerDom = target;
-            }
-        },
+        _import: importGlobalObjectScript.bind(null, document.body),
         onModuleUpdate(targets: string[] | undefined, cb: (moduleNames: string[]) => void) {
             return ctx.eventSubscribeManager.listen(IEventTypes.ModuleUpdate, (moduleName) => {
                 if(!targets || targets.includes(moduleName as string)) {

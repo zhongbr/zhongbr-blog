@@ -33,7 +33,7 @@ export default function bindRequireToCtx (ctx: IAmdModuleManagerContext) {
         return path.resolve(ctx.root, 'node_modules', modulePath!);
     };
 
-    const resolveDeps: IRequireFunc['resolveDeps'] = async (_packageName, _version, _file) => {
+    const resolveDeps = async (_packageName: string, _version: string, _file: string) => {
         const params = {
             packageName: _packageName,
             version: _version,
@@ -106,11 +106,11 @@ export default function bindRequireToCtx (ctx: IAmdModuleManagerContext) {
             // 对于不是本地模块的，先尝试自动加载依赖
             if (!moduleName.startsWith('.') && !moduleName.startsWith('__') && !path.isAbsolute(moduleName)) {
                 const [name, version, file] = parseModuleName(moduleName);
-                const scriptUrl = await require_.resolveDeps(name, version, file);
+                const scriptUrl = await resolveDeps(name, version, file);
                 // 分发加载模块的事件
                 ctx.eventSubscribeManager.trigger(IEventTypes.LoadingScript, moduleName, scriptUrl);
                 if (typeof scriptUrl === 'string') {
-                    await ctx.scriptLoader.loadScript(ctx.scriptContainerDom, scriptUrl, moduleName);
+                    await ctx.scriptLoader.loadScript(document.body, scriptUrl, moduleName);
                     factory = factories.get(modulePath);
                     ctx.logger.log('[amd] script loaded', factory, modulePath);
                 }
@@ -206,8 +206,7 @@ export default function bindRequireToCtx (ctx: IAmdModuleManagerContext) {
             resolve,
             dependencies,
             moduleRequiringTasks,
-            // 这么取值是为了可以从外部覆盖掉 resolveDeps 的逻辑
-            resolveDeps: ctx?.require_?.resolveDeps || resolveDeps
+            resolveDeps
         });
     };
 

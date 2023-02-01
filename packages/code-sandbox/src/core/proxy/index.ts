@@ -44,7 +44,9 @@ self.addEventListener('message', e => {
             error: true,
             id: message.id,
             payload: [`[proxy]wait for service ${serviceId} timeout.`]
-        } as IMessageType);
+        } as IMessageType, {
+            targetOrigin: '*'
+        });
     }, message!.timeout);
     const callback = () => {
         clearTimeout(timeout_);
@@ -53,7 +55,9 @@ self.addEventListener('message', e => {
             id: message.id,
             error: false,
             payload: []
-        } as IMessageType);
+        } as IMessageType, {
+            targetOrigin: '*'
+        });
         const callbacks = (waitServiceCallbacks.get(serviceId) || []).filter(c => c !== callback);
         waitServiceCallbacks.set(serviceId, callbacks);
     };
@@ -97,7 +101,9 @@ export function registerProxy<T extends Object>(serviceId: string, obj: T) {
                     id: message.id,
                     error: true,
                     payload: [`[proxy] method \`${message.method}\` does not exist on remote object ${message.receiver} or it is not a function.`]
-                } as IMessageType);
+                } as IMessageType, {
+                    targetOrigin: '*'
+                });
             }
             let res: unknown = method;
             if (typeof method === "function") {
@@ -110,7 +116,9 @@ export function registerProxy<T extends Object>(serviceId: string, obj: T) {
                 id: message.id,
                 error: false,
                 payload: [res]
-            } as IMessageType);
+            } as IMessageType, {
+                targetOrigin: '*'
+            });
         }
     };
     self.addEventListener('message', serviceHandler);
@@ -151,7 +159,9 @@ export async function waitProxy(win: WindowProxy | Worker, serviceId: string, ti
             payload: [],
             error: false,
             id: messageId
-        } as IMessageType);
+        } as IMessageType, {
+            targetOrigin: '*'
+        });
     });
 }
 
@@ -203,6 +213,8 @@ export async function callProxy<
             method,
             payload,
             error: false
-        } as IMessageType);
+        } as IMessageType, {
+            targetOrigin: '*'
+        });
     });
 }

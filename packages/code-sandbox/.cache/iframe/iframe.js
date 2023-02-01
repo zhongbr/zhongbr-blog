@@ -24,6 +24,8 @@ self.addEventListener("message", (e) => {
       error: true,
       id: message.id,
       payload: [`[proxy]wait for service ${serviceId} timeout.`]
+    }, {
+      targetOrigin: "*"
     });
   }, message.timeout);
   const callback = () => {
@@ -33,6 +35,8 @@ self.addEventListener("message", (e) => {
       id: message.id,
       error: false,
       payload: []
+    }, {
+      targetOrigin: "*"
     });
     const callbacks2 = (waitServiceCallbacks.get(serviceId) || []).filter((c) => c !== callback);
     waitServiceCallbacks.set(serviceId, callbacks2);
@@ -66,6 +70,8 @@ function registerProxy(serviceId, obj) {
           id: message.id,
           error: true,
           payload: [`[proxy] method \`${message.method}\` does not exist on remote object ${message.receiver} or it is not a function.`]
+        }, {
+          targetOrigin: "*"
         });
       }
       let res = method;
@@ -78,6 +84,8 @@ function registerProxy(serviceId, obj) {
         id: message.id,
         error: false,
         payload: [res]
+      }, {
+        targetOrigin: "*"
       });
     }
   };
@@ -111,6 +119,8 @@ async function waitProxy(win, serviceId, timeout = 1e4) {
       payload: [],
       error: false,
       id: messageId
+    }, {
+      targetOrigin: "*"
     });
   });
 }
@@ -151,6 +161,8 @@ async function callProxy({ win, serviceId, method, payload, timeout = 1e4 }) {
       method,
       payload,
       error: false
+    }, {
+      targetOrigin: "*"
     });
   });
 }
@@ -748,10 +760,10 @@ function bindRequireToCtx(ctx) {
     if (!factory) {
       if (!moduleName.startsWith(".") && !moduleName.startsWith("__") && !pathBrowserify.isAbsolute(moduleName)) {
         const [name, version, file] = parseModuleName(moduleName);
-        const scriptUrl = await require_.resolveDeps(name, version, file);
+        const scriptUrl = await resolveDeps(name, version, file);
         ctx.eventSubscribeManager.trigger(IEventTypes.LoadingScript, moduleName, scriptUrl);
         if (typeof scriptUrl === "string") {
-          await ctx.scriptLoader.loadScript(ctx.scriptContainerDom, scriptUrl, moduleName);
+          await ctx.scriptLoader.loadScript(document.body, scriptUrl, moduleName);
           factory = factories.get(modulePath);
           ctx.logger.log("[amd] script loaded", factory, modulePath);
         }
@@ -821,15 +833,13 @@ function bindRequireToCtx(ctx) {
     return modules;
   };
   const getRequireFunc = (_this2) => {
-    var _a;
     return Object.assign(requireProto.bind(null, _this2), {
       cache,
       factories,
       resolve,
       dependencies,
       moduleRequiringTasks,
-      // 这么取值是为了可以从外部覆盖掉 resolveDeps 的逻辑
-      resolveDeps: ((_a = ctx == null ? void 0 : ctx.require_) == null ? void 0 : _a.resolveDeps) || resolveDeps
+      resolveDeps
     });
   };
   ctx.require_ = getRequireFunc({ __dirname: ctx.root });
@@ -898,7 +908,6 @@ function createAmdManager(root = "/", scriptTimeout = 1e4, logger2 = console) {
   ctx2.eventSubscribeManager = createEventSubscribeManager();
   ctx2.root = root;
   ctx2.scriptTimeout = scriptTimeout;
-  ctx2.scriptContainerDom = document.body;
   ctx2.logger = logger2;
   ctx2.plugins = [];
   ctx2.pluginReduce = async (reducer, initValue) => {
@@ -927,15 +936,7 @@ function createAmdManager(root = "/", scriptTimeout = 1e4, logger2 = console) {
   const module_2 = {
     require_: ctx2.require_,
     define: ctx2.define,
-    _import: importGlobalObjectScript.bind(null, ctx2.scriptContainerDom),
-    set: ({ target, resolve: _resolve }) => {
-      if (_resolve) {
-        ctx2.require_.resolveDeps = _resolve;
-      }
-      if (target) {
-        ctx2.scriptContainerDom = target;
-      }
-    },
+    _import: importGlobalObjectScript.bind(null, document.body),
     onModuleUpdate(targets, cb) {
       return ctx2.eventSubscribeManager.listen(IEventTypes.ModuleUpdate, (moduleName2) => {
         if (!targets || targets.includes(moduleName2)) {

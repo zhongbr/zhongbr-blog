@@ -4,10 +4,6 @@ export declare function createAmdManager(root?: string, scriptTimeout?: number, 
     require_: import("./types").IRequireFunc;
     define: import("./types").IDefine;
     _import: any;
-    set: ({ target, resolve }: {
-        target?: HTMLElement;
-        resolve?: IAmdModuleManagerContext['require_']['resolveDeps'];
-    }) => void;
     onModuleUpdate(targets: string[] | undefined, cb: (moduleNames: string[]) => void): () => void;
     onModuleLoading(cb: (moduleName: string, url: string) => void): () => void;
     mountToGlobal(global_?: Window & typeof globalThis): () => void;
@@ -21,10 +17,6 @@ export declare const defaultManager: {
     require_: import("./types").IRequireFunc;
     define: import("./types").IDefine;
     _import: any;
-    set: ({ target, resolve }: {
-        target?: HTMLElement;
-        resolve?: IAmdModuleManagerContext['require_']['resolveDeps'];
-    }) => void;
     onModuleUpdate(targets: string[] | undefined, cb: (moduleNames: string[]) => void): () => void;
     onModuleLoading(cb: (moduleName: string, url: string) => void): () => void;
     mountToGlobal(global_?: Window & typeof globalThis): () => void;
