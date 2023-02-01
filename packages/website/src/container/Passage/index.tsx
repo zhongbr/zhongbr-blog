@@ -1,10 +1,3 @@
-/*
- * @Description: passage
- * @Author: 张盼宏
- * @Date: 2022-08-27 23:24:29
- * @LastEditors: 张盼宏
- * @LastEditTime: 2022-09-08 23:40:46
- */
 import { memo, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import clsx from 'clsx';
@@ -76,9 +69,6 @@ const Passage = () => {
                             [styles.display]: [ResponsiveEnum.normal, ResponsiveEnum.large].includes(widthLevel || ResponsiveEnum.normal)
                         }
                     )}
-                    style={{
-                        top: `${155 - 75 * rate}px`
-                    }}
                 >
                     <Sketch sketch={sketch}/>
                 </div>

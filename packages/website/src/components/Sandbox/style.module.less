@@ -1,5 +1,6 @@
 .sandbox-container {
   position: relative;
+  height: 100%;
 
   .splash {
     position: absolute;
@@ -8,6 +9,26 @@
     left: 0;
     bottom: 0;
     background-color: var(--background-color);
+
+    .package-info {
+      margin: 0 16px;
+      text-align: center;
+      width: calc(100% - 32px);
+
+      .name {
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        width: 100%;
+      }
+
+      .url {
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        width: 100%;
+      }
+    }
   }
 
   .iframe {

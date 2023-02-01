@@ -4,41 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="27b3b0e5-1ac3-4b25-8173-a590bd44bf60" name="变更" comment="feat: 修改 code-sandbox 打包方式">
-      <change afterPath="$PROJECT_DIR$/packages/code-sandbox/es/assets/worker-8394ce7d.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/code-sandbox/es/index-a8293c0c.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/code-sandbox/es/index-a8293c0c.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/code-sandbox/es/worker-7673604a.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/code-sandbox/es/worker-7673604a.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/posts/imgs/img.png" afterDir="false" />
+    <list default="true" id="27b3b0e5-1ac3-4b25-8173-a590bd44bf60" name="变更" comment="feat: 优化 babel 加载时机">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/code-sandbox/.cache/iframe/iframe.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/code-sandbox/.cache/iframe/iframe.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/code-sandbox/.cache/iframe/iframe.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/packages/code-sandbox/.cache/iframe/iframe.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/code-sandbox/es/assets/worker-6d33d132.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/code-sandbox/es/core/amd/index.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/code-sandbox/es/core/amd/index.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/code-sandbox/es/core/amd/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/code-sandbox/es/core/amd/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/code-sandbox/es/core/amd/index.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/packages/code-sandbox/es/core/amd/index.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/code-sandbox/es/core/amd/types.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/code-sandbox/es/core/amd/types.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/code-sandbox/es/core/proxy/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/code-sandbox/es/core/proxy/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/code-sandbox/es/core/proxy/index.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/packages/code-sandbox/es/core/proxy/index.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/code-sandbox/es/index-82cd26db.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/code-sandbox/es/index-82cd26db.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/code-sandbox/es/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/code-sandbox/es/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/code-sandbox/es/index.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/packages/code-sandbox/es/index.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/code-sandbox/es/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/code-sandbox/es/manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/code-sandbox/es/plugins/babel/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/code-sandbox/es/plugins/babel/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/code-sandbox/es/plugins/babel/index.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/packages/code-sandbox/es/plugins/babel/index.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/code-sandbox/es/webcomponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/code-sandbox/es/webcomponent.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/code-sandbox/es/webcomponent.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/packages/code-sandbox/es/webcomponent.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/code-sandbox/src/core/amd/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/code-sandbox/src/core/amd/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/code-sandbox/src/core/amd/require.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/code-sandbox/src/core/amd/require.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/code-sandbox/src/core/amd/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/code-sandbox/src/core/amd/types.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/code-sandbox/src/core/proxy/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/code-sandbox/src/core/proxy/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/code-sandbox/src/iframe/html.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/code-sandbox/src/iframe/html.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/code-sandbox/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/code-sandbox/src/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/code-sandbox/src/plugins/babel/worker/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/code-sandbox/src/plugins/babel/worker/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/code-sandbox/src/webcomponent.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/code-sandbox/src/webcomponent.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/posts/前端开发/2023-01-06-如何在网页上直接运行 React JSX.md" beforeDir="false" afterPath="$PROJECT_DIR$/posts/前端开发/2023-01-06-如何在博客里展示可交互的代码片段？.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/code-sandbox/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/code-sandbox/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/components/Sandbox/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/components/Sandbox/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/components/Sandbox/style.module.less" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/components/Sandbox/style.module.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/components/Splash/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/components/Splash/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/components/Splash/style.module.less" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/components/Splash/style.module.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/container/Passage/components/Render/CodeBlock/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/container/Passage/components/Render/CodeBlock/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/container/Passage/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/container/Passage/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/container/Passage/style.module.less" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/container/Passage/style.module.less" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -169,7 +144,17 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="npm.build">
+  <component name="RunManager" selected="npm.build-markdown">
+    <configuration name="build-markdown" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="build-markdown" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
     <configuration name="build" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/packages/code-sandbox/package.json" />
       <command value="run" />
@@ -190,16 +175,6 @@
       <envs />
       <method v="2" />
     </configuration>
-    <configuration name="build:iframe" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
-      <package-json value="$PROJECT_DIR$/packages/code-sandbox/package.json" />
-      <command value="run" />
-      <scripts>
-        <script value="build:iframe" />
-      </scripts>
-      <node-interpreter value="project" />
-      <envs />
-      <method v="2" />
-    </configuration>
     <configuration name="serve" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/packages/code-sandbox/package.json" />
       <command value="run" />
@@ -210,11 +185,11 @@
       <envs />
       <method v="2" />
     </configuration>
-    <configuration name="test" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
-      <package-json value="$PROJECT_DIR$/packages/code-sandbox/package.json" />
+    <configuration name="start" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/packages/website/package.json" />
       <command value="run" />
       <scripts>
-        <script value="test" />
+        <script value="start" />
       </scripts>
       <node-interpreter value="project" />
       <envs />
@@ -222,11 +197,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="npm.build-markdown" />
+        <item itemvalue="npm.start" />
         <item itemvalue="npm.build" />
         <item itemvalue="npm.serve" />
         <item itemvalue="npm.build:dist" />
-        <item itemvalue="npm.build:iframe" />
-        <item itemvalue="npm.test" />
       </list>
     </recent_temporary>
   </component>
@@ -271,13 +246,6 @@
       <workItem from="1673695567742" duration="183000" />
       <workItem from="1673697149979" duration="3563000" />
       <workItem from="1673709859369" duration="1555000" />
-    </task>
-    <task id="LOCAL-00099" summary="feat: 增加 Playground">
-      <created>1673154887675</created>
-      <option name="number" value="00099" />
-      <option name="presentableId" value="LOCAL-00099" />
-      <option name="project" value="LOCAL" />
-      <updated>1673154887675</updated>
     </task>
     <task id="LOCAL-00100" summary="feat: 支持引入依赖">
       <created>1673167024660</created>
@@ -615,7 +583,14 @@
       <option name="project" value="LOCAL" />
       <updated>1675157682954</updated>
     </task>
-    <option name="localTasksCounter" value="148" />
+    <task id="LOCAL-00148" summary="feat: 优化 babel 加载时机">
+      <created>1675223071363</created>
+      <option name="number" value="00148" />
+      <option name="presentableId" value="LOCAL-00148" />
+      <option name="project" value="LOCAL" />
+      <updated>1675223071364</updated>
+    </task>
+    <option name="localTasksCounter" value="149" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -635,7 +610,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="feat: 增加 Playground" />
     <MESSAGE value="feat: 支持引入依赖" />
     <MESSAGE value="feat: demo支持直接打开playground" />
     <MESSAGE value="feat: 调整 playground" />
@@ -660,7 +634,8 @@
     <MESSAGE value="feat: 修改样式" />
     <MESSAGE value="feat: 提取 code-sandbox" />
     <MESSAGE value="feat: 修改 code-sandbox 打包方式" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: 修改 code-sandbox 打包方式" />
+    <MESSAGE value="feat: 优化 babel 加载时机" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: 优化 babel 加载时机" />
   </component>
   <component name="VgoProject">
     <integration-enabled>false</integration-enabled>

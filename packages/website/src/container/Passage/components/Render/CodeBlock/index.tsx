@@ -8,10 +8,9 @@
 import React, { useMemo, useState } from 'react';
 import clsx from "clsx";
 import { Code, codepen, github } from 'react-code-blocks';
-import CodeSandbox from '@zhongbr/code-sandbox';
 
 import { IBaseProps } from '@/types/markdown';
-import { Icon } from "@/components";
+import { Icon, Sandbox } from "@/components";
 import { copy } from "@/utils/copy";
 import { ResponsiveEnum, usePageConfig } from '@/hooks';
 
@@ -72,7 +71,7 @@ const CodeBlock: React.FC<IBaseProps> = (props) => {
             />
             {preview && (
                 <div className={styles.preview}>
-                    <CodeSandbox code={node.value} />
+                    <Sandbox demoCode={node.value} />
                 </div>
             )}
             {node.lang && (

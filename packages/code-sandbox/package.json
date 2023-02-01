@@ -1,6 +1,6 @@
 {
   "name": "@zhongbr/code-sandbox",
-  "version": "0.0.0-beta.6",
+  "version": "0.0.1",
   "description": "Display JSX Code demos in your web pages easily.",
   "type": "module",
   "types": "es",

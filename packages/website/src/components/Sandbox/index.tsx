@@ -6,10 +6,10 @@ import Splash from '../Splash';
 import styles from './style.module.less';
 
 export interface IProps {
-    indexCode: string;
-    htmlCode: string;
+    indexCode?: string;
+    htmlCode?: string;
     demoCode: string;
-    cssCode: string;
+    cssCode?: string;
     className?: string;
 }
 
@@ -35,11 +35,14 @@ const Sandbox: React.FC<IProps> = props => {
         <div className={clsx(className, styles.sandboxContainer)}>
             {loading && (
                 <div className={styles.splash}>
-                    <Splash texts={
-                        <div style={{ textAlign: 'center' }}>
-                            <div>🚀 {loadingModuleName?.[0]} 加载中...</div>
-                            <div>{loadingModuleName?.[1]}</div>
-                        </div>}
+                    <Splash
+                        texts={
+                            <div className={styles.packageInfo}>
+                                <div className={styles.name}>🚀 {loadingModuleName?.[0]} 加载中...</div>
+                                <div className={styles.url}>{loadingModuleName?.[1]}</div>
+                            </div>
+                        }
+                        full={false}
                     />
                 </div>
             )}

@@ -1,10 +1,12 @@
 .passage-container {
     width: 100%;
+    display: flex;
+    justify-content: center;
 
     .passage {
+        flex: 1;
         padding: 20px;
         color: var(--font-color);
-        z-index: 10;
 
         :global {
             .content {
@@ -40,15 +42,12 @@
     }
 
     .sketch {
-        position: fixed;
-        left: 10px;
-        top: 155px;
-        bottom: 10px;
         padding: 10px;
         width: 300px;
         overflow: auto;
         display: none;
         color: var(--font-color);
+        justify-self: flex-start;
 
         &.display {
             display: block;

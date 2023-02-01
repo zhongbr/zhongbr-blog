@@ -21,7 +21,7 @@ export default function Splash (props: Props) {
     return (
         <div className={clsx(styles.splash, { [styles.full]: full })}>
             <Loading className={styles.loading} count={8}/>
-            <div>{texts}</div>
+            <div className={styles.texts}>{texts}</div>
         </div>
     );
 }
