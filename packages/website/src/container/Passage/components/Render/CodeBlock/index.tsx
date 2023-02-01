@@ -30,7 +30,7 @@ const CodeBlock: React.FC<IBaseProps> = (props) => {
     const previewable = useMemo(() => shouldPreview(node.lang || '', node.value || ''), [node.lang, node.value]);
 
     const [copied, setCopied] = useState(false);
-    const [preview, setPreview] = useState(false);
+    const [preview, setPreview] = useState(previewable);
 
     const { theme, widthLevel } = usePageConfig();
     // 深色模式使用 codepen 主题，浅色 使用 github
@@ -53,9 +53,7 @@ const CodeBlock: React.FC<IBaseProps> = (props) => {
             id={node.key}
             className={clsx(
                 styles.container,
-                {
-                    [styles.narrowWidthScreen]: [ResponsiveEnum.tiny].includes(widthLevel || ResponsiveEnum.normal)
-                }
+                {[styles.narrowWidthScreen]: [ResponsiveEnum.tiny].includes(widthLevel || ResponsiveEnum.normal)}
             )}
         >
             <Code

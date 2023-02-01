@@ -2,6 +2,7 @@
     width: 100%;
     display: flex;
     justify-content: center;
+    position: relative;
 
     .passage {
         flex: 1;
@@ -47,7 +48,7 @@
         overflow: auto;
         display: none;
         color: var(--font-color);
-        justify-self: flex-start;
+        border-right: 1px var(--border-color) dashed;
 
         &.display {
             display: block;

@@ -65,9 +65,7 @@ const Passage = () => {
                 <div
                     className={clsx(
                         styles.sketch,
-                        {
-                            [styles.display]: [ResponsiveEnum.normal, ResponsiveEnum.large].includes(widthLevel || ResponsiveEnum.normal)
-                        }
+                        {[styles.display]: [ResponsiveEnum.normal, ResponsiveEnum.large].includes(widthLevel || ResponsiveEnum.normal)}
                     )}
                 >
                     <Sketch sketch={sketch}/>
