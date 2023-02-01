@@ -1,5 +1,5 @@
 import require$$0, { useRef, useLayoutEffect } from "react";
-import { i as initMainThreadService, g as getSandboxRefresher, o as onIframeLoadingModule, s as setSandboxPlugins, a as iframeStyles, D as DefaultDemoCode, b as DefaultIndexCode, c as DefaultCssCode, d as DefaultHtml, e as getPlugins, f as getIframeHTML } from "./index-a8293c0c.js";
+import { i as initMainThreadService, o as onIframeLoadingModule, s as setSandboxPlugins, a as iframeStyles, D as DefaultDemoCode, b as DefaultIndexCode, c as DefaultCssCode, d as DefaultHtml, g as getSandboxRefresher, e as getPlugins, f as getIframeHTML } from "./index-a8293c0c.js";
 import { _, r } from "./index-a8293c0c.js";
 import "./core/event/index.js";
 import "./core/proxy/index.js";
@@ -944,7 +944,7 @@ const Fragment = jsxRuntimeExports.Fragment;
 const jsx = jsxRuntimeExports.jsx;
 const jsxs = jsxRuntimeExports.jsxs;
 initMainThreadService();
-const Demo = (props) => {
+const CodeSandbox = require$$0.forwardRef((props, ref) => {
   const {
     title = "demo",
     className,
@@ -957,9 +957,24 @@ const Demo = (props) => {
     onReady
   } = props;
   const iframe = useRef(null);
-  const previousCodesRef = useRef(null);
-  const currentCode = [html, code, index, css];
-  useLayoutEffect(() => {
+  if (ref) {
+    const ref_ = {
+      getIframe: () => iframe.current,
+      refresh: () => {
+        if (!iframe.current)
+          return;
+        iframe.current.srcdoc = Reflect.get(iframe.current, "srcdoc");
+        previousCodesRef.current = null;
+        runCode();
+      }
+    };
+    if (typeof ref === "function") {
+      ref(ref_);
+    } else {
+      ref.current = ref_;
+    }
+  }
+  const runCode = () => {
     (async () => {
       const { refreshIndex, refreshApp, refreshHtml, refreshStyle } = getSandboxRefresher({
         iframe: iframe.current,
@@ -989,7 +1004,10 @@ const Demo = (props) => {
       onReady == null ? void 0 : onReady();
       previousCodesRef.current = currentCode;
     })();
-  }, currentCode);
+  };
+  const previousCodesRef = useRef(null);
+  const currentCode = [html, code, index, css];
+  useLayoutEffect(runCode, currentCode);
   const onLoadingModuleRef = useRef(onLoadingModule);
   onLoadingModuleRef.current = onLoadingModule;
   useLayoutEffect(() => {
@@ -1016,11 +1034,11 @@ const Demo = (props) => {
       }
     )
   ] });
-};
-Demo.displayName = "Demo";
+});
+CodeSandbox.displayName = "Demo";
 export {
   _ as DefaultCodes,
-  Demo as default,
+  CodeSandbox as default,
   r as registerPlugins
 };
 //# sourceMappingURL=index.js.map

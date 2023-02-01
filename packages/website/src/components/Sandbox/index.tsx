@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import clsx from 'clsx';
-import CodeSandbox from '@zhongbr/code-sandbox';
+import CodeSandbox, { IRef } from '@zhongbr/code-sandbox';
 
+import Icon from "../Icon";
 import Splash from '../Splash';
 import styles from './style.module.less';
 
@@ -19,6 +20,8 @@ const Sandbox: React.FC<IProps> = props => {
     const [loading, setLoading] = useState(true);
     const [loadingModuleName, setLoadingModuleName] = useState(['', '']);
 
+    const sandbox = useRef<IRef>(null);
+
     const onLoadingModule = (moduleName: string, url: string) => {
         setLoadingModuleName([moduleName, url]);
     };
@@ -27,34 +30,57 @@ const Sandbox: React.FC<IProps> = props => {
         setLoading(false);
     }
 
+    const onFullScreen = () => {
+        sandbox.current?.getIframe()?.requestFullscreen();
+    };
+
+    const onRefresh = () => {
+        sandbox.current?.refresh();
+    };
+
     useEffect(() => {
         setLoading(true);
     }, [demoCode, indexCode, htmlCode, cssCode, setLoading]);
 
     return (
         <div className={clsx(className, styles.sandboxContainer)}>
-            {loading && (
-                <div className={styles.splash}>
-                    <Splash
-                        texts={
-                            <div className={styles.packageInfo}>
-                                <div className={styles.name}>🚀 {loadingModuleName?.[0]} 加载中...</div>
-                                <div className={styles.url}>{loadingModuleName?.[1]}</div>
-                            </div>
-                        }
-                        full={false}
-                    />
+            <div className={styles.header}>
+                <div className={styles.right}>
+                    {/*<div className={styles.item} onClick={onRefresh}>*/}
+                    {/*    <Icon className="rp-daichuli"/>*/}
+                    {/*    <span>刷新</span>*/}
+                    {/*</div>*/}
+                    <div className={styles.item} onClick={onFullScreen}>
+                        <Icon className="rp-jiankong1"/>
+                        <span>全屏</span>
+                    </div>
                 </div>
-            )}
-            <CodeSandbox
-                className={styles.iframe}
-                code={demoCode}
-                index={indexCode}
-                html={htmlCode}
-                css={cssCode}
-                onLoadingModule={onLoadingModule}
-                onReady={onReady}
-            />
+            </div>
+            <div className={styles.body}>
+                {loading && (
+                    <div className={styles.splash}>
+                        <Splash
+                            texts={
+                                <div className={styles.packageInfo}>
+                                    <div className={styles.name}>🚀 {loadingModuleName?.[0]} 加载中...</div>
+                                    <div className={styles.url}>{loadingModuleName?.[1]}</div>
+                                </div>
+                            }
+                            full={false}
+                        />
+                    </div>
+                )}
+                <CodeSandbox
+                    className={clsx(styles.iframe, {[styles.notFullScreen]: false})}
+                    code={demoCode}
+                    index={indexCode}
+                    html={htmlCode}
+                    css={cssCode}
+                    onLoadingModule={onLoadingModule}
+                    onReady={onReady}
+                    ref={sandbox}
+                />
+            </div>
         </div>
     );
 };

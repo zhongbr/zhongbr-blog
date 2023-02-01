@@ -49,31 +49,9 @@ const CodeBlock: React.FC<IBaseProps> = (props) => {
     };
 
     return (
-        <div
-            id={node.key}
-            className={clsx(
-                styles.container,
-                {[styles.narrowWidthScreen]: [ResponsiveEnum.tiny].includes(widthLevel || ResponsiveEnum.normal)}
-            )}
-        >
-            <Code
-                showLineNumbers
-                text={node.value}
-                language={node.lang}
-                theme={{
-                    ...blockTheme,
-                    backgroundColor: 'transparent'
-                }}
-                wrapLongLines
-                codeBlock
-            />
-            {preview && (
-                <div className={styles.preview}>
-                    <Sandbox demoCode={node.value} />
-                </div>
-            )}
+        <div className={styles.container}>
             {node.lang && (
-                <div className={styles.footer}>
+                <div className={styles.header}>
                     {previewable && (
                         <>
                             <div className={styles.item} onClick={onOpenPlayground}>
@@ -99,6 +77,30 @@ const CodeBlock: React.FC<IBaseProps> = (props) => {
                     </div>
                 </div>
             )}
+            <div
+                id={node.key}
+                className={clsx(
+                    styles.codeContainer,
+                    {[styles.narrowWidthScreen]: [ResponsiveEnum.tiny].includes(widthLevel || ResponsiveEnum.normal)}
+                )}
+            >
+                <Code
+                    showLineNumbers
+                    text={node.value}
+                    language={node.lang}
+                    theme={{
+                        ...blockTheme,
+                        backgroundColor: 'transparent'
+                    }}
+                    wrapLongLines
+                    codeBlock
+                />
+                {preview && (
+                    <div className={styles.preview}>
+                        <Sandbox demoCode={node.value} />
+                    </div>
+                )}
+            </div>
         </div>
     );
 };

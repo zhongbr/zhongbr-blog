@@ -7,6 +7,11 @@ import { registerPlugins, getPlugins } from './plugins';
 
 initMainThreadService();
 
+export interface IRef {
+    getIframe: () => HTMLIFrameElement | null;
+    refresh: () => void;
+}
+
 export interface IProps {
     className?: string;
     title?: string;
@@ -19,7 +24,7 @@ export interface IProps {
     onReady?: () => void;
 }
 
-const Demo: React.FC<IProps> = (props) => {
+const CodeSandbox = React.forwardRef<IRef, IProps>((props, ref) => {
     const {
         title = 'demo',
         className,
@@ -33,10 +38,25 @@ const Demo: React.FC<IProps> = (props) => {
     } = props;
 
     const iframe = useRef<HTMLIFrameElement>(null);
+    if (ref) {
+        const ref_: IRef = {
+            getIframe: () => iframe.current,
+            refresh: () => {
+                if (!iframe.current) return;
+                iframe.current.srcdoc = Reflect.get(iframe.current, 'srcdoc');
+                previousCodesRef.current = null;
+                runCode();
+            }
+        };
+        if (typeof ref === 'function') {
+            ref(ref_);
+        }
+        else {
+            ref.current = ref_;
+        }
+    }
 
-    const previousCodesRef = useRef<readonly [string, string, string, string]>(null);
-    const currentCode = [html, code, index, css] as const;
-    useLayoutEffect(() => {
+    const runCode = () => {
         (async () => {
             const { refreshIndex, refreshApp, refreshHtml, refreshStyle } = getSandboxRefresher({
                 iframe: iframe.current,
@@ -67,7 +87,11 @@ const Demo: React.FC<IProps> = (props) => {
             onReady?.();
             previousCodesRef.current = currentCode;
         })()
-    }, currentCode);
+    };
+
+    const previousCodesRef = useRef<readonly [string, string, string, string]>(null);
+    const currentCode = [html, code, index, css] as const;
+    useLayoutEffect(runCode, currentCode);
 
     const onLoadingModuleRef = useRef(onLoadingModule);
     onLoadingModuleRef.current = onLoadingModule;
@@ -98,9 +122,9 @@ const Demo: React.FC<IProps> = (props) => {
             />
         </>
     )
-}
+});
 
-Demo.displayName = 'Demo';
+CodeSandbox.displayName = 'Demo';
 
 export { DefaultCodes, registerPlugins };
-export default Demo;
+export default CodeSandbox;

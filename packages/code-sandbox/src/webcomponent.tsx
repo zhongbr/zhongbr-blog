@@ -15,10 +15,8 @@ declare global {
 }
 
 class CodeSandbox extends HTMLElement {
-    private iframe: HTMLIFrameElement;
+    public iframe: HTMLIFrameElement;
     private styleElement: HTMLStyleElement;
-
-    public onLoadingModule: (moduleName: string, url: string) => void;
 
     constructor() {
         super();
@@ -41,7 +39,6 @@ class CodeSandbox extends HTMLElement {
 
         // 监听 iframe 内加载模块，并分发对象的事件
         onIframeLoadingModule(this.iframe, (moduleName, extraInfo) => {
-            this.onLoadingModule?.(moduleName, extraInfo);
             this.dispatchEvent(new CustomEvent('loading-module', {
                 detail: {
                     moduleName,
@@ -93,6 +90,30 @@ class CodeSandbox extends HTMLElement {
                 this.iframe.setAttribute(name, newValue);
             }
         }
+        const res = Promise.all(tasks);
+        this.dispatchEvent(new CustomEvent('ready'));
+        return res;
+    }
+
+    public async refresh() {
+        const html = this.getAttribute('html') || DefaultCodes.DefaultHtml;
+        const index = this.getAttribute('index') || DefaultCodes.DefaultIndexCode;
+        const code = this.getAttribute('code') || DefaultCodes.DefaultDemoCode;
+        const css = this.getAttribute('css') || DefaultCodes.DefaultCssCode;
+
+        const { refreshHtml, refreshApp, refreshIndex, refreshStyle } = getSandboxRefresher({
+            iframe: this.iframe,
+            html,
+            index,
+            code,
+            css
+        });
+
+        const tasks = [];
+        tasks.push(refreshHtml());
+        tasks.push(refreshApp());
+        tasks.push(refreshIndex());
+        tasks.push(refreshStyle());
         const res = Promise.all(tasks);
         this.dispatchEvent(new CustomEvent('ready'));
         return res;

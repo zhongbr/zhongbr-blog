@@ -1,4 +1,4 @@
-import { i as initMainThreadService, s as setSandboxPlugins, o as onIframeLoadingModule, a as iframeStyles, d as DefaultHtml, b as DefaultIndexCode, D as DefaultDemoCode, c as DefaultCssCode, g as getSandboxRefresher, e as getPlugins, f as getIframeHTML } from "./index-a8293c0c.js";
+import { i as initMainThreadService, s as setSandboxPlugins, e as getPlugins, o as onIframeLoadingModule, a as iframeStyles, d as DefaultHtml, b as DefaultIndexCode, D as DefaultDemoCode, c as DefaultCssCode, g as getSandboxRefresher, f as getIframeHTML } from "./index-a8293c0c.js";
 import { _, r } from "./index-a8293c0c.js";
 import "./core/event/index.js";
 import "./core/proxy/index.js";
@@ -20,8 +20,6 @@ class CodeSandbox extends HTMLElement {
     this.iframe.setAttribute("class", `code-sandbox-iframe ${this.getAttribute("class") || ""}`);
     this.iframe.setAttribute("style", this.getAttribute("style"));
     onIframeLoadingModule(this.iframe, (moduleName, extraInfo) => {
-      var _a;
-      (_a = this.onLoadingModule) == null ? void 0 : _a.call(this, moduleName, extraInfo);
       this.dispatchEvent(new CustomEvent("loading-module", {
         detail: {
           moduleName,
@@ -69,6 +67,27 @@ class CodeSandbox extends HTMLElement {
         this.iframe.setAttribute(name, newValue);
       }
     }
+    const res = Promise.all(tasks);
+    this.dispatchEvent(new CustomEvent("ready"));
+    return res;
+  }
+  async refresh() {
+    const html = this.getAttribute("html") || DefaultHtml;
+    const index = this.getAttribute("index") || DefaultIndexCode;
+    const code = this.getAttribute("code") || DefaultDemoCode;
+    const css = this.getAttribute("css") || DefaultCssCode;
+    const { refreshHtml, refreshApp, refreshIndex, refreshStyle } = getSandboxRefresher({
+      iframe: this.iframe,
+      html,
+      index,
+      code,
+      css
+    });
+    const tasks = [];
+    tasks.push(refreshHtml());
+    tasks.push(refreshApp());
+    tasks.push(refreshIndex());
+    tasks.push(refreshStyle());
     const res = Promise.all(tasks);
     this.dispatchEvent(new CustomEvent("ready"));
     return res;

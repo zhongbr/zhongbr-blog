@@ -1,6 +1,10 @@
 import React from "react";
 import * as DefaultCodes from './default';
 import { registerPlugins } from './plugins';
+export interface IRef {
+    getIframe: () => HTMLIFrameElement | null;
+    refresh: () => void;
+}
 export interface IProps {
     className?: string;
     title?: string;
@@ -12,6 +16,6 @@ export interface IProps {
     onLoadingModule?: (moduleName: string, url: string) => void;
     onReady?: () => void;
 }
-declare const Demo: React.FC<IProps>;
+declare const CodeSandbox: React.ForwardRefExoticComponent<IProps & React.RefAttributes<IRef>>;
 export { DefaultCodes, registerPlugins };
-export default Demo;
+export default CodeSandbox;

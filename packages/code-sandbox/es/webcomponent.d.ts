@@ -9,12 +9,12 @@ declare global {
     }
 }
 declare class CodeSandbox extends HTMLElement {
-    private iframe;
+    iframe: HTMLIFrameElement;
     private styleElement;
-    onLoadingModule: (moduleName: string, url: string) => void;
     constructor();
     private initIframe;
     static get observedAttributes(): string[];
     attributeChangedCallback(name: string, oldValue: any, newValue: any): Promise<any[]>;
+    refresh(): Promise<any[]>;
 }
 export { DefaultCodes, CodeSandbox, registerPlugins };

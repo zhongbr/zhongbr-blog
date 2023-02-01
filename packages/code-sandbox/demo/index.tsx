@@ -2,7 +2,7 @@
 import React, { useState, useLayoutEffect } from 'react';
 import * as ReactDom from 'react-dom/client';
 
-import Demo, { DefaultCodes, registerPlugins } from '../src';
+import CodeSandbox, { DefaultCodes, registerPlugins } from '../src';
 import { ReactPolyfill } from '../src/plugins/react';
 import { EsmToAmdPlugin } from '../src/plugins/babel';
 // @ts-ignore
@@ -96,7 +96,7 @@ const DemoComp = () => {
 
             <div style={{ flex: '1' }}>
                 <div>React 组件</div>
-                <Demo
+                <CodeSandbox
                     title="demo"
                     code={code}
                     index={index}

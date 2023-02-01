@@ -1,37 +1,14 @@
 .container {
-    margin-top: 10px;
-    margin-bottom: 10px;
-    border-radius: var(--border-radius-mid);
-    position: relative;
     background-color: var(--codeblock-background-color);
+    border-radius: var(--border-radius-mid);
     padding: 16px;
-    display: flex;
 
-    .preview {
-        flex: 1;
-        padding-left: 8px;
-        border-left: var(--border-color) solid 1px;
-    }
-
-    &.narrow-width-screen {
-        flex-direction: column;
-
-        .preview {
-            border-left: none;
-            padding-left: unset;
-            border-top: var(--border-color) solid 1px;
-            padding-top: 8px;
-        }
-    }
-
-    .footer {
-        position: absolute;
+    .header {
         font-size: small;
-        top: 10px;
-        right: 20px;
-        opacity: 0.5;
         display: flex;
+        flex-direction: row-reverse;
         gap: 16px;
+        width: 100%;
 
         .item {
             display: flex;
@@ -45,27 +22,52 @@
         }
     }
 
-    // 下面的样式是为了修复 react-code-blocks 组件行号和行对不齐的bug
-    & > span {
-        flex: 1;
-        display: flex !important;
+    .code-container {
+        margin-top: 10px;
+        margin-bottom: 10px;
+        position: relative;
+        display: flex;
 
-        & > code {
-            font-family: 'fira-code', monospace !important;
-            font-size: 14px;
+        .preview {
+            flex: 1;
+            padding-left: 8px;
+            border-left: var(--border-color) solid 1px;
         }
 
-        & > code:nth-child(1) {
-            float: unset !important;
+        &.narrow-width-screen {
+            flex-direction: column;
+
+            .preview {
+                border-left: none;
+                padding-left: unset;
+                border-top: var(--border-color) solid 1px;
+                padding-top: 8px;
+            }
         }
 
-        & > code:nth-child(2) {
-            white-space: pre;
-            overflow-x: auto;
+        // 下面的样式是为了修复 react-code-blocks 组件行号和行对不齐的bug
+        & > span {
+            flex: 1;
+            display: flex !important;
 
-            &::-webkit-scrollbar {
-                display: unset;
+            & > code {
+                font-family: 'fira-code', monospace !important;
+                font-size: 14px;
+            }
+
+            & > code:nth-child(1) {
+                float: unset !important;
+            }
+
+            & > code:nth-child(2) {
+                white-space: pre;
+                overflow-x: auto;
+
+                &::-webkit-scrollbar {
+                    display: unset;
+                }
             }
         }
     }
+
 }
