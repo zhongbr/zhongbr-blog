@@ -1,17 +1,20 @@
 import bindScriptLoaderToCtx from './scriptLoader';
 import bindDefineToCtx from "./define";
 import bindRequireToCtx from "./require";
-import { IAmdModuleManagerContext, IEventTypes } from './types';
+import {IAmdModuleManagerContext, IEventTypes, IRequireCtx} from './types';
 import { createEventSubscribeManager } from "../event";
 import { Factory } from "./types";
 import { IPlugin } from "../../plugins/types";
+import { FilesSystem } from "../files-system";
 
-export function createAmdManager(root='/', scriptTimeout=10000, logger: IAmdModuleManagerContext['logger'] = console) {
+export function createAmdManager(fs: FilesSystem,root='/', scriptTimeout=10000, logger: IAmdModuleManagerContext['logger'] = console) {
     const ctx = {} as IAmdModuleManagerContext;
     ctx.eventSubscribeManager = createEventSubscribeManager();
+    ctx.fs = fs;
     ctx.root = root;
     ctx.scriptTimeout = scriptTimeout;
     ctx.logger = logger;
+
     ctx.plugins = [];
     // 遍历插件的方法
     ctx.pluginReduce = async (reducer, initValue) => {
@@ -42,7 +45,7 @@ export function createAmdManager(root='/', scriptTimeout=10000, logger: IAmdModu
     }
 
     const module_ = {
-        require_: ctx.require_,
+        require_: ctx.require,
         define: ctx.define,
         _import: importGlobalObjectScript.bind(null, document.body),
         onModuleUpdate(targets: string[] | undefined, cb: (moduleNames: string[]) => void) {
@@ -57,12 +60,20 @@ export function createAmdManager(root='/', scriptTimeout=10000, logger: IAmdModu
                 cb(moduleName as string, url as string);
             });
         },
+        onModuleDeps(cb: (from: string[], to: string) => void) {
+            return ctx.eventSubscribeManager.listen(IEventTypes.ModuleDeps, (_this: IRequireCtx) => {
+                if (!_this.deps) {
+                    debugger;
+                }
+                cb(_this.deps || [], _this.__dirname);
+            });
+        },
         mountToGlobal(global_ = window) {
             const currentDefine = Reflect.get(global_, 'define');
             const currentRequire = Reflect.get(global_, 'require');
 
             Reflect.set(global_, 'define', ctx.define);
-            Reflect.set(global_, 'require', ctx.require_);
+            Reflect.set(global_, 'require', ctx.require);
 
             return () => {
                 Reflect.set(global_, 'define', currentDefine);
@@ -74,18 +85,7 @@ export function createAmdManager(root='/', scriptTimeout=10000, logger: IAmdModu
         }
     };
 
-    ctx.define('module-manager', [], async () => ({
-        default: module_,
-        ...module_
-    }));
-
     return module_;
 }
 
 export type IAmdManager = ReturnType<typeof createAmdManager>;
-
-/**
- * 创建一个全局使用的默认 AMD 管理上下文
- */
-export const defaultManager = createAmdManager();
-export const { define, require_, onModuleUpdate, _import, mountToGlobal } = defaultManager;

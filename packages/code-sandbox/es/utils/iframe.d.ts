@@ -7,7 +7,7 @@ export declare const initMainThreadService: () => Promise<void>;
  * @param iframe 要等待的 iframe
  * @param timeout 超时时间
  */
-export declare const waitIframeReady: (iframe: HTMLIFrameElement, timeout?: number) => Promise<unknown>;
+export declare const waitIframeReady: (iframe: HTMLIFrameElement, timeout?: number) => Promise<void>;
 /**
  * 通知外部容器，iframe 内部已经加载完成的函数
  */

@@ -1,130 +1,59 @@
 import React, { useLayoutEffect, useRef } from "react";
 
-import { onIframeLoadingModule, initMainThreadService } from './utils/iframe';
-import { getSandboxRefresher, getIframeHTML, iframeStyles, setSandboxPlugins } from './iframe';
-import * as DefaultCodes from './default';
-import { registerPlugins, getPlugins } from './plugins';
+import { FilesSystem } from "./core/files-system";
+import { CodeSandbox as CodeSandboxDom, registerPlugins, DefaultCodes, IAttributes } from './webcomponent';
 
-initMainThreadService();
-
-export interface IRef {
-    getIframe: () => HTMLIFrameElement | null;
-    refresh: () => void;
+if (!customElements.get('code-sandbox')) {
+    customElements.define('code-sandbox', CodeSandboxDom);
 }
 
-export interface IProps {
-    className?: string;
-    title?: string;
-    html?: string;
-    code?: string;
-    index?: string;
-    css?: string;
-    style?: React.CSSProperties;
+export interface IProps extends IAttributes {
+    fs?: FilesSystem;
     onLoadingModule?: (moduleName: string, url: string) => void;
     onReady?: () => void;
 }
 
-const CodeSandbox = React.forwardRef<IRef, IProps>((props, ref) => {
-    const {
-        title = 'demo',
-        className,
-        code = DefaultCodes.DefaultDemoCode,
-        index = DefaultCodes.DefaultIndexCode,
-        css = DefaultCodes.DefaultCssCode,
-        html = DefaultCodes.DefaultHtml,
-        style,
-        onLoadingModule,
-        onReady
-    } = props;
-
-    const iframe = useRef<HTMLIFrameElement>(null);
-    if (ref) {
-        const ref_: IRef = {
-            getIframe: () => iframe.current,
-            refresh: () => {
-                if (!iframe.current) return;
-                iframe.current.srcdoc = Reflect.get(iframe.current, 'srcdoc');
-                previousCodesRef.current = null;
-                runCode();
-            }
-        };
-        if (typeof ref === 'function') {
-            ref(ref_);
-        }
-        else {
-            ref.current = ref_;
-        }
-    }
-
-    const runCode = () => {
-        (async () => {
-            const { refreshIndex, refreshApp, refreshHtml, refreshStyle } = getSandboxRefresher({
-                iframe: iframe.current,
-                code,
-                index,
-                css,
-                html
-            });
-
-            const [preHtml, preCode, preIndex, preCss] = previousCodesRef.current || [];
-            const tasks = [];
-            switch (true) {
-                case preHtml !== html: {
-                    tasks.push(refreshHtml());
-                    break;
-                }
-                case preCode !== code: {
-                    tasks.push(refreshApp());
-                    break;
-                }
-                case preIndex !== index: {
-                    tasks.push(refreshIndex());
-                    break;
-                }
-            }
-            tasks.push(refreshStyle());
-            await Promise.all(tasks);
-            onReady?.();
-            previousCodesRef.current = currentCode;
-        })()
-    };
-
-    const previousCodesRef = useRef<readonly [string, string, string, string]>(null);
-    const currentCode = [html, code, index, css] as const;
-    useLayoutEffect(runCode, currentCode);
-
-    const onLoadingModuleRef = useRef(onLoadingModule);
-    onLoadingModuleRef.current = onLoadingModule;
+const CodeSandbox = React.forwardRef<CodeSandboxDom, IProps>((props, ref) => {
+    const { fs, onLoadingModule, onReady, ...others } = props;
+    const sandboxRef = useRef<CodeSandboxDom>(null);
 
     useLayoutEffect(() => {
-        if (!iframe.current) return;
-        onIframeLoadingModule(iframe.current, (moduleName, extraInfo) => {
-            onLoadingModuleRef.current(moduleName, extraInfo);
-        });
-        setSandboxPlugins(iframe.current, getPlugins());
-    }, []);
-
-    const [srcDoc] = getIframeHTML();
+        if (fs) {
+            sandboxRef.current.fs = fs;
+        }
+        if (onReady) {
+            sandboxRef.current.addEventListener('ready', onReady);
+        }
+        const onLoadingModule_ = (e) => {
+            const { moduleName, url } = e.detail;
+            onLoadingModule?.(moduleName, url);
+        };
+        if (onLoadingModule) {
+            sandboxRef.current.addEventListener('loading-module', onLoadingModule_);
+        }
+        return () => {
+            if (!sandboxRef.current) return;
+            if (onReady) {
+                sandboxRef.current.removeEventListener('ready', onReady);
+            }
+            if (onLoadingModule) {
+                sandboxRef.current.removeEventListener('loading-module', onLoadingModule_);
+            }
+        };
+    });
 
     return (
-        <>
-            <style>
-                {iframeStyles}
-            </style>
-            <iframe
-                ref={iframe}
-                className={`code-sandbox-iframe ${className || ''}`}
-                title={title}
-                srcDoc={srcDoc}
-                allowFullScreen
-                style={style}
-                sandbox="allow-scripts"
-            />
-        </>
-    )
+        <code-sandbox
+            ref={(ele) => {
+                ref && (typeof ref === 'function' ? ref(ele) : ref.current = ele);
+                sandboxRef.current = ele;
+            }}
+            {...others}
+        />
+    );
 });
 
 CodeSandbox.displayName = 'Demo';
 
-export { DefaultCodes, registerPlugins };
+export { DefaultCodes, registerPlugins, CodeSandboxDom };
 export default CodeSandbox;

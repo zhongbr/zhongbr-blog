@@ -75,7 +75,7 @@ es module
 
 You can use `addEventListener` method of `code-sandbox` dom node to access the event.
 
-- `loading-module`: event will be triggered when sandbox requiring module from internet, you can get module informations from `detail` of the event object .
+- `loading-module`: event will be triggered when sandbox requiring module from internet, you can get module information from `detail` of the event object .
 - `ready`: event will be triggered when sandbox codes have executed finished .
 
 ## 3. Plugins

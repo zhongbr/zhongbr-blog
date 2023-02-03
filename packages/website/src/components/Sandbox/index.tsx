@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import clsx from 'clsx';
-import CodeSandbox, { IRef } from '@zhongbr/code-sandbox';
+import CodeSandbox, { CodeSandboxDom } from '@zhongbr/code-sandbox';
 
 import Icon from "../Icon";
 import Splash from '../Splash';
@@ -20,7 +20,7 @@ const Sandbox: React.FC<IProps> = props => {
     const [loading, setLoading] = useState(true);
     const [loadingModuleName, setLoadingModuleName] = useState(['', '']);
 
-    const sandbox = useRef<IRef>(null);
+    const sandbox = useRef<CodeSandboxDom>(null);
 
     const onLoadingModule = (moduleName: string, url: string) => {
         setLoadingModuleName([moduleName, url]);
@@ -31,12 +31,12 @@ const Sandbox: React.FC<IProps> = props => {
     }
 
     const onFullScreen = () => {
-        sandbox.current?.getIframe()?.requestFullscreen();
+        sandbox.current?.iframe.requestFullscreen();
     };
 
-    const onRefresh = () => {
-        sandbox.current?.refresh();
-    };
+    // const onRefresh = async () => {
+    //     await sandbox.current?.refresh();
+    // };
 
     useEffect(() => {
         setLoading(true);

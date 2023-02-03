@@ -1,7 +1,7 @@
 import path from 'path-browserify';
 
 import { IAmdModuleManagerContext, IRequireCtx, IRequireFunc, IModule, IEventTypes } from "./types";
-import {IPlugin} from "../../plugins/types";
+import { IFile } from "../files-system/types";
 
 type PromiseRes<T> = T extends Promise<infer P> ? P : unknown;
 
@@ -28,6 +28,9 @@ export default function bindRequireToCtx (ctx: IAmdModuleManagerContext) {
                 throw new Error(`[amd] can't not resolve relative path ${moduleName} without __dirname`);
             }
             return path.resolve(path.dirname(__filepath), moduleName);
+        }
+        if (moduleName.startsWith('/')) {
+            return path.resolve(ctx.root, moduleName);
         }
         const [modulePath] = parseModuleName(moduleName);
         return path.resolve(ctx.root, 'node_modules', modulePath!);
@@ -97,14 +100,12 @@ export default function bindRequireToCtx (ctx: IAmdModuleManagerContext) {
             return clearAllTasks(undefined, cache.get(modulePath)!);
         }
 
-        const require_ = getRequireFunc({ __dirname: modulePath });
-
         // 尝试获取模块的声明
         let factory = factories.get(modulePath);
         // 没有获取到的情况处理，会尝试自动解决依赖
         if (!factory) {
-            // 对于不是本地模块的，先尝试自动加载依赖
-            if (!moduleName.startsWith('.') && !moduleName.startsWith('__') && !path.isAbsolute(moduleName)) {
+            // 对于不是本地模块的，尝试从远程加载模块
+            if (!moduleName.startsWith('.') && !path.isAbsolute(moduleName)) {
                 const [name, version, file] = parseModuleName(moduleName);
                 const scriptUrl = await resolveDeps(name, version, file);
                 // 分发加载模块的事件
@@ -115,6 +116,15 @@ export default function bindRequireToCtx (ctx: IAmdModuleManagerContext) {
                     ctx.logger.log('[amd] script loaded', factory, modulePath);
                 }
             }
+            // 本地模块，尝试从 fs 里读取文件
+            else {
+                const [exist, file] = ctx.fs.pathReduce(modulePath);
+                if (exist && Reflect.has(file, 'content')) {
+                    const content = (file as IFile).content;
+                    factories.set(modulePath, content);
+                    factory = content;
+                }
+            }
             // 加载完后，仍然没有模块声明的，抛出异常
             if (!factory) {
                 const err = new Error(`[amd] module error: ${modulePath} does not exist.`);
@@ -122,6 +132,11 @@ export default function bindRequireToCtx (ctx: IAmdModuleManagerContext) {
             }
         }
 
+        // 记录模块所有的依赖
+        const moduleDeps: string[] = [];
+        const requireCtx = { __dirname: modulePath, deps: moduleDeps };
+        const require_ = getRequireFunc(requireCtx);
+        // 这是声明时预先给定的依赖
         let depModuleNames = dependencies.get(modulePath);
 
         // 拿到声明后，开始调用插件的钩子，修改模块的依赖信息或者声明
@@ -162,6 +177,9 @@ export default function bindRequireToCtx (ctx: IAmdModuleManagerContext) {
                 exportsReturn = await factory(...deps);
             }
 
+            // 分发模块的依赖事件
+            ctx.eventSubscribeManager.trigger(IEventTypes.ModuleDeps, requireCtx);
+
             // 先判断 exports 对象是否挂载了内容，如果没有就使用 factory 的返回值
             const module_ = (() => {
                 if (Object.keys(commonjs.module.exports).length || typeof commonjs.module.exports !== 'object') {
@@ -178,29 +196,38 @@ export default function bindRequireToCtx (ctx: IAmdModuleManagerContext) {
         }
     };
 
-    const requireProto= async (_this: IRequireCtx, ...args: Parameters<IRequireFunc>) => {
-        const [moduleNames_, cb] = args;
-
-        // 调用 插件 require 钩子，处理模块名称
-        const moduleNames = await ctx.pluginReduce(async (preValue, plugin) => {
-            return {
-                result: await plugin.require(_this, preValue)
-            };
-        }, moduleNames_);
-
-        let modules: PromiseRes<ReturnType<IRequireFunc>>;
-        if (Array.isArray(moduleNames)) {
-            modules = await Promise.all(moduleNames.map(name => moduleFactory(name, _this)));
-        }
-        else {
-            modules = await moduleFactory(moduleNames, _this);
-        }
-        cb?.(modules);
-        return modules;
-    };
-
     const getRequireFunc = (_this: IRequireCtx): IRequireFunc => {
-        return Object.assign(requireProto.bind(null, _this), {
+        return Object.assign(async (...args: Parameters<IRequireFunc>) => {
+            const [moduleNames_, cb] = args;
+
+            // 调用 插件 require 钩子，处理模块名称
+            const moduleNames = await ctx.pluginReduce(async (preValue, plugin) => {
+                return {
+                    result: await plugin.require(_this, preValue)
+                };
+            }, moduleNames_);
+
+            // 记录模块本次 require 的依赖
+            if (typeof moduleNames === 'string') {
+                _this.deps?.push(resolve(moduleNames, _this.__dirname));
+            }
+            else {
+                _this.deps?.push(...moduleNames.reduce((previousValue, currentValue) => {
+                    previousValue.push(resolve(currentValue, _this.__dirname));
+                    return previousValue;
+                },[]));
+            }
+
+            let modules: PromiseRes<ReturnType<IRequireFunc>>;
+            if (Array.isArray(moduleNames)) {
+                modules = await Promise.all(moduleNames.map(name => moduleFactory(name, _this)));
+            }
+            else {
+                modules = await moduleFactory(moduleNames, _this);
+            }
+            cb?.(modules);
+            return modules;
+        }, {
             cache,
             factories,
             resolve,
@@ -210,5 +237,5 @@ export default function bindRequireToCtx (ctx: IAmdModuleManagerContext) {
         });
     };
 
-    ctx.require_ = getRequireFunc({ __dirname: ctx.root });
+    ctx.require = getRequireFunc({ __dirname: ctx.root });
 }

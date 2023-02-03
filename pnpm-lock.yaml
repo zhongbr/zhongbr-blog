@@ -25,6 +25,7 @@ importers:
     specifiers:
       '@babel/standalone': ^7.20.12
       '@types/babel__standalone': ^7.1.4
+      '@types/path-browserify': ^1.0.0
       '@types/react': ^18.0.17
       '@types/react-dom': ^18.0.6
       '@vitejs/plugin-react': ^3.0.1
@@ -38,6 +39,7 @@ importers:
     dependencies:
       '@babel/standalone': 7.20.12
       '@types/babel__standalone': 7.1.4
+      '@types/path-browserify': 1.0.0
       path-browserify: 1.0.1
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
@@ -67,6 +69,14 @@ importers:
       remark-parse: 10.0.1
       traverse: 0.6.7
       unified: 10.1.2
+
+  packages/react-hooks:
+    specifiers:
+      react: ^18.2.0
+      react-dom: ^18.2.0
+    dependencies:
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
 
   packages/website:
     specifiers:

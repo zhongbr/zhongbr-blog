@@ -1,15 +1,32 @@
-import { getIframeHTML, iframeStyles, getSandboxRefresher, setSandboxPlugins } from './iframe';
+import {
+    getIframeHTML,
+    iframeStyles,
+    getSandboxRefresher,
+    setSandboxPlugins,
+    HTMLEntry,
+    JSEntry,
+    StylesEntry
+} from './iframe';
 import * as DefaultCodes from './default';
-import { IProps as IDemoProps } from "./index";
-import { onIframeLoadingModule, initMainThreadService } from './utils/iframe';
+import {onIframeLoadingModule, initMainThreadService, waitIframeReady} from './utils/iframe';
 import { getPlugins, registerPlugins } from './plugins';
+import { FilesSystem, initMainFilesSyncCaller } from "./core/files-system";
+import React from "react";
 
 initMainThreadService();
+
+export type IAttributes = React.HTMLAttributes<CodeSandbox> & {
+    html?: string;
+    css?: string;
+    index?: string;
+    code?: string;
+    title?: string;
+}
 
 declare global {
     namespace JSX {
         interface IntrinsicElements {
-            'code-sandbox': IDemoProps;
+            'code-sandbox': React.DetailedHTMLProps<IAttributes, CodeSandbox>
         }
     }
 }
@@ -17,22 +34,42 @@ declare global {
 class CodeSandbox extends HTMLElement {
     public iframe: HTMLIFrameElement;
     private styleElement: HTMLStyleElement;
+    private fs_: FilesSystem = new FilesSystem();
+    private fsMode: 'fs' | 'code' = 'code';
+    public root: ShadowRoot = null;
 
     constructor() {
         super();
+        this.root = this.attachShadow({ mode: 'open' });
         this.initIframe();
+    }
 
-        const shadowRoot = this.attachShadow({ mode: 'open' });
-        shadowRoot.append(this.styleElement, this.iframe);
-        // 设置插件
-        setSandboxPlugins(this.iframe, getPlugins());
+    public set fs(fs: FilesSystem) {
+        this.fsMode = 'fs';
+        this.fs_ = fs;
+    }
+
+    public get fs() {
+        return this.fs_;
+    }
+
+    public addEventListener<K extends keyof (HTMLElementEventMap & { 'ready': unknown; 'loading-module': unknown; })>(type: K, listener, options?) {
+        super.addEventListener(type, listener, options);
+    }
+
+    public removeEventListener<K extends keyof (HTMLElementEventMap & { 'ready': unknown; 'loading-module': unknown; })>(type: K, listener, options?) {
+        super.removeEventListener(type, listener, options);
     }
 
     private initIframe() {
+        if (this.iframe) {
+            this.root.removeChild(this.iframe);
+        }
         const [srcDoc] = getIframeHTML();
 
         this.iframe = document.createElement('iframe');
         this.iframe.srcdoc = srcDoc;
+        this.iframe.setAttribute('title', this.iframe.getAttribute('title'));
         this.iframe.setAttribute('sandbox', 'allow-scripts');
         this.iframe.setAttribute('class', `code-sandbox-iframe ${this.getAttribute('class') || ''}`);
         this.iframe.setAttribute('style', this.getAttribute('style'));
@@ -47,76 +84,57 @@ class CodeSandbox extends HTMLElement {
             }));
         });
 
+        initMainFilesSyncCaller(this.fs, this.iframe);
+
         this.styleElement = document.createElement('style');
-        this.styleElement.innerText = iframeStyles;
+        this.styleElement.innerHTML = iframeStyles;
+
+        this.root.append(this.styleElement, this.iframe);
+        setSandboxPlugins(this.iframe, getPlugins());
+        this.writeFile('html');
+        this.writeFile('css');
+        this.writeFile('code');
+        this.writeFile('index');
     }
 
     static get observedAttributes() {
         return ['code', 'css', 'index', 'html', 'class', 'style'];
     }
 
-    public async attributeChangedCallback(name: string, oldValue, newValue) {
-        const html = this.getAttribute('html') || DefaultCodes.DefaultHtml;
-        const index = this.getAttribute('index') || DefaultCodes.DefaultIndexCode;
-        const code = this.getAttribute('code') || DefaultCodes.DefaultDemoCode;
-        const css = this.getAttribute('css') || DefaultCodes.DefaultCssCode;
-
-        const { refreshHtml, refreshApp, refreshIndex, refreshStyle } = getSandboxRefresher({
-            iframe: this.iframe,
-            html,
-            index,
-            code,
-            css
-        });
-        const tasks = [];
-        switch (name) {
-            case 'html': {
-                tasks.push(refreshHtml())
-                break;
-            }
-            case 'code': {
-                tasks.push(refreshApp());
-                break;
-            }
-            case 'index': {
-                tasks.push(refreshIndex());
-                break;
-            }
-            case 'css': {
-                tasks.push(refreshStyle());
-                break;
-            }
-            default: {
-                this.iframe.setAttribute(name, newValue);
-            }
-        }
-        const res = Promise.all(tasks);
+    private async execute() {
+        await getSandboxRefresher({ iframe: this.iframe })();
         this.dispatchEvent(new CustomEvent('ready'));
-        return res;
+    }
+
+    public async attributeChangedCallback(name: string, oldValue, newValue) {
+        if (['html', 'code', 'index', 'css'].includes(name)) {
+            // 等待 iframe 环境准备好之后再执行代码
+            waitIframeReady(this.iframe).then(() => {
+                this.writeFile(name);
+                this.execute();
+            });
+        }
+        else {
+            this.iframe.setAttribute(name, newValue);
+        }
     }
 
     public async refresh() {
-        const html = this.getAttribute('html') || DefaultCodes.DefaultHtml;
-        const index = this.getAttribute('index') || DefaultCodes.DefaultIndexCode;
-        const code = this.getAttribute('code') || DefaultCodes.DefaultDemoCode;
-        const css = this.getAttribute('css') || DefaultCodes.DefaultCssCode;
+        this.initIframe();
+        await waitIframeReady(this.iframe);
+        return this.execute();
+    }
 
-        const { refreshHtml, refreshApp, refreshIndex, refreshStyle } = getSandboxRefresher({
-            iframe: this.iframe,
-            html,
-            index,
-            code,
-            css
-        });
-
-        const tasks = [];
-        tasks.push(refreshHtml());
-        tasks.push(refreshApp());
-        tasks.push(refreshIndex());
-        tasks.push(refreshStyle());
-        const res = Promise.all(tasks);
-        this.dispatchEvent(new CustomEvent('ready'));
-        return res;
+    private async writeFile(name: string) {
+        await waitIframeReady(this.iframe);
+        const defaultCodes = {
+            html: [HTMLEntry, DefaultCodes.DefaultHtml],
+            code: [DefaultCodes.DefaultDemoFileName, DefaultCodes.DefaultDemoCode],
+            index: [JSEntry, DefaultCodes.DefaultIndexCode],
+            css: [StylesEntry, DefaultCodes.DefaultCssCode]
+        };
+        const [fileName, defaultCode] = defaultCodes[name];
+        this.fs.writeFile(fileName, this.getAttribute(name) || defaultCode);
     }
 }
 

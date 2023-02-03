@@ -1,0 +1,25 @@
+{
+    "compilerOptions": {
+        "types": ["node"],
+        "baseUrl": "/",
+        "module": "esnext",
+        "target": "es2017",
+        "sourceMap": false,
+        "skipLibCheck": true,
+        "outDir": "./es",
+        "moduleResolution": "Node",
+        "esModuleInterop": true,
+        "declaration": true,
+        "jsx": "react",
+        "paths": {
+            "@/*": ["src/*"]
+        }
+    },
+    "include": [
+        "src/**/*.tsx",
+        "src/**/*.ts"
+    ],
+    "exclude": [
+        "node_modules"
+    ]
+}

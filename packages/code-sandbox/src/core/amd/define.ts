@@ -18,8 +18,8 @@ export default function bindDefineToCtx(ctx: IAmdModuleManagerContext) {
         }
         ctx.logger.log('[amd] define module', moduleName, dependencies_);
 
-        const modulePath = ctx.require_.resolve(moduleName);
-        const { factories, cache, dependencies } = ctx.require_;
+        const modulePath = ctx.require.resolve(moduleName);
+        const { factories, cache, dependencies } = ctx.require;
 
         if (factories.has(modulePath)) {
             factories.delete(modulePath);

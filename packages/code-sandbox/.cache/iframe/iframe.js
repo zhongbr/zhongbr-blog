@@ -217,6 +217,7 @@ function bindScriptLoaderToCtx(ctx2) {
 var IEventTypes = /* @__PURE__ */ ((IEventTypes2) => {
   IEventTypes2["ModuleUpdate"] = "module-update";
   IEventTypes2["LoadingScript"] = "loading-script";
+  IEventTypes2["ModuleDeps"] = "module-deps";
   return IEventTypes2;
 })(IEventTypes || {});
 function bindDefineToCtx(ctx2) {
@@ -232,8 +233,8 @@ function bindDefineToCtx(ctx2) {
       moduleName2 = ctx2.scriptLoader.getLoadingModuleName();
     }
     ctx2.logger.log("[amd] define module", moduleName2, dependencies_);
-    const modulePath2 = ctx2.require_.resolve(moduleName2);
-    const { factories: factories2, cache: cache2, dependencies: dependencies2 } = ctx2.require_;
+    const modulePath2 = ctx2.require.resolve(moduleName2);
+    const { factories: factories2, cache: cache2, dependencies: dependencies2 } = ctx2.require;
     if (factories2.has(modulePath2)) {
       factories2.delete(modulePath2);
     }
@@ -699,6 +700,9 @@ function bindRequireToCtx(ctx) {
       }
       return pathBrowserify.resolve(pathBrowserify.dirname(__filepath), moduleName2);
     }
+    if (moduleName2.startsWith("/")) {
+      return pathBrowserify.resolve(ctx.root, moduleName2);
+    }
     const [modulePath2] = parseModuleName(moduleName2);
     return pathBrowserify.resolve(ctx.root, "node_modules", modulePath2);
   };
@@ -755,10 +759,9 @@ function bindRequireToCtx(ctx) {
       ctx.logger.log(`[amd] require ${moduleName}, resolved from cache`);
       return clearAllTasks(void 0, cache.get(modulePath));
     }
-    const require_ = getRequireFunc({ __dirname: modulePath });
     let factory = factories.get(modulePath);
     if (!factory) {
-      if (!moduleName.startsWith(".") && !moduleName.startsWith("__") && !pathBrowserify.isAbsolute(moduleName)) {
+      if (!moduleName.startsWith(".") && !pathBrowserify.isAbsolute(moduleName)) {
         const [name, version, file] = parseModuleName(moduleName);
         const scriptUrl = await resolveDeps(name, version, file);
         ctx.eventSubscribeManager.trigger(IEventTypes.LoadingScript, moduleName, scriptUrl);
@@ -767,12 +770,22 @@ function bindRequireToCtx(ctx) {
           factory = factories.get(modulePath);
           ctx.logger.log("[amd] script loaded", factory, modulePath);
         }
+      } else {
+        const [exist, file] = ctx.fs.pathReduce(modulePath);
+        if (exist && Reflect.has(file, "content")) {
+          const content = file.content;
+          factories.set(modulePath, content);
+          factory = content;
+        }
       }
       if (!factory) {
         const err = new Error(`[amd] module error: ${modulePath} does not exist.`);
         return clearAllTasks(err);
       }
     }
+    const moduleDeps = [];
+    const requireCtx = { __dirname: modulePath, deps: moduleDeps };
+    const require_ = getRequireFunc(requireCtx);
     let depModuleNames = dependencies.get(modulePath);
     if (typeof factory === "string") {
       const { deps: _depModuleNames, factory: factory_ } = await ctx.pluginReduce(async (preValue, plugin) => {
@@ -803,6 +816,7 @@ function bindRequireToCtx(ctx) {
       } else {
         exportsReturn = await factory(...deps);
       }
+      ctx.eventSubscribeManager.trigger(IEventTypes.ModuleDeps, requireCtx);
       const module_ = (() => {
         if (Object.keys(commonjs.module.exports).length || typeof commonjs.module.exports !== "object") {
           return commonjs.module.exports;
@@ -816,24 +830,32 @@ function bindRequireToCtx(ctx) {
       return clearAllTasks(err, void 0);
     }
   };
-  const requireProto = async (_this2, ...args) => {
-    const [moduleNames_, cb] = args;
-    const moduleNames = await ctx.pluginReduce(async (preValue, plugin) => {
-      return {
-        result: await plugin.require(_this2, preValue)
-      };
-    }, moduleNames_);
-    let modules;
-    if (Array.isArray(moduleNames)) {
-      modules = await Promise.all(moduleNames.map((name) => moduleFactory(name, _this2)));
-    } else {
-      modules = await moduleFactory(moduleNames, _this2);
-    }
-    cb == null ? void 0 : cb(modules);
-    return modules;
-  };
   const getRequireFunc = (_this2) => {
-    return Object.assign(requireProto.bind(null, _this2), {
+    return Object.assign(async (...args) => {
+      var _a, _b;
+      const [moduleNames_, cb] = args;
+      const moduleNames = await ctx.pluginReduce(async (preValue, plugin) => {
+        return {
+          result: await plugin.require(_this2, preValue)
+        };
+      }, moduleNames_);
+      if (typeof moduleNames === "string") {
+        (_a = _this2.deps) == null ? void 0 : _a.push(resolve(moduleNames, _this2.__dirname));
+      } else {
+        (_b = _this2.deps) == null ? void 0 : _b.push(...moduleNames.reduce((previousValue, currentValue) => {
+          previousValue.push(resolve(currentValue, _this2.__dirname));
+          return previousValue;
+        }, []));
+      }
+      let modules;
+      if (Array.isArray(moduleNames)) {
+        modules = await Promise.all(moduleNames.map((name) => moduleFactory(name, _this2)));
+      } else {
+        modules = await moduleFactory(moduleNames, _this2);
+      }
+      cb == null ? void 0 : cb(modules);
+      return modules;
+    }, {
       cache,
       factories,
       resolve,
@@ -842,7 +864,7 @@ function bindRequireToCtx(ctx) {
       resolveDeps
     });
   };
-  ctx.require_ = getRequireFunc({ __dirname: ctx.root });
+  ctx.require = getRequireFunc({ __dirname: ctx.root });
 }
 const createEventSubscribeManager = () => {
   const eventsHandlersMap = /* @__PURE__ */ new Map();
@@ -903,9 +925,10 @@ const createEventSubscribeManager = () => {
   };
   return { trigger, listen, once };
 };
-function createAmdManager(root = "/", scriptTimeout = 1e4, logger2 = console) {
+function createAmdManager(fs2, root = "/", scriptTimeout = 1e4, logger2 = console) {
   const ctx2 = {};
   ctx2.eventSubscribeManager = createEventSubscribeManager();
+  ctx2.fs = fs2;
   ctx2.root = root;
   ctx2.scriptTimeout = scriptTimeout;
   ctx2.logger = logger2;
@@ -934,7 +957,7 @@ function createAmdManager(root = "/", scriptTimeout = 1e4, logger2 = console) {
     };
   }
   const module_2 = {
-    require_: ctx2.require_,
+    require_: ctx2.require,
     define: ctx2.define,
     _import: importGlobalObjectScript.bind(null, document.body),
     onModuleUpdate(targets, cb) {
@@ -949,11 +972,19 @@ function createAmdManager(root = "/", scriptTimeout = 1e4, logger2 = console) {
         cb(moduleName2, url);
       });
     },
+    onModuleDeps(cb) {
+      return ctx2.eventSubscribeManager.listen(IEventTypes.ModuleDeps, (_this2) => {
+        if (!_this2.deps) {
+          debugger;
+        }
+        cb(_this2.deps || [], _this2.__dirname);
+      });
+    },
     mountToGlobal(global_ = window) {
       const currentDefine = Reflect.get(global_, "define");
       const currentRequire = Reflect.get(global_, "require");
       Reflect.set(global_, "define", ctx2.define);
-      Reflect.set(global_, "require", ctx2.require_);
+      Reflect.set(global_, "require", ctx2.require);
       return () => {
         Reflect.set(global_, "define", currentDefine);
         Reflect.set(global_, "require", currentRequire);
@@ -963,14 +994,209 @@ function createAmdManager(root = "/", scriptTimeout = 1e4, logger2 = console) {
       ctx2.plugins = plugins;
     }
   };
-  ctx2.define("module-manager", [], async () => ({
-    default: module_2,
-    ...module_2
-  }));
   return module_2;
 }
-createAmdManager();
-const DemoServiceName = "demo-service";
+var FilesChangeType = /* @__PURE__ */ ((FilesChangeType2) => {
+  FilesChangeType2["Delete"] = "delete";
+  FilesChangeType2["Change"] = "change";
+  FilesChangeType2["New"] = "new";
+  return FilesChangeType2;
+})(FilesChangeType || {});
+const getPathFileName = (pathObject) => `${pathObject.name}${pathObject.ext}`;
+const traverse = (dir = "", directory, cb) => {
+  directory.children.forEach((item) => {
+    if (Reflect.has(item, "children")) {
+      traverse(`${pathBrowserify}/${item.name}`, item, cb);
+      return;
+    }
+    cb(`${pathBrowserify}/${item.name}`, item);
+  });
+};
+class FilesSystem {
+  constructor() {
+    this.root = {
+      name: "",
+      children: this.getProxyMap("", [])
+    };
+    this.eventCount = 0;
+    this.event = createEventSubscribeManager();
+    this.cp = this.cpOrMv.bind(this, false);
+    this.mv = this.cpOrMv.bind(this, true);
+  }
+  getProxyMap(path2, entries) {
+    const _this2 = this;
+    const map = new Map(entries);
+    const proxyMethod = (methodName, eventName) => {
+      const _method = Reflect.get(map, methodName);
+      if (typeof _method === "function") {
+        const method = function(...args) {
+          _this2.event.trigger(eventName, _this2.eventCount++, path2, ...args);
+          return _method.call(map, ...args);
+        };
+        Reflect.set(map, methodName, method);
+      }
+    };
+    proxyMethod("set", "dir-set");
+    proxyMethod("delete", "dir-delete");
+    proxyMethod("clear", "dir-clear");
+    return map;
+  }
+  pathReduce(target) {
+    const paths = target.split(pathBrowserify.sep);
+    return paths.reduce(([status, dir], cur, index, arr) => {
+      var _a, _b;
+      if (index === 0) {
+        return [status, dir];
+      }
+      if (index === arr.length - 1 && cur === "") {
+        return [status, dir];
+      }
+      return [status && ((_a = dir.children) == null ? void 0 : _a.has(cur)), (_b = dir.children) == null ? void 0 : _b.get(cur)];
+    }, [true, this.root]);
+  }
+  exist(target) {
+    const [exist] = this.pathReduce(target);
+    return exist;
+  }
+  mkdir(target) {
+    const pathObject = pathBrowserify.parse(target);
+    if (this.exist(target)) {
+      throw new Error(`[fs] failed to mkdir ${target}, it is already existed.`);
+    }
+    const [parentExist, parent] = this.pathReduce(pathObject.dir);
+    if (!parentExist) {
+      throw new Error(`[fs] failed to mkdir ${target}, parent path ${pathObject.dir} is not existed.`);
+    }
+    if (!Reflect.has(parent, "children") || Reflect.has(parent, "content")) {
+      throw new Error(`[fs] failed to mkdir ${target}, parent path ${pathObject.dir} is not a directory.`);
+    }
+    parent.children.set(getPathFileName(pathObject), {
+      name: getPathFileName(pathObject),
+      children: this.getProxyMap(pathBrowserify.format(pathObject), [])
+    });
+  }
+  readDirectory(target) {
+    const pathObject = pathBrowserify.parse(target);
+    const [parentExist, parent] = this.pathReduce(pathObject.dir);
+    if (!parentExist) {
+      throw new Error(`[fs] failed to read directory ${target}, parent path ${pathObject.dir} is not existed.`);
+    }
+    return parent.children.get(getPathFileName(pathObject));
+  }
+  readFile(target) {
+    const [exist, file] = this.pathReduce(target);
+    if (!exist) {
+      throw new Error(`[fs] failed to read file ${target}, it is not existed.`);
+    }
+    if (Reflect.has(file, "children")) {
+      throw new Error(`[fs] failed to read file ${target}, it is a directory.`);
+    }
+    return file;
+  }
+  writeFile(target, contents) {
+    const pathObject = pathBrowserify.parse(target);
+    const [parentExist, parent] = this.pathReduce(pathObject.dir);
+    if (!parentExist) {
+      throw new Error(`[fs] failed to write file ${target}, parent path ${pathObject.dir} is not existed.`);
+    }
+    let writeContent = contents;
+    if (typeof contents !== "string") {
+      writeContent = btoa(String.fromCharCode.apply(null, new Uint8Array(contents)));
+    }
+    const existBefore = parent.children.has(getPathFileName(pathObject));
+    parent.children.set(getPathFileName(pathObject), {
+      name: getPathFileName(pathObject),
+      content: writeContent
+    });
+    this.event.trigger("files-change", this.eventCount++, existBefore ? "change" : "new", [target]);
+  }
+  cpOrMv(isMv = false, source, target) {
+    const sourcePathObject = pathBrowserify.parse(source);
+    const targetPathObject = pathBrowserify.parse(target);
+    const [sourceParentExist, sourceParent] = this.pathReduce(sourcePathObject.dir);
+    const [targetParentExist, targetParent] = this.pathReduce(targetPathObject.dir);
+    if (!sourceParentExist || !targetParentExist) {
+      throw new Error(`[fs] failed to ${isMv ? "mv" : "cp"} ${source} to ${target}, source or target path is not existed.`);
+    }
+    if (targetParent.children.has(getPathFileName(targetPathObject))) {
+      throw new Error(`[fs] failed to ${isMv ? "mv" : "cp"} ${source} to ${target}, target path is already existed.`);
+    }
+    targetParent.children.set(getPathFileName(targetPathObject), sourceParent.children.get(getPathFileName(sourcePathObject)));
+    const sourceFileOrDirectory = sourceParent.children.get(source);
+    const deletedFiles = [];
+    const newFiles = [];
+    if (Reflect.has(sourceFileOrDirectory, "content")) {
+      deletedFiles.push(source);
+      newFiles.push(target);
+    } else {
+      traverse(void 0, sourceFileOrDirectory, (path_) => {
+        deletedFiles.push(pathBrowserify.join(sourcePathObject.dir, path_));
+        newFiles.push(pathBrowserify.join(targetPathObject.dir, path_));
+      });
+    }
+    if (isMv) {
+      sourceParent.children.delete(getPathFileName(sourcePathObject));
+      this.event.trigger("files-change", this.eventCount++, "delete", deletedFiles);
+    }
+    this.event.trigger("files-change", this.eventCount++, "new", newFiles);
+  }
+  rm(target) {
+    const pathObject = pathBrowserify.parse(target);
+    const [parentExist, parent] = this.pathReduce(pathObject.dir);
+    if (!parentExist || !parent.children.has(getPathFileName(pathObject))) {
+      throw new Error(`[fs] failed to rm ${target}, it is not existed.`);
+    }
+    const targetFileOrDirectory = parent.children.get(target);
+    const deletedFiles = [];
+    if (Reflect.has(targetFileOrDirectory, "content")) {
+      deletedFiles.push(target);
+    } else {
+      traverse(void 0, targetFileOrDirectory, (path_) => {
+        deletedFiles.push(pathBrowserify.join(pathObject.dir, path_));
+      });
+    }
+    parent.children.delete(getPathFileName(pathObject));
+    this.event.trigger("files-change", this.eventCount++, "delete", deletedFiles);
+  }
+  /**
+   * 序列化内部存储的所有数据
+   */
+  getDataPayload() {
+    return JSON.stringify(this.root, (key, value) => {
+      if (value instanceof Map) {
+        return {
+          __dataType: "Map",
+          entries: Array.from(value.entries())
+        };
+      }
+      return value;
+    });
+  }
+  /**
+   * 触发将文件对象存储的数据传输到远端的事件
+   */
+  transfer() {
+    const payload = this.getDataPayload();
+    this.event.trigger("transfer", this.eventCount++, "", payload);
+  }
+  /**
+   * 接收外部设置的数据
+   * @param payload 底层数据
+   */
+  receive(payload) {
+    const traverse2 = (obj, path2 = "") => {
+      if (obj.children && Reflect.get(obj.children, "__dataType") === "Map") {
+        const entries = obj.children.entries.forEach(([key, value]) => [key, traverse2(value, [path2, key].join("/"))]);
+        return {
+          ...obj,
+          children: this.getProxyMap(path2, entries)
+        };
+      }
+      return obj;
+    };
+    this.root = traverse2(JSON.parse(payload));
+  }
+}
 const NOTIFICATION_SERVICE = "iframe-notification-service";
 const iframeReady = async () => {
   registerProxy(NOTIFICATION_SERVICE, {
@@ -999,6 +1225,58 @@ const iframeLoadingModule = async (moduleName2, extraInfo) => {
     payload: [moduleName2, extraInfo]
   });
 };
+const SyncServiceName = "code-sandbox-sync-files";
+async function initIframeFilesSyncService(fs2) {
+  const cacheQueue = /* @__PURE__ */ new Map();
+  let currentCount = 0;
+  registerProxy(SyncServiceName, {
+    sync: async (eventType, orderCount, path, ...args) => {
+      cacheQueue.set(orderCount, [eventType, path, ...args]);
+      while (cacheQueue.get(currentCount)) {
+        const [eventType2, path2, ...args2] = cacheQueue.get(currentCount);
+        cacheQueue.delete(currentCount);
+        currentCount++;
+        const [, dir_] = fs2.pathReduce(path2);
+        const dir = dir_;
+        switch (eventType2) {
+          case "transfer": {
+            fs2.receive.apply(fs2, args2);
+            break;
+          }
+          case "dir-clear": {
+            dir.children.clear();
+            break;
+          }
+          case "dir-set": {
+            dir.children.set.apply(dir.children, args2);
+            break;
+          }
+          case "dir-delete": {
+            dir.children.delete.apply(dir.children, args2);
+            break;
+          }
+          case "files-change": {
+            fs2.event.trigger(eventType2, path2, ...args2);
+            break;
+          }
+        }
+      }
+    }
+  });
+  const payload = await callProxy({
+    win: self.parent || self.opener || self.top,
+    method: "requestFs",
+    serviceId: SyncServiceName,
+    payload: []
+  });
+  if (payload) {
+    console.log("receive payload", payload);
+    fs2.receive(payload);
+    return;
+  }
+  console.log("not receive payload", payload);
+}
+const DemoServiceName = "demo-service";
 function generatePlugins(pluginsServiceId) {
   const parent = window.parent || window.top || window.opener;
   const generateMethod = (key, serviceId) => async (...args) => {
@@ -1020,30 +1298,170 @@ function generatePlugins(pluginsServiceId) {
     }, {});
   });
 }
-const manager = createAmdManager(void 0, void 0, logger);
+class DepsGraph {
+  constructor() {
+    this.DepNodeIndexes = /* @__PURE__ */ new Map();
+  }
+  getDepNode(_target, create = false) {
+    const target = _target.replace(/\/$/, "");
+    if (!this.DepNodeIndexes.has(target) && create) {
+      this.DepNodeIndexes.set(target, {
+        path: target,
+        come: /* @__PURE__ */ new Set(),
+        out: /* @__PURE__ */ new Set()
+      });
+    }
+    return this.DepNodeIndexes.get(target);
+  }
+  /**
+   * 更新 from -> to 的路径
+   * @param from 起点 node 数组
+   * @param to 终点 node
+   */
+  updatePaths(from, to) {
+    const targetNode = this.getDepNode(to, true);
+    if (targetNode.come.size) {
+      targetNode.come.forEach((depNode) => {
+        depNode.out.delete(targetNode);
+      });
+      targetNode.come.clear();
+    }
+    from.forEach((nodePath) => {
+      const depNode = this.getDepNode(nodePath, true);
+      targetNode.come.add(depNode);
+      depNode.out.add(targetNode);
+    });
+  }
+  /**
+   * 删除 from -> to 的路径
+   * @param from 起点 node 数组
+   * @param to 终点 node
+   */
+  deletePaths(from, to) {
+    const targetNode = this.getDepNode(to);
+    if (!targetNode)
+      return false;
+    from.forEach((sourcePath) => {
+      const sourceNode = this.getDepNode(sourcePath);
+      if (!sourceNode)
+        return;
+      sourceNode.out.delete(targetNode);
+      targetNode.come.delete(sourceNode);
+      this.deleteNode(sourceNode.path);
+    });
+  }
+  /**
+   * 删除指定的依赖节点
+   * @param source
+   */
+  deleteNode(source) {
+    const sourceNode = this.getDepNode(source);
+    if (!sourceNode)
+      return false;
+    this.DepNodeIndexes.delete(source);
+    if (sourceNode.come.size) {
+      sourceNode.come.forEach((comeNode) => {
+        comeNode.out.delete(sourceNode);
+        if (!comeNode.out.size) {
+          this.deleteNode(comeNode.path);
+        }
+      });
+    }
+    return true;
+  }
+  /**
+   * 遍历所有直接或者间接依赖 source 的节点
+   * @param source 要遍历的节点
+   * @param cb 对每个节点的处理
+   * @param tracked 用于存储遍历过的节点
+   * @param wait 用于存储需要遍历的节点
+   * @param order 是否按照顺序开始遍历
+   */
+  traverse(source, cb, tracked = /* @__PURE__ */ new Set(), wait = /* @__PURE__ */ new Set(), order = true) {
+    const isAllDepsTracked = (node) => Array.from(node.come).every((dep) => !wait.has(dep.path) || tracked.has(dep.path));
+    const traverse2 = (node, order2 = false, cb_) => {
+      if (!order2) {
+        wait.add(node.path);
+      } else {
+        if (!isAllDepsTracked(node))
+          return;
+        tracked.add(node.path);
+        cb_ == null ? void 0 : cb_(node, tracked.size, wait.size);
+      }
+      node.out.forEach((child) => {
+        if (!order2 || isAllDepsTracked(child)) {
+          traverse2(child, order2, cb_);
+        }
+      });
+    };
+    const sourceNode = this.getDepNode(source);
+    if (!sourceNode)
+      return;
+    traverse2(sourceNode, false, cb);
+    if (order) {
+      traverse2(sourceNode, true, cb);
+    }
+  }
+  /**
+   * 批量遍历直接或者间接 sources 节点的所有节点
+   * @param sources 被依赖的节点数组
+   * @param cb 对每个节点的处理
+   */
+  batchTraverse(sources, cb) {
+    const tracked = /* @__PURE__ */ new Set();
+    const wait = /* @__PURE__ */ new Set();
+    sources.forEach((source) => {
+      this.traverse(source, cb, tracked, wait, false);
+    });
+    sources.forEach((source) => {
+      this.traverse(source, cb, tracked, wait, true);
+    });
+    return Array.from(tracked);
+  }
+}
+const fs = new FilesSystem();
+initIframeFilesSyncService(fs);
+const depsGraph = new DepsGraph();
+const manager = createAmdManager(fs, void 0, void 0, logger);
 manager.mountToGlobal();
 const style = document.createElement("style");
 document.head.appendChild(style);
 manager.onModuleLoading(iframeLoadingModule);
+manager.onModuleDeps(depsGraph.updatePaths.bind(depsGraph));
+fs.event.listen("files-change", async (type, files) => {
+  if (type === FilesChangeType.Change) {
+    depsGraph.batchTraverse(files, (node) => {
+      manager.require_.factories.delete(node.path);
+      manager.require_.cache.delete(node.path);
+      if (node.out.size) {
+        manager.require_(node.path);
+      }
+    });
+  }
+});
 registerProxy(DemoServiceName, {
-  defineModule: async (name, deps2, factory2) => {
-    manager.define(name, deps2, factory2);
-    return true;
-  },
-  executeModule: async (name) => {
-    await manager.require_(name);
-    return true;
-  },
-  setStyle: async (code) => {
-    style.innerHTML = code;
+  run: async (jsEntry, htmlEntry, stylesEntry) => {
+    if (htmlEntry) {
+      const [htmlExist, html] = fs.pathReduce(htmlEntry);
+      if (!htmlExist)
+        return false;
+      document.body.innerHTML = html.content;
+    }
+    if (stylesEntry) {
+      const [stylesExist, styles] = fs.pathReduce(stylesEntry);
+      if (!stylesExist)
+        return false;
+      style.innerHTML = styles.content;
+    }
+    const [jsExist] = fs.pathReduce(jsEntry);
+    if (!jsExist)
+      return false;
+    await manager.require_(jsEntry);
     return true;
   },
   setPlugins: async (pluginIds) => {
     const plugins = generatePlugins(pluginIds);
     manager.setPlugins(plugins);
-  },
-  setBodyHtml: async (html) => {
-    document.body.innerHTML = html;
   }
 });
 window.onerror = (err) => {

@@ -1,4 +1,5 @@
 .code-sandbox-iframe {
     border-width: 0;
-    background-color: #ffffff;
+    width: 100%;
+    height: 100%;
 }

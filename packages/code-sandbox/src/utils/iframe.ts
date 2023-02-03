@@ -37,11 +37,11 @@ export const initMainThreadService = async () => {
 export const waitIframeReady = async (iframe: HTMLIFrameElement, timeout=10000) => {
     // 被动监听 iframe 发送的消息来得知 iframe 已经加载，避免调用时 iframe 端还未准备好而导致的消息丢失
     const listenTask = new Promise<null>((resolve, reject) => {
-        if (iframe.getAttribute('data-iframe-status') !== 'loaded') {
+        if (iframe.getAttribute('data-iframe-status') !== 'ready') {
             emitter.once(
                 'iframeReady',
                 (...args) => {
-                    iframe.setAttribute('data-iframe-status', 'loaded');
+                    iframe.setAttribute('data-iframe-status', 'ready');
                     resolve(null);
                 },
                 (e: MessageEvent) => e.source === iframe.contentWindow,
@@ -54,15 +54,27 @@ export const waitIframeReady = async (iframe: HTMLIFrameElement, timeout=10000) 
         }
     });
     // 主动调用 iframe 暴露的接口查询是否准备好
-    const queryTask = callProxy<Pick<INotificationService, 'iframeReady'>>({
-        win: iframe.contentWindow,
-        serviceId: NOTIFICATION_SERVICE,
-        method: 'iframeReady',
-        payload: [],
-        timeout
-    });
+    const queryTask = async () => {
+        // 先等待 iframe 加载好
+        await new Promise(resolve => {
+            const onload = () => {
+                iframe.setAttribute('data-iframe-status', 'loaded');
+                resolve(null);
+                iframe.removeEventListener('load', onload);
+            };
+            iframe.addEventListener('load', onload);
+        });
+        // 等待 iframe 内的 js 环境准备好
+        await callProxy<Pick<INotificationService, 'iframeReady'>>({
+            win: iframe.contentWindow,
+            serviceId: NOTIFICATION_SERVICE,
+            method: 'iframeReady',
+            payload: [],
+            timeout
+        });
+    };
     // 两个查询方式 race，取返回快的结果
-    return Promise.race([listenTask, queryTask]);
+    return Promise.race([listenTask, queryTask()]);
 }
 
 /**

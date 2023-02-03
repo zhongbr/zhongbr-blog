@@ -4,32 +4,33 @@
     "src": "src/index.tsx",
     "isEntry": true,
     "imports": [
-      "_index-a8293c0c.js",
+      "src/webcomponent.tsx",
       "src/core/event/index.ts",
       "src/core/proxy/index.ts",
-      "_types-9fd137f3.js"
+      "_types-9fd137f3.js",
+      "_index-a3b3cc38.js"
     ]
-  },
-  "src/core/event/index.ts": {
-    "file": "core/event/index.js",
-    "src": "src/core/event/index.ts",
-    "isEntry": true
-  },
-  "src/core/proxy/index.ts": {
-    "file": "core/proxy/index.js",
-    "src": "src/core/proxy/index.ts",
-    "isEntry": true
   },
   "src/webcomponent.tsx": {
     "file": "webcomponent.js",
     "src": "src/webcomponent.tsx",
     "isEntry": true,
     "imports": [
-      "_index-a8293c0c.js",
       "src/core/event/index.ts",
       "src/core/proxy/index.ts",
-      "_types-9fd137f3.js"
+      "_types-9fd137f3.js",
+      "_index-a3b3cc38.js"
     ]
+  },
+  "src/core/proxy/index.ts": {
+    "file": "core/proxy/index.js",
+    "src": "src/core/proxy/index.ts",
+    "isEntry": true
+  },
+  "src/core/event/index.ts": {
+    "file": "core/event/index.js",
+    "src": "src/core/event/index.ts",
+    "isEntry": true
   },
   "src/plugins/babel/index.ts": {
     "file": "plugins/babel/index.js",
@@ -64,19 +65,15 @@
     "src": "src/core/amd/index.ts",
     "isEntry": true,
     "imports": [
+      "_index-a3b3cc38.js",
       "src/core/event/index.ts"
     ]
   },
   "_types-9fd137f3.js": {
     "file": "types-9fd137f3.js"
   },
-  "_index-a8293c0c.js": {
-    "file": "index-a8293c0c.js",
-    "imports": [
-      "src/core/event/index.ts",
-      "src/core/proxy/index.ts",
-      "_types-9fd137f3.js"
-    ]
+  "_index-a3b3cc38.js": {
+    "file": "index-a3b3cc38.js"
   },
   "src/plugins/babel/worker/worker.ts?worker&inline": {
     "file": "worker-7673604a.js",

@@ -1,9 +1,10 @@
 import require$$0, { useRef, useLayoutEffect } from "react";
-import { i as initMainThreadService, o as onIframeLoadingModule, s as setSandboxPlugins, a as iframeStyles, D as DefaultDemoCode, b as DefaultIndexCode, c as DefaultCssCode, d as DefaultHtml, g as getSandboxRefresher, e as getPlugins, f as getIframeHTML } from "./index-a8293c0c.js";
-import { _, r } from "./index-a8293c0c.js";
+import { CodeSandbox as CodeSandbox$1 } from "./webcomponent.js";
+import { DefaultCodes, registerPlugins } from "./webcomponent.js";
 import "./core/event/index.js";
 import "./core/proxy/index.js";
 import "./types-9fd137f3.js";
+import "./index-a3b3cc38.js";
 var jsxRuntimeExports = {};
 var jsxRuntime = {
   get exports() {
@@ -925,10 +926,10 @@ function requireReactJsxRuntime_development() {
         }
       }
       var jsx2 = jsxWithValidationDynamic;
-      var jsxs2 = jsxWithValidationStatic;
+      var jsxs = jsxWithValidationStatic;
       reactJsxRuntime_development.Fragment = REACT_FRAGMENT_TYPE;
       reactJsxRuntime_development.jsx = jsx2;
-      reactJsxRuntime_development.jsxs = jsxs2;
+      reactJsxRuntime_development.jsxs = jsxs;
     })();
   }
   return reactJsxRuntime_development;
@@ -940,105 +941,54 @@ function requireReactJsxRuntime_development() {
     module.exports = requireReactJsxRuntime_development();
   }
 })(jsxRuntime);
-const Fragment = jsxRuntimeExports.Fragment;
 const jsx = jsxRuntimeExports.jsx;
-const jsxs = jsxRuntimeExports.jsxs;
-initMainThreadService();
+if (!customElements.get("code-sandbox")) {
+  customElements.define("code-sandbox", CodeSandbox$1);
+}
 const CodeSandbox = require$$0.forwardRef((props, ref) => {
-  const {
-    title = "demo",
-    className,
-    code = DefaultDemoCode,
-    index = DefaultIndexCode,
-    css = DefaultCssCode,
-    html = DefaultHtml,
-    style,
-    onLoadingModule,
-    onReady
-  } = props;
-  const iframe = useRef(null);
-  if (ref) {
-    const ref_ = {
-      getIframe: () => iframe.current,
-      refresh: () => {
-        if (!iframe.current)
-          return;
-        iframe.current.srcdoc = Reflect.get(iframe.current, "srcdoc");
-        previousCodesRef.current = null;
-        runCode();
+  const { fs, onLoadingModule, onReady, ...others } = props;
+  const sandboxRef = useRef(null);
+  useLayoutEffect(() => {
+    if (fs) {
+      sandboxRef.current.fs = fs;
+    }
+    if (onReady) {
+      sandboxRef.current.addEventListener("ready", onReady);
+    }
+    const onLoadingModule_ = (e) => {
+      const { moduleName, url } = e.detail;
+      onLoadingModule == null ? void 0 : onLoadingModule(moduleName, url);
+    };
+    if (onLoadingModule) {
+      sandboxRef.current.addEventListener("loading-module", onLoadingModule_);
+    }
+    return () => {
+      if (!sandboxRef.current)
+        return;
+      if (onReady) {
+        sandboxRef.current.removeEventListener("ready", onReady);
+      }
+      if (onLoadingModule) {
+        sandboxRef.current.removeEventListener("loading-module", onLoadingModule_);
       }
     };
-    if (typeof ref === "function") {
-      ref(ref_);
-    } else {
-      ref.current = ref_;
+  });
+  return /* @__PURE__ */ jsx(
+    "code-sandbox",
+    {
+      ref: (ele) => {
+        ref && (typeof ref === "function" ? ref(ele) : ref.current = ele);
+        sandboxRef.current = ele;
+      },
+      ...others
     }
-  }
-  const runCode = () => {
-    (async () => {
-      const { refreshIndex, refreshApp, refreshHtml, refreshStyle } = getSandboxRefresher({
-        iframe: iframe.current,
-        code,
-        index,
-        css,
-        html
-      });
-      const [preHtml, preCode, preIndex, preCss] = previousCodesRef.current || [];
-      const tasks = [];
-      switch (true) {
-        case preHtml !== html: {
-          tasks.push(refreshHtml());
-          break;
-        }
-        case preCode !== code: {
-          tasks.push(refreshApp());
-          break;
-        }
-        case preIndex !== index: {
-          tasks.push(refreshIndex());
-          break;
-        }
-      }
-      tasks.push(refreshStyle());
-      await Promise.all(tasks);
-      onReady == null ? void 0 : onReady();
-      previousCodesRef.current = currentCode;
-    })();
-  };
-  const previousCodesRef = useRef(null);
-  const currentCode = [html, code, index, css];
-  useLayoutEffect(runCode, currentCode);
-  const onLoadingModuleRef = useRef(onLoadingModule);
-  onLoadingModuleRef.current = onLoadingModule;
-  useLayoutEffect(() => {
-    if (!iframe.current)
-      return;
-    onIframeLoadingModule(iframe.current, (moduleName, extraInfo) => {
-      onLoadingModuleRef.current(moduleName, extraInfo);
-    });
-    setSandboxPlugins(iframe.current, getPlugins());
-  }, []);
-  const [srcDoc] = getIframeHTML();
-  return /* @__PURE__ */ jsxs(Fragment, { children: [
-    /* @__PURE__ */ jsx("style", { children: iframeStyles }),
-    /* @__PURE__ */ jsx(
-      "iframe",
-      {
-        ref: iframe,
-        className: `code-sandbox-iframe ${className || ""}`,
-        title,
-        srcDoc,
-        allowFullScreen: true,
-        style,
-        sandbox: "allow-scripts"
-      }
-    )
-  ] });
+  );
 });
 CodeSandbox.displayName = "Demo";
 export {
-  _ as DefaultCodes,
+  CodeSandbox$1 as CodeSandboxDom,
+  DefaultCodes,
   CodeSandbox as default,
-  r as registerPlugins
+  registerPlugins
 };
 //# sourceMappingURL=index.js.map

@@ -1,8 +1,8 @@
 // @ts-ignore
-import React, { useState, useLayoutEffect } from 'react';
+import React, { useState, useLayoutEffect, useRef } from 'react';
 import * as ReactDom from 'react-dom/client';
 
-import CodeSandbox, { DefaultCodes, registerPlugins } from '../src';
+import CodeSandbox, { DefaultCodes, registerPlugins, CodeSandboxDom } from '../src';
 import { ReactPolyfill } from '../src/plugins/react';
 import { EsmToAmdPlugin } from '../src/plugins/babel';
 // @ts-ignore
@@ -46,11 +46,17 @@ const DemoComp = () => {
     const [html, showHtml, onHtmlChange, onConfirmHtml] = useCode(DefaultCodes.DefaultHtml);
     const [css, showCss, onCssChange, onConfirmCssCode] = useCode(DefaultCodes.DefaultCssCode);
 
+    const sandbox1 = useRef<CodeSandboxDom>();
+
     const onConfirm = () => {
         onConfirmDemoCode();
         onConfirmIndexCode();
         onConfirmHtml();
         onConfirmCssCode();
+    };
+
+    const onRefresh = () => {
+        sandbox1.current?.refresh?.();
     };
 
     useLayoutEffect(() => {
@@ -92,11 +98,13 @@ const DemoComp = () => {
 
             <div style={{ margin: '8px', textAlign: 'right' }}>
                 <button onClick={onConfirm}>运行</button>
+                <button onClick={onRefresh}>刷新</button>
             </div>
 
             <div style={{ flex: '1' }}>
                 <div>React 组件</div>
                 <CodeSandbox
+                    ref={sandbox1}
                     title="demo"
                     code={code}
                     index={index}
@@ -108,6 +116,9 @@ const DemoComp = () => {
                     }}
                     onLoadingModule={(moduleName, url) => {
                         console.log('loading module react', moduleName, url);
+                    }}
+                    onReady={() => {
+                        console.log('code sandbox ready react');
                     }}
                 />
             </div>

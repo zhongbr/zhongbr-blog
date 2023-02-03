@@ -1,5 +1,6 @@
 import { createEventSubscribeManager } from "../event";
 import { IPlugin } from "../../plugins/types";
+import { FilesSystem } from "../files-system";
 export interface IModule {
     'default': any;
     [key: string]: any;
@@ -16,6 +17,7 @@ export interface IScriptLoader {
 }
 export interface IRequireCtx {
     __dirname: string;
+    deps?: string[];
 }
 export declare type IRequireCallback = (modules: IModule | undefined | (IModule | undefined)[]) => void;
 export interface IRequireFunc {
@@ -32,15 +34,16 @@ export interface IDefine {
 }
 export declare type IDefineDispose = () => void;
 export interface IAmdModuleManagerContext {
+    fs: FilesSystem;
     root: string;
     scriptTimeout: number;
     /**
      * 事件触发
      */
-    eventSubscribeManager: ReturnType<typeof createEventSubscribeManager>;
+    eventSubscribeManager: ReturnType<typeof createEventSubscribeManager<IEventTypes>>;
     scriptLoader: IScriptLoader;
     define: IDefine;
-    require_: IRequireFunc;
+    require: IRequireFunc;
     logger: Pick<Console, 'log' | 'info' | 'debug' | 'error' | 'warn'>;
     plugins: IPlugin[];
     pluginReduce: <T = any>(reducer: (preValue: T, plugin: IPlugin) => Promise<{
@@ -50,5 +53,6 @@ export interface IAmdModuleManagerContext {
 }
 export declare enum IEventTypes {
     ModuleUpdate = "module-update",
-    LoadingScript = "loading-script"
+    LoadingScript = "loading-script",
+    ModuleDeps = "module-deps"
 }

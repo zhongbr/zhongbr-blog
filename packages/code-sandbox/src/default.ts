@@ -1,3 +1,4 @@
+export const DefaultDemoFileName = '/Demo.js';
 export const DefaultDemoCode =
 `// ⚠️require function is asynchronous !
 const React = await require('react');
@@ -31,7 +32,7 @@ module.exports.default = App
 export const DefaultIndexCode =
 `const React = await require('react');
 const ReactDom = await require('react-dom');
-const App = (await require('./App')).default;
+const App = (await require('./Demo.js')).default;
 
 // if you register \`EsmToAmdPlugin\`, following statements will be support
 // import React from 'react';
