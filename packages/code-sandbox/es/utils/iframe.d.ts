@@ -1,7 +1,7 @@
 /**
  * 注册主进程中的服务，监听消息
  */
-export declare const initMainThreadService: () => Promise<void>;
+export declare const initMainThreadService: () => () => void;
 /**
  * 主页面中，等待指定的 iframe 运行环境加载完成
  * @param iframe 要等待的 iframe

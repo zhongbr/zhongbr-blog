@@ -15,10 +15,9 @@ const emitter = createEventSubscribeManager<keyof INotificationService>();
 /**
  * 注册主进程中的服务，监听消息
  */
-export const initMainThreadService = async () => {
+export const initMainThreadService = () => {
     const service: INotificationService = {
         iframeReady: async (e) => {
-            console.log('iframe ready', e);
             emitter.trigger('iframeReady', e);
             return true;
         },
@@ -26,7 +25,7 @@ export const initMainThreadService = async () => {
             emitter.trigger('iframeLoadingModule', moduleName, moduleUrl, e);
         }
     }
-    registerProxy(NOTIFICATION_SERVICE, service);
+    return registerProxy(NOTIFICATION_SERVICE, service);
 };
 
 /**

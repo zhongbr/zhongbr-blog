@@ -76,7 +76,7 @@
     "file": "index-a3b3cc38.js"
   },
   "src/plugins/babel/worker/worker.ts?worker&inline": {
-    "file": "worker-7673604a.js",
+    "file": "worker-22cbaf4d.js",
     "src": "src/plugins/babel/worker/worker.ts?worker&inline",
     "isDynamicEntry": true
   }

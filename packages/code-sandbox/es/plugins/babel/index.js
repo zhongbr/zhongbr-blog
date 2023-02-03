@@ -8,7 +8,7 @@ const service = serviceKeys.reduce((previousValue, currentValue) => {
     ...previousValue,
     [currentValue]: async (...args) => {
       if (!worker) {
-        const BabelWorker = await import("../../worker-7673604a.js");
+        const BabelWorker = await import("../../worker-22cbaf4d.js");
         worker = new BabelWorker.default();
       }
       return await callProxy({

@@ -21,7 +21,7 @@ export async function initIframeFilesSyncService(fs: FilesSystem) {
     const cacheQueue: Map<number, [eventType: EventTypes, path: string, ...args: unknown[]]> = new Map();
     let currentCount = 0;
 
-    registerProxy<IIframeSyncService>(SyncServiceName, {
+    const dispose = registerProxy<IIframeSyncService>(SyncServiceName, {
         sync: async (eventType, orderCount, path, ...args) => {
             // 把消息放入到消息队列里，确保消息按照顺序执行
             cacheQueue.set(orderCount, [eventType, path, ...args]);
@@ -67,11 +67,11 @@ export async function initIframeFilesSyncService(fs: FilesSystem) {
         payload: []
     }) as string;
     if (payload) {
-        console.log('receive payload', payload);
         fs.receive(payload);
+        console.log('receive', payload, fs);
         return;
     }
-    console.log('not receive payload', payload);
+    return dispose;
 }
 
 /**
@@ -82,7 +82,7 @@ export async function initIframeFilesSyncService(fs: FilesSystem) {
 export function initMainFilesSyncCaller(fs: FilesSystem, iframe: HTMLIFrameElement) {
     // 监听 fs 的事件，并调用 iframe 的服务，同步给 iframe
     const onEvent = (eventType: EventTypes) => {
-        fs.event.listen(eventType, async (...args) => {
+        return fs.event.listen(eventType, async (...args) => {
             await waitIframeReady(iframe);
             await waitProxy(iframe.contentWindow, SyncServiceName);
             await callProxy<IIframeSyncService>({
@@ -93,16 +93,20 @@ export function initMainFilesSyncCaller(fs: FilesSystem, iframe: HTMLIFrameEleme
             });
         });
     };
-    onEvent('transfer');
-    onEvent('dir-delete');
-    onEvent('dir-set');
-    onEvent('dir-clear');
-    onEvent('files-change');
+    const disposes: Array<() => void> = [];
+    disposes.push(onEvent('transfer'));
+    disposes.push(onEvent('dir-delete'));
+    disposes.push(onEvent('dir-set'));
+    disposes.push(onEvent('dir-clear'));
+    disposes.push(onEvent('files-change'));
     // 创建服务，用于回应 iframe 主动发起的数据同步请求
-    registerProxy<IMainSyncService>(SyncServiceName, {
+    disposes.push(registerProxy<IMainSyncService>(SyncServiceName, {
         requestFs: async () => {
             // 将 fs 内的数据序列化之后传递给 iframe
             return fs.getDataPayload();
         }
-    });
+    }));
+    return () => {
+        disposes.forEach(dispose => dispose());
+    };
 }

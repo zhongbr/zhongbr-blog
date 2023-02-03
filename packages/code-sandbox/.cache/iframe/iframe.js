@@ -49,10 +49,6 @@ self.addEventListener("message", (e) => {
   }
 });
 function registerProxy(serviceId, obj) {
-  if (services.has(serviceId)) {
-    return;
-  }
-  services.add(serviceId);
   const callbacks = waitServiceCallbacks.get(serviceId);
   if (callbacks)
     callbacks.forEach((callback) => callback());
@@ -889,12 +885,13 @@ const createEventSubscribeManager = () => {
     if (!eventsHandlersMap.has(key)) {
       eventsHandlersMap.set(key, []);
     }
-    (_b = (_a = eventsHandlersMap.get(key)) == null ? void 0 : _a.push) == null ? void 0 : _b.call(_a, Object.assign(cb, {
+    const _cb = Object.assign(cb, {
       filter
-    }));
+    });
+    (_b = (_a = eventsHandlersMap.get(key)) == null ? void 0 : _a.push) == null ? void 0 : _b.call(_a, _cb);
     return () => {
       var _a2;
-      (_a2 = eventsHandlersMap.get(key)) == null ? void 0 : _a2.filter((handler) => handler !== cb);
+      eventsHandlersMap.set(key, (_a2 = eventsHandlersMap.get(key)) == null ? void 0 : _a2.filter((handler) => handler !== _cb));
     };
   };
   const once = (key, cb, filter, onTimeout, timeout = -1) => {
@@ -904,7 +901,7 @@ const createEventSubscribeManager = () => {
     }
     const dispose = () => {
       var _a2;
-      (_a2 = eventsHandlersMap.get(key)) == null ? void 0 : _a2.filter((handler) => handler !== cb);
+      eventsHandlersMap.set(key, (_a2 = eventsHandlersMap.get(key)) == null ? void 0 : _a2.filter((handler) => handler !== _cb));
     };
     let _timeout;
     if (timeout !== -1) {
@@ -913,14 +910,15 @@ const createEventSubscribeManager = () => {
         onTimeout == null ? void 0 : onTimeout();
       }, timeout);
     }
-    (_b = (_a = eventsHandlersMap.get(key)) == null ? void 0 : _a.push) == null ? void 0 : _b.call(_a, Object.assign((...args) => {
+    const _cb = Object.assign((...args) => {
       if (_timeout)
         clearTimeout(_timeout);
       cb(...args);
     }, {
       once: true,
       filter
-    }));
+    });
+    (_b = (_a = eventsHandlersMap.get(key)) == null ? void 0 : _a.push) == null ? void 0 : _b.call(_a, _cb);
     return dispose;
   };
   return { trigger, listen, once };
@@ -936,6 +934,7 @@ function createAmdManager(fs2, root = "/", scriptTimeout = 1e4, logger2 = consol
   ctx2.pluginReduce = async (reducer, initValue) => {
     let result = initValue;
     for (const plugin of ctx2.plugins) {
+      console.log("run plugin", plugin);
       const { result: res, break: break_ } = await reducer(result, plugin);
       if (break_) {
         return res;
@@ -1186,7 +1185,7 @@ class FilesSystem {
   receive(payload) {
     const traverse2 = (obj, path2 = "") => {
       if (obj.children && Reflect.get(obj.children, "__dataType") === "Map") {
-        const entries = obj.children.entries.forEach(([key, value]) => [key, traverse2(value, [path2, key].join("/"))]);
+        const entries = obj.children.entries.map(([key, value]) => [key, traverse2(value, [path2, key].join("/"))]);
         return {
           ...obj,
           children: this.getProxyMap(path2, entries)
@@ -1194,7 +1193,10 @@ class FilesSystem {
       }
       return obj;
     };
-    this.root = traverse2(JSON.parse(payload));
+    const root = traverse2(JSON.parse(payload));
+    this.root = root;
+    console.log("this.root", root);
+    this.event.trigger("receive", this.eventCount++);
   }
 }
 const NOTIFICATION_SERVICE = "iframe-notification-service";
@@ -1229,7 +1231,7 @@ const SyncServiceName = "code-sandbox-sync-files";
 async function initIframeFilesSyncService(fs2) {
   const cacheQueue = /* @__PURE__ */ new Map();
   let currentCount = 0;
-  registerProxy(SyncServiceName, {
+  const dispose = registerProxy(SyncServiceName, {
     sync: async (eventType, orderCount, path, ...args) => {
       cacheQueue.set(orderCount, [eventType, path, ...args]);
       while (cacheQueue.get(currentCount)) {
@@ -1270,11 +1272,11 @@ async function initIframeFilesSyncService(fs2) {
     payload: []
   });
   if (payload) {
-    console.log("receive payload", payload);
     fs2.receive(payload);
+    console.log("receive", payload, fs2);
     return;
   }
-  console.log("not receive payload", payload);
+  return dispose;
 }
 const DemoServiceName = "demo-service";
 function generatePlugins(pluginsServiceId) {
@@ -1420,7 +1422,7 @@ class DepsGraph {
   }
 }
 const fs = new FilesSystem();
-initIframeFilesSyncService(fs);
+const fsSyncPromise = initIframeFilesSyncService(fs);
 const depsGraph = new DepsGraph();
 const manager = createAmdManager(fs, void 0, void 0, logger);
 manager.mountToGlobal();
@@ -1441,6 +1443,7 @@ fs.event.listen("files-change", async (type, files) => {
 });
 registerProxy(DemoServiceName, {
   run: async (jsEntry, htmlEntry, stylesEntry) => {
+    await fsSyncPromise;
     if (htmlEntry) {
       const [htmlExist, html] = fs.pathReduce(htmlEntry);
       if (!htmlExist)

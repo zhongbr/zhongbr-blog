@@ -6,7 +6,7 @@ export interface IDirectory {
     name: string;
     children: Map<string, IDirectory | IFile>;
 }
-export declare type EventTypes = 'transfer' | 'dir-set' | 'dir-delete' | 'dir-clear' | 'files-change';
+export declare type EventTypes = 'transfer' | 'receive' | 'dir-set' | 'dir-delete' | 'dir-clear' | 'files-change';
 export declare enum FilesChangeType {
     Delete = "delete",
     Change = "change",

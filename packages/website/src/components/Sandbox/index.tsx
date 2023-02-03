@@ -34,9 +34,9 @@ const Sandbox: React.FC<IProps> = props => {
         sandbox.current?.iframe.requestFullscreen();
     };
 
-    // const onRefresh = async () => {
-    //     await sandbox.current?.refresh();
-    // };
+    const onRefresh = async () => {
+        await sandbox.current?.refresh();
+    };
 
     useEffect(() => {
         setLoading(true);
@@ -46,10 +46,10 @@ const Sandbox: React.FC<IProps> = props => {
         <div className={clsx(className, styles.sandboxContainer)}>
             <div className={styles.header}>
                 <div className={styles.right}>
-                    {/*<div className={styles.item} onClick={onRefresh}>*/}
-                    {/*    <Icon className="rp-daichuli"/>*/}
-                    {/*    <span>刷新</span>*/}
-                    {/*</div>*/}
+                    <div className={styles.item} onClick={onRefresh}>
+                        <Icon className="rp-daichuli"/>
+                        <span>刷新</span>
+                    </div>
                     <div className={styles.item} onClick={onFullScreen}>
                         <Icon className="rp-jiankong1"/>
                         <span>全屏</span>

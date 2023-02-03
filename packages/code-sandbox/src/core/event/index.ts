@@ -29,11 +29,12 @@ export const createEventSubscribeManager = <K = string>() => {
         if (!eventsHandlersMap.has(key)) {
             eventsHandlersMap.set(key, []);
         }
-        eventsHandlersMap.get(key)?.push?.(Object.assign(cb, {
+        const _cb = Object.assign(cb, {
             filter
-        }));
+        });
+        eventsHandlersMap.get(key)?.push?.(_cb);
         return () => {
-            eventsHandlersMap.get(key)?.filter(handler => handler !== cb);
+            eventsHandlersMap.set(key, eventsHandlersMap.get(key)?.filter(handler => handler !== _cb));
         }
     };
 
@@ -42,7 +43,7 @@ export const createEventSubscribeManager = <K = string>() => {
             eventsHandlersMap.set(key, []);
         }
         const dispose = () => {
-            eventsHandlersMap.get(key)?.filter(handler => handler !== cb);
+            eventsHandlersMap.set(key, eventsHandlersMap.get(key)?.filter(handler => handler !== _cb));
         }
 
         // 超时
@@ -53,13 +54,14 @@ export const createEventSubscribeManager = <K = string>() => {
                 onTimeout?.();
             }, timeout);
         }
-        eventsHandlersMap.get(key)?.push?.(Object.assign((...args) => {
+        const _cb = Object.assign((...args) => {
             if (_timeout) clearTimeout(_timeout);
             cb(...args);
         }, {
             once: true,
             filter
-        }));
+        });
+        eventsHandlersMap.get(key)?.push?.(_cb);
         return dispose;
     }
 

@@ -13,8 +13,6 @@ import { getPlugins, registerPlugins } from './plugins';
 import { FilesSystem, initMainFilesSyncCaller } from "./core/files-system";
 import React from "react";
 
-initMainThreadService();
-
 export type IAttributes = React.HTMLAttributes<CodeSandbox> & {
     html?: string;
     css?: string;
@@ -34,23 +32,15 @@ declare global {
 class CodeSandbox extends HTMLElement {
     public iframe: HTMLIFrameElement;
     private styleElement: HTMLStyleElement;
-    private fs_: FilesSystem = new FilesSystem();
-    private fsMode: 'fs' | 'code' = 'code';
+    public fs: FilesSystem = new FilesSystem();
+    private fsSyncServiceDispose: () => void = null;
+    private mainThreadServiceDispose: () => void = null;
     public root: ShadowRoot = null;
 
     constructor() {
         super();
         this.root = this.attachShadow({ mode: 'open' });
         this.initIframe();
-    }
-
-    public set fs(fs: FilesSystem) {
-        this.fsMode = 'fs';
-        this.fs_ = fs;
-    }
-
-    public get fs() {
-        return this.fs_;
     }
 
     public addEventListener<K extends keyof (HTMLElementEventMap & { 'ready': unknown; 'loading-module': unknown; })>(type: K, listener, options?) {
@@ -65,6 +55,11 @@ class CodeSandbox extends HTMLElement {
         if (this.iframe) {
             this.root.removeChild(this.iframe);
         }
+        this.fsSyncServiceDispose?.();
+        this.mainThreadServiceDispose?.();
+
+        this.mainThreadServiceDispose = initMainThreadService();
+
         const [srcDoc] = getIframeHTML();
 
         this.iframe = document.createElement('iframe');
@@ -84,12 +79,11 @@ class CodeSandbox extends HTMLElement {
             }));
         });
 
-        initMainFilesSyncCaller(this.fs, this.iframe);
-
         this.styleElement = document.createElement('style');
         this.styleElement.innerHTML = iframeStyles;
 
         this.root.append(this.styleElement, this.iframe);
+        this.fsSyncServiceDispose = initMainFilesSyncCaller(this.fs, this.iframe);
         setSandboxPlugins(this.iframe, getPlugins());
         this.writeFile('html');
         this.writeFile('css');

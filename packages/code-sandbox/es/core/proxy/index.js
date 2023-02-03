@@ -49,10 +49,6 @@ self.addEventListener("message", (e) => {
   }
 });
 function registerProxy(serviceId, obj) {
-  if (services.has(serviceId)) {
-    return;
-  }
-  services.add(serviceId);
   const callbacks = waitServiceCallbacks.get(serviceId);
   if (callbacks)
     callbacks.forEach((callback) => callback());

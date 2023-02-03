@@ -21,12 +21,13 @@ const createEventSubscribeManager = () => {
     if (!eventsHandlersMap.has(key)) {
       eventsHandlersMap.set(key, []);
     }
-    (_b = (_a = eventsHandlersMap.get(key)) == null ? void 0 : _a.push) == null ? void 0 : _b.call(_a, Object.assign(cb, {
+    const _cb = Object.assign(cb, {
       filter
-    }));
+    });
+    (_b = (_a = eventsHandlersMap.get(key)) == null ? void 0 : _a.push) == null ? void 0 : _b.call(_a, _cb);
     return () => {
       var _a2;
-      (_a2 = eventsHandlersMap.get(key)) == null ? void 0 : _a2.filter((handler) => handler !== cb);
+      eventsHandlersMap.set(key, (_a2 = eventsHandlersMap.get(key)) == null ? void 0 : _a2.filter((handler) => handler !== _cb));
     };
   };
   const once = (key, cb, filter, onTimeout, timeout = -1) => {
@@ -36,7 +37,7 @@ const createEventSubscribeManager = () => {
     }
     const dispose = () => {
       var _a2;
-      (_a2 = eventsHandlersMap.get(key)) == null ? void 0 : _a2.filter((handler) => handler !== cb);
+      eventsHandlersMap.set(key, (_a2 = eventsHandlersMap.get(key)) == null ? void 0 : _a2.filter((handler) => handler !== _cb));
     };
     let _timeout;
     if (timeout !== -1) {
@@ -45,14 +46,15 @@ const createEventSubscribeManager = () => {
         onTimeout == null ? void 0 : onTimeout();
       }, timeout);
     }
-    (_b = (_a = eventsHandlersMap.get(key)) == null ? void 0 : _a.push) == null ? void 0 : _b.call(_a, Object.assign((...args) => {
+    const _cb = Object.assign((...args) => {
       if (_timeout)
         clearTimeout(_timeout);
       cb(...args);
     }, {
       once: true,
       filter
-    }));
+    });
+    (_b = (_a = eventsHandlersMap.get(key)) == null ? void 0 : _a.push) == null ? void 0 : _b.call(_a, _cb);
     return dispose;
   };
   return { trigger, listen, once };

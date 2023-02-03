@@ -19,12 +19,11 @@ declare global {
 declare class CodeSandbox extends HTMLElement {
     iframe: HTMLIFrameElement;
     private styleElement;
-    private fs_;
-    private fsMode;
+    fs: FilesSystem;
+    private fsSyncServiceDispose;
+    private mainThreadServiceDispose;
     root: ShadowRoot;
     constructor();
-    set fs(fs: FilesSystem);
-    get fs(): FilesSystem;
     addEventListener<K extends keyof (HTMLElementEventMap & {
         'ready': unknown;
         'loading-module': unknown;

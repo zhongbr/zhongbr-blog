@@ -11,7 +11,7 @@ export interface IDirectory {
     children: Map<string, IDirectory | IFile>;
 }
 
-export type EventTypes = 'transfer' | 'dir-set' | 'dir-delete' | 'dir-clear' | 'files-change';
+export type EventTypes = 'transfer' | 'receive' | 'dir-set' | 'dir-delete' | 'dir-clear' | 'files-change';
 export enum FilesChangeType {
     Delete = 'delete',
     Change = 'change',
@@ -229,7 +229,7 @@ export class FilesSystem {
         // 遍历所有文件，设置监听目录变化
         const traverse = (obj, path = '') => {
             if (obj.children && Reflect.get(obj.children, '__dataType') === 'Map') {
-                const entries = obj.children.entries.forEach(([key, value]) => [key, traverse(value, [path, key].join('/'))]);
+                const entries = obj.children.entries.map(([key, value]) => [key, traverse(value, [path, key].join('/'))]);
                 return {
                     ...obj,
                     children: this.getProxyMap(path, entries)
@@ -237,7 +237,10 @@ export class FilesSystem {
             }
             return obj;
         };
-        this.root = traverse(JSON.parse(payload));
+        const root = traverse(JSON.parse(payload));
+        this.root = root;
+        console.log('this.root', root);
+        this.event.trigger('receive', this.eventCount++);
     }
 
 }

@@ -77,11 +77,6 @@ self.addEventListener('message', e => {
  * @param obj 要被代理的对象
  */
 export function registerProxy<T extends Object>(serviceId: string, obj: T) {
-    if (services.has(serviceId)) {
-        return;
-    }
-    // 标记服务已经注册
-    services.add(serviceId);
     // 如果有等待这个服务的回调，现在就可以调用了
     const callbacks = waitServiceCallbacks.get(serviceId);
     if (callbacks) callbacks.forEach(callback => callback());
