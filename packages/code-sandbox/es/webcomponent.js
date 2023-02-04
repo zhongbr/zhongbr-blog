@@ -420,6 +420,7 @@ class CodeSandbox extends HTMLElement {
     this.fsSyncServiceDispose = null;
     this.mainThreadServiceDispose = null;
     this.root = null;
+    this.initial = false;
     this.root = this.attachShadow({ mode: "open" });
     this.initIframe();
   }
@@ -429,7 +430,7 @@ class CodeSandbox extends HTMLElement {
   removeEventListener(type, listener, options) {
     super.removeEventListener(type, listener, options);
   }
-  initIframe() {
+  async initIframe() {
     var _a, _b;
     if (this.iframe) {
       this.root.removeChild(this.iframe);
@@ -456,11 +457,13 @@ class CodeSandbox extends HTMLElement {
     this.styleElement.innerHTML = iframeStyles;
     this.root.append(this.styleElement, this.iframe);
     this.fsSyncServiceDispose = initMainFilesSyncCaller(this.fs, this.iframe);
-    setSandboxPlugins(this.iframe, getPlugins());
-    this.writeFile("html");
-    this.writeFile("css");
-    this.writeFile("code");
-    this.writeFile("index");
+    await setSandboxPlugins(this.iframe, getPlugins());
+    await this.writeFile("html");
+    await this.writeFile("css");
+    await this.writeFile("code");
+    await this.writeFile("index");
+    await this.execute();
+    this.initial = true;
   }
   static get observedAttributes() {
     return ["code", "css", "index", "html", "class", "style"];
@@ -471,10 +474,12 @@ class CodeSandbox extends HTMLElement {
   }
   async attributeChangedCallback(name, oldValue, newValue) {
     if (["html", "code", "index", "css"].includes(name)) {
+      if (!this.initial)
+        return;
       await waitIframeReady(this.iframe);
       await this.writeFile(name, newValue);
       const files = [null, null, null];
-      if (name === "index")
+      if (name === "index" || name === "code")
         files[0] = defaultCodes[name][0];
       if (name === "html")
         files[1] = defaultCodes[name][0];

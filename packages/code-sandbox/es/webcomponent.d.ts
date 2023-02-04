@@ -23,6 +23,7 @@ declare class CodeSandbox extends HTMLElement {
     private fsSyncServiceDispose;
     private mainThreadServiceDispose;
     root: ShadowRoot;
+    private initial;
     constructor();
     addEventListener<K extends keyof (HTMLElementEventMap & {
         'ready': unknown;

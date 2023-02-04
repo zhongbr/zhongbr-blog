@@ -43,6 +43,7 @@ class CodeSandbox extends HTMLElement {
     private fsSyncServiceDispose: () => void = null;
     private mainThreadServiceDispose: () => void = null;
     public root: ShadowRoot = null;
+    private initial: boolean = false;
 
     constructor() {
         super();
@@ -58,7 +59,7 @@ class CodeSandbox extends HTMLElement {
         super.removeEventListener(type, listener, options);
     }
 
-    private initIframe() {
+    private async initIframe() {
         if (this.iframe) {
             this.root.removeChild(this.iframe);
         }
@@ -91,11 +92,13 @@ class CodeSandbox extends HTMLElement {
 
         this.root.append(this.styleElement, this.iframe);
         this.fsSyncServiceDispose = initMainFilesSyncCaller(this.fs, this.iframe);
-        setSandboxPlugins(this.iframe, getPlugins());
-        this.writeFile('html');
-        this.writeFile('css');
-        this.writeFile('code');
-        this.writeFile('index');
+        await setSandboxPlugins(this.iframe, getPlugins());
+        await this.writeFile('html');
+        await this.writeFile('css');
+        await this.writeFile('code');
+        await this.writeFile('index');
+        await this.execute();
+        this.initial = true;
     }
 
     static get observedAttributes() {
@@ -109,11 +112,12 @@ class CodeSandbox extends HTMLElement {
 
     public async attributeChangedCallback(name: string, oldValue, newValue) {
         if (['html', 'code', 'index', 'css'].includes(name)) {
+            if (!this.initial) return;
             // 等待 iframe 环境准备好之后再执行代码
             await waitIframeReady(this.iframe);
             await this.writeFile(name, newValue);
             const files: string[] = [null, null, null];
-            if (name === 'index') files[0] = defaultCodes[name][0];
+            if (name === 'index' || name === 'code') files[0] = defaultCodes[name][0];
             if (name === 'html') files[1] = defaultCodes[name][0];
             if (name === 'css') files[2] = defaultCodes[name][0];
             await this.execute(files);
