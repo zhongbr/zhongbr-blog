@@ -1,8 +1,9 @@
+import { useEvent } from '@zhongbr/react-hooks';
 import logger from '@/utils/logger';
-import { usePersistFn, useEventListener } from '../hooks';
+import { useEventListener } from '../hooks';
 
 export default function useMessage(filter: (e: MessageEvent) => boolean, cb: (e: MessageEvent['data']) => void) {
-    const _cb = usePersistFn(cb);
+    const _cb = useEvent(cb);
 
     useEventListener(window,'message', (e) => {
         if (filter(e as MessageEvent)) {

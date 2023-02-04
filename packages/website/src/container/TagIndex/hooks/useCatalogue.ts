@@ -6,10 +6,10 @@
  * @LastEditTime: 2022-09-03 17:53:50
  */
 import { useEffect } from "react";
-import { useAsyncEffect, useAsyncFn, useStates } from '@/hooks';
-import getPassagesCatalogue, { ICatalogue, IPassage } from '@/service/passage/catalogue';
+import { useAsyncEffect, useAsyncFn, useStates, useEvent } from '@zhongbr/react-hooks';
 
-import { usePersistFn, useTags } from '@/hooks';
+import getPassagesCatalogue, { ICatalogue, IPassage } from '@/service/passage/catalogue';
+import { useTags } from '@/hooks';
 
 export type TagsMap = Map<string, IPassage[]>;
 
@@ -30,7 +30,7 @@ export default function useCatalogue(opt: { onReady?: () => void; }) {
 
     const [states, setStates] = useStates(initStates);
 
-    const filterPassages = usePersistFn((catalogue: ICatalogue) => {
+    const filterPassages = useEvent((catalogue: ICatalogue) => {
         // filter passages with one of tags at least
         return Object.keys(catalogue).reduce((pre, key) => {
             const passage = catalogue[key];

@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import useStates, { SetStatesRes } from '@/hooks/useStates';
+import { useStates, SetStatesRes } from '@zhongbr/react-hooks';
 
 export default function usePropsStates<T extends object>(props: T): SetStatesRes<T> {
     let [states, setStates, reset] = useStates(props);

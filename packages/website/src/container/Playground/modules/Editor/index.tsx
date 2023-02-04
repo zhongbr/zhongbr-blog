@@ -1,9 +1,10 @@
 import React, { useRef, useLayoutEffect, useState } from 'react';
 import { editor, KeyCode, KeyMod, languages } from 'monaco-editor';
 import clsx from 'clsx';
+import { useEvent } from '@zhongbr/react-hooks';
 
 import { Icon } from '@/components';
-import { usePersistFn, usePageConfig } from '@/hooks';
+import { usePageConfig } from '@/hooks';
 
 import styles from './style.module.less';
 import createModel = editor.createModel;
@@ -45,12 +46,12 @@ const Editor: React.FC<IProps> = (props) => {
     const defaultValueRef = useRef<string>();
     defaultValueRef.current = defaultValues?.[index];
 
-    const onChange = usePersistFn((value: string) => {
+    const onChange = useEvent((value: string) => {
         valuesRef.current[index] = value;
         _onChange?.(value, index);
     });
 
-    const onSave = usePersistFn((value: string) => {
+    const onSave = useEvent((value: string) => {
         if (saveDisabled?.(index)) {
             return;
         }

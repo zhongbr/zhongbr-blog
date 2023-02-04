@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import usePersistFn from "./usePersistFn";
+import { useEvent } from '@zhongbr/react-hooks';
 
 const onChangeTo = (theme: 'dark' | 'light', cb: () => void) => {
     const media = window.matchMedia(`(prefers-color-scheme: ${theme})`);
@@ -25,7 +25,7 @@ const onChangeTo = (theme: 'dark' | 'light', cb: () => void) => {
 };
 
 export default function useThemeManager(onThemeChange_: (theme: string) => void) {
-    const onThemeChange = usePersistFn(onThemeChange_);
+    const onThemeChange = useEvent(onThemeChange_);
 
     // 监听模式变化
     useEffect(() => {

@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { MathComponent } from 'mathjax-react';
 import clsx from 'clsx';
+import { useEvent } from '@zhongbr/react-hooks';
 
 import { Icon } from '@/components';
-import { usePersistFn } from '@/hooks';
 
 import Hover from '../Hover';
 import styles from './jax.module.less';
@@ -19,7 +19,7 @@ const MathJax: React.FC<IProps> = props => {
 
     const [copied, setCopied] = useState(false);
 
-    const onCopy = usePersistFn(() => {
+    const onCopy = useEvent(() => {
         setCopied(true);
         copy(others.tex || '');
     });

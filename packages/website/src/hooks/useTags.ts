@@ -1,14 +1,6 @@
-/*
- * @Description: selected tags hook
- * @Author: 张盼宏
- * @Date: 2022-09-03 17:39:29
- * @LastEditors: 张盼宏
- * @LastEditTime: 2022-09-03 18:01:12
- */
 import { useSearchParams } from 'react-router-dom';
 import qs from 'query-string';
-
-import usePersistFn from './usePersistFn';
+import { useEvent } from '@zhongbr/react-hooks';
 import useNavigate from './useNavigate';
 
 export default function useTags() {
@@ -17,7 +9,7 @@ export default function useTags() {
 
     const tags = params.getAll("tags") || [];
 
-    const onSelectTag = usePersistFn((tag: string) => {
+    const onSelectTag = useEvent((tag: string) => {
         updateParams({
             tags: Array.from(new Set([...tags, tag]))
         }, {
@@ -25,7 +17,7 @@ export default function useTags() {
         });
     });
 
-    const onRemoveTag = usePersistFn((tag: string) => {
+    const onRemoveTag = useEvent((tag: string) => {
         updateParams({
             tags: tags.filter(_tag => _tag !== tag)
         }, {
@@ -33,7 +25,7 @@ export default function useTags() {
         });
     });
 
-    const onReplaceTags = usePersistFn((tags: string[]) => {
+    const onReplaceTags = useEvent((tags: string[]) => {
         updateParams({
             tags
         }, {
@@ -41,7 +33,7 @@ export default function useTags() {
         });
     });
 
-    const onOpenTags = usePersistFn((tags: string[]) => {
+    const onOpenTags = useEvent((tags: string[]) => {
         navigate(`/tags?${qs.stringify({ tags })}`);
     });
 

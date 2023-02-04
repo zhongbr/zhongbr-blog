@@ -1,10 +1,3 @@
-/*
- * @Description: use states like class component
- * @Author: 张盼宏
- * @Date: 2022-08-27 21:14:20
- * @LastEditors: 张盼宏
- * @LastEditTime: 2022-08-27 23:41:13
- */
 import { useReducer, useCallback, useRef } from 'react';
 
 export type Dispatch<T> = (

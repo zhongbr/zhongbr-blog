@@ -1,6 +1,7 @@
 import React, { memo, useEffect } from 'react';
+import { useAsyncEffect, useAsyncFn } from '@zhongbr/react-hooks';
 
-import { ResponsiveEnum, useAsyncEffect, useAsyncFn, usePageConfig } from '@/hooks';
+import { ResponsiveEnum, usePageConfig } from '@/hooks';
 import { topics } from '@/service/passage';
 import { title } from "@/config/meta";
 

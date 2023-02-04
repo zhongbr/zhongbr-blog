@@ -2,9 +2,9 @@ import React, {useMemo} from 'react';
 import moment from 'moment';
 import clsx from 'clsx';
 
-import {AuthorCopyRight, ICP, PublicSecurity, PublicSecurityNo} from '@/config/meta';
+import { AuthorCopyRight, ICP, PublicSecurity, PublicSecurityNo } from '@/config/meta';
 import Icon from '@/components/Icon';
-import {ResponsiveEnum, usePageConfig} from '@/hooks';
+import { ResponsiveEnum, usePageConfig } from '@/hooks';
 
 import styles from './footer.module.less';
 

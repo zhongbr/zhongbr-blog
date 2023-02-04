@@ -17,6 +17,7 @@ import Emphasis from "./Emphasis";
 import Delete from './Delete';
 import Paragraph from './Paragraph';
 import CodeBlock from './CodeBlock';
+import Code from './Code';
 import BlockQuote from './BlockQuote';
 import Link from './Link';
 import Image from './Image';
@@ -39,6 +40,7 @@ const ComponentsMap = new Map([
     [NodeType.Delete, Delete],
     [NodeType.Paragraph, Paragraph],
     [NodeType.CodeBlock, CodeBlock],
+    [NodeType.Code, Code],
     [NodeType.BlockQuote, BlockQuote],
     [NodeType.Link, Link],
     [NodeType.Image, Image],

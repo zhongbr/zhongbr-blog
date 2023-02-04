@@ -1,5 +1,6 @@
 import React, { Suspense, useRef } from 'react';
 import { useRoutes } from 'react-router-dom';
+import { useStates, useEvent } from '@zhongbr/react-hooks';
 import { registerPlugins } from '@zhongbr/code-sandbox';
 import { EsmToAmdPlugin, JsxPlugin } from '@zhongbr/code-sandbox/es/plugins/babel';
 import { ReactPolyfill } from '@zhongbr/code-sandbox/es/plugins/react';
@@ -9,7 +10,7 @@ import { navLinks, title as titleText, titleLink } from '@/config/meta';
 import { useInitCopy } from '@/utils/copy';
 
 import { Icon, Layout, Splash, useMessage } from './components';
-import { IPageConfig, PageConfigContext, ResponsiveEnum, usePersistFn, useStates, useThemeManager, useResponsive } from './hooks';
+import { IPageConfig, PageConfigContext, ResponsiveEnum, useThemeManager, useResponsive } from './hooks';
 
 import "./app.less";
 
@@ -43,7 +44,7 @@ function App() {
         screenWidth: window.innerWidth,
     });
 
-    const setTheme = usePersistFn((theme: string) => {
+    const setTheme = useEvent((theme: string) => {
         setStates({ theme });
         setBodyTheme(theme);
     });
@@ -83,7 +84,7 @@ function App() {
         });
     });
 
-    const onPageReady = usePersistFn(() => {
+    const onPageReady = useEvent(() => {
         setStates({
             loading: false
         });

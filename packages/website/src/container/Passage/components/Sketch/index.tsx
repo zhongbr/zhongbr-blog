@@ -1,14 +1,8 @@
-/*
- * @Description: desc
- * @Author: 张盼宏
- * @Date: 2022-08-29 22:43:11
- * @LastEditors: 张盼宏
- * @LastEditTime: 2022-08-29 22:43:11
- */
 import React, { useLayoutEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
+import { useEvent } from '@zhongbr/react-hooks';
 
-import { usePageConfig, usePersistFn } from "@/hooks";
+import { usePageConfig } from "@/hooks";
 import { getOffsetTop, smoothScrollTo } from '@/utils/anchor-scroll';
 
 import { Title } from '../../utils/traverse';
@@ -25,7 +19,7 @@ const Sketch: React.FC<IProps> = props => {
     const { scrollRef } = usePageConfig();
     const [searchParams, setSearchParams] = useSearchParams();
 
-    const onClickTitle = usePersistFn(async (anchor: string) => {
+    const onClickTitle = useEvent(async (anchor: string) => {
         const container = (scrollRef as React.RefObject<HTMLDivElement>).current;
         const element = document.getElementById(anchor);
         setSearchParams({

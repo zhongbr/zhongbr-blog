@@ -1,7 +1,7 @@
 import React from "react";
+import { useAsyncEffect, useAsyncFn } from '@zhongbr/react-hooks';
 
 import { Splash, PassageCardGroup, Icon } from "@/components";
-import { useAsyncEffect, useAsyncFn } from '@/hooks';
 import { Node } from "@/types/markdown";
 import { getNotionPageTableCsv } from '@/service/passage';
 

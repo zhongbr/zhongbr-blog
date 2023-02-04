@@ -10,6 +10,7 @@ export enum NodeType {
     Header = 'Header',
     Paragraph = 'Paragraph',
     CodeBlock = 'CodeBlock',
+    Code = 'Code',
     BlockQuote = 'BlockQuote',
     Table = 'Table',
     TableRow = 'TableRow',

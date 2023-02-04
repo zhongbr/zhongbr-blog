@@ -1,7 +1,6 @@
 import React, { createContext, useRef, useState, Fragment, useContext } from 'react';
 import ReactDom from 'react-dom';
-
-import { usePersistFn } from "@/hooks";
+import { useEvent } from '@zhongbr/react-hooks';
 
 import Message, { IProps as MessageProps } from './Message';
 import Icon from '../Icon';
@@ -32,9 +31,9 @@ export const useMessage = () => {
         });
     };
 
-    const success = usePersistFn(preset.bind(null, 'rp-xuanxiang')) as PresetMessageFn;
-    const fail = usePersistFn(preset.bind(null, 'rp-shenheshibai')) as PresetMessageFn;
-    const warning = usePersistFn(preset.bind(null, 'rp-yaoqing')) as PresetMessageFn;
+    const success = useEvent(preset.bind(null, 'rp-xuanxiang')) as PresetMessageFn;
+    const fail = useEvent(preset.bind(null, 'rp-shenheshibai')) as PresetMessageFn;
+    const warning = useEvent(preset.bind(null, 'rp-yaoqing')) as PresetMessageFn;
 
     return { success, fail, warning, message };
 };
@@ -68,7 +67,7 @@ const MessageProvider: React.FC<IMessageContext & { children: React.ReactNode; }
         }
     };
 
-    const message: IMessageContext['message'] = usePersistFn( (message) => {
+    const message: IMessageContext['message'] = useEvent( (message) => {
         return new Promise<void>(resolve => {
             const id = messageId++;
             messagesQueue.current.push({

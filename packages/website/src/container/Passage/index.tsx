@@ -2,8 +2,9 @@ import { memo, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import clsx from 'clsx';
 import { basename } from 'path-browserify';
+import { useAsyncEffect, useAsyncFn } from '@zhongbr/react-hooks';
 
-import { ResponsiveEnum, useAsyncEffect, useAsyncFn, usePageConfig, useTags } from "@/hooks";
+import { ResponsiveEnum, usePageConfig, useTags } from "@/hooks";
 import { passage } from '@/service';
 import { IPassage } from "@/service/passage/catalogue";
 import { Icon, Tag } from "@/components";
@@ -73,7 +74,7 @@ const Passage = () => {
                 <div className={styles.passage}>
                     <div className={clsx('content', 'blur')}>
                         <div className="tags">
-                            {res?.data?.catalogue?.tags?.map(tag => (
+                            {res?.data?.catalogue?.tags?.map((tag: any) => (
                                 <Tag key={tag} onClick={() => onOpenTags([tag])}>{tag}</Tag>
                             ))}
                         </div>

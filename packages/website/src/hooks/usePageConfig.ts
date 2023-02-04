@@ -1,10 +1,3 @@
-/*
- * @Description: page context
- * @Author: 张盼宏
- * @Date: 2022-08-27 21:07:10
- * @LastEditors: 张盼宏
- * @LastEditTime: 2022-08-29 23:11:39
- */
 import React, {createContext, useContext} from 'react';
 import { IProps as LayoutProps } from '@/components/Layout';
 import { ResponsiveEnum } from './useResponsive';

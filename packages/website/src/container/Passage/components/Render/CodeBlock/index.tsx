@@ -1,10 +1,3 @@
-/*
- * @Description: code block
- * @Author: 张盼宏
- * @Date: 2022-08-29 22:46:04
- * @LastEditors: 张盼宏
- * @LastEditTime: 2022-09-07 22:37:06
- */
 import React, { useMemo, useState } from 'react';
 import clsx from "clsx";
 import { Code, codepen, github } from 'react-code-blocks';

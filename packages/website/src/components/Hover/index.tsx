@@ -1,7 +1,7 @@
 import React, {useState, createContext, useContext} from 'react';
 import clsx from 'clsx';
+import { useEvent } from '@zhongbr/react-hooks';
 
-import { usePersistFn } from '@/hooks';
 import styles from './style.module.less';
 
 export interface IContext {
@@ -29,21 +29,21 @@ const Hover: React.ForwardRefRenderFunction<HTMLDivElement, IProps> = (props, re
     const { className, style, hoverContent, children, triggerInHover=true } = props;
     const [hovered, setHovered] = useState(false);
 
-    const onMouseEnter = usePersistFn(() => {
+    const onMouseEnter = useEvent(() => {
         if (!triggerInHover) {
             return;
         }
         setHovered(true);
     });
 
-    const onMouseLeave = usePersistFn(() => {
+    const onMouseLeave = useEvent(() => {
         if (!triggerInHover) {
             return;
         }
         setHovered(false);
     });
 
-    const toggle: IContext['toggle'] = usePersistFn((hovered_) => {
+    const toggle: IContext['toggle'] = useEvent((hovered_) => {
         if (typeof hovered_ !== 'undefined') {
             setHovered(hovered_);
             return;

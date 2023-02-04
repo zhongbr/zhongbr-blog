@@ -1,10 +1,10 @@
 import { useRef } from 'react';
-import usePersistFn from "./usePersistFn";
+import useEvent from "./useEvent";
 
 export default function useDebounce<Fn extends (...args: any[]) => void>(fn: Fn, debbounce=300): Fn {
     const timmerRef = useRef<NodeJS.Timeout>();
 
-    return usePersistFn((...args: any[]) => {
+    return useEvent((...args: any[]) => {
         if (timmerRef.current) {
             clearTimeout(timmerRef.current);
         }
