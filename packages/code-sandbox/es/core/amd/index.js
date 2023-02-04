@@ -289,7 +289,6 @@ function createAmdManager(fs, root = "/", scriptTimeout = 1e4, logger = console)
   ctx2.pluginReduce = async (reducer, initValue) => {
     let result = initValue;
     for (const plugin of ctx2.plugins) {
-      console.log("run plugin", plugin);
       const { result: res, break: break_ } = await reducer(result, plugin);
       if (break_) {
         return res;

@@ -31,8 +31,10 @@ manager.onModuleDeps(depsGraph.updatePaths.bind(depsGraph));
 fs.event.listen('files-change', async (type: FilesChangeType, files: string[]) => {
     // 监听到文件发生变化时，批量更新发生变化的文件的模块
     if (type === FilesChangeType.Change) {
+        console.log('files change', files);
         // 批量更新依赖
         depsGraph.batchTraverse(files, (node) => {
+            console.log('update dep', node.path);
             // 把包管理器里的缓存删掉，下次 require 时就会重新执行代码
             manager.require_.factories.delete(node.path);
             manager.require_.cache.delete(node.path);
@@ -49,20 +51,22 @@ registerProxy<IDemoService>(DemoServiceName, {
     run: async (jsEntry, htmlEntry, stylesEntry) => {
         await fsSyncPromise;
         // 设置 html、css
-        if (htmlEntry) {
+        if (typeof htmlEntry === 'string') {
             const [htmlExist, html] = fs.pathReduce(htmlEntry);
             if (!htmlExist) return false;
             document.body.innerHTML = (html as IFile).content;
         }
-        if (stylesEntry) {
+        if (typeof stylesEntry === 'string') {
             const [stylesExist, styles] = fs.pathReduce(stylesEntry);
             if (!stylesExist) return false;
             style.innerHTML = (styles as IFile).content;
         }
-        // 执行 js 入口
-        const [jsExist] = fs.pathReduce(jsEntry);
-        if (!jsExist) return false;
-        await manager.require_(jsEntry);
+        if (typeof jsEntry === 'string') {
+            // 执行 js 入口
+            const [jsExist] = fs.pathReduce(jsEntry);
+            if (!jsExist) return false;
+            await manager.require_(jsEntry);
+        }
         return true;
     },
     setPlugins: async (pluginIds: string[]) => {

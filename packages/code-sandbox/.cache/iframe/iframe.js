@@ -934,7 +934,6 @@ function createAmdManager(fs2, root = "/", scriptTimeout = 1e4, logger2 = consol
   ctx2.pluginReduce = async (reducer, initValue) => {
     let result = initValue;
     for (const plugin of ctx2.plugins) {
-      console.log("run plugin", plugin);
       const { result: res, break: break_ } = await reducer(result, plugin);
       if (break_) {
         return res;
@@ -1432,7 +1431,9 @@ manager.onModuleLoading(iframeLoadingModule);
 manager.onModuleDeps(depsGraph.updatePaths.bind(depsGraph));
 fs.event.listen("files-change", async (type, files) => {
   if (type === FilesChangeType.Change) {
+    console.log("files change", files);
     depsGraph.batchTraverse(files, (node) => {
+      console.log("update dep", node.path);
       manager.require_.factories.delete(node.path);
       manager.require_.cache.delete(node.path);
       if (node.out.size) {
@@ -1444,22 +1445,24 @@ fs.event.listen("files-change", async (type, files) => {
 registerProxy(DemoServiceName, {
   run: async (jsEntry, htmlEntry, stylesEntry) => {
     await fsSyncPromise;
-    if (htmlEntry) {
+    if (typeof htmlEntry === "string") {
       const [htmlExist, html] = fs.pathReduce(htmlEntry);
       if (!htmlExist)
         return false;
       document.body.innerHTML = html.content;
     }
-    if (stylesEntry) {
+    if (typeof stylesEntry === "string") {
       const [stylesExist, styles] = fs.pathReduce(stylesEntry);
       if (!stylesExist)
         return false;
       style.innerHTML = styles.content;
     }
-    const [jsExist] = fs.pathReduce(jsEntry);
-    if (!jsExist)
-      return false;
-    await manager.require_(jsEntry);
+    if (typeof jsEntry === "string") {
+      const [jsExist] = fs.pathReduce(jsEntry);
+      if (!jsExist)
+        return false;
+      await manager.require_(jsEntry);
+    }
     return true;
   },
   setPlugins: async (pluginIds) => {

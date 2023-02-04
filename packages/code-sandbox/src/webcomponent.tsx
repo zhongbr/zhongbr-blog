@@ -29,6 +29,13 @@ declare global {
     }
 }
 
+const defaultCodes = {
+    html: [HTMLEntry, DefaultCodes.DefaultHtml],
+    code: [DefaultCodes.DefaultDemoFileName, DefaultCodes.DefaultDemoCode],
+    index: [JSEntry, DefaultCodes.DefaultIndexCode],
+    css: [StylesEntry, DefaultCodes.DefaultCssCode]
+};
+
 class CodeSandbox extends HTMLElement {
     public iframe: HTMLIFrameElement;
     private styleElement: HTMLStyleElement;
@@ -95,18 +102,21 @@ class CodeSandbox extends HTMLElement {
         return ['code', 'css', 'index', 'html', 'class', 'style'];
     }
 
-    private async execute() {
-        await getSandboxRefresher({ iframe: this.iframe })();
+    private async execute(files?: string[]) {
+        await getSandboxRefresher({ iframe: this.iframe })(files);
         this.dispatchEvent(new CustomEvent('ready'));
     }
 
     public async attributeChangedCallback(name: string, oldValue, newValue) {
         if (['html', 'code', 'index', 'css'].includes(name)) {
             // 等待 iframe 环境准备好之后再执行代码
-            waitIframeReady(this.iframe).then(() => {
-                this.writeFile(name);
-                this.execute();
-            });
+            await waitIframeReady(this.iframe);
+            await this.writeFile(name, newValue);
+            const files: string[] = [null, null, null];
+            if (name === 'index') files[0] = defaultCodes[name][0];
+            if (name === 'html') files[1] = defaultCodes[name][0];
+            if (name === 'css') files[2] = defaultCodes[name][0];
+            await this.execute(files);
         }
         else {
             this.iframe.setAttribute(name, newValue);
@@ -119,16 +129,10 @@ class CodeSandbox extends HTMLElement {
         return this.execute();
     }
 
-    private async writeFile(name: string) {
+    private async writeFile(name: string, value?: string) {
         await waitIframeReady(this.iframe);
-        const defaultCodes = {
-            html: [HTMLEntry, DefaultCodes.DefaultHtml],
-            code: [DefaultCodes.DefaultDemoFileName, DefaultCodes.DefaultDemoCode],
-            index: [JSEntry, DefaultCodes.DefaultIndexCode],
-            css: [StylesEntry, DefaultCodes.DefaultCssCode]
-        };
         const [fileName, defaultCode] = defaultCodes[name];
-        this.fs.writeFile(fileName, this.getAttribute(name) || defaultCode);
+        this.fs.writeFile(fileName, value || this.getAttribute(name) || defaultCode);
     }
 }
 

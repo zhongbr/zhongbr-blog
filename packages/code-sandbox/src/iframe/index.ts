@@ -15,7 +15,7 @@ export const HTMLEntry = '/index.html';
 export const getSandboxRefresher = (opt: IOptions) => {
     const iframe = opt.iframe;
 
-    return async () => {
+    return async (payload = [JSEntry, HTMLEntry, StylesEntry]) => {
         if (!iframe) return;
         // 等待 demo iframe 提供的服务准备好
         await waitIframeReady(iframe);
@@ -25,7 +25,7 @@ export const getSandboxRefresher = (opt: IOptions) => {
             win: iframe.contentWindow,
             serviceId: DemoServiceName,
             method: 'run',
-            payload: [JSEntry, HTMLEntry, StylesEntry]
+            payload: payload as Parameters<IDemoService['run']>
         });
     };
 };

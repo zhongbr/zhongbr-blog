@@ -20,7 +20,6 @@ export function createAmdManager(fs: FilesSystem,root='/', scriptTimeout=10000, 
     ctx.pluginReduce = async (reducer, initValue) => {
         let result: any = initValue;
         for (const plugin of ctx.plugins) {
-            console.log('run plugin', plugin);
             const { result: res, break: break_ } = await reducer(result, plugin);
             if (break_) {
                 return res;
