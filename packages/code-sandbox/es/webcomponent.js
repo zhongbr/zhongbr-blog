@@ -443,7 +443,7 @@ class CodeSandbox extends HTMLElement {
     this.iframe.srcdoc = srcDoc;
     this.iframe.setAttribute("title", this.iframe.getAttribute("title"));
     this.iframe.setAttribute("sandbox", "allow-scripts");
-    this.iframe.setAttribute("class", `code-sandbox-iframe ${this.getAttribute("class") || ""}`);
+    this.iframe.setAttribute("class", `code-sandbox-iframe ${this.getAttribute("classname") || ""}`);
     this.iframe.setAttribute("style", this.getAttribute("style"));
     onIframeLoadingModule(this.iframe, (moduleName, extraInfo) => {
       this.dispatchEvent(new CustomEvent("loading-module", {

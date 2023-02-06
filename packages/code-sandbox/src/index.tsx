@@ -14,10 +14,13 @@ export interface IProps extends IAttributes {
 }
 
 const CodeSandbox = React.forwardRef<CodeSandboxDom, IProps>((props, ref) => {
-    const { fs, onLoadingModule, onReady, ...others } = props;
+    const { fs, onLoadingModule, onReady, className, ...others } = props;
     const sandboxRef = useRef<CodeSandboxDom>(null);
 
     useLayoutEffect(() => {
+        if (className) {
+            sandboxRef.current.iframe?.classList?.add(className);
+        }
         if (fs) {
             sandboxRef.current.fs = fs;
         }
@@ -40,7 +43,7 @@ const CodeSandbox = React.forwardRef<CodeSandboxDom, IProps>((props, ref) => {
                 sandboxRef.current.removeEventListener('loading-module', onLoadingModule_);
             }
         };
-    });
+    }, [className, onReady, onLoadingModule, fs]);
 
     return (
         <code-sandbox

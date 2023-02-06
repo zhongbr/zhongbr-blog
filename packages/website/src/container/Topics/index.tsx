@@ -5,7 +5,7 @@ import { ResponsiveEnum, usePageConfig } from '@/hooks';
 import { topics } from '@/service/passage';
 import { title } from "@/config/meta";
 
-import {TopicCard, TopicCardGroup} from './modules';
+import { TopicCard, TopicCardGroup, Poster } from './modules';
 import styles from './style.module.less';
 
 const Topics: React.FC = props => {
@@ -33,6 +33,7 @@ const Topics: React.FC = props => {
 
     return (
         <div className={styles.topicsPage}>
+            <Poster/>
             <TopicCardGroup rowCount={rowCount} className={styles.topicsContainer}>
                 {topicsRes?.data?.topics?.map?.(topic => (
                     <TopicCard

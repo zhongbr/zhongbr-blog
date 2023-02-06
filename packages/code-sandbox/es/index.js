@@ -946,9 +946,13 @@ if (!customElements.get("code-sandbox")) {
   customElements.define("code-sandbox", CodeSandbox$1);
 }
 const CodeSandbox = require$$0.forwardRef((props, ref) => {
-  const { fs, onLoadingModule, onReady, ...others } = props;
+  const { fs, onLoadingModule, onReady, className, ...others } = props;
   const sandboxRef = useRef(null);
   useLayoutEffect(() => {
+    var _a, _b;
+    if (className) {
+      (_b = (_a = sandboxRef.current.iframe) == null ? void 0 : _a.classList) == null ? void 0 : _b.add(className);
+    }
     if (fs) {
       sandboxRef.current.fs = fs;
     }
@@ -972,7 +976,7 @@ const CodeSandbox = require$$0.forwardRef((props, ref) => {
         sandboxRef.current.removeEventListener("loading-module", onLoadingModule_);
       }
     };
-  });
+  }, [className, onReady, onLoadingModule, fs]);
   return /* @__PURE__ */ jsx(
     "code-sandbox",
     {

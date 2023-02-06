@@ -4,13 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="27b3b0e5-1ac3-4b25-8173-a590bd44bf60" name="变更" comment="feat: 提取常用 hooks，修复行内的代码不显示的bug">
+    <list default="true" id="27b3b0e5-1ac3-4b25-8173-a590bd44bf60" name="变更" comment="feat: 修复UI问题">
+      <change afterPath="$PROJECT_DIR$/packages/website/src/container/Topics/modules/Poster/images/index.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/website/src/container/Topics/modules/Poster/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/website/src/container/Topics/modules/Poster/style.module.less" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/code-sandbox/es/webcomponent.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/code-sandbox/es/webcomponent.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/code-sandbox/es/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/code-sandbox/es/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/code-sandbox/es/index.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/packages/code-sandbox/es/index.js.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/packages/code-sandbox/es/webcomponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/code-sandbox/es/webcomponent.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/packages/code-sandbox/es/webcomponent.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/packages/code-sandbox/es/webcomponent.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/code-sandbox/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/code-sandbox/src/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/packages/code-sandbox/src/webcomponent.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/code-sandbox/src/webcomponent.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/container/Playground/style.module.less" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/container/Playground/style.module.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/app.less" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/app.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/components/Sandbox/style.module.less" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/components/Sandbox/style.module.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/container/Passage/components/Render/CodeBlock/style.module.less" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/container/Passage/components/Render/CodeBlock/style.module.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/container/Passage/components/Render/Header/style.module.less" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/container/Passage/components/Render/Header/style.module.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/container/Topics/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/container/Topics/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/container/Topics/modules/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/container/Topics/modules/index.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,8 +34,8 @@
         <option value="HTML File" />
         <option value="tsconfig.json" />
         <option value="TypeScript File" />
-        <option value="TypeScript JSX File" />
         <option value="CSS File" />
+        <option value="TypeScript JSX File" />
         <option value="Less File" />
       </list>
     </option>
@@ -97,7 +107,7 @@
     "go.import.settings.migrated": "true",
     "javascript.nodejs.core.library.configured.version": "16.15.0",
     "javascript.nodejs.core.library.typings.version": "16.18.11",
-    "last_opened_file_path": "/Users/zhangpanhong/Documents/zhongbr_projects/react-press/packages/react-hooks/src",
+    "last_opened_file_path": "/Users/zhangpanhong/Documents/zhongbr_projects/react-press/packages/website/src/container/Topics/modules/Poster/images",
     "list.type.of.created.stylesheet": "Less",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.standard": "true",
@@ -109,25 +119,25 @@
     "project.structure.last.edited": "项目",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
     "ts.external.directory.path": "/Users/zhangpanhong/Documents/zhongbr_projects/react-press/packages/react-hooks/node_modules/typescript/lib",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/packages/website/src/container/Topics/modules/Poster/images" />
+      <recent name="$PROJECT_DIR$/packages/website/src/container/Topics/images" />
       <recent name="$PROJECT_DIR$/packages/react-hooks/src" />
       <recent name="$PROJECT_DIR$/packages/code-sandbox" />
       <recent name="$PROJECT_DIR$/packages/website/public/resources" />
-      <recent name="$PROJECT_DIR$/posts" />
-      <recent name="$PROJECT_DIR$/packages/website/src/components/Layout" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/packages/website/src/container/Topics/modules/Poster" />
       <recent name="$PROJECT_DIR$/packages/code-sandbox/src/plugins/babel/worker/plugins" />
       <recent name="$PROJECT_DIR$/packages/code-sandbox/src/plugins/babel/worker" />
       <recent name="$PROJECT_DIR$/packages/code-sandbox/src/plugins/babel" />
       <recent name="$PROJECT_DIR$/packages/code-sandbox/src" />
-      <recent name="$PROJECT_DIR$/packages/code-sandbox" />
     </key>
   </component>
   <component name="RunAnythingCache">
@@ -143,11 +153,11 @@
     </option>
   </component>
   <component name="RunManager" selected="npm.build">
-    <configuration name="build (1)" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
-      <package-json value="$PROJECT_DIR$/packages/react-hooks/package.json" />
+    <configuration name="build-markdown" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
       <command value="run" />
       <scripts>
-        <script value="build" />
+        <script value="build-markdown" />
       </scripts>
       <node-interpreter value="project" />
       <envs />
@@ -195,11 +205,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="npm.start" />
-        <item itemvalue="npm.build" />
-        <item itemvalue="npm.serve" />
         <item itemvalue="npm.start-website" />
-        <item itemvalue="npm.build (1)" />
+        <item itemvalue="npm.build" />
+        <item itemvalue="npm.build-markdown" />
+        <item itemvalue="npm.start" />
+        <item itemvalue="npm.serve" />
       </list>
     </recent_temporary>
   </component>
@@ -247,14 +257,13 @@
       <workItem from="1675241351839" duration="89617000" />
       <workItem from="1675529140324" duration="180000" />
       <workItem from="1675529330371" duration="57000" />
-      <workItem from="1675529397991" duration="3749000" />
-    </task>
-    <task id="LOCAL-00108" summary="feat: 修复重试报错的bug">
-      <created>1673315878999</created>
-      <option name="number" value="00108" />
-      <option name="presentableId" value="LOCAL-00108" />
-      <option name="project" value="LOCAL" />
-      <updated>1673315878999</updated>
+      <workItem from="1675529397991" duration="4413000" />
+      <workItem from="1675578291552" duration="118000" />
+      <workItem from="1675578427775" duration="34000" />
+      <workItem from="1675578469181" duration="33000" />
+      <workItem from="1675578516578" duration="208000" />
+      <workItem from="1675578733585" duration="29000" />
+      <workItem from="1675578770410" duration="10445000" />
     </task>
     <task id="LOCAL-00109" summary="feat: 修复依赖引入bug">
       <created>1673317251885</created>
@@ -592,7 +601,14 @@
       <option name="project" value="LOCAL" />
       <updated>1675531172031</updated>
     </task>
-    <option name="localTasksCounter" value="157" />
+    <task id="LOCAL-00157" summary="feat: 修复UI问题">
+      <created>1675533196867</created>
+      <option name="number" value="00157" />
+      <option name="presentableId" value="LOCAL-00157" />
+      <option name="project" value="LOCAL" />
+      <updated>1675533196867</updated>
+    </task>
+    <option name="localTasksCounter" value="158" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -612,7 +628,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="feat: 修改不符合 umd 规范地方" />
     <MESSAGE value="feat: 修复识别带 @ 号的包出错的bug" />
     <MESSAGE value="feat: 注释掉背景" />
     <MESSAGE value="feat: 修复重试报错的bug" />
@@ -637,7 +652,8 @@
     <MESSAGE value="feat: sandbox支持多文件" />
     <MESSAGE value="feat: 加入刷新功能" />
     <MESSAGE value="feat: 提取常用 hooks，修复行内的代码不显示的bug" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: 提取常用 hooks，修复行内的代码不显示的bug" />
+    <MESSAGE value="feat: 修复UI问题" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: 修复UI问题" />
   </component>
   <component name="VgoProject">
     <integration-enabled>false</integration-enabled>
