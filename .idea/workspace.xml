@@ -4,25 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="27b3b0e5-1ac3-4b25-8173-a590bd44bf60" name="变更" comment="feat: 修复UI问题">
-      <change afterPath="$PROJECT_DIR$/packages/website/src/container/Topics/modules/Poster/DownArrow/down.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/website/src/container/Topics/modules/Poster/DownArrow/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/website/src/container/Topics/modules/Poster/DownArrow/style.module.less" afterDir="false" />
+    <list default="true" id="27b3b0e5-1ac3-4b25-8173-a590bd44bf60" name="变更" comment="feat: 修改首页样式">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/public/iframe.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/components/Layout/footer.module.less" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/components/Layout/footer.module.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/components/Layout/footer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/components/Layout/footer.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/components/Layout/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/components/Layout/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/components/Layout/style.module.less" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/components/Layout/style.module.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/container/Passage/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/container/Passage/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/container/Passage/style.module.less" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/container/Passage/style.module.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/container/Topics/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/container/Topics/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/packages/website/src/container/Topics/modules/Poster/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/container/Topics/modules/Poster/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/packages/website/src/container/Topics/modules/Poster/style.module.less" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/container/Topics/modules/Poster/style.module.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/container/Topics/style.module.less" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/container/Topics/style.module.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/hooks/usePageConfig.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/hooks/usePageConfig.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/index.less" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/index.less" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -265,14 +250,7 @@
       <workItem from="1675578469181" duration="33000" />
       <workItem from="1675578516578" duration="208000" />
       <workItem from="1675578733585" duration="29000" />
-      <workItem from="1675578770410" duration="26503000" />
-    </task>
-    <task id="LOCAL-00110" summary="feat: 修复依赖引入bug">
-      <created>1673317739039</created>
-      <option name="number" value="00110" />
-      <option name="presentableId" value="LOCAL-00110" />
-      <option name="project" value="LOCAL" />
-      <updated>1673317739040</updated>
+      <workItem from="1675578770410" duration="26651000" />
     </task>
     <task id="LOCAL-00111" summary="feat: 修复依赖引入bug">
       <created>1673329001769</created>
@@ -610,7 +588,14 @@
       <option name="project" value="LOCAL" />
       <updated>1675699835776</updated>
     </task>
-    <option name="localTasksCounter" value="159" />
+    <task id="LOCAL-00159" summary="feat: 修改首页样式">
+      <created>1675764487601</created>
+      <option name="number" value="00159" />
+      <option name="presentableId" value="LOCAL-00159" />
+      <option name="project" value="LOCAL" />
+      <updated>1675764487601</updated>
+    </task>
+    <option name="localTasksCounter" value="160" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -630,7 +615,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="feat: 修复识别带 @ 号的包出错的bug" />
     <MESSAGE value="feat: 注释掉背景" />
     <MESSAGE value="feat: 修复重试报错的bug" />
     <MESSAGE value="feat: 修复依赖引入bug" />
@@ -655,7 +639,8 @@
     <MESSAGE value="feat: 加入刷新功能" />
     <MESSAGE value="feat: 提取常用 hooks，修复行内的代码不显示的bug" />
     <MESSAGE value="feat: 修复UI问题" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: 修复UI问题" />
+    <MESSAGE value="feat: 修改首页样式" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: 修改首页样式" />
   </component>
   <component name="VgoProject">
     <integration-enabled>false</integration-enabled>

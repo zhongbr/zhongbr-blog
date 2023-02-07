@@ -42,7 +42,7 @@ const Poster: React.FC<IPoster> = props => {
                 <div
                     className={styles.contents}
                 >
-                    <h1 className={styles.title}>钟摆人的博客</h1>
+                    <h1 className={styles.title}>永远相信美好的事情即将发生</h1>
                     <div className={styles.subContents}>
                         Always believe that something wonderful is about to come. 😁
                     </div>
