@@ -8,7 +8,7 @@ export function getOffsetTop(element: HTMLElement, container: HTMLElement) {
     const { width, height, top } = element.getBoundingClientRect();
 
     if (width || height) {
-        return top - container.getBoundingClientRect().top;
+        return top + container.scrollTop;
     }
 
     return top;
