@@ -1,4 +1,4 @@
-import React, { Suspense, useRef } from 'react';
+import React, { Suspense, useRef, useEffect } from 'react';
 import { useRoutes } from 'react-router-dom';
 import { useStates, useEvent } from '@zhongbr/react-hooks';
 import { registerPlugins } from '@zhongbr/code-sandbox';
@@ -9,7 +9,7 @@ import routers from "@/config/routers";
 import { navLinks, title as titleText, titleLink } from '@/config/meta';
 import { useInitCopy } from '@/utils/copy';
 
-import { Icon, Layout, Splash, useMessage } from './components';
+import {Icon, Layout, Splash, useMessage} from './components';
 import { IPageConfig, PageConfigContext, ResponsiveEnum, useThemeManager, useResponsive } from './hooks';
 
 import "./app.less";
@@ -84,6 +84,10 @@ function App() {
         });
     });
 
+    useEffect(() => {
+        ref.current?.scrollTo({ top: 0 });
+    }, [element]);
+
     const onPageReady = useEvent(() => {
         setStates({
             loading: false
@@ -108,10 +112,7 @@ function App() {
                 footerProps={states.footer}
             >
                 <Suspense fallback={splash}>
-                    {states.loading && splash}
-                    <div style={{ visibility: states.loading ? 'hidden' : 'visible', height: '100%' }}>
-                        {element}
-                    </div>
+                    {element}
                 </Suspense>
             </Layout>
         </PageConfigContext.Provider>

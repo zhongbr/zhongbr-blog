@@ -1,11 +1,18 @@
 .index-container {
-  margin-top: -146px;
+  margin-top: calc(-1 * var(--header-height));
   margin-bottom: 48px;
-  padding: 156px 20px 10px 20px;
+  padding: calc(var(--header-height) + 10px) 20px 10px 20px;
+  height: calc(100vh - 20px - var(--header-height));
   color: var(--font-color);
   background-color: var(--index-background-color);
+  position: relative;
 
   .body {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    transform: translateY(-50%);
     display: flex;
     max-width: 1200px;
     height: max-content;
@@ -15,7 +22,7 @@
     .contents {
       flex: 1;
       padding: 0 100px;
-      font-family: var(--title-font);
+      font-family: var(--smile-font);
 
       .title {
         font-size: 64px;
@@ -34,6 +41,7 @@
       }
 
       .buttons {
+        font-family: var(--title-font);
         display: flex;
         gap: 8px;
         margin-top: 16px;
@@ -54,9 +62,19 @@
     .image-container {
       text-align: center;
       padding: 0 50px;
+
       img {
-        height: 450px;
+        max-height: 450px;
       }
     }
+  }
+
+  .arrow {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 10px;
   }
 }

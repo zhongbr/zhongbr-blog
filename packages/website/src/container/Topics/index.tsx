@@ -26,14 +26,15 @@ const Topics: React.FC = props => {
             footer: {
                 showICP: true,
                 showPublicSecurity: true,
-                showCopyRight: true
+                showCopyRight: true,
+                scrollSnap: true
             }
         });
     }, [setStates]);
 
     return (
-        <div className={styles.topicsPage}>
-            <Poster/>
+        <>
+            <Poster className={styles.poster}/>
             <TopicCardGroup rowCount={rowCount} className={styles.topicsContainer}>
                 {topicsRes?.data?.topics?.map?.(topic => (
                     <TopicCard
@@ -42,7 +43,7 @@ const Topics: React.FC = props => {
                     />
                 ))}
             </TopicCardGroup>
-        </div>
+        </>
     );
 };
 

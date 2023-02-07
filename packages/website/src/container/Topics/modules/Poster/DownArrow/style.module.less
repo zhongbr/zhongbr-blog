@@ -1,0 +1,29 @@
+.down-arrow {
+  @keyframes vertical-shake {
+    from {
+      transform: translateY(-15px);
+    }
+    to {
+      transform: translateY(0px);
+    }
+  }
+
+  cursor: pointer;
+  height: 30px;
+  width: 30px;
+  animation: 800ms alternate ease-in-out infinite vertical-shake;
+
+  .icon {
+    position: absolute;
+
+    &:nth-child(1) {
+      top: 0;
+      opacity: 0.2;
+    }
+
+    &:nth-child(2) {
+      top: 30%;
+      opacity: 0.4;
+    }
+  }
+}

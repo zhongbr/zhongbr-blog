@@ -1,7 +1,10 @@
-.topicsPage {
-  .topics-container {
-    max-width: 1200px;
-    margin: 16px auto;
-    padding: 0 16px;
-  }
+.poster {
+  scroll-snap-align: start;
+}
+
+.topics-container {
+  scroll-snap-align: start;
+  max-width: 1200px;
+  margin: 16px auto;
+  padding: calc(var(--header-fold-height) + 16px) 16px 0 16px;
 }

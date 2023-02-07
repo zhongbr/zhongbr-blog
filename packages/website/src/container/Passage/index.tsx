@@ -62,16 +62,16 @@ const Passage = () => {
 
     return (
         <Context.Provider value={{ catalogue: catalogueRes?.data, curCatalogue: catalogue }}>
-            <div className={styles.passageContainer}>
-                <div
+            <>
+                <aside
                     className={clsx(
                         styles.sketch,
                         {[styles.display]: [ResponsiveEnum.normal, ResponsiveEnum.large].includes(widthLevel || ResponsiveEnum.normal)}
                     )}
                 >
                     <Sketch sketch={sketch}/>
-                </div>
-                <div className={styles.passage}>
+                </aside>
+                <article className={styles.passage}>
                     <div className={clsx('content', 'blur')}>
                         <div className="tags">
                             {res?.data?.catalogue?.tags?.map((tag: any) => (
@@ -94,8 +94,8 @@ const Passage = () => {
                             <Render node={res?.data?.ast}/>
                         </div>
                     </div>
-                </div>
-            </div>
+                </article>
+            </>
         </Context.Provider>
     );
 }

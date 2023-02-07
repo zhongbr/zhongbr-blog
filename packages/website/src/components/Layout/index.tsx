@@ -1,11 +1,3 @@
-/*
- * @Description: Layouts
- * @Author: 张盼宏
- * @Date: 2022-08-27 09:41:18
- * @LastEditors: 张盼宏
- * @LastEditTime: 2022-08-28 01:18:50
- */
-
 import React, { useRef } from "react";
 import clsx from "clsx";
 
@@ -43,10 +35,8 @@ const Layout: React.FC<IProps> = (props) => {
                 navLinks={navLinks}
                 rate={rate}
             />
-            <div className={clsx(styles.contentContainer)} ref={contentRef}>
-                <div className={styles.content}>
-                    {children}
-                </div>
+            <div className={clsx(styles.contentContainer)} ref={contentRef} style={{ '--scroll-header-height': `${(75 * (1 - rate)).toFixed(2)}px` } as React.CSSProperties}>
+                {children}
                 {footerProps && (
                     <Footer
                         className={styles.footer}

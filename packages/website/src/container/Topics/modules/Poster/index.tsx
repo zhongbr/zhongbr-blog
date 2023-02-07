@@ -1,16 +1,25 @@
 import React from 'react';
 import { useEvent } from '@zhongbr/react-hooks';
+import clsx from 'clsx';
 
-import { useNavigate } from '@/hooks';
+import { useNavigate, usePageConfig } from '@/hooks';
+import { Icon } from "@/components";
+import { smoothScrollTo } from '@/utils/anchor-scroll';
 
+import DownArrow from './DownArrow';
 import IndexImage from './images/index.png';
 import styles from './style.module.less';
-import {Icon} from "@/components";
 
-export interface IPoster {}
+export interface IPoster {
+    className?: string;
+}
 
 const Poster: React.FC<IPoster> = props => {
+    const { className } = props;
+
     const navigator = useNavigate();
+    const { scrollRef } = usePageConfig();
+
     const onAllPassages = useEvent(() => {
         navigator('/tags');
     });
@@ -19,26 +28,23 @@ const Poster: React.FC<IPoster> = props => {
         navigator('/playground');
     });
 
+    const onScrollToMainBlock = useEvent(() => {
+        if (!scrollRef?.current) return;
+        scrollRef.current.scrollTo({
+            top: window.innerHeight,
+            behavior: 'smooth'
+        });
+    });
+
     return (
-        <div className={styles.indexContainer}>
+        <div className={clsx(styles.indexContainer, className)}>
             <div className={styles.body}>
                 <div
                     className={styles.contents}
                 >
                     <h1 className={styles.title}>钟摆人的博客</h1>
                     <div className={styles.subContents}>
-                        <span className={styles.tag}>
-                            <Icon className="rp-renwu"/>
-                            总结
-                        </span>
-                        <span className={styles.tag}>
-                            <Icon className="rp-baogao"/>
-                            记录
-                        </span>
-                        <span className={styles.tag}>
-                            <Icon className="rp-pinglun"/>
-                            分享
-                        </span>
+                        Always believe that something wonderful is about to come. 😁
                     </div>
                     <div className={styles.buttons}>
                         <div className={styles.button} onClick={onAllPassages}>全部文章</div>
@@ -54,6 +60,7 @@ const Poster: React.FC<IPoster> = props => {
                     />
                 </div>
             </div>
+            <DownArrow className={styles.arrow} onClick={onScrollToMainBlock}/>
         </div>
     );
 };

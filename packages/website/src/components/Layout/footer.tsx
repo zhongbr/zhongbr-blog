@@ -14,15 +14,16 @@ export interface IProps {
     showCopyRight?: boolean;
     className?: string;
     content?: React.ReactNode;
+    scrollSnap?: boolean;
 }
 
 const Footer: React.FC<IProps> = (props) => {
-    const { showICP, showPublicSecurity, showCopyRight = true, content, className } = props;
+    const { showICP, showPublicSecurity, showCopyRight = true, content, className, scrollSnap } = props;
     const date = useMemo(() => moment(), []);
     const { widthLevel } = usePageConfig();
 
     return (
-        <div className={clsx(styles.footer, className)}>
+        <div className={clsx(styles.footer, className, { [styles.scrollSnap]: scrollSnap })}>
             {(showICP || showPublicSecurity) && (
                 <div className={clsx(styles.beian, widthLevel === ResponsiveEnum.tiny ? styles.tiny : undefined)}>
                     <span>

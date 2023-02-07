@@ -3,6 +3,10 @@
     letter-spacing: 1px;
     background-color: var(--background-color);
 
+    --header-height: 145px;
+    --header-fold-height: 70px;
+    --scroll-header-height: 145px;
+
     .header {
         position: fixed;
         top: 0;
@@ -115,24 +119,15 @@
     .content-container {
         height: 100vh;
         width: 100vw;
-        //background: url("https://i.328888.xyz/2023/01/01/nL10A.png");
-        //background-size: 100% 100%;
         overflow-y: auto;
         overflow-x: hidden;
         position: relative;
-        display: flex;
-        flex-direction: column;
+        scroll-snap-type: y mandatory;
 
-        &::before {
+        &:before {
             content: ' ';
             display: inline-block;
-            min-height: 146px;
+            min-height: var(--header-height);
         }
-
-        .content {
-            flex: 1;
-        }
-
-
     }
 }
