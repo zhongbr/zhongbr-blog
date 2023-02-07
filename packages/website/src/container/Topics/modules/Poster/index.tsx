@@ -1,10 +1,8 @@
 import React from 'react';
-import { useEvent } from '@zhongbr/react-hooks';
+import {useEvent} from '@zhongbr/react-hooks';
 import clsx from 'clsx';
 
-import { useNavigate, usePageConfig } from '@/hooks';
-import { Icon } from "@/components";
-import { smoothScrollTo } from '@/utils/anchor-scroll';
+import {ResponsiveEnum, useNavigate, usePageConfig} from '@/hooks';
 
 import DownArrow from './DownArrow';
 import IndexImage from './images/index.png';
@@ -18,7 +16,7 @@ const Poster: React.FC<IPoster> = props => {
     const { className } = props;
 
     const navigator = useNavigate();
-    const { scrollRef } = usePageConfig();
+    const { scrollRef, widthLevel } = usePageConfig();
 
     const onAllPassages = useEvent(() => {
         navigator('/tags');
@@ -52,7 +50,7 @@ const Poster: React.FC<IPoster> = props => {
                     </div>
                 </div>
                 <div
-                    className={styles.imageContainer}
+                    className={clsx(styles.imageContainer, { [styles.hidden]: widthLevel === ResponsiveEnum.tiny })}
                 >
                     <img
                         src={IndexImage}
