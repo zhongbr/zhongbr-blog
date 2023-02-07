@@ -44,7 +44,7 @@ const Poster: React.FC<IPoster> = props => {
                     <div className={styles.subContents}>
                         Always believe that something wonderful is about to come. 😁
                     </div>
-                    <div className={styles.buttons}>
+                    <div className={clsx(styles.buttons)}>
                         <div className={styles.button} onClick={onAllPassages}>全部文章</div>
                         <div className={styles.button} onClick={onPlayground}>Playground</div>
                     </div>

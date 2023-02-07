@@ -27,7 +27,10 @@ const Sketch: React.FC<IProps> = props => {
         });
         if (element && container) {
             const offset = getOffsetTop(element, container);
-            await smoothScrollTo(offset, container);
+            container.scrollTo({
+                top: offset,
+                behavior: 'smooth'
+            })
         }
     });
 

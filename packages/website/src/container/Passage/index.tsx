@@ -71,7 +71,12 @@ const Passage = () => {
                 >
                     <Sketch sketch={sketch}/>
                 </aside>
-                <article className={styles.passage}>
+                <article
+                    className={clsx(
+                        styles.passage,
+                        {[styles.full]: [ResponsiveEnum.mid, ResponsiveEnum.tiny].includes(widthLevel || ResponsiveEnum.normal)}
+                    )}
+                >
                     <div className={clsx('content', 'blur')}>
                         <div className="tags">
                             {res?.data?.catalogue?.tags?.map((tag: any) => (

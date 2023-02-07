@@ -4,8 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="27b3b0e5-1ac3-4b25-8173-a590bd44bf60" name="变更" comment="feat: 修改首页样式">
+    <list default="true" id="27b3b0e5-1ac3-4b25-8173-a590bd44bf60" name="变更" comment="feat: 修改首页响应式">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/container/Passage/components/Sketch/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/container/Passage/components/Sketch/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/container/Passage/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/container/Passage/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/container/Passage/style.module.less" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/container/Passage/style.module.less" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/packages/website/src/container/Topics/modules/Poster/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/container/Topics/modules/Poster/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/packages/website/src/container/Topics/modules/Poster/style.module.less" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/container/Topics/modules/Poster/style.module.less" afterDir="false" />
     </list>
@@ -250,14 +253,7 @@
       <workItem from="1675578469181" duration="33000" />
       <workItem from="1675578516578" duration="208000" />
       <workItem from="1675578733585" duration="29000" />
-      <workItem from="1675578770410" duration="27098000" />
-    </task>
-    <task id="LOCAL-00112" summary="feat: 增加支持 commonjs">
-      <created>1673343105781</created>
-      <option name="number" value="00112" />
-      <option name="presentableId" value="LOCAL-00112" />
-      <option name="project" value="LOCAL" />
-      <updated>1673343105782</updated>
+      <workItem from="1675578770410" duration="28850000" />
     </task>
     <task id="LOCAL-00113" summary="feat: 增加支持 commonjs">
       <created>1673346828820</created>
@@ -595,7 +591,14 @@
       <option name="project" value="LOCAL" />
       <updated>1675764626713</updated>
     </task>
-    <option name="localTasksCounter" value="161" />
+    <task id="LOCAL-00161" summary="feat: 修改首页响应式">
+      <created>1675765070015</created>
+      <option name="number" value="00161" />
+      <option name="presentableId" value="LOCAL-00161" />
+      <option name="project" value="LOCAL" />
+      <updated>1675765070016</updated>
+    </task>
+    <option name="localTasksCounter" value="162" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -615,7 +618,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="feat: 注释掉背景" />
     <MESSAGE value="feat: 修复重试报错的bug" />
     <MESSAGE value="feat: 修复依赖引入bug" />
     <MESSAGE value="feat: 增加支持 commonjs" />
@@ -640,7 +642,8 @@
     <MESSAGE value="feat: 提取常用 hooks，修复行内的代码不显示的bug" />
     <MESSAGE value="feat: 修复UI问题" />
     <MESSAGE value="feat: 修改首页样式" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: 修改首页样式" />
+    <MESSAGE value="feat: 修改首页响应式" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: 修改首页响应式" />
   </component>
   <component name="VgoProject">
     <integration-enabled>false</integration-enabled>
