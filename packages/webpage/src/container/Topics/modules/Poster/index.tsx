@@ -7,6 +7,7 @@ import {ResponsiveEnum, useNavigate, usePageConfig} from '@/hooks';
 import DownArrow from './DownArrow';
 import IndexImage from './images/index.png';
 import styles from './style.module.less';
+import animations from '@/animations/gradient-background.module.less';
 
 export interface IPoster {
     className?: string;
@@ -40,7 +41,7 @@ const Poster: React.FC<IPoster> = props => {
                 <div
                     className={styles.contents}
                 >
-                    <h1 className={styles.title}>永远相信美好的事情即将发生</h1>
+                    <h1 className={clsx(styles.title, animations.gradientText)}>永远相信美好的事情即将发生</h1>
                     <div className={styles.subContents}>
                         Always believe that something wonderful is about to come. 😁
                     </div>

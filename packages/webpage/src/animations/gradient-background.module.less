@@ -1,0 +1,21 @@
+.gradient-text-func(@color1, @color2) {
+  .animation-loop(@i, @j) when (@j >= 0) {
+    .animation-loop(@i - 1%, @j - 1);
+    @{i} {
+      background: linear-gradient(90 + @j * 3.6deg, @color1, @color2);
+      background-clip: text;
+      -webkit-background-clip: text;
+    }
+  }
+  @keyframes rotating {
+    .animation-loop(100%, 100);
+  }
+
+  animation: 10s normal ease-in-out infinite rotating;
+}
+
+.gradient-text {
+  .gradient-text-func(rgba(0,91,245,1) 0%, rgba(0,189,144,1) 63%);
+  display: inline;
+  color: transparent;
+}

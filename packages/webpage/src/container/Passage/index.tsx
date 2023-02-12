@@ -30,11 +30,7 @@ const Passage = () => {
     useEffect(() => {
         setStates?.({
             title: res?.data?.catalogue?.title,
-            footer: {
-                showICP: false,
-                showCopyRight: true,
-                showPublicSecurity: false
-            }
+            footer: undefined
         });
     }, [setStates, res?.data?.catalogue?.title]);
 
