@@ -5,7 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="27b3b0e5-1ac3-4b25-8173-a590bd44bf60" name="变更" comment="feat: 修改标题的样式">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/packages/webpage/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/webpage/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pnpm-lock.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pnpm-lock.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -252,14 +254,7 @@
       <workItem from="1675835372367" duration="313000" />
       <workItem from="1675835699371" duration="598000" />
       <workItem from="1675838401501" duration="2397000" />
-      <workItem from="1676186668548" duration="24376000" />
-    </task>
-    <task id="LOCAL-00125" summary="feat: 修改 cdn 的地址">
-      <created>1673620084773</created>
-      <option name="number" value="00125" />
-      <option name="presentableId" value="LOCAL-00125" />
-      <option name="project" value="LOCAL" />
-      <updated>1673620084773</updated>
+      <workItem from="1676186668548" duration="25057000" />
     </task>
     <task id="LOCAL-00126" summary="feat: 修改 cdn 的地址">
       <created>1673620283897</created>
@@ -597,7 +592,14 @@
       <option name="project" value="LOCAL" />
       <updated>1676213455430</updated>
     </task>
-    <option name="localTasksCounter" value="174" />
+    <task id="LOCAL-00174" summary="feat: 修改标题的样式">
+      <created>1676213692576</created>
+      <option name="number" value="00174" />
+      <option name="presentableId" value="LOCAL-00174" />
+      <option name="project" value="LOCAL" />
+      <updated>1676213692576</updated>
+    </task>
+    <option name="localTasksCounter" value="175" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
