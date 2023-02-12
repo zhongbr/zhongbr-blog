@@ -13,7 +13,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: [1] Checkout
+      - name: Checkout
         uses: actions/checkout@v3
       - uses: pnpm/action-setup@v2.2.2
         with:
@@ -21,11 +21,11 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: '14'
-      - name: [2] Install dependencies
+      - name: Install dependencies
         run: pnpm install
-      - name: [3] Build markdowns
+      - name: Build markdowns
         run: pnpm run build-markdown
-      - name: [4] Upload files
+      - name: Upload files
         uses: actions/upload-artifact@v3
         with:
           name: build-markdowns
@@ -36,18 +36,18 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - name: [1] Clone github-pages
+      - name: Clone github-pages
         uses: actions/checkout@v3
         with:
           ref: github-pages
-      - name: [2] Remove previous md dir
+      - name: Remove previous md dir
         run: rm -rf ./md
-      - name: [3] Download files
+      - name: Download files
         uses: actions/download-artifact@v2
         with:
           name: build-markdowns
           path: md
-      - name: [4] Push
+      - name: Push
         uses: peaceiris/actions-gh-pages@v3
         with:
           publish_dir: ./
