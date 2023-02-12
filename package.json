@@ -2,12 +2,9 @@
   "name": "react-press",
   "version": "1.0.0",
   "scripts": {
-    "install-global": "pnpm install",
-    "install-website": "cd ./packages/website && pnpm install",
-    "install-code-sandbox": "cd ./packages/code-sandbox && pnpm install",
-    "start-website": "cd ./packages/website && pnpm run start",
-    "build-website": "cd ./packages/website && pnpm run build",
-    "build-markdown": "node ./scripts/markdown-transform/index.js",
+    "start-website": "cd ./packages/webpage && pnpm run start",
+    "build-website": "cd ./packages/webpage && pnpm run build",
+    "build-markdown": "cd ./packages/demo-site && pnpm run build-posts",
     "build-code-sandbox": "cd ./packages/code-sandbox && pnpm run build"
   },
   "devDependencies": {

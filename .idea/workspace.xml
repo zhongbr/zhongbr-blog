@@ -5,7 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="27b3b0e5-1ac3-4b25-8173-a590bd44bf60" name="变更" comment="feat: 安装依赖">
-      <change beforePath="$PROJECT_DIR$/packages/demo-site/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/demo-site/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -252,14 +253,7 @@
       <workItem from="1675835372367" duration="313000" />
       <workItem from="1675835699371" duration="598000" />
       <workItem from="1675838401501" duration="2397000" />
-      <workItem from="1676186668548" duration="19757000" />
-    </task>
-    <task id="LOCAL-00119" summary="feat: 使用 jsdelivr">
-      <created>1673594186712</created>
-      <option name="number" value="00119" />
-      <option name="presentableId" value="LOCAL-00119" />
-      <option name="project" value="LOCAL" />
-      <updated>1673594186712</updated>
+      <workItem from="1676186668548" duration="19947000" />
     </task>
     <task id="LOCAL-00120" summary="feat: 使用 jsdelivr">
       <created>1673595539569</created>
@@ -597,7 +591,14 @@
       <option name="project" value="LOCAL" />
       <updated>1676208858016</updated>
     </task>
-    <option name="localTasksCounter" value="168" />
+    <task id="LOCAL-00168" summary="feat: 安装依赖">
+      <created>1676208932346</created>
+      <option name="number" value="00168" />
+      <option name="presentableId" value="LOCAL-00168" />
+      <option name="project" value="LOCAL" />
+      <updated>1676208932346</updated>
+    </task>
+    <option name="localTasksCounter" value="169" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
