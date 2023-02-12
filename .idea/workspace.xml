@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="27b3b0e5-1ac3-4b25-8173-a590bd44bf60" name="变更" comment="feat: 修改标题的样式">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -252,14 +253,7 @@
       <workItem from="1675835372367" duration="313000" />
       <workItem from="1675835699371" duration="598000" />
       <workItem from="1675838401501" duration="2397000" />
-      <workItem from="1676186668548" duration="24001000" />
-    </task>
-    <task id="LOCAL-00123" summary="feat: 增加 .env.local">
-      <created>1673605055497</created>
-      <option name="number" value="00123" />
-      <option name="presentableId" value="LOCAL-00123" />
-      <option name="project" value="LOCAL" />
-      <updated>1673605055497</updated>
+      <workItem from="1676186668548" duration="24152000" />
     </task>
     <task id="LOCAL-00124" summary="feat: 重命名 .env">
       <created>1673618841105</created>
@@ -597,7 +591,14 @@
       <option name="project" value="LOCAL" />
       <updated>1676213137922</updated>
     </task>
-    <option name="localTasksCounter" value="172" />
+    <task id="LOCAL-00172" summary="feat: 修改标题的样式">
+      <created>1676213288841</created>
+      <option name="number" value="00172" />
+      <option name="presentableId" value="LOCAL-00172" />
+      <option name="project" value="LOCAL" />
+      <updated>1676213288841</updated>
+    </task>
+    <option name="localTasksCounter" value="173" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
