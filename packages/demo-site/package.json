@@ -1,7 +1,7 @@
 {
   "name": "@zhongbr/posts",
   "version": "1.0.0",
-  "description": "",
+  "description": "展示用的网站",
   "main": "index.js",
   "config-overrides-path": "node_modules/@zhongbr/webpage/config-overrides.js",
   "posts-markdown-files": "./posts",
