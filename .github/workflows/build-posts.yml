@@ -4,9 +4,8 @@ on:
     branches:
       - main
     paths:
-      - 'posts/**'
-      - 'scripts/markdown-transform/**/*'
-      - 'config/**/*.js'
+      - 'packages/demo-site/**/*'
+      - 'packages/blog-scripts/**/*'
 permissions:
   contents: write
 jobs:
@@ -14,7 +13,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: checkout
+      - name: [1] Checkout
         uses: actions/checkout@v3
       - uses: pnpm/action-setup@v2.2.2
         with:
@@ -22,35 +21,33 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: '14'
-      - name: install dependencies
+      - name: [2] Install dependencies
         run: pnpm install
-      - name: mkdir
-        run: mkdir ./.md-cache/ && mkdir ./.md-cache/md
-      - name: build markdowns
+      - name: [3] Build markdowns
         run: pnpm run build-markdown
-      - name: upload files
+      - name: [4] Upload files
         uses: actions/upload-artifact@v3
         with:
-          name: build-markdwons
-          path: ./.md-cache/md
+          name: build-markdowns
+          path: ./packages/demo-site/.md-cache/md
           retention-days: 1
   # deploy
   deploy:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - name: clone github-pages
+      - name: [1] Clone github-pages
         uses: actions/checkout@v3
         with:
           ref: github-pages
-      - name: remove previous md dir
+      - name: [2] Remove previous md dir
         run: rm -rf ./md
-      - name: download files
+      - name: [3] Download files
         uses: actions/download-artifact@v2
         with:
-          name: build-markdwons
+          name: build-markdowns
           path: md
-      - name: push
+      - name: [4] Push
         uses: peaceiris/actions-gh-pages@v3
         with:
           publish_dir: ./

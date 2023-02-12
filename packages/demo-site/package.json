@@ -1,0 +1,22 @@
+{
+  "name": "posts",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "config-overrides-path": "node_modules/@zhongbr/webpage/config-overrides.js",
+  "posts-markdown-files": "./posts",
+  "blog-static-path": "./build",
+  "markdown-compile-cache-path": "./.md-cache",
+  "scripts": {
+    "start": "start-zhongbr-blog-webpage",
+    "build": "build-zhongbr-blog-webpage",
+    "build-posts": "build-posts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@zhongbr/webpage": "workspace: ^0.0.1",
+    "@zhongbr/blog-scripts": "workspace: ^0.0.1"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "name": "@zhongbr/blog-scripts",
+  "version": "0.0.1",
+  "description": "blog scripts",
+  "main": "index.js",
+  "bin": {
+    "build-posts": "./bin/build-posts.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

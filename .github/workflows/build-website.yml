@@ -11,8 +11,9 @@ on:
       - main
     paths:
       # only runs when the website files change
-      - 'packages/website/**'
-      - 'packages/code-sandbox/**'
+      - 'packages/webpage/**/*'
+      - 'packages/code-sandbox/**/*'
+      - 'packages/react-hooks/**/*'
 jobs:
   # use pnpm to build react files
   build:
@@ -26,21 +27,21 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: '14'
-      - name: install code-sandbox dependencies
-        run: pnpm run install-code-sandbox
-      - name: install website dependencies
-        run: pnpm run install-website
-      - name: build code-sandbox
+      - name: [1] Install deps
+        run: pnpm install
+      - name: [2] Build react-hooks
+        run: pnpm run build-react-hooks
+      - name: [3] Build code-sandbox
         run: pnpm run build-code-sandbox
-      - name: build website dist resources
+      - name: [4] Build website dist resources
         run: pnpm run build-website
-      - name: copy index.html to 404.html
-        run: cp ./packages/website/build/index.html ./packages/website/build/404.html
-      - name: upload files
+      - name: [5] Copy index.html to 404.html
+        run: cp ./packages/webpage/build/index.html ./packages/webpage/build/404.html
+      - name: [6] Upload files
         uses: actions/upload-artifact@v3
         with:
           name: build-pages
-          path: ./packages/website/build
+          path: ./packages/webpage/build
           retention-days: 1
   # deploy the build/ folder to github-pages branch
   depoly:
@@ -50,12 +51,12 @@ jobs:
       - uses: actions/checkout@v3
         with:
           ref: github-pages
-      - name: download build files
+      - name: [1] Download build files
         uses: actions/download-artifact@v2
         with:
           name: build-pages
           path: build
-      - name: copy md json files
+      - name: [2] Copy md json files
         run: cp -r ./md ./build/md
       - uses: peaceiris/actions-gh-pages@v3
         with:
