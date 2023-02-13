@@ -11,7 +11,8 @@ on:
       - main
     paths:
       # only runs when the website files change
-      - 'packages/webpage/**/*'
+      - 'packages/demo-site/**/*'
+      - - 'packages/website/**/*'
       - 'packages/code-sandbox/**/*'
       - 'packages/react-hooks/**/*'
 jobs:
@@ -35,8 +36,10 @@ jobs:
         run: pnpm run build-code-sandbox
       - name: Build website dist resources
         run: pnpm run build-website
+      - name: Build demo-site
+        run: pnpm run build-demo-site
       - name: Copy index.html to 404.html
-        run: cp ./packages/webpage/build/index.html ./packages/webpage/build/404.html
+        run: cp ./packages/demo-site/build/index.html ./packages/demo-site/build/404.html
       - name: Upload files
         uses: actions/upload-artifact@v3
         with:
