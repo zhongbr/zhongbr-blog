@@ -10,14 +10,16 @@ const targetPath = resolveApp(appPackageJson['blog-static-path']);
 const sourcePath = resolvePackage('../build');
 
 const scriptsPath = resolveApp(appPackageJson['outer-script-path']);
-const scriptsTargetPath = resolvePackage('../build', 'scripts');
+const scriptsTargetPath = resolveApp(appPackageJson['blog-static-path'], './scripts');
 
 if (existsSync(targetPath)) {
-    rmSync(targetPath);
+    rmSync(targetPath, { recursive: true });
 }
 
 cpSync(sourcePath, targetPath, {
     recursive: true
 });
 
-cpSync(scriptsPath, scriptsTargetPath);
+cpSync(scriptsPath, scriptsTargetPath, {
+    recursive: true
+});
