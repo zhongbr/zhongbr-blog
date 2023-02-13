@@ -44,7 +44,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: build-pages
-          path: ./packages/webpage/build
+          path: ./packages/demo-site/build
           retention-days: 1
   # deploy the build/ folder to github-pages branch
   depoly:

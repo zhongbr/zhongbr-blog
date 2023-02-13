@@ -7,7 +7,6 @@
     <list default="true" id="27b3b0e5-1ac3-4b25-8173-a590bd44bf60" name="变更" comment="feat: 将博客的元数据信息剥离出来">
       <change beforePath="$PROJECT_DIR$/.github/workflows/build-website.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/build-website.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/webpage/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/webpage/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -254,14 +253,7 @@
       <workItem from="1675835372367" duration="313000" />
       <workItem from="1675835699371" duration="598000" />
       <workItem from="1675838401501" duration="2397000" />
-      <workItem from="1676186668548" duration="34879000" />
-    </task>
-    <task id="LOCAL-00134" summary="feat: 提取 code-sandbox">
-      <created>1674988318441</created>
-      <option name="number" value="00134" />
-      <option name="presentableId" value="LOCAL-00134" />
-      <option name="project" value="LOCAL" />
-      <updated>1674988318441</updated>
+      <workItem from="1676186668548" duration="35391000" />
     </task>
     <task id="LOCAL-00135" summary="feat: 提取 code-sandbox">
       <created>1674988579722</created>
@@ -599,7 +591,14 @@
       <option name="project" value="LOCAL" />
       <updated>1676305190096</updated>
     </task>
-    <option name="localTasksCounter" value="183" />
+    <task id="LOCAL-00183" summary="feat: 将博客的元数据信息剥离出来">
+      <created>1676305228647</created>
+      <option name="number" value="00183" />
+      <option name="presentableId" value="LOCAL-00183" />
+      <option name="project" value="LOCAL" />
+      <updated>1676305228647</updated>
+    </task>
+    <option name="localTasksCounter" value="184" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

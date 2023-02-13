@@ -1,7 +1,7 @@
 {
   "name": "@zhongbr/webpage",
   "version": "0.0.1",
-  "description": " ",
+  "description": "",
   "private": true,
   "posts-markdown-files": "../demo-site/posts",
   "markdown-compile-cache-path": "../demo-site/.md-cache",
