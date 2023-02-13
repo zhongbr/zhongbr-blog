@@ -1,7 +1,7 @@
 {
   "name": "@zhongbr/posts",
   "version": "1.0.0",
-  "description": "",
+  "description": " ",
   "main": "index.js",
   "outer-script-path": "./scripts",
   "posts-markdown-files": "./posts",

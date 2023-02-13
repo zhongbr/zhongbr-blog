@@ -5,8 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="27b3b0e5-1ac3-4b25-8173-a590bd44bf60" name="变更" comment="feat: 将博客的元数据信息剥离出来">
-      <change beforePath="$PROJECT_DIR$/.github/workflows/build-website.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/build-website.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/demo-site/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/demo-site/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/packages/webpage/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/webpage/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -254,14 +254,7 @@
       <workItem from="1675835372367" duration="313000" />
       <workItem from="1675835699371" duration="598000" />
       <workItem from="1675838401501" duration="2397000" />
-      <workItem from="1676186668548" duration="34340000" />
-    </task>
-    <task id="LOCAL-00130" summary="feat: 修改样式">
-      <created>1673671966893</created>
-      <option name="number" value="00130" />
-      <option name="presentableId" value="LOCAL-00130" />
-      <option name="project" value="LOCAL" />
-      <updated>1673671966893</updated>
+      <workItem from="1676186668548" duration="34428000" />
     </task>
     <task id="LOCAL-00131" summary="fix: 修复编译 markdown 在 windows 上报错的bug，修复首页特效在切换页面后失效的问题">
       <created>1673699681885</created>
@@ -599,7 +592,14 @@
       <option name="project" value="LOCAL" />
       <updated>1676304491009</updated>
     </task>
-    <option name="localTasksCounter" value="179" />
+    <task id="LOCAL-00179" summary="feat: 将博客的元数据信息剥离出来">
+      <created>1676304688267</created>
+      <option name="number" value="00179" />
+      <option name="presentableId" value="LOCAL-00179" />
+      <option name="project" value="LOCAL" />
+      <updated>1676304688267</updated>
+    </task>
+    <option name="localTasksCounter" value="180" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
