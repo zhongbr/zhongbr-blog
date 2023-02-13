@@ -27,7 +27,7 @@ jobs:
           version: 7.9.5
       - uses: actions/setup-node@v3
         with:
-          node-version: '14'
+          node-version: '18'
       - name: Install deps
         run: pnpm install
       - name: Build react-hooks
