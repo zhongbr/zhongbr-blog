@@ -12,7 +12,7 @@ on:
     paths:
       # only runs when the website files change
       - 'packages/demo-site/**/*'
-      - 'packages/website/**/*'
+      - 'packages/webpage/**/*'
       - 'packages/code-sandbox/**/*'
       - 'packages/react-hooks/**/*'
 jobs:
