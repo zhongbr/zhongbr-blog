@@ -1,8 +1,8 @@
-import React, {useMemo} from 'react';
+import React, { useMemo } from 'react';
 import moment from 'moment';
 import clsx from 'clsx';
 
-import { AuthorCopyRight, ICP, PublicSecurity, PublicSecurityNo } from '@/config/meta';
+import { useBlogConfig } from '@/config/ConfigContext';
 import Icon from '@/components/Icon';
 import { ResponsiveEnum, usePageConfig } from '@/hooks';
 
@@ -19,8 +19,13 @@ export interface IProps {
 
 const Footer: React.FC<IProps> = (props) => {
     const { showICP, showPublicSecurity, showCopyRight = true, content, className, scrollSnap } = props;
+
     const date = useMemo(() => moment(), []);
+
     const { widthLevel } = usePageConfig();
+    const { metas } = useBlogConfig();
+    const { PublicSecurity, PublicSecurityNo, ICP, AuthorCopyRight } = metas || {};
+
 
     return (
         <div className={clsx(styles.footer, className, { [styles.scrollSnap]: scrollSnap })}>

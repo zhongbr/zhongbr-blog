@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "展示用的网站",
   "main": "index.js",
+  "outer-script-path": "./scripts",
   "posts-markdown-files": "./posts",
   "blog-static-path": "./build",
   "markdown-compile-cache-path": "./.md-cache",

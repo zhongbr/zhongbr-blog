@@ -3,7 +3,7 @@ import { useAsyncEffect, useAsyncFn } from '@zhongbr/react-hooks';
 
 import { ResponsiveEnum, usePageConfig } from '@/hooks';
 import { topics } from '@/service/passage';
-import { title } from "@/config/meta";
+import { useBlogConfig } from "@/config/ConfigContext";
 
 import { TopicCard, TopicCardGroup, Poster } from './modules';
 import styles from './style.module.less';
@@ -20,9 +20,11 @@ const Topics: React.FC = props => {
         onPageReady?.();
     }, [fetchTopics]);
 
+    const { metas } = useBlogConfig();
+
     useEffect(() => {
         setStates?.({
-            title: title,
+            title: metas?.title,
             footer: {
                 showICP: true,
                 showPublicSecurity: true,

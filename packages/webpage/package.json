@@ -4,6 +4,7 @@
   "private": true,
   "posts-markdown-files": "../demo-site/posts",
   "markdown-compile-cache-path": "../demo-site/.md-cache",
+  "outer-script-path": "../demo-site/scripts",
   "bin": {
     "start-zhongbr-blog-webpage": "./bin/start.js",
     "build-zhongbr-blog-webpage": "./bin/build.js"

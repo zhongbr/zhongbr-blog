@@ -6,7 +6,8 @@ import { EsmToAmdPlugin, JsxPlugin } from '@zhongbr/code-sandbox/es/plugins/babe
 import { ReactPolyfill } from '@zhongbr/code-sandbox/es/plugins/react';
 
 import routers from "@/config/routers";
-import { navLinks, title as titleText, titleLink } from '@/config/meta';
+import { navLinks } from '@/config/meta';
+import { useBlogConfig } from '@/config/ConfigContext';
 import { useInitCopy } from '@/utils/copy';
 
 import {Icon, Layout, Splash, useMessage} from './components';
@@ -34,6 +35,8 @@ function App() {
     const ref = useRef<HTMLDivElement>(null);
 
     const message = useMessage();
+    const { metas } = useBlogConfig();
+    const { title: titleText = '', titleLink = '' } = metas || {};
 
     const [states, setStates, resetStates] = useStates<IPageConfig>({
         title: titleText,

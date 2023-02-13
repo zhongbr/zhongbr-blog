@@ -60,6 +60,7 @@ module.exports = {
             appBuild: paths_.appBuild,
             postsSourceDir: path.resolve(cwd, appPackageJson['posts-markdown-files']),
             postsJsonDir: path.resolve(cwd, appPackageJson['markdown-compile-cache-path'], './md'),
+            outerScriptDir: path.resolve(cwd, appPackageJson['outer-script-path'])
         };
     },
     devServer: (configFunction) => {
@@ -70,6 +71,7 @@ module.exports = {
                 // add markdown json files to /md
                 devServer.app.use('/md/', express.static(paths.postsJsonDir));
                 devServer.app.use('/sources/', express.static(paths.postsSourceDir));
+                devServer.app.use('/scripts/', express.static(paths.outerScriptDir));
                 return middleware;
             };
             return config;

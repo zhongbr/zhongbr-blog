@@ -11,6 +11,7 @@ const appPackageJson = require(resolveApp('./package.json'));
 app.use('/', express.static(resolvePackage('../build')));
 app.use('/md/', express.static(resolveApp(appPackageJson['markdown-compile-cache-path'], './md')));
 app.use('/source/', express.static(resolveApp(appPackageJson['posts-markdown-files'])));
+app.use('/scripts/', express.static(resolveApp(appPackageJson['outer-script-path'])));
 
 app.listen(3000, () => {
     console.log('blog start at 3000');

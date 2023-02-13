@@ -2,12 +2,12 @@ import React from 'react';
 import {useEvent} from '@zhongbr/react-hooks';
 import clsx from 'clsx';
 
-import {ResponsiveEnum, useNavigate, usePageConfig} from '@/hooks';
+import { ResponsiveEnum, useNavigate, usePageConfig } from '@/hooks';
+import { useBlogConfig } from '@/config/ConfigContext';
+import animations from '@/animations/gradient-background.module.less';
 
 import DownArrow from './DownArrow';
-import IndexImage from './images/index.png';
 import styles from './style.module.less';
-import animations from '@/animations/gradient-background.module.less';
 
 export interface IPoster {
     className?: string;
@@ -18,6 +18,9 @@ const Poster: React.FC<IPoster> = props => {
 
     const navigator = useNavigate();
     const { scrollRef, widthLevel } = usePageConfig();
+
+    const { metas } = useBlogConfig();
+    const IndexPoster = metas?.IndexPoster;
 
     const onAllPassages = useEvent(() => {
         navigator('/tags');
@@ -41,9 +44,9 @@ const Poster: React.FC<IPoster> = props => {
                 <div
                     className={styles.contents}
                 >
-                    <h1 className={clsx(styles.title, animations.gradientText)}>永远相信美好的事情即将发生</h1>
+                    <h1 className={clsx(styles.title, animations.gradientText)}>{IndexPoster?.title}</h1>
                     <div className={styles.subContents}>
-                        Always believe that something wonderful is about to come. 😁
+                        {IndexPoster?.desc}
                     </div>
                     <div className={clsx(styles.buttons)}>
                         <div className={styles.button} onClick={onAllPassages}>全部文章</div>
@@ -54,7 +57,7 @@ const Poster: React.FC<IPoster> = props => {
                     className={clsx(styles.imageContainer, { [styles.hidden]: widthLevel === ResponsiveEnum.tiny })}
                 >
                     <img
-                        src={IndexImage}
+                        src={IndexPoster?.rightImage}
                         alt="index"
                     />
                 </div>

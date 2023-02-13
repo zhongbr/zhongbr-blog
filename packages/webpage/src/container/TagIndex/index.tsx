@@ -8,7 +8,7 @@
 import { useEffect, memo } from "react";
 
 import { usePageConfig } from '@/hooks';
-import { title } from '@/config/meta';
+import { useBlogConfig } from '@/config/ConfigContext';
 
 import { Catalogue } from './modules';
 import { useCatalogue } from './hooks';
@@ -20,9 +20,11 @@ const Index = () => {
         onReady: onPageReady
     });
 
+    const { metas } = useBlogConfig();
+
     useEffect(() => {
         setStates?.({
-            title,
+            title: metas?.title,
             footer: {
                 showICP: true,
                 showCopyRight: true,
