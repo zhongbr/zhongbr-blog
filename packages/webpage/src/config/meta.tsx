@@ -17,9 +17,11 @@ export interface IIndexPoster {
 }
 
 /** 头部右侧的导航链接 */
-export const navLinks: ILayoutProps['navLinks'] = [
-    { name: '首页', target: '/', icon: <Icon className="rp-zixun" /> },
-    { name: '全部文章', target: '/tags', icon: <Icon className="rp-zhinan" /> },
-    { name: 'Playground', target: '/playground', icon: <Icon className="rp-jiaoxue" /> },
-    { name: 'Github', target: 'https://github.com/zhongbr', icon: <Icon className="rp-tuandui" /> },
-];
+export const getNavLinks: (githubLink: string) => ILayoutProps['navLinks'] = (githubLink) => {
+    return [
+        { name: '首页', target: '/', icon: <Icon className="rp-zixun" /> },
+        { name: '全部文章', target: '/tags', icon: <Icon className="rp-zhinan" /> },
+        { name: 'Playground', target: '/playground', icon: <Icon className="rp-jiaoxue" /> },
+        { name: 'Github', target: githubLink, icon: <Icon className="rp-tuandui" /> },
+    ];
+};

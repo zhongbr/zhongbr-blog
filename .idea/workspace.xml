@@ -5,8 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="27b3b0e5-1ac3-4b25-8173-a590bd44bf60" name="变更" comment="feat: 将博客的元数据信息剥离出来">
-      <change beforePath="$PROJECT_DIR$/.github/workflows/build-website.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/build-website.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/demo-site/posts/前端开发/前端工程化/2023-02-118-NPM 依赖更新策略引起的问题排查.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/webpage/src/components/Mermaid/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/demo-site/scripts/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/demo-site/scripts/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/webpage/config-overrides.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/webpage/config-overrides.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/webpage/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/webpage/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/webpage/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/webpage/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/webpage/src/components/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/webpage/src/components/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/webpage/src/config/meta.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/webpage/src/config/meta.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/webpage/src/container/Passage/components/Render/CodeBlock/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/webpage/src/container/Passage/components/Render/CodeBlock/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/webpage/src/global.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/webpage/src/global.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pnpm-lock.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pnpm-lock.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,8 +31,8 @@
         <option value="TypeScript File" />
         <option value="CSS File" />
         <option value="Less File" />
-        <option value="TypeScript JSX File" />
         <option value="JavaScript File" />
+        <option value="TypeScript JSX File" />
       </list>
     </option>
   </component>
@@ -93,7 +103,7 @@
     "go.import.settings.migrated": "true",
     "javascript.nodejs.core.library.configured.version": "16.15.0",
     "javascript.nodejs.core.library.typings.version": "16.18.11",
-    "last_opened_file_path": "/Users/zhangpanhong/Documents/zhongbr_projects/react-press/packages/webpage",
+    "last_opened_file_path": "/Users/zhangpanhong/Documents/zhongbr_projects/react-press/packages/demo-site/posts/前端开发/前端工程化",
     "list.type.of.created.stylesheet": "Less",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.standard": "true",
@@ -105,18 +115,18 @@
     "project.structure.last.edited": "项目",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "reference.settings.ide.settings.new.ui",
+    "settings.editor.selected.configurable": "reference.settings.ide.settings.notifications",
     "ts.external.directory.path": "/Users/zhangpanhong/Documents/zhongbr_projects/react-press/packages/code-sandbox/node_modules/typescript/lib",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/packages/demo-site/posts/前端开发/前端工程化" />
       <recent name="$PROJECT_DIR$/packages/webpage" />
       <recent name="$PROJECT_DIR$/packages/posts" />
       <recent name="$PROJECT_DIR$/packages/website/src/container/Topics/modules/Poster/images" />
       <recent name="$PROJECT_DIR$/packages/website/src/container/Topics/images" />
-      <recent name="$PROJECT_DIR$/packages/react-hooks/src" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/packages/webpage/src" />
@@ -138,7 +148,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="npm.build (1)">
+  <component name="RunManager" selected="npm.start">
     <configuration name="build (1)" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/packages/demo-site/package.json" />
       <command value="run" />
@@ -191,11 +201,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="npm.build (1)" />
-        <item itemvalue="npm.start (2)" />
-        <item itemvalue="npm.build" />
         <item itemvalue="npm.start" />
         <item itemvalue="npm.build-markdown" />
+        <item itemvalue="npm.start (2)" />
+        <item itemvalue="npm.build (1)" />
+        <item itemvalue="npm.build" />
       </list>
     </recent_temporary>
   </component>
@@ -253,14 +263,10 @@
       <workItem from="1675835372367" duration="313000" />
       <workItem from="1675835699371" duration="598000" />
       <workItem from="1675838401501" duration="2397000" />
-      <workItem from="1676186668548" duration="35391000" />
-    </task>
-    <task id="LOCAL-00135" summary="feat: 提取 code-sandbox">
-      <created>1674988579722</created>
-      <option name="number" value="00135" />
-      <option name="presentableId" value="LOCAL-00135" />
-      <option name="project" value="LOCAL" />
-      <updated>1674988579722</updated>
+      <workItem from="1676186668548" duration="36610000" />
+      <workItem from="1676633922145" duration="1676000" />
+      <workItem from="1676642840700" duration="16000" />
+      <workItem from="1676643187592" duration="7916000" />
     </task>
     <task id="LOCAL-00136" summary="feat: 提取 code-sandbox">
       <created>1674988655794</created>
@@ -598,7 +604,14 @@
       <option name="project" value="LOCAL" />
       <updated>1676305228647</updated>
     </task>
-    <option name="localTasksCounter" value="184" />
+    <task id="LOCAL-00184" summary="feat: 将博客的元数据信息剥离出来">
+      <created>1676305743983</created>
+      <option name="number" value="00184" />
+      <option name="presentableId" value="LOCAL-00184" />
+      <option name="project" value="LOCAL" />
+      <updated>1676305743983</updated>
+    </task>
+    <option name="localTasksCounter" value="185" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -686,31 +699,26 @@
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/packages/webpage/node_modules/react-scripts/scripts/start.js</url>
           <line>101</line>
-          <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="54" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/packages/webpage/node_modules/react-scripts/config/modules.js</url>
           <line>133</line>
-          <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="56" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/packages/webpage/node_modules/react-scripts/config/modules.js</url>
           <line>65</line>
-          <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="57" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/node_modules/.pnpm/react-scripts@5.0.1_j5ip3o3v6sktjzl5cxtjyfbuo4/node_modules/react-scripts/config/modules.js</url>
           <line>67</line>
-          <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="59" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/node_modules/.pnpm/react-scripts@5.0.1_j5ip3o3v6sktjzl5cxtjyfbuo4/node_modules/react-scripts/config/modules.js</url>
           <line>73</line>
-          <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="60" />
         </line-breakpoint>
       </breakpoints>

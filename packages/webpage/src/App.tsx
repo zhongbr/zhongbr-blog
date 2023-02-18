@@ -6,7 +6,7 @@ import { EsmToAmdPlugin, JsxPlugin } from '@zhongbr/code-sandbox/es/plugins/babe
 import { ReactPolyfill } from '@zhongbr/code-sandbox/es/plugins/react';
 
 import routers from "@/config/routers";
-import { navLinks } from '@/config/meta';
+import { getNavLinks } from '@/config/meta';
 import { useBlogConfig } from '@/config/ConfigContext';
 import { useInitCopy } from '@/utils/copy';
 
@@ -36,7 +36,7 @@ function App() {
 
     const message = useMessage();
     const { metas } = useBlogConfig();
-    const { title: titleText = '', titleLink = '' } = metas || {};
+    const { title: titleText = '', titleLink = '', GithubLink } = metas || {};
 
     const [states, setStates, resetStates] = useStates<IPageConfig>({
         title: titleText,
@@ -110,7 +110,7 @@ function App() {
         <PageConfigContext.Provider value={{ ...states, scrollRef: ref, setStates, resetStates, setTheme, onPageReady }}>
             <Layout
                 title={title}
-                navLinks={navLinks}
+                navLinks={getNavLinks(GithubLink || 'https://github.com/zhongbr')}
                 contentRef={ref}
                 footerProps={states.footer}
             >

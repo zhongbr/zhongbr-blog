@@ -8,6 +8,7 @@ interface Metas {
     PublicSecurity: string;
     PublicSecurityNo: string;
     AuthorCopyRight: string;
+    GithubLink: string;
 };
 
 declare global {

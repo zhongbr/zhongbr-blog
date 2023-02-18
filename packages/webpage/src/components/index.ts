@@ -32,3 +32,6 @@ export { default as ErrorBoundary } from './ErrorBoundary';
 
 export { default as ErrorDisplay } from './ErrorDisplay';
 export type { IProps as IErrorDisplayProps } from './ErrorDisplay';
+
+export { default as Mermaid } from './Mermaid';
+export type { IProps as IMermaidProps } from './Mermaid';

@@ -3,7 +3,7 @@ import clsx from "clsx";
 import { Code, codepen, github } from 'react-code-blocks';
 
 import { IBaseProps } from '@/types/markdown';
-import { Icon, Sandbox } from "@/components";
+import {Icon, Mermaid, Sandbox} from "@/components";
 import { copy } from "@/utils/copy";
 import { ResponsiveEnum, usePageConfig } from '@/hooks';
 
@@ -77,17 +77,26 @@ const CodeBlock: React.FC<IBaseProps> = (props) => {
                     {[styles.narrowWidthScreen]: [ResponsiveEnum.tiny].includes(widthLevel || ResponsiveEnum.normal)}
                 )}
             >
-                <Code
-                    showLineNumbers
-                    text={node.value}
-                    language={node.lang}
-                    theme={{
-                        ...blockTheme,
-                        backgroundColor: 'transparent'
-                    }}
-                    wrapLongLines
-                    codeBlock
-                />
+                {(() => {
+                    if (node.lang?.toLowerCase() === 'mermaid') {
+                        return (
+                            <Mermaid source={node.value}/>
+                        );
+                    }
+                    return (
+                        <Code
+                            showLineNumbers
+                            text={node.value}
+                            language={node.lang}
+                            theme={{
+                                ...blockTheme,
+                                backgroundColor: 'transparent'
+                            }}
+                            wrapLongLines
+                            codeBlock
+                        />
+                    )
+                })()}
                 {preview && (
                     <div className={styles.preview}>
                         <Sandbox demoCode={node.value} />
