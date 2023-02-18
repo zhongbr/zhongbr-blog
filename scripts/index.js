@@ -11,6 +11,7 @@ startRender({
         IndexPoster: {
             title: '永远相信最好的事情即将发生',
             desc: 'Always believe that something wonderful is about to come. 😁'
-        }
+        },
+        GithubLink: 'https://github.com/zhongbr'
     }
 });
