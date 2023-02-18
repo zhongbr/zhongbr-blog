@@ -4,19 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="27b3b0e5-1ac3-4b25-8173-a590bd44bf60" name="变更" comment="feat: 将博客的元数据信息剥离出来">
-      <change afterPath="$PROJECT_DIR$/packages/demo-site/posts/前端开发/前端工程化/2023-02-118-NPM 依赖更新策略引起的问题排查.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/webpage/src/components/Mermaid/index.tsx" afterDir="false" />
+    <list default="true" id="27b3b0e5-1ac3-4b25-8173-a590bd44bf60" name="变更" comment="feat: 增加文章">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/demo-site/scripts/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/demo-site/scripts/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/webpage/config-overrides.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/webpage/config-overrides.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/webpage/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/webpage/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/webpage/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/webpage/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/webpage/src/components/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/webpage/src/components/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/webpage/src/config/meta.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/webpage/src/config/meta.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/webpage/src/container/Passage/components/Render/CodeBlock/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/webpage/src/container/Passage/components/Render/CodeBlock/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/webpage/src/global.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/webpage/src/global.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pnpm-lock.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pnpm-lock.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/demo-site/posts/前端开发/前端工程化/2023-02-118-NPM 依赖更新策略引起的问题排查.md" beforeDir="false" afterPath="$PROJECT_DIR$/packages/demo-site/posts/前端开发/前端工程化/2023-02-18-NPM 依赖更新策略引起的问题排查.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,6 +60,9 @@
       </RecentBranches>
     </option>
   </component>
+  <component name="GithubDefaultAccount">
+    <option name="defaultAccountId" value="0e5dc34d-57bb-4d88-b44c-d9b8c22ce023" />
+  </component>
   <component name="GoLibraries">
     <option name="indexEntireGoPath" value="true" />
   </component>
@@ -115,7 +108,7 @@
     "project.structure.last.edited": "项目",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "reference.settings.ide.settings.notifications",
+    "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable",
     "ts.external.directory.path": "/Users/zhangpanhong/Documents/zhongbr_projects/react-press/packages/code-sandbox/node_modules/typescript/lib",
     "vue.rearranger.settings.migration": "true"
   }
@@ -266,14 +259,7 @@
       <workItem from="1676186668548" duration="36610000" />
       <workItem from="1676633922145" duration="1676000" />
       <workItem from="1676642840700" duration="16000" />
-      <workItem from="1676643187592" duration="7916000" />
-    </task>
-    <task id="LOCAL-00136" summary="feat: 提取 code-sandbox">
-      <created>1674988655794</created>
-      <option name="number" value="00136" />
-      <option name="presentableId" value="LOCAL-00136" />
-      <option name="project" value="LOCAL" />
-      <updated>1674988655794</updated>
+      <workItem from="1676643187592" duration="9300000" />
     </task>
     <task id="LOCAL-00137" summary="feat: 提取 code-sandbox">
       <created>1675005059487</created>
@@ -611,7 +597,14 @@
       <option name="project" value="LOCAL" />
       <updated>1676305743983</updated>
     </task>
-    <option name="localTasksCounter" value="185" />
+    <task id="LOCAL-00185" summary="feat: 增加文章">
+      <created>1676700722278</created>
+      <option name="number" value="00185" />
+      <option name="presentableId" value="LOCAL-00185" />
+      <option name="project" value="LOCAL" />
+      <updated>1676700722280</updated>
+    </task>
+    <option name="localTasksCounter" value="186" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -631,7 +624,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="feat: 调整 console.log 展示等级，发布后不显示" />
     <MESSAGE value="feat: 增加 .env.local" />
     <MESSAGE value="feat: 重命名 .env" />
     <MESSAGE value="feat: 修改 cdn 的地址" />
@@ -656,7 +648,8 @@
     <MESSAGE value="feat: 修改脚本" />
     <MESSAGE value="feat: 修改标题的样式" />
     <MESSAGE value="feat: 将博客的元数据信息剥离出来" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: 将博客的元数据信息剥离出来" />
+    <MESSAGE value="feat: 增加文章" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: 增加文章" />
   </component>
   <component name="VgoProject">
     <integration-enabled>false</integration-enabled>
