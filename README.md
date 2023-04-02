@@ -1,56 +1,43 @@
-# React Based Blog Website
+# React + Github Actions 纯静态个人博客
 
-## Preview
+## 预览
 
-You can preview in [Zhongbr's Blog](https://zhongbr.cn)
+点击链接预览 [Zhongbr's Blog](https://zhongbr.cn)
 
-![img_1.png](./readme/img_1.png)
+![img.png](./readme/img_1.png)
 
-This is a React Blog website based on GitHub Pages and GitHub Actions.
+React + GitHub Actions + Github Pages 自动构建的静态博客，相比传统的 Jekyll 博客引擎，React 更加强大，可玩性更高。
 
-The GitHub Action, `build-posts` will be started
-When you modify markdown files in `/posts/**` and then push it to the `main` branch,
-turns the markdown files to ast json files.
+对 博客网站本身的修改，Github Pages 配置在 `gh-pages` 分支，向 `main` 分支 `push` 时，会触发 Github Actions 执行
+构建命令，构建产物将被 `push` 到 `gh-pages` 分支，供 Github Pages 访问。
 
-The GitHub Action, `build-website` will be started 
-when you modify React files in `/src` and then push it to the `main` branch,
-builds the frontend resources, like html, javascript and css files.
+## 1. NPM 脚本命令
 
-Both frontend resources and markdown ast json files will be packed and pushed to the
-`github-pages` branch, which is the branch that GitHub Pages deploys on.
+| 脚本              | 功能描述                                  |
+|-----------------|---------------------------------------|
+| build-website   | 构建博客网站资源                              |
+| build-markdown  | 构建 markdown 文章，生成 json 文件和文章目录        |
+| start-website   | 在本地起一个博客 demo                         |
 
-> Please use pnpm to manage packages.
+## 2. 如何起一个博客
 
-## 1. npm scripts and introductions
+### 1. Fork 本仓库
 
-| script          | description                            |
-|-----------------|----------------------------------------|
-| build-website   | build website resources                |
-| build-markdown  | build markdown files to ast json files |
-| install-website | install websites dependencies by pnpm  |
-| start-website   | start blog website local               |
+Fork 本仓库, 进入到 Fork 的仓库
 
-## 2. steps to start my blog
+### 2. 修改仓库的 Actions 设置
 
-### 1. fork this repository
-
-Star and fork this project, open the repository forked.
-
-### 2. modify the secrets in repository settings
-
-Open the repository settings tab, and modify the repository secrets DOMAIN to your own domain.
-
-This domain will be your blog website domain. So you should set a valid dns record before deploy.
+新建一个 `secret`，名称使用 DOMAIN，这个是最后部署的博客的域名，在构建之前需要先参考 github pages 的文档对域名进行解析配置。
 
 ![img.png](./readme/img.png)
 
-### 3. write your posts and push to the `main` branch
+### 3. 编写博客文章
 
-Now you can write your blog posts in `/posts`.
+将博客文章的 markdown 放到 `/packages/demo-site/posts`.
 
-It will be deployed about 5 minutes after you push them to the `main` branch.
+然后 `push` 到 github 的 `main` 分支，Github Actions 就会自动开始部署
 
-> In the post markdown file, you can set the post meta info by following code block
+> 可以在博客文章的开始，按照下面的格式设置元数据，指定博客的标题等内容
 > ```
 > ---
 > title: my hello world blog title
@@ -61,15 +48,15 @@ It will be deployed about 5 minutes after you push them to the `main` branch.
 
 > You can create directories in `/posts`, all the files end with `.md` will be translated to ast json file,
 > and others file will be copied to `.md-cache/md` directly.
-> 
+>
 > The first level directories in `/posts` with a `topic.yaml` file in it will be displayed on the entry page of
 > your blog website.
-> 
+>
 > Blog posts in this directory will be divided into this topic.
-> 
-> You can define the topic name, icon, main color, descriptions and id in the `topic.yaml` 
+>
+> You can define the topic name, icon, main color, descriptions and id in the `topic.yaml`
 > with the following config fields:
-> 
+>
 > ```yaml
 > topic:
 >   id: 'topic-id, used in the post meta `recommend` property'

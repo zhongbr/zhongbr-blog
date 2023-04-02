@@ -6,6 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="27b3b0e5-1ac3-4b25-8173-a590bd44bf60" name="变更" comment="feat: 增加文章">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/readme/img_1.png" beforeDir="false" afterPath="$PROJECT_DIR$/readme/img_1.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -109,7 +111,7 @@
     &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;org.jetbrains.plugins.github.ui.GithubSettingsConfigurable&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;/Users/zhangpanhong/Documents/zhongbr_projects/react-press/packages/code-sandbox/node_modules/typescript/lib&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Users/zhangpanhong/Documents/zhongbr_projects/react-press/packages/react-hooks/node_modules/typescript/lib&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -122,11 +124,11 @@
       <recent name="$PROJECT_DIR$/packages/website/src/container/Topics/modules/Poster/images" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/readme" />
       <recent name="$PROJECT_DIR$/packages/webpage/src" />
       <recent name="$PROJECT_DIR$/packages/posts-scripts" />
       <recent name="$PROJECT_DIR$/packages/website/src/container/Topics/modules/Poster" />
       <recent name="$PROJECT_DIR$/packages/code-sandbox/src/plugins/babel/worker/plugins" />
-      <recent name="$PROJECT_DIR$/packages/code-sandbox/src/plugins/babel/worker" />
     </key>
   </component>
   <component name="RunAnythingCache">
@@ -260,6 +262,7 @@
       <workItem from="1676633922145" duration="1676000" />
       <workItem from="1676642840700" duration="16000" />
       <workItem from="1676643187592" duration="9300000" />
+      <workItem from="1680406264531" duration="5800000" />
     </task>
     <task id="LOCAL-00137" summary="feat: 提取 code-sandbox">
       <created>1675005059487</created>
