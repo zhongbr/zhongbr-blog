@@ -6,7 +6,7 @@
 
 ![img.png](./readme/img_1.png)
 
-React + GitHub Actions + Github Pages 自动构建的静态博客，相比传统的 Jekyll 博客引擎，React 更加强大，可玩性更高。
+React + GitHub Actions + Github Pages ，不需要部署后端服务，自动构建的静态博客，相比传统的 Jekyll 博客引擎，React 更加强大，可玩性更高。
 
 对 博客网站本身的修改，Github Pages 配置在 `gh-pages` 分支，向 `main` 分支 `push` 时，会触发 Github Actions 执行
 构建命令，构建产物将被 `push` 到 `gh-pages` 分支，供 Github Pages 访问。
@@ -37,31 +37,27 @@ Fork 本仓库, 进入到 Fork 的仓库
 
 然后 `push` 到 github 的 `main` 分支，Github Actions 就会自动开始部署
 
-> 可以在博客文章的开始，按照下面的格式设置元数据，指定博客的标题等内容
-> ```
-> ---
-> title: my hello world blog title
-> tags: ['tag1', 'tag2']
-> recommend: topic-id
-> ---
-> ```
+可以在博客文章的开始，按照下面的格式设置元数据，指定博客的标题等内容、也可以通过 recommend 字段指定将文章展示在首页的某个 Topic 的推荐目录下
+```
+---
+title: my hello world blog title
+tags: ['tag1', 'tag2']
+recommend: topic-id
+cover: 'link to the cover image'
+---
+```
+`/demo-site/posts` 目录下的第一级目录会成为首页的 Topic 板块，每个目录下需要有一个 `topic.yaml` 文件，用于指定 Topic 板块的元数据。
 
-> You can create directories in `/posts`, all the files end with `.md` will be translated to ast json file,
-> and others file will be copied to `.md-cache/md` directly.
->
-> The first level directories in `/posts` with a `topic.yaml` file in it will be displayed on the entry page of
-> your blog website.
->
-> Blog posts in this directory will be divided into this topic.
->
-> You can define the topic name, icon, main color, descriptions and id in the `topic.yaml`
-> with the following config fields:
->
-> ```yaml
-> topic:
->   id: 'topic-id, used in the post meta `recommend` property'
->   topicName: 'name of the topic, should be same with the directory name'
->   desc: 'some descriptions text of this topic'
->   icon: 'icon font class name of the topic'
->   color: 'color of the topic card'
-> ```
+内部目录可以是任意结构，markdown 会被在 发布 时编译成 ast 的 json文件，其他的文件会被直接复制到 `gh-pages` 分支。
+
+![img.png](./readme/img_2.png)
+
+下面是一个示例：
+```yaml
+topic:
+    id: 'frontend'
+    topicName: '前端开发'
+    icon: 'rp-tupian'
+    color: '#7adfb032'
+    desc: '切图仔，不对，前端的一些分享啦~~🤔'
+```

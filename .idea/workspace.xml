@@ -4,12 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="27b3b0e5-1ac3-4b25-8173-a590bd44bf60" name="变更" comment="feat: 修改 demo 代码">
+    <list default="true" id="27b3b0e5-1ac3-4b25-8173-a590bd44bf60" name="变更" comment="feat: 修复 demo 加载错误的 bug">
+      <change afterPath="$PROJECT_DIR$/readme/img_2.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/code-sandbox/es/default.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/code-sandbox/es/default.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/code-sandbox/es/webcomponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/code-sandbox/es/webcomponent.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/code-sandbox/es/webcomponent.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/packages/code-sandbox/es/webcomponent.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/code-sandbox/src/default.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/code-sandbox/src/default.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/webpage/config-overrides.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/webpage/config-overrides.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/webpage/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/webpage/src/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/webpage/src/reportWebVitals.ts" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -112,7 +113,7 @@
     "project.structure.last.edited": "项目",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable",
+    "settings.editor.selected.configurable": "reference.settingsdialog.project.grazie",
     "ts.external.directory.path": "/Users/zhangpanhong/Documents/zhongbr_projects/react-press/packages/code-sandbox/node_modules/typescript/lib",
     "vue.rearranger.settings.migration": "true"
   }
@@ -264,14 +265,7 @@
       <workItem from="1676633922145" duration="1676000" />
       <workItem from="1676642840700" duration="16000" />
       <workItem from="1676643187592" duration="9300000" />
-      <workItem from="1680406264531" duration="9901000" />
-    </task>
-    <task id="LOCAL-00139" summary="feat: 提取 code-sandbox">
-      <created>1675005387287</created>
-      <option name="number" value="00139" />
-      <option name="presentableId" value="LOCAL-00139" />
-      <option name="project" value="LOCAL" />
-      <updated>1675005387287</updated>
+      <workItem from="1680406264531" duration="14034000" />
     </task>
     <task id="LOCAL-00140" summary="feat: 提取 code-sandbox">
       <created>1675005478241</created>
@@ -609,7 +603,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680487354435</updated>
     </task>
-    <option name="localTasksCounter" value="188" />
+    <task id="LOCAL-00188" summary="feat: 修复 demo 加载错误的 bug">
+      <created>1680491200876</created>
+      <option name="number" value="00188" />
+      <option name="presentableId" value="LOCAL-00188" />
+      <option name="project" value="LOCAL" />
+      <updated>1680491200876</updated>
+    </task>
+    <option name="localTasksCounter" value="189" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -629,7 +630,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="feat: 修改 cdn 的地址" />
     <MESSAGE value="feat: 修改字体" />
     <MESSAGE value="fix: 修复编译 markdown 在 windows 上报错的bug，修复首页特效在切换页面后失效的问题" />
     <MESSAGE value="feat: 修改样式" />
@@ -654,7 +654,8 @@
     <MESSAGE value="feat: 增加文章" />
     <MESSAGE value="feat: 修改 readme" />
     <MESSAGE value="feat: 修改 demo 代码" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: 修改 demo 代码" />
+    <MESSAGE value="feat: 修复 demo 加载错误的 bug" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: 修复 demo 加载错误的 bug" />
   </component>
   <component name="VgoProject">
     <integration-enabled>false</integration-enabled>

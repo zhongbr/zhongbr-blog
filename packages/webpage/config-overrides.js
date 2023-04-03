@@ -1,7 +1,7 @@
 const path = require('path');
 const express = require("express");
 const MonacoEditorWebpackPlugin = require('monaco-editor-webpack-plugin');
-const { override, addWebpackAlias, addWebpackPlugin, addWebpackResolve } = require('customize-cra');
+const { override, addWebpackAlias, addWebpackPlugin } = require('customize-cra');
 const addLessLoader = require('customize-cra-less-loader');
 
 const cwd = process.cwd();

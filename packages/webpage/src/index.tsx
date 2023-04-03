@@ -6,7 +6,6 @@ import ConfigContextProvider from '@/config/ConfigContext';
 
 import App from './App';
 import { MessageProvider } from './components';
-import reportWebVitals from './reportWebVitals';
 import './index.less';
 
 window.startRender = async (opt) => {
@@ -25,8 +24,3 @@ window.startRender = async (opt) => {
         </React.StrictMode>
     );
 }
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(logger.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
