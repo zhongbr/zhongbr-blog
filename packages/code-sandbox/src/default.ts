@@ -39,7 +39,7 @@ export const DefaultIndexCode =
 // 初始化 sandbox 时注册添加 \`EsmToAmdPlugin\`, 可以使用 import 关键字
 import React from 'react';
 import ReactDom from 'react-dom';
-import App from './App';
+import App from './Demo.js';
 
 ReactDom.render(React.createElement(App, {}), document.getElementById('root'));`;
 

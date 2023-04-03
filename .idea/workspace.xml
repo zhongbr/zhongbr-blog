@@ -4,8 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="27b3b0e5-1ac3-4b25-8173-a590bd44bf60" name="变更" comment="feat: 修改 readme">
+    <list default="true" id="27b3b0e5-1ac3-4b25-8173-a590bd44bf60" name="变更" comment="feat: 修改 demo 代码">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/code-sandbox/es/default.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/code-sandbox/es/default.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/code-sandbox/es/webcomponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/code-sandbox/es/webcomponent.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/code-sandbox/es/webcomponent.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/packages/code-sandbox/es/webcomponent.js.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/packages/code-sandbox/src/default.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/code-sandbox/src/default.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -142,7 +145,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="npm.start">
+  <component name="RunManager" selected="npm.start-website">
     <configuration name="build (1)" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/packages/demo-site/package.json" />
       <command value="run" />
@@ -261,14 +264,7 @@
       <workItem from="1676633922145" duration="1676000" />
       <workItem from="1676642840700" duration="16000" />
       <workItem from="1676643187592" duration="9300000" />
-      <workItem from="1680406264531" duration="7082000" />
-    </task>
-    <task id="LOCAL-00138" summary="feat: 提取 code-sandbox">
-      <created>1675005322500</created>
-      <option name="number" value="00138" />
-      <option name="presentableId" value="LOCAL-00138" />
-      <option name="project" value="LOCAL" />
-      <updated>1675005322500</updated>
+      <workItem from="1680406264531" duration="9901000" />
     </task>
     <task id="LOCAL-00139" summary="feat: 提取 code-sandbox">
       <created>1675005387287</created>
@@ -606,7 +602,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680450961604</updated>
     </task>
-    <option name="localTasksCounter" value="187" />
+    <task id="LOCAL-00187" summary="feat: 修改 demo 代码">
+      <created>1680487354435</created>
+      <option name="number" value="00187" />
+      <option name="presentableId" value="LOCAL-00187" />
+      <option name="project" value="LOCAL" />
+      <updated>1680487354435</updated>
+    </task>
+    <option name="localTasksCounter" value="188" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -626,7 +629,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="feat: 重命名 .env" />
     <MESSAGE value="feat: 修改 cdn 的地址" />
     <MESSAGE value="feat: 修改字体" />
     <MESSAGE value="fix: 修复编译 markdown 在 windows 上报错的bug，修复首页特效在切换页面后失效的问题" />
@@ -651,7 +653,8 @@
     <MESSAGE value="feat: 将博客的元数据信息剥离出来" />
     <MESSAGE value="feat: 增加文章" />
     <MESSAGE value="feat: 修改 readme" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: 修改 readme" />
+    <MESSAGE value="feat: 修改 demo 代码" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: 修改 demo 代码" />
   </component>
   <component name="VgoProject">
     <integration-enabled>false</integration-enabled>
