@@ -45,7 +45,7 @@ module.exports = {
         // 把 create-react-app 内的 paths 映射到包内
         const reactPaths = Object.entries(paths_).reduce((cur, [key, value]) => {
             let newPath = value;
-            if (!value.includes('node_modules') && typeof value === 'string') {
+            if (!value.includes('node_modules') && typeof value === 'string' && !/^(https?:)?\/\//.test(value)) {
                 newPath = path.resolve(__dirname, path.relative(cwd, value))
             }
             return {

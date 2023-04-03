@@ -5,12 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="27b3b0e5-1ac3-4b25-8173-a590bd44bf60" name="变更" comment="feat: 修复 demo 加载错误的 bug">
-      <change afterPath="$PROJECT_DIR$/readme/img_2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/webpage/.env.production" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/packages/webpage/config-overrides.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/webpage/config-overrides.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/webpage/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/webpage/src/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/webpage/src/reportWebVitals.ts" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,36 +85,36 @@
     <option name="showLibraryContents" value="true" />
     <option name="showMembers" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "DefaultHtmlFileTemplate": "HTML File",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.go.formatter.settings.were.checked": "true",
-    "RunOnceActivity.go.migrated.go.modules.settings": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
-    "go.import.settings.migrated": "true",
-    "javascript.nodejs.core.library.configured.version": "16.15.0",
-    "javascript.nodejs.core.library.typings.version": "16.18.11",
-    "last_opened_file_path": "/Users/zhangpanhong/Documents/zhongbr_projects/react-press/packages/demo-site/posts/计算机网络",
-    "list.type.of.created.stylesheet": "Less",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.standard": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.standard": "",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "pnpm",
-    "project.structure.last.edited": "项目",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "reference.settingsdialog.project.grazie",
-    "ts.external.directory.path": "/Users/zhangpanhong/Documents/zhongbr_projects/react-press/packages/code-sandbox/node_modules/typescript/lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.formatter.settings.were.checked&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.migrated.go.modules.settings&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
+    &quot;javascript.nodejs.core.library.configured.version&quot;: &quot;16.15.0&quot;,
+    &quot;javascript.nodejs.core.library.typings.version&quot;: &quot;16.18.11&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/zhangpanhong/Documents/zhongbr_projects/react-press/packages/demo-site/posts/计算机网络&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;Less&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.standard&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.standard&quot;: &quot;&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;pnpm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;项目&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.project.grazie&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Users/zhangpanhong/Documents/zhongbr_projects/react-press/packages/code-sandbox/node_modules/typescript/lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/packages/demo-site/posts/计算机网络" />
@@ -146,22 +143,22 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="npm.start-website">
-    <configuration name="build (1)" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
-      <package-json value="$PROJECT_DIR$/packages/demo-site/package.json" />
-      <command value="run" />
-      <scripts>
-        <script value="build" />
-      </scripts>
-      <node-interpreter value="project" />
-      <envs />
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="npm.start (2)">
     <configuration name="build-markdown" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="run" />
       <scripts>
         <script value="build-markdown" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="build" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/packages/webpage/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="build" />
       </scripts>
       <node-interpreter value="project" />
       <envs />
@@ -199,11 +196,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="npm.start (2)" />
+        <item itemvalue="npm.build" />
         <item itemvalue="npm.start-website" />
         <item itemvalue="npm.build-markdown" />
         <item itemvalue="npm.start" />
-        <item itemvalue="npm.start (2)" />
-        <item itemvalue="npm.build (1)" />
       </list>
     </recent_temporary>
   </component>
@@ -265,14 +262,8 @@
       <workItem from="1676633922145" duration="1676000" />
       <workItem from="1676642840700" duration="16000" />
       <workItem from="1676643187592" duration="9300000" />
-      <workItem from="1680406264531" duration="14034000" />
-    </task>
-    <task id="LOCAL-00140" summary="feat: 提取 code-sandbox">
-      <created>1675005478241</created>
-      <option name="number" value="00140" />
-      <option name="presentableId" value="LOCAL-00140" />
-      <option name="project" value="LOCAL" />
-      <updated>1675005478241</updated>
+      <workItem from="1680406264531" duration="15162000" />
+      <workItem from="1680501959733" duration="1717000" />
     </task>
     <task id="LOCAL-00141" summary="feat: 提取 code-sandbox">
       <created>1675005585926</created>
@@ -610,7 +601,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680491200876</updated>
     </task>
-    <option name="localTasksCounter" value="189" />
+    <task id="LOCAL-00189" summary="feat: 修复 demo 加载错误的 bug">
+      <created>1680497510194</created>
+      <option name="number" value="00189" />
+      <option name="presentableId" value="LOCAL-00189" />
+      <option name="project" value="LOCAL" />
+      <updated>1680497510194</updated>
+    </task>
+    <option name="localTasksCounter" value="190" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -719,6 +717,12 @@
           <url>file://$PROJECT_DIR$/node_modules/.pnpm/react-scripts@5.0.1_j5ip3o3v6sktjzl5cxtjyfbuo4/node_modules/react-scripts/config/modules.js</url>
           <line>73</line>
           <option name="timeStamp" value="60" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/packages/webpage/config-overrides.js</url>
+          <line>56</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="61" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
