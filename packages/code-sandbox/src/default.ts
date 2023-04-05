@@ -1,4 +1,4 @@
-export const DefaultDemoFileName = '/Demo.js';
+export const DefaultDemoFileName = '/App.js';
 export const DefaultDemoCode =
 `// ⚠️这里这个 require 函数和标准 amd 的 require 不同，返回 promise 可以直接 await
 // const React = await require('react');
@@ -34,12 +34,12 @@ export default App;`;
 export const DefaultIndexCode =
 `// const React = await require('react');
 // const ReactDom = await require('react-dom');
-// const App = (await require('./Demo.js')).default;
+// const App = (await require('./App.js')).default;
 
 // 初始化 sandbox 时注册添加 \`EsmToAmdPlugin\`, 可以使用 import 关键字
 import React from 'react';
 import ReactDom from 'react-dom';
-import App from './Demo.js';
+import App from './App.js';
 
 ReactDom.render(React.createElement(App, {}), document.getElementById('root'));`;
 

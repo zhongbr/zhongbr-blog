@@ -278,7 +278,7 @@ function bindRequireToCtx(ctx) {
   };
   ctx.require = getRequireFunc({ __dirname: ctx.root });
 }
-function createAmdManager(fs, root = "/", scriptTimeout = 1e4, logger = console) {
+function createAmdManager(fs, root = "/", scriptTimeout = 6e4, logger = console) {
   const ctx2 = {};
   ctx2.eventSubscribeManager = createEventSubscribeManager();
   ctx2.fs = fs;

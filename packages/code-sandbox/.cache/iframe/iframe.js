@@ -923,7 +923,7 @@ const createEventSubscribeManager = () => {
   };
   return { trigger, listen, once };
 };
-function createAmdManager(fs2, root = "/", scriptTimeout = 1e4, logger2 = console) {
+function createAmdManager(fs2, root = "/", scriptTimeout = 6e4, logger2 = console) {
   const ctx2 = {};
   ctx2.eventSubscribeManager = createEventSubscribeManager();
   ctx2.fs = fs2;
@@ -1431,12 +1431,10 @@ manager.onModuleLoading(iframeLoadingModule);
 manager.onModuleDeps(depsGraph.updatePaths.bind(depsGraph));
 fs.event.listen("files-change", async (type, files) => {
   if (type === FilesChangeType.Change) {
-    console.log("files change", files);
     depsGraph.batchTraverse(files, (node) => {
-      console.log("update dep", node.path);
       manager.require_.factories.delete(node.path);
       manager.require_.cache.delete(node.path);
-      if (node.out.size) {
+      if (!node.out.size) {
         manager.require_(node.path);
       }
     });
