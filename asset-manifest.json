@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "https://cdn.jsdelivr.net/gh/zhongbr/zhongbr-blog@github-pages/static/css/main.923f708b.css",
-    "main.js": "https://cdn.jsdelivr.net/gh/zhongbr/zhongbr-blog@github-pages/static/js/main.012f2332.js",
+    "main.js": "https://cdn.jsdelivr.net/gh/zhongbr/zhongbr-blog@github-pages/static/js/main.a57e1719.js",
     "static/js/6731.293cf094.chunk.js": "https://cdn.jsdelivr.net/gh/zhongbr/zhongbr-blog@github-pages/static/js/6731.293cf094.chunk.js",
     "static/css/2076.ab1d2850.chunk.css": "https://cdn.jsdelivr.net/gh/zhongbr/zhongbr-blog@github-pages/static/css/2076.ab1d2850.chunk.css",
     "static/js/2076.0f6ff582.chunk.js": "https://cdn.jsdelivr.net/gh/zhongbr/zhongbr-blog@github-pages/static/js/2076.0f6ff582.chunk.js",
@@ -267,6 +267,6 @@
   },
   "entrypoints": [
     "static/css/main.923f708b.css",
-    "static/js/main.012f2332.js"
+    "static/js/main.a57e1719.js"
   ]
 }
