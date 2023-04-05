@@ -7,7 +7,7 @@ import { Factory } from "./types";
 import { IPlugin } from "../../plugins/types";
 import { FilesSystem } from "../files-system";
 
-export function createAmdManager(fs: FilesSystem,root='/', scriptTimeout=10000, logger: IAmdModuleManagerContext['logger'] = console) {
+export function createAmdManager(fs: FilesSystem,root='/', scriptTimeout=60000, logger: IAmdModuleManagerContext['logger'] = console) {
     const ctx = {} as IAmdModuleManagerContext;
     ctx.eventSubscribeManager = createEventSubscribeManager();
     ctx.fs = fs;

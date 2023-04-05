@@ -62,7 +62,7 @@ const Sandbox: React.FC<IProps> = props => {
                         <Splash
                             texts={
                                 <div className={styles.packageInfo}>
-                                    <div className={styles.name}>🚀 {loadingModuleName?.[0]} 加载中...</div>
+                                    <div className={styles.name}>🚀（建议使用魔法🪜上网） {loadingModuleName?.[0]} 加载中...</div>
                                     <div className={styles.url}>{loadingModuleName?.[1]}</div>
                                 </div>
                             }

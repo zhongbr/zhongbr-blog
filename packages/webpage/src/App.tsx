@@ -10,7 +10,7 @@ import { getNavLinks } from '@/config/meta';
 import { useBlogConfig } from '@/config/ConfigContext';
 import { useInitCopy } from '@/utils/copy';
 
-import {Icon, Layout, Splash, useMessage} from './components';
+import { Icon, Layout, Splash, useMessage } from './components';
 import { IPageConfig, PageConfigContext, ResponsiveEnum, useThemeManager, useResponsive } from './hooks';
 
 import "./app.less";
