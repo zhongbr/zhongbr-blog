@@ -2,7 +2,7 @@ import { registerProxy } from '../core/proxy';
 import { createAmdManager } from '../core/amd';
 import { FilesSystem, initIframeFilesSyncService } from '../core/files-system';
 import { DemoServiceName, IDemoService } from '../type';
-import { iframeReady, iframeLoadingModule } from '../utils/iframe';
+import { iframeReady, notifyParentLoadingModule } from '../utils/iframe';
 import logger from '../utils/logger';
 import { generatePlugins } from './generatePlugins';
 import { FilesChangeType, IFile } from "../core/files-system/types";
@@ -23,7 +23,7 @@ const style = document.createElement('style');
 document.head.appendChild(style);
 
 // 监听包管理器加载模块，并通知外部容器
-manager.onModuleLoading(iframeLoadingModule);
+manager.onModuleLoading(notifyParentLoadingModule);
 
 // 监听包之间的 require ，确定依赖关系图
 manager.onModuleDeps(depsGraph.updatePaths.bind(depsGraph));

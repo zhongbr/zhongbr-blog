@@ -35,7 +35,11 @@ const Layout: React.FC<IProps> = (props) => {
                 navLinks={navLinks}
                 rate={rate}
             />
-            <div className={clsx(styles.contentContainer)} ref={contentRef} style={{ '--scroll-header-height': `${(75 * (1 - rate)).toFixed(2)}px` } as React.CSSProperties}>
+            <div
+                className={clsx(styles.contentContainer)}
+                ref={contentRef}
+                style={{ '--scroll-header-height': `${(75 * (1 - rate)).toFixed(2)}px` } as React.CSSProperties}
+            >
                 {children}
                 {footerProps && (
                     <Footer

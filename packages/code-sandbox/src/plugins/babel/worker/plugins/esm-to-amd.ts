@@ -1,5 +1,4 @@
-import { registerPlugin, transform } from '@babel/standalone';
-import { BasePlugin } from "../../../types";
+import { registerPlugin } from '@babel/standalone';
 export const esm2Amd = 'es-module-factory';
 
 registerPlugin(esm2Amd, (context, params) => {

@@ -4,17 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="27b3b0e5-1ac3-4b25-8173-a590bd44bf60" name="变更" comment="feat: 延长超时时间">
+    <list default="true" id="27b3b0e5-1ac3-4b25-8173-a590bd44bf60" name="变更" comment="feat: 修复bug">
+      <change afterPath="$PROJECT_DIR$/packages/webpage/next-env.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/webpage/src/app/layout.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/webpage/src/app/page.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/code-sandbox/.cache/iframe/iframe.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/code-sandbox/.cache/iframe/iframe.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/code-sandbox/.cache/iframe/iframe.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/packages/code-sandbox/.cache/iframe/iframe.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/code-sandbox/es/core/amd/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/code-sandbox/es/core/amd/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/code-sandbox/es/core/amd/index.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/packages/code-sandbox/es/core/amd/index.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/code-sandbox/es/default.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/code-sandbox/es/default.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/code-sandbox/es/webcomponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/code-sandbox/es/webcomponent.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/code-sandbox/es/webcomponent.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/packages/code-sandbox/es/webcomponent.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/code-sandbox/src/default.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/code-sandbox/src/default.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/code-sandbox/src/iframe/html.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/code-sandbox/src/iframe/html.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/packages/code-sandbox/src/iframe/iframe.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/code-sandbox/src/iframe/iframe.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/code-sandbox/src/plugins/babel/worker/plugins/esm-to-amd.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/code-sandbox/src/plugins/babel/worker/plugins/esm-to-amd.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/code-sandbox/src/utils/iframe.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/code-sandbox/src/utils/iframe.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/webpage/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/webpage/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/webpage/src/components/Layout/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/webpage/src/components/Layout/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/webpage/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/webpage/tsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pnpm-lock.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pnpm-lock.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,8 +31,8 @@
         <option value="CSS File" />
         <option value="Less File" />
         <option value="JavaScript File" />
-        <option value="TypeScript JSX File" />
         <option value="TypeScript File" />
+        <option value="TypeScript JSX File" />
       </list>
     </option>
   </component>
@@ -75,6 +77,13 @@
   <component name="GoLibraries">
     <option name="indexEntireGoPath" value="true" />
   </component>
+  <component name="JsBowerSettings">
+    <bower-package value="" />
+    <bower.json value="" />
+  </component>
+  <component name="MacroExpansionManager">
+    <option name="directoryName" value="q9zosb9o" />
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -117,7 +126,7 @@
     &quot;project.structure.last.edited&quot;: &quot;项目&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.project.grazie&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
     &quot;ts.external.directory.path&quot;: &quot;/Users/zhangpanhong/Documents/zhongbr_projects/react-press/packages/code-sandbox/node_modules/typescript/lib&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
@@ -150,7 +159,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="npm.build">
+  <component name="RunManager" selected="npm.next-dev">
     <configuration name="build" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/packages/webpage/package.json" />
       <command value="run" />
@@ -181,13 +190,13 @@
       <envs />
       <method v="2" />
     </configuration>
-    <configuration name="start (2)" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
-      <package-json value="$PROJECT_DIR$/packages/demo-site/package.json" />
+    <configuration name="next-dev" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/packages/webpage/package.json" />
       <command value="run" />
       <scripts>
-        <script value="start" />
+        <script value="next-dev" />
       </scripts>
-      <node-interpreter value="project" />
+      <node-interpreter value="$USER_HOME$/.nvm/versions/node/v16.14.2/bin/node" />
       <envs />
       <method v="2" />
     </configuration>
@@ -212,19 +221,19 @@
       <method v="2" />
     </configuration>
     <list>
+      <item itemvalue="npm.next-dev" />
       <item itemvalue="npm.start" />
       <item itemvalue="npm.build" />
       <item itemvalue="npm.build:iframe" />
       <item itemvalue="npm.start-website" />
-      <item itemvalue="npm.start (2)" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="npm.next-dev" />
+        <item itemvalue="npm.start-website" />
         <item itemvalue="npm.start" />
         <item itemvalue="npm.build" />
         <item itemvalue="npm.build:iframe" />
-        <item itemvalue="npm.start-website" />
-        <item itemvalue="npm.start (2)" />
       </list>
     </recent_temporary>
   </component>
@@ -288,14 +297,13 @@
       <workItem from="1676643187592" duration="9300000" />
       <workItem from="1680406264531" duration="15162000" />
       <workItem from="1680501959733" duration="3685000" />
-      <workItem from="1680685505856" duration="2229000" />
-    </task>
-    <task id="LOCAL-00143" summary="feat: 提取 code-sandbox">
-      <created>1675006179450</created>
-      <option name="number" value="00143" />
-      <option name="presentableId" value="LOCAL-00143" />
-      <option name="project" value="LOCAL" />
-      <updated>1675006179450</updated>
+      <workItem from="1680685505856" duration="4257000" />
+      <workItem from="1681276822322" duration="2900000" />
+      <workItem from="1682697794505" duration="4305000" />
+      <workItem from="1683608673126" duration="11527000" />
+      <workItem from="1683663270413" duration="124000" />
+      <workItem from="1683663405817" duration="5489000" />
+      <workItem from="1684130066863" duration="620000" />
     </task>
     <task id="LOCAL-00144" summary="feat: 提取 code-sandbox">
       <created>1675006348408</created>
@@ -633,7 +641,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680686415013</updated>
     </task>
-    <option name="localTasksCounter" value="192" />
+    <task id="LOCAL-00192" summary="feat: 修复bug">
+      <created>1680688238814</created>
+      <option name="number" value="00192" />
+      <option name="presentableId" value="LOCAL-00192" />
+      <option name="project" value="LOCAL" />
+      <updated>1680688238814</updated>
+    </task>
+    <option name="localTasksCounter" value="193" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -665,7 +680,6 @@
     <MESSAGE value="feat: 修复UI问题" />
     <MESSAGE value="feat: 修改首页样式" />
     <MESSAGE value="feat: 修改首页响应式" />
-    <MESSAGE value="feat: 修复bug" />
     <MESSAGE value="feat: 锚点完善" />
     <MESSAGE value="feat: 整理目录结构" />
     <MESSAGE value="feat: 安装依赖" />
@@ -678,7 +692,8 @@
     <MESSAGE value="feat: 修复 demo 加载错误的 bug" />
     <MESSAGE value="feat: 套 jsdlivr" />
     <MESSAGE value="feat: 延长超时时间" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: 延长超时时间" />
+    <MESSAGE value="feat: 修复bug" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: 修复bug" />
   </component>
   <component name="VgoProject">
     <integration-enabled>false</integration-enabled>

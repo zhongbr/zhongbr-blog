@@ -109,7 +109,7 @@ export const onIframeLoadingModule = (iframe: HTMLIFrameElement, cb: (moduleName
  * @param moduleName
  * @param extraInfo
  */
-export const iframeLoadingModule = async (moduleName: string, extraInfo: string) => {
+export const notifyParentLoadingModule = async (moduleName: string, extraInfo: string) => {
     const parent = window.top || window.parent || window.opener;
     if (!parent) return;
     return callProxy<INotificationService>({
