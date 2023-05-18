@@ -2,15 +2,17 @@ import React from 'react';
 import { Metadata } from 'next';
 
 import { FCWithChildren } from '@/types/react';
-import { Layout } from '@/components';
+import { Icon, Layout } from '@/components';
 import { IHeaderProps } from '@/components/Layout/Header';
 
 import '@/styles/index.scss';
+import '@/styles/no-scrollbar.scss';
 
 const title = 'Zhongbr\'s Blog 🚀';
 const navLinks: IHeaderProps['navLinks'] = [
-    { title: '全部文章', icon: <span>📚</span>, url: '/test' },
-    { title: 'Playground', icon: <span>🚩</span>, url: '/test' }
+    { title: 'Github', icon: <Icon className="rp-yaoqing" />, url: 'https://github.com/zhongbr' },
+    { title: '全部文章', icon: <Icon className="rp-baogao" />, url: '/passages' },
+    { title: 'Playground', icon: <Icon className="rp-faxian" />, url: '/playground' },
 ];
 
 export const metadata: Metadata = {
@@ -23,6 +25,7 @@ const RootLayout: FCWithChildren = ({ children }) => {
         <html lang="en">
             <body className="light-theme">
                 <Layout
+                    headerPadding={false}
                     headerProps={{ title, navLinks }}
                     footerProps={{ copyright: { author: 'Zhongbr\'s Blog 🚀', homepage: 'https://github.com/zhongbr' } }}
                 >

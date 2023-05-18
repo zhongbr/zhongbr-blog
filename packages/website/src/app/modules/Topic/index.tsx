@@ -22,7 +22,10 @@ function Topic (props: ITopicProps) {
             </div>
             <div className={styles.topic_box_title}>
                 <div className={styles.topic_box_title_body}>{topic.topicName}</div>
-                <div className={styles.topic_box_title_operation}>精选文章</div>
+                <div className={styles.topic_box_title_operation}>
+                    精选文章
+                    <Icon className="rp-arrow-right" />
+                </div>
             </div>
             <div className={styles.topic_box_tags}>
                 {topic.tags?.map(tag => (

@@ -4,40 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="27b3b0e5-1ac3-4b25-8173-a590bd44bf60" name="变更" comment="feat: 修复bug">
-      <change afterPath="$PROJECT_DIR$/packages/website/.eslintrc.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/website/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/website/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/website/next.config.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/website/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/website/public/next.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/website/public/vercel.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/website/src/app/favicon.ico" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/website/src/app/layout.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/website/src/app/page.module.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/website/src/app/page.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/website/src/components/Icon/index.module.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/website/src/components/Icon/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/website/src/components/Icon/rp.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/website/src/components/Layout/Footer/index.module.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/website/src/components/Layout/Footer/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/website/src/components/Layout/Header/index.module.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/website/src/components/Layout/Header/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/website/src/components/Layout/index.module.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/website/src/components/Layout/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/website/src/components/Topic/index.module.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/website/src/components/Topic/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/website/src/components/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/website/src/config/ssg-static.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/website/src/data/posts.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/website/src/styles/index.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/website/src/styles/responsive.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/website/src/types/next.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/website/src/types/react.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/website/tsconfig.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/react-press.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/react-press.iml" afterDir="false" />
+    <list default="true" id="27b3b0e5-1ac3-4b25-8173-a590bd44bf60" name="变更" comment="feat: 编写 next 版本的首页">
+      <change afterPath="$PROJECT_DIR$/packages/website/src/app/modules/Swiper/index.module.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/website/src/app/modules/Swiper/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/website/src/app/modules/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/website/src/styles/no-scrollbar.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/app/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/app/layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/app/page.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/app/page.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/app/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/app/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/components/Layout/Header/index.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/components/Layout/Header/index.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/components/Layout/index.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/components/Layout/index.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/components/Layout/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/components/Layout/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/components/Topic/index.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/app/modules/Topic/index.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/components/Topic/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/app/modules/Topic/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/components/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/components/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/styles/index.scss" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/styles/index.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pnpm-lock.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pnpm-lock.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -53,8 +36,8 @@
         <option value="CSS File" />
         <option value="Less File" />
         <option value="JavaScript File" />
-        <option value="TypeScript File" />
         <option value="TypeScript JSX File" />
+        <option value="TypeScript File" />
         <option value="SCSS File" />
       </list>
     </option>
@@ -148,7 +131,7 @@
     "node.js.selected.package.stylelint": "",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "pnpm",
-    "project.structure.last.edited": "项目",
+    "project.structure.last.edited": "模块",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0",
     "settings.editor.selected.configurable": "copyright.filetypes.SCSS",
@@ -165,11 +148,11 @@
       <recent name="$PROJECT_DIR$/packages/posts" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/packages/website/src/app/modules" />
       <recent name="$PROJECT_DIR$/packages/website/src/components/Layout/Header" />
       <recent name="$PROJECT_DIR$/readme" />
       <recent name="$PROJECT_DIR$/packages/webpage/src" />
       <recent name="$PROJECT_DIR$/packages/posts-scripts" />
-      <recent name="$PROJECT_DIR$/packages/website/src/container/Topics/modules/Poster" />
     </key>
   </component>
   <component name="RunAnythingCache">
@@ -335,14 +318,7 @@
       <workItem from="1684248630910" duration="3715000" />
       <workItem from="1684293526074" duration="5879000" />
       <workItem from="1684301108620" duration="10434000" />
-      <workItem from="1684332085614" duration="16806000" />
-    </task>
-    <task id="LOCAL-00145" summary="feat: 提取 code-sandbox">
-      <created>1675006658498</created>
-      <option name="number" value="00145" />
-      <option name="presentableId" value="LOCAL-00145" />
-      <option name="project" value="LOCAL" />
-      <updated>1675006658498</updated>
+      <workItem from="1684332085614" duration="33232000" />
     </task>
     <task id="LOCAL-00146" summary="feat: 修改 code-sandbox 打包方式">
       <created>1675155444439</created>
@@ -680,7 +656,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684227953686</updated>
     </task>
-    <option name="localTasksCounter" value="194" />
+    <task id="LOCAL-00194" summary="feat: 编写 next 版本的首页">
+      <created>1684399359441</created>
+      <option name="number" value="00194" />
+      <option name="presentableId" value="LOCAL-00194" />
+      <option name="project" value="LOCAL" />
+      <updated>1684399359442</updated>
+    </task>
+    <option name="localTasksCounter" value="195" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -700,7 +683,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="feat: 修改样式" />
     <MESSAGE value="feat: 提取 code-sandbox" />
     <MESSAGE value="feat: 修改 code-sandbox 打包方式" />
     <MESSAGE value="feat: 优化 babel 加载时机" />
@@ -725,7 +707,8 @@
     <MESSAGE value="feat: 套 jsdlivr" />
     <MESSAGE value="feat: 延长超时时间" />
     <MESSAGE value="feat: 修复bug" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: 修复bug" />
+    <MESSAGE value="feat: 编写 next 版本的首页" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: 编写 next 版本的首页" />
   </component>
   <component name="VgoProject">
     <integration-enabled>false</integration-enabled>

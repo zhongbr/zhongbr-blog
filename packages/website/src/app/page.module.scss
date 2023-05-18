@@ -1,8 +1,9 @@
-@use "../styles/responsive";
+@use "@/styles/responsive";
+@use "@/components/Layout/index.module.scss" as layout;
 
 .topics {
   display: grid;
-  margin: 0 auto;
+  margin: 16px auto 0 auto;
   gap: 16px;
 
   @media #{responsive.responsive(small)} {
@@ -16,7 +17,7 @@
   }
 
   @media #{responsive.responsive(large)} {
-    max-width: 1800px;
+    max-width: 1500px;
     grid-template-columns: repeat(3, 1fr);
   }
 }

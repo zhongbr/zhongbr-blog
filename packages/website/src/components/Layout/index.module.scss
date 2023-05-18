@@ -1,3 +1,13 @@
-.content_box {
-  margin-top: 100px;
+$header-height: 87.5px;
+
+.page {
+  width: 100%;
+}
+
+.content_box_padding {
+  margin: $header-height 0 0 0;
+}
+
+:export {
+    header-height: $header-height;
 }
