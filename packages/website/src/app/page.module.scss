@@ -1,0 +1,22 @@
+@use "../styles/responsive";
+
+.topics {
+  display: grid;
+  margin: 0 auto;
+  gap: 16px;
+
+  @media #{responsive.responsive(small)} {
+    width: 100%;
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  @media #{responsive.responsive(medium)} {
+    width: 100%;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media #{responsive.responsive(large)} {
+    max-width: 1800px;
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

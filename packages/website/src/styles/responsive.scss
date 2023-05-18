@@ -1,0 +1,14 @@
+$breakpoints: (
+  small: 480px,
+  medium: 768px,
+  large: 1024px,
+);
+
+@function responsive($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    @return "(min-width: #{map-get($breakpoints, $breakpoint)})";
+  }
+  @else {
+    @warn "Breakpoint `#{$breakpoint}` does not exist in $breakpoints.";
+  }
+}

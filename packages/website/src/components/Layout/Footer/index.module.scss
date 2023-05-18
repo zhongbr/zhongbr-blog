@@ -1,0 +1,15 @@
+.footer_box {
+  text-align: center;
+  margin: 16px;
+
+  .copyright {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+  }
+}

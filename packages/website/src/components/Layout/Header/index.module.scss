@@ -1,0 +1,30 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  padding: 32px;
+  border-bottom: 1px solid var(--gray-3);
+  z-index: 9999;
+
+  .title {
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+  .nav_links {
+    flex: 1;
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 16px;
+
+    .link {
+      display: flex;
+      gap: 8px;
+      text-decoration: none;
+      color: inherit;
+    }
+  }
+}
