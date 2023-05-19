@@ -69,8 +69,9 @@ const Swiper: React.FC<ISwiperProps> = (props) => {
     }, [swiperNext, interval]);
 
     useLayoutEffect(() => {
-        if (!containerRef.current) return;
-        containerRef.current.scrollLeft = window.innerWidth * init;
+        if (init !== 0) {
+            swiperTo(init);
+        }
     }, [init]);
 
     return (

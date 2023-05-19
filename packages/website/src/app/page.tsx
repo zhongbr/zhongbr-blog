@@ -25,7 +25,6 @@ async function Page (props: IProps) {
             <div className={styles.topics}>
                 {topics?.topics?.map(topic => <Topic key={topic.id} topic={topic} />)}
             </div>
-            <div style={{ height: '500px' }}></div>
         </>
     );
 }

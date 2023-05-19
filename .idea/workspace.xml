@@ -4,24 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="27b3b0e5-1ac3-4b25-8173-a590bd44bf60" name="变更" comment="feat: 编写 next 版本的首页">
-      <change afterPath="$PROJECT_DIR$/packages/website/src/app/modules/Swiper/index.module.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/website/src/app/modules/Swiper/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/website/src/app/modules/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/website/src/styles/no-scrollbar.scss" afterDir="false" />
+    <list default="true" id="27b3b0e5-1ac3-4b25-8173-a590bd44bf60" name="变更" comment="feat: 首页轮播图">
+      <change afterPath="$PROJECT_DIR$/packages/website/src/app/posts/actions/dividePosts.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/website/src/app/posts/modules/Tags/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/website/src/app/posts/modules/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/website/src/app/posts/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/website/src/types/utils.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/packages/website/src/app/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/app/layout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/app/page.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/app/page.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/app/modules/Swiper/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/app/modules/Swiper/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/packages/website/src/app/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/app/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/components/Layout/Header/index.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/components/Layout/Header/index.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/components/Layout/Footer/index.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/components/Layout/Footer/index.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/components/Layout/Footer/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/components/Layout/Footer/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/packages/website/src/components/Layout/index.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/components/Layout/index.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/components/Layout/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/components/Layout/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/components/Topic/index.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/app/modules/Topic/index.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/components/Topic/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/app/modules/Topic/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/components/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/components/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/styles/index.scss" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/styles/index.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pnpm-lock.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pnpm-lock.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/data/posts.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/data/posts.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,9 +32,9 @@
         <option value="CSS File" />
         <option value="Less File" />
         <option value="JavaScript File" />
+        <option value="SCSS File" />
         <option value="TypeScript JSX File" />
         <option value="TypeScript File" />
-        <option value="SCSS File" />
       </list>
     </option>
   </component>
@@ -107,38 +103,38 @@
     <option name="showLibraryContents" value="true" />
     <option name="showMembers" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "DefaultHtmlFileTemplate": "HTML File",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.go.formatter.settings.were.checked": "true",
-    "RunOnceActivity.go.migrated.go.modules.settings": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
-    "go.import.settings.migrated": "true",
-    "javascript.nodejs.core.library.configured.version": "16.15.0",
-    "javascript.nodejs.core.library.typings.version": "16.18.11",
-    "last_opened_file_path": "/Users/zhangpanhong/Documents/zhongbr_projects/react-press/packages/website/src/components",
-    "list.type.of.created.stylesheet": "SCSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.standard": "true",
-    "node.js.detected.package.stylelint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.standard": "",
-    "node.js.selected.package.stylelint": "",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "pnpm",
-    "project.structure.last.edited": "模块",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "copyright.filetypes.SCSS",
-    "ts.external.directory.path": "/Users/zhangpanhong/Documents/zhongbr_projects/react-press/packages/code-sandbox/node_modules/typescript/lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.formatter.settings.were.checked&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.migrated.go.modules.settings&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
+    &quot;javascript.nodejs.core.library.configured.version&quot;: &quot;16.14.2&quot;,
+    &quot;javascript.nodejs.core.library.typings.version&quot;: &quot;16.18.31&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/zhangpanhong/Documents/zhongbr_projects/react-press/packages/website/src/components&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;SCSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.standard&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.stylelint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.standard&quot;: &quot;&quot;,
+    &quot;node.js.selected.package.stylelint&quot;: &quot;&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;pnpm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;模块&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;copyright.filetypes.SCSS&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Users/zhangpanhong/Documents/zhongbr_projects/react-press/packages/code-sandbox/node_modules/typescript/lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/packages/website/src/components" />
@@ -229,6 +225,7 @@
       <method v="2" />
     </configuration>
     <list>
+      <item itemvalue="npm.build" />
       <item itemvalue="npm.start-next-website" />
       <item itemvalue="npm.dev" />
       <item itemvalue="npm.next-dev" />
@@ -318,14 +315,8 @@
       <workItem from="1684248630910" duration="3715000" />
       <workItem from="1684293526074" duration="5879000" />
       <workItem from="1684301108620" duration="10434000" />
-      <workItem from="1684332085614" duration="33232000" />
-    </task>
-    <task id="LOCAL-00146" summary="feat: 修改 code-sandbox 打包方式">
-      <created>1675155444439</created>
-      <option name="number" value="00146" />
-      <option name="presentableId" value="LOCAL-00146" />
-      <option name="project" value="LOCAL" />
-      <updated>1675155444439</updated>
+      <workItem from="1684332085614" duration="35168000" />
+      <workItem from="1684428467743" duration="7362000" />
     </task>
     <task id="LOCAL-00147" summary="feat: 修改 code-sandbox 打包方式">
       <created>1675157682954</created>
@@ -663,7 +654,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684399359442</updated>
     </task>
-    <option name="localTasksCounter" value="195" />
+    <task id="LOCAL-00195" summary="feat: 首页轮播图">
+      <created>1684421203997</created>
+      <option name="number" value="00195" />
+      <option name="presentableId" value="LOCAL-00195" />
+      <option name="project" value="LOCAL" />
+      <updated>1684421203997</updated>
+    </task>
+    <option name="localTasksCounter" value="196" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -683,7 +681,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="feat: 提取 code-sandbox" />
     <MESSAGE value="feat: 修改 code-sandbox 打包方式" />
     <MESSAGE value="feat: 优化 babel 加载时机" />
     <MESSAGE value="feat: 修改样式问题" />
@@ -708,7 +705,8 @@
     <MESSAGE value="feat: 延长超时时间" />
     <MESSAGE value="feat: 修复bug" />
     <MESSAGE value="feat: 编写 next 版本的首页" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: 编写 next 版本的首页" />
+    <MESSAGE value="feat: 首页轮播图" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: 首页轮播图" />
   </component>
   <component name="VgoProject">
     <integration-enabled>false</integration-enabled>
