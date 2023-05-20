@@ -18,6 +18,7 @@ async function Page() {
             <Tags
                 className={styles.tags_box}
                 tags={Array.from(tags.keys())}
+                counts={Array.from(tags.values()).map(item => item.length)}
             />
             <Posts
                 className={styles.posts_box}

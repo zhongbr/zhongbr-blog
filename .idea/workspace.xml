@@ -4,32 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="27b3b0e5-1ac3-4b25-8173-a590bd44bf60" name="变更" comment="feat: 调整样式">
-      <change afterPath="$PROJECT_DIR$/packages/website/src/app/posts/index.module.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/website/src/app/posts/modules/Posts/index.module.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/website/src/app/posts/modules/Posts/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/website/src/app/posts/modules/Tags/index.module.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/website/src/components/Profile/index.module.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/website/src/components/Profile/index.tsx" afterDir="false" />
+    <list default="true" id="27b3b0e5-1ac3-4b25-8173-a590bd44bf60" name="变更" comment="feat: 博客目录页">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/app/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/app/layout.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/packages/website/src/app/modules/Topic/index.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/app/modules/Topic/index.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/app/modules/Topic/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/app/modules/Topic/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/app/page.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/app/page.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/app/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/app/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/app/posts/modules/Posts/index.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/app/posts/modules/Posts/index.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/app/posts/modules/Posts/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/app/posts/modules/Posts/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/app/posts/modules/Tags/index.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/app/posts/modules/Tags/index.module.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/packages/website/src/app/posts/modules/Tags/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/app/posts/modules/Tags/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/app/posts/modules/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/app/posts/modules/index.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/packages/website/src/app/posts/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/app/posts/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/components/Layout/Footer/index.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/components/Layout/Footer/index.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/components/Layout/Footer/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/components/Layout/Footer/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/components/Layout/Header/index.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/components/Layout/Header/index.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/components/Layout/Header/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/components/Layout/Header/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/packages/website/src/components/Layout/index.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/components/Layout/index.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/components/Layout/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/components/Layout/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/components/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/components/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/styles/index.scss" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/styles/index.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pnpm-lock.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pnpm-lock.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/components/Profile/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/components/Profile/index.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -329,14 +313,7 @@
       <workItem from="1684301108620" duration="10434000" />
       <workItem from="1684332085614" duration="35168000" />
       <workItem from="1684428467743" duration="7362000" />
-      <workItem from="1684511295955" duration="16565000" />
-    </task>
-    <task id="LOCAL-00148" summary="feat: 优化 babel 加载时机">
-      <created>1675223071363</created>
-      <option name="number" value="00148" />
-      <option name="presentableId" value="LOCAL-00148" />
-      <option name="project" value="LOCAL" />
-      <updated>1675223071364</updated>
+      <workItem from="1684511295955" duration="21293000" />
     </task>
     <task id="LOCAL-00149" summary="feat: 修改样式问题">
       <created>1675241125061</created>
@@ -674,7 +651,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684511538545</updated>
     </task>
-    <option name="localTasksCounter" value="197" />
+    <task id="LOCAL-00197" summary="feat: 博客目录页">
+      <created>1684595227741</created>
+      <option name="number" value="00197" />
+      <option name="presentableId" value="LOCAL-00197" />
+      <option name="project" value="LOCAL" />
+      <updated>1684595227741</updated>
+    </task>
+    <option name="localTasksCounter" value="198" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -694,7 +678,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="feat: 优化 babel 加载时机" />
     <MESSAGE value="feat: 修改样式问题" />
     <MESSAGE value="feat: iframe支持全屏" />
     <MESSAGE value="feat: sandbox支持多文件" />
@@ -719,7 +702,8 @@
     <MESSAGE value="feat: 编写 next 版本的首页" />
     <MESSAGE value="feat: 首页轮播图" />
     <MESSAGE value="feat: 调整样式" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: 调整样式" />
+    <MESSAGE value="feat: 博客目录页" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: 博客目录页" />
   </component>
   <component name="VgoProject">
     <integration-enabled>false</integration-enabled>

@@ -7,6 +7,7 @@
     border-radius: var(--border-radius-mid);
     margin: 16px auto;
     overflow: hidden;
+    position: relative;
 
     &:first-child {
         margin-top: 0;
@@ -14,10 +15,11 @@
 
     .cover {
       img {
+        cursor: pointer;
         max-width: 250px;
         height: 100%;
         object-fit: fill;
-        -webkit-mask: -webkit-gradient(linear, left top, right top, from(rgba(255, 255, 255, 0.6)), to(rgba(255, 255, 255, 0)));
+        -webkit-mask: -webkit-gradient(linear, left top, right top, from(rgba(255, 255, 255, 0.7)), to(rgba(255, 255, 255, 0)));
       }
     }
 
@@ -42,6 +44,15 @@
         gap: 8px;
         font-weight: lighter;
       }
+    }
+
+    .icon {
+      cursor: pointer;
+      -webkit-mask: -webkit-gradient(linear, left bottom, right top, from(rgba(255, 255, 255, 0)), to(rgba(255, 255, 255, 0.2)));
+      position: absolute;
+      right: 16px;
+      bottom: 16px;
+      font-size: 80px;
     }
   }
 }

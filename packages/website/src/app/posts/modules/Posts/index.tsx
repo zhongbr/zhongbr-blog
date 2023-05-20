@@ -3,8 +3,9 @@ import React, { useMemo } from 'react';
 import clsx from 'clsx';
 import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
+import { useEvent } from '@zhongbr/react-hooks';
 
-import { ICatalogue, IPassage } from '@/data/posts';
+import { ICatalogue } from '@/data/posts';
 import styles from './index.module.scss';
 
 export interface IPostProps {
@@ -24,15 +25,26 @@ const Posts: React.FC<IPostProps> = (props) => {
         });
     }, [searchParams, catalogue]);
 
+    const onOpenPassage = useEvent((passage: ICatalogue[keyof ICatalogue]) => {
+        const path = passage['json-path'].replace(/\.json$/, '');
+        window.open(`/posts/${path}`, '_blank', 'noopener');
+    });
+
     return (
         <div className={clsx(className, styles.posts_box, 'no-default-styles')}>
             {posts.map((passage) => (
-                <div className={clsx(styles.post, 'blur')} key={passage['json-path']}>
+                <div
+                    className={clsx(styles.post, 'blur')}
+                    key={passage['json-path']}
+                    onClick={() => onOpenPassage(passage)}
+                >
                     <div className={styles.cover}>
                         <img src={passage.cover}/>
                     </div>
                     <div className={styles.info}>
-                        <div className={styles.title}>{passage.icon}&nbsp;{passage.title}</div>
+                        <div className={styles.title}>
+                            {passage.title}
+                        </div>
                         <div className={styles.metas}>
                             <div>📅&nbsp;{passage.mdate}</div>
                         </div>
@@ -42,12 +54,14 @@ const Posts: React.FC<IPostProps> = (props) => {
                                     href={`/posts?tags=${tag}`}
                                     key={tag}
                                     className="tag"
+                                    onClick={e => e.stopPropagation()}
                                 >
                                     {tag}
                                 </Link>
                             ))}
                         </div>
                     </div>
+                    <div className={styles.icon}>{passage.icon}</div>
                 </div>
             ))}
         </div>

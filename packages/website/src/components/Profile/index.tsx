@@ -6,8 +6,8 @@ import styles from './index.module.scss';
 const avatar = 'https://avatars.githubusercontent.com/u/44153622?v=4';
 const name = 'Zhongbr';
 const info: { name: string; value: React.ReactNode; icon: React.ReactNode; }[] = [
-    { name: '', value: '前端开发工程师', icon: '👨‍💻‍' },
-    { name: '', value: 'Huber University of Technology', icon: '🏫' },
+    { name: '职业', value: '前端开发工程师 Frontend Engineer', icon: '👨‍💻‍' },
+    { name: '教育', value: '湖北工业大学 Huber University of Technology', icon: '🏫' },
     {
         name: 'Github',
         value: <a href="https://github.com/zhongbr" target="_blank">https://github.com/zhongbr</a>,

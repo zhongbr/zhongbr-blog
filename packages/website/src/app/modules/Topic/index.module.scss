@@ -15,6 +15,7 @@
     bottom: -80px;
     right: -40px;
     opacity: 0.6;
+    -webkit-mask: -webkit-gradient(linear, left top, right bottom, from(rgba(255, 255, 255, 0)), to(rgba(255, 255, 255, 0.3)));
   }
 
   &_title {

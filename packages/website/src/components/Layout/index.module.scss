@@ -7,6 +7,7 @@ $header-height: 87.5px;
 
 .content_box_padding {
   margin: $header-height 0 0 0;
+  background-color: var(--hover-background-color);
   // 让填充作为一个单独的 BFC，避免和下面的正文内容发生 margin 合并
   overflow: hidden;
 }
