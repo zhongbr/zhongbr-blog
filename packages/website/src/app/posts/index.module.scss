@@ -1,0 +1,48 @@
+@use "@/styles/responsive";
+
+.posts {
+  display: flex;
+  margin: 16px;
+  gap: 16px;
+  height: calc(100vh - 32px);
+  overflow: hidden;
+
+  .tags_box {
+    width: 300px;
+
+    @media #{responsive.responsive(small)} {
+      display: none;
+    }
+    @media #{responsive.responsive(medium)} {
+      display: flex;
+    }
+    @media #{responsive.responsive(large)} {
+      display: flex;
+    }
+  }
+
+  .posts_box {
+    flex: 1;
+    overflow-y: auto;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  .right_panel {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    @media #{responsive.responsive(small)} {
+      display: none;
+    }
+    @media #{responsive.responsive(medium)} {
+      display: none;
+    }
+    @media #{responsive.responsive(large)} {
+      display: flex;
+    }
+  }
+}

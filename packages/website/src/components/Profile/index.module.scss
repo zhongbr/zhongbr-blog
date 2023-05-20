@@ -1,0 +1,39 @@
+.profile {
+  padding: 16px;
+  border: 1px solid var(--gray-3);
+  border-radius: var(--border-radius-mid);
+  overflow: hidden;
+
+  .avatar {
+    text-align: center;
+
+    img {
+      margin: 16px;
+      width: 150px;
+      height: 150px;
+      border-radius: 75px;
+      overflow: hidden;
+    }
+  }
+
+  .name {
+    font-weight: bold;
+    font-size: 22px;
+  }
+
+  .info {
+    .info_item {
+      margin: 16px auto;
+      display: flex;
+      gap: 8px;
+
+      .item_name {
+        font-weight: normal;
+      }
+
+      .item_value {
+        font-weight: lighter;
+      }
+    }
+  }
+}

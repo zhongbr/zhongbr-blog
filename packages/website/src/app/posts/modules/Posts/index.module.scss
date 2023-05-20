@@ -1,0 +1,47 @@
+.posts_box {
+  .post {
+    display: flex;
+    gap: 8px;
+    align-items: stretch;
+    border: 1px solid var(--gray-3);
+    border-radius: var(--border-radius-mid);
+    margin: 16px auto;
+    overflow: hidden;
+
+    &:first-child {
+        margin-top: 0;
+    }
+
+    .cover {
+      img {
+        max-width: 250px;
+        height: 100%;
+        object-fit: fill;
+        -webkit-mask: -webkit-gradient(linear, left top, right top, from(rgba(255, 255, 255, 0.6)), to(rgba(255, 255, 255, 0)));
+      }
+    }
+
+    .info {
+      flex: 1;
+      padding: 16px;
+
+      .title {
+        font-weight: bold;
+        font-size: 24px;
+      }
+
+      .metas {
+        margin-top: 8px;
+        font-weight: lighter;
+      }
+
+      .tags {
+        margin-top: 8px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        font-weight: lighter;
+      }
+    }
+  }
+}

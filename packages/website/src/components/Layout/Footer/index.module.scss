@@ -1,9 +1,5 @@
 .footer_box {
-  text-align: center;
-  margin-top: 16px;
-  padding: 32px 16px;
-  border-top: 1px solid var(--gray-3);
-  background-color: var(--background-color);
+  font-weight: lighter;
 
   .beian {
     display: flex;
@@ -16,10 +12,6 @@
     display: flex;
     gap: 8px;
     justify-content: center;
-  }
-
-  a {
-    text-decoration: none;
-    color: inherit;
+    margin-top: 16px;
   }
 }

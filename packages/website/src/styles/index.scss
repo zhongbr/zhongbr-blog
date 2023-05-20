@@ -43,6 +43,10 @@
   --cursor-color: rgba(33, 31, 29, 0.71);
 
   --index-background-color: rgb(234, 243, 253);
+
+  .box-shadow {
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.24);
+  }
 }
 
 body {
@@ -52,4 +56,20 @@ body {
 .blur {
   backdrop-filter: var(--background-filter);
   background-color: var(--header-background-color);
+}
+
+.tag {
+  font-weight: lighter;
+  border: 1px solid var(--gray-3);
+  padding: 4px 8px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.no-default-styles {
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
 }

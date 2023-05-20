@@ -4,20 +4,32 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="27b3b0e5-1ac3-4b25-8173-a590bd44bf60" name="变更" comment="feat: 首页轮播图">
-      <change afterPath="$PROJECT_DIR$/packages/website/src/app/posts/actions/dividePosts.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/website/src/app/posts/modules/Tags/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/website/src/app/posts/modules/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/website/src/app/posts/page.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/website/src/types/utils.ts" afterDir="false" />
+    <list default="true" id="27b3b0e5-1ac3-4b25-8173-a590bd44bf60" name="变更" comment="feat: 调整样式">
+      <change afterPath="$PROJECT_DIR$/packages/website/src/app/posts/index.module.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/website/src/app/posts/modules/Posts/index.module.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/website/src/app/posts/modules/Posts/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/website/src/app/posts/modules/Tags/index.module.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/website/src/components/Profile/index.module.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/website/src/components/Profile/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/packages/website/src/app/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/app/layout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/app/modules/Swiper/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/app/modules/Swiper/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/app/modules/Topic/index.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/app/modules/Topic/index.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/app/modules/Topic/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/app/modules/Topic/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/app/page.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/app/page.module.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/packages/website/src/app/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/app/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/app/posts/modules/Tags/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/app/posts/modules/Tags/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/app/posts/modules/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/app/posts/modules/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/app/posts/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/app/posts/page.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/packages/website/src/components/Layout/Footer/index.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/components/Layout/Footer/index.module.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/packages/website/src/components/Layout/Footer/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/components/Layout/Footer/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/components/Layout/Header/index.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/components/Layout/Header/index.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/components/Layout/Header/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/components/Layout/Header/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/packages/website/src/components/Layout/index.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/components/Layout/index.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/data/posts.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/data/posts.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/components/Layout/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/components/Layout/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/components/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/components/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/styles/index.scss" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/styles/index.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pnpm-lock.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pnpm-lock.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,9 +44,9 @@
         <option value="CSS File" />
         <option value="Less File" />
         <option value="JavaScript File" />
-        <option value="SCSS File" />
-        <option value="TypeScript JSX File" />
         <option value="TypeScript File" />
+        <option value="TypeScript JSX File" />
+        <option value="SCSS File" />
       </list>
     </option>
   </component>
@@ -317,13 +329,7 @@
       <workItem from="1684301108620" duration="10434000" />
       <workItem from="1684332085614" duration="35168000" />
       <workItem from="1684428467743" duration="7362000" />
-    </task>
-    <task id="LOCAL-00147" summary="feat: 修改 code-sandbox 打包方式">
-      <created>1675157682954</created>
-      <option name="number" value="00147" />
-      <option name="presentableId" value="LOCAL-00147" />
-      <option name="project" value="LOCAL" />
-      <updated>1675157682954</updated>
+      <workItem from="1684511295955" duration="16565000" />
     </task>
     <task id="LOCAL-00148" summary="feat: 优化 babel 加载时机">
       <created>1675223071363</created>
@@ -661,7 +667,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684421203997</updated>
     </task>
-    <option name="localTasksCounter" value="196" />
+    <task id="LOCAL-00196" summary="feat: 调整样式">
+      <created>1684511538544</created>
+      <option name="number" value="00196" />
+      <option name="presentableId" value="LOCAL-00196" />
+      <option name="project" value="LOCAL" />
+      <updated>1684511538545</updated>
+    </task>
+    <option name="localTasksCounter" value="197" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -681,7 +694,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="feat: 修改 code-sandbox 打包方式" />
     <MESSAGE value="feat: 优化 babel 加载时机" />
     <MESSAGE value="feat: 修改样式问题" />
     <MESSAGE value="feat: iframe支持全屏" />
@@ -706,7 +718,8 @@
     <MESSAGE value="feat: 修复bug" />
     <MESSAGE value="feat: 编写 next 版本的首页" />
     <MESSAGE value="feat: 首页轮播图" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: 首页轮播图" />
+    <MESSAGE value="feat: 调整样式" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: 调整样式" />
   </component>
   <component name="VgoProject">
     <integration-enabled>false</integration-enabled>
@@ -715,63 +728,63 @@
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="javascript">
+        <line-breakpoint type="javascript">
           <condition expression="topicsIndexes[topic].tags === undefined" language="JavaScript" />
           <url>file://$PROJECT_DIR$/scripts/markdown-transform/topics.js</url>
           <line>84</line>
           <option name="timeStamp" value="10" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
+        <line-breakpoint type="javascript">
           <url>file://$PROJECT_DIR$/packages/jsx-service/test/index.ts</url>
           <line>3</line>
           <option name="timeStamp" value="11" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
+        <line-breakpoint type="javascript">
           <url>file://$PROJECT_DIR$/node_modules/.pnpm/react-dev-utils@12.0.1_kgnh4j6wpxso4vy7sn4qiyjkzi/node_modules/react-dev-utils/WebpackDevServerUtils.js</url>
           <line>118</line>
           <option name="timeStamp" value="18" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
+        <line-breakpoint type="javascript">
           <url>file://$PROJECT_DIR$/packages/website/node_modules/webpack-dev-server/lib/Server.js</url>
           <line>3201</line>
           <option name="timeStamp" value="32" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
+        <line-breakpoint type="javascript">
           <url>file://$PROJECT_DIR$/packages/website/node_modules/webpack-dev-server/lib/Server.js</url>
           <line>3204</line>
           <option name="timeStamp" value="33" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
+        <line-breakpoint type="javascript">
           <url>file://$PROJECT_DIR$/packages/website/node_modules/webpack-dev-server/lib/Server.js</url>
           <line>3241</line>
           <option name="timeStamp" value="34" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
+        <line-breakpoint type="javascript">
           <url>file://$PROJECT_DIR$/packages/webpage/node_modules/react-scripts/scripts/start.js</url>
           <line>101</line>
           <option name="timeStamp" value="54" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
+        <line-breakpoint type="javascript">
           <url>file://$PROJECT_DIR$/packages/webpage/node_modules/react-scripts/config/modules.js</url>
           <line>133</line>
           <option name="timeStamp" value="56" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
+        <line-breakpoint type="javascript">
           <url>file://$PROJECT_DIR$/packages/webpage/node_modules/react-scripts/config/modules.js</url>
           <line>65</line>
           <option name="timeStamp" value="57" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
+        <line-breakpoint type="javascript">
           <url>file://$PROJECT_DIR$/node_modules/.pnpm/react-scripts@5.0.1_j5ip3o3v6sktjzl5cxtjyfbuo4/node_modules/react-scripts/config/modules.js</url>
           <line>67</line>
           <option name="timeStamp" value="59" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
+        <line-breakpoint type="javascript">
           <url>file://$PROJECT_DIR$/node_modules/.pnpm/react-scripts@5.0.1_j5ip3o3v6sktjzl5cxtjyfbuo4/node_modules/react-scripts/config/modules.js</url>
           <line>73</line>
           <option name="timeStamp" value="60" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
+        <line-breakpoint type="javascript">
           <url>file://$PROJECT_DIR$/packages/webpage/config-overrides.js</url>
           <line>56</line>
           <option name="timeStamp" value="61" />

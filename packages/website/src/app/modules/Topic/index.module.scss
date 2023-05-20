@@ -33,6 +33,7 @@
       cursor: pointer;
       font-size: 22px;
       opacity: 0.7;
+      font-weight: lighter;
     }
   }
 
@@ -40,13 +41,5 @@
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
-
-    .tag {
-      border: 1px solid var(--gray-3);
-      padding: 4px 8px;
-      border-radius: 8px;
-      cursor: pointer;
-      font-size: 14px;
-    }
   }
 }

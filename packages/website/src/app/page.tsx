@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { getTopics } from '@/data/posts';
+import { Footer } from '@/components/Layout';
 
 import { Topic, Swiper } from './modules';
 import styles from './page.module.scss';
@@ -25,6 +26,7 @@ async function Page (props: IProps) {
             <div className={styles.topics}>
                 {topics?.topics?.map(topic => <Topic key={topic.id} topic={topic} />)}
             </div>
+            <Footer className={styles.footer} />
         </>
     );
 }

@@ -193,6 +193,7 @@ importers:
       eslint: 8.40.0
       eslint-config-next: 13.4.2
       next: 13.4.2
+      querystring: ^0.2.1
       react: 18.2.0
       react-dom: 18.2.0
       sass: ^1.62.1
@@ -207,6 +208,7 @@ importers:
       eslint: 8.40.0
       eslint-config-next: 13.4.2_3qfatcekpgbllh6uk5ivyhkbxq
       next: 13.4.2_txdvpvppf2ilsh27xadmwrzlmm
+      querystring: 0.2.1
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
       sass: 1.62.1
@@ -10547,6 +10549,12 @@ packages:
       decode-uri-component: 0.4.1
       filter-obj: 5.1.0
       split-on-first: 3.0.0
+    dev: false
+
+  /querystring/0.2.1:
+    resolution: {integrity: sha512-wkvS7mL/JMugcup3/rMitHmd9ecIGd2lhFhK9N3UUQ450h66d1r3Y9nvXzQAW1Lq+wyx61k/1pfKS5KuKiyEbg==}
+    engines: {node: '>=0.4.x'}
+    deprecated: The querystring API is considered Legacy. new code should use the URLSearchParams API instead.
     dev: false
 
   /querystringify/2.2.0:

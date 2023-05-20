@@ -27,6 +27,7 @@ const getElementType = (element: JSX.Element | JSX.Element[] | undefined) => {
 
 const RootLayout: FCWithChildren = ({ children }) => {
     const type = getElementType(children);
+    console.log(type, Reflect.get(type, 'test'));
 
     return (
         <html lang="en">
@@ -34,12 +35,6 @@ const RootLayout: FCWithChildren = ({ children }) => {
                 <Layout
                     headerPadding={Reflect.get(type, 'headerPadding') !== false}
                     headerProps={{ title, navLinks }}
-                    footerProps={{
-                        copyright: { author: 'Zhongbr\'s Blog 🚀', homepage: 'https://github.com/zhongbr' },
-                        ICP: '鄂ICP备19008487号-1',
-                        PublicSecurity: '鄂公网安备42011102003165号',
-                        PublicSecurityNo: '42011102003165',
-                    }}
                 >
                     {children}
                 </Layout>

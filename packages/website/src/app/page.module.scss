@@ -3,7 +3,7 @@
 
 .topics {
   display: grid;
-  margin: 16px auto 0 auto;
+  margin: 16px auto 16px auto;
   gap: 16px;
 
   @media #{responsive.responsive(small)} {
@@ -20,4 +20,11 @@
     max-width: 1500px;
     grid-template-columns: repeat(3, 1fr);
   }
+}
+
+.footer {
+  text-align: center;
+  padding: 32px 16px;
+  border-top: 1px solid var(--gray-3);
+  background-color: var(--background-color);
 }

@@ -1,25 +1,51 @@
 'use client';
-import React from 'react';
+import React, { useMemo } from 'react';
+import { useSearchParams, useRouter, usePathname } from 'next/navigation';
+import { clsx } from 'clsx';
+import qs from 'querystring';
 
-import { UnPromise } from '@/types/utils';
-import { dividePostsByTag } from '../../actions/dividePosts';
-import { IPassage } from '@/data/posts';
-
-type TagsMap = UnPromise<ReturnType<typeof dividePostsByTag>>;
+import styles from './index.module.scss';
+import { useEvent } from '@zhongbr/react-hooks';
 
 export interface ITagProps {
-    tagsMap: TagsMap;
+    tags: string[];
+    className?: string;
 }
 
 const Tags: React.FC<ITagProps> = (props) => {
-    const { tagsMap } = props;
+    const { tags, className } = props;
 
-    const tags = Array.from(tagsMap.keys());
-    console.log(Array.isArray(tagsMap));
+    const params = useSearchParams();
+    const router = useRouter();
+    const pathname = usePathname();
+
+    const selectedTags = useMemo(() => {
+        return new Set<string>(params.getAll('tags'));
+    }, [params]);
+
+    const onClickTag = useEvent((tag: string) => {
+        const tags = new Set(params.getAll('tags'));
+        if (!tags.has(tag)) {
+            tags.add(tag);
+        }
+        else {
+            tags.delete(tag);
+        }
+        router.replace(`${pathname}?${qs.stringify({ tags: Array.from(tags) })}`);
+    });
 
     return (
-        <div>
-            {tags.map(tag => <div key={tag}>{tag}</div>)}
+        <div className={clsx(styles.tags_container, 'blur', className)}>
+            {tags.map(tag => (
+                <div
+                    key={tag}
+                    className={styles.tag}
+                    data-selected={selectedTags.has(tag)}
+                    onClick={() => onClickTag(tag)}
+                >
+                    {tag}
+                </div>
+            ))}
         </div>
     );
 };

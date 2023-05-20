@@ -1,0 +1,23 @@
+.tags_container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  padding: 16px;
+  border-radius: var(--border-radius-mid);
+  border: 1px solid var(--gray-3);
+
+  .tag {
+    font-weight: lighter;
+    border: 1px solid var(--gray-3);
+    padding: 4px 8px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+
+    &[data-selected=true] {
+      font-weight: bold;
+      box-shadow: 0 0 0 1px var(--gray-3);
+    }
+  }
+}
