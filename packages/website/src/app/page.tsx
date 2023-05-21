@@ -6,8 +6,6 @@ import { Footer } from '@/components/Layout';
 import { Topic, Swiper } from './modules';
 import styles from './page.module.scss';
 
-export * from '@/config/ssg-static';
-
 interface IProps {}
 
 async function Page (props: IProps) {

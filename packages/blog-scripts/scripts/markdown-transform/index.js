@@ -72,6 +72,7 @@ module.exports = async () => {
             await utils.write(
                 targetPath,
                 [
+                    '/* eslint-disable */',
                     `import React from 'react';`,
                     `import { Article } from '@/components';`,
                     `const ast = ${JSON.stringify(ast)};`,

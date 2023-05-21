@@ -2,11 +2,9 @@
   "name": "react-press",
   "version": "1.0.0",
   "scripts": {
-    "start-website": "cd ./packages/webpage && pnpm run start",
-    "build-react-hooks": "cd ./packages/react-hooks && pnpm run build",
-    "build-website": "cd ./packages/webpage && pnpm run build",
-    "build-demo-site": "cd ./packages/demo-site && pnpm run build",
-    "build-markdown": "cd ./packages/demo-site && pnpm run build-posts",
+    "gen-posts": "cd ./packages/website && npm run gen-posts",
+    "start-website": "cd ./packages/website && npm run dev",
+    "build-website": "cd ./packages/website && npm run export",
     "build-code-sandbox": "cd ./packages/code-sandbox && pnpm run build"
   },
   "devDependencies": {

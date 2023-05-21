@@ -10,9 +10,8 @@ on:
     branches:
       - main
     paths:
-      # only runs when the website files change
-      - 'packages/demo-site/**/*'
-      - 'packages/webpage/**/*'
+      - 'packages/website/**/*'
+      - 'packages/blog-scripts/**/*'
       - 'packages/code-sandbox/**/*'
       - 'packages/react-hooks/**/*'
 jobs:
@@ -28,23 +27,21 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: '18'
-      - name: Install deps
+      - name: 安装项目依赖
         run: pnpm install
-      - name: Build react-hooks
+      - name: 构建自定义 hooks 仓库
         run: pnpm run build-react-hooks
-      - name: Build code-sandbox
+      - name: 构建 code-sandbox
         run: pnpm run build-code-sandbox
-      - name: Build website dist resources
+      - name: 编译 markdown 到 next.js 页面
+        run: pnpm run gen-posts
+      - name: 编译 Next.js 页面资源
         run: pnpm run build-website
-      - name: Build demo-site
-        run: pnpm run build-demo-site
-      - name: Copy index.html to 404.html
-        run: cp ./packages/demo-site/build/index.html ./packages/demo-site/build/404.html
-      - name: Upload files
+      - name: 上传 SSG 资源
         uses: actions/upload-artifact@v3
         with:
           name: build-pages
-          path: ./packages/demo-site/build
+          path: ./packages/website/out
           retention-days: 1
   # deploy the build/ folder to github-pages branch
   depoly:
@@ -54,14 +51,13 @@ jobs:
       - uses: actions/checkout@v3
         with:
           ref: github-pages
-      - name: Download build files
+      - name: 下载 SSG 资源
         uses: actions/download-artifact@v2
         with:
           name: build-pages
           path: build
-      - name: Copy md json files
-        run: cp -r ./md ./build/md
-      - uses: peaceiris/actions-gh-pages@v3
+      - name: 上传资源到 github-pages
+        uses: peaceiris/actions-gh-pages@v3
         with:
           publish_dir: build
           github_token: ${{ secrets.GITHUB_TOKEN }}

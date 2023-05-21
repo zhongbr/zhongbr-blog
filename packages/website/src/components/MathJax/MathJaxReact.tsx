@@ -14,6 +14,4 @@ const MathJax: React.FC<IProps> = props => {
         <MathComponent {...others} />
     );
 };
-
-MathJax.displayName = 'MathJax';
 export default MathJax;
