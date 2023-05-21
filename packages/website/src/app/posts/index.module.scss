@@ -1,48 +1,50 @@
-@use "@/styles/responsive";
+@use "@/styles/responsive" as responsive;
+@use "@/styles/no-scrollbar" as no-scrollbar;
+@use "@/components/Layout/index.module" as layout;
 
 .posts {
   display: flex;
   margin: 16px;
   gap: 16px;
-  height: calc(100vh - 32px);
-  overflow: hidden;
 
-  .tags_box {
-    width: 300px;
-
-    @media #{responsive.responsive(small)} {
-      display: none;
-    }
-    @media #{responsive.responsive(medium)} {
-      display: flex;
-    }
-    @media #{responsive.responsive(large)} {
-      display: flex;
-    }
-  }
-
-  .posts_box {
+  .catalogue {
+    position: sticky;
+    top: calc(#{layout.$header-height} + 16px);
     flex: 1;
-    overflow-y: auto;
+    width: 500px;
+    border-radius: var(--border-radius-mid);
+    border: 1px solid var(--border-color);
+    padding: 16px;
+    overflow-x: auto;
+    height: calc(100vh - #{layout.$header-height} - 64px);
 
     &::-webkit-scrollbar {
       display: none;
     }
+
+    @include responsive.hide-when-small(block);
+  }
+
+  .posts_box {
+    flex: 2;
   }
 
   .right_panel {
+    position: sticky;
+    top: calc(#{layout.$header-height} + 16px);
+    flex: 1;
+    width: 500px;
     display: flex;
     flex-direction: column;
     gap: 16px;
+    height: calc(100vh - #{layout.$header-height} - 64px);
+    overflow-y: auto;
 
-    @media #{responsive.responsive(small)} {
-      display: none;
-    }
-    @media #{responsive.responsive(medium)} {
-      display: none;
-    }
-    @media #{responsive.responsive(large)} {
-      display: flex;
+    @include responsive.hide-when-small(flex);
+
+    .tags_box {
+      height: 400px;
+      overflow-y: auto;
     }
   }
 }

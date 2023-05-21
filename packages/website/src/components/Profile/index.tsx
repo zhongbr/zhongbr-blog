@@ -4,7 +4,7 @@ import clsx from 'clsx';
 import styles from './index.module.scss';
 
 const avatar = 'https://avatars.githubusercontent.com/u/44153622?v=4';
-const name = 'Zhongbr';
+const name = 'Zhongbr 张盼宏';
 const info: { name: string; value: React.ReactNode; icon: React.ReactNode; }[] = [
     { name: '职业', value: '前端开发工程师 Frontend Engineer', icon: '👨‍💻‍' },
     { name: '教育', value: '湖北工业大学 Huber University of Technology', icon: '🏫' },
@@ -32,7 +32,9 @@ const Profile: React.FC = () => {
                     </div>
                 ))}
             </div>
-            <img src={githubLink} alt="Github Status"/>
+            <div className={styles.status}>
+                <img src={githubLink} alt="Github Status"/>
+            </div>
         </div>
     );
 };

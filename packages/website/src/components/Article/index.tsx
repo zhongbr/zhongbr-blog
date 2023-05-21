@@ -4,12 +4,13 @@ import { sep } from 'path';
 
 import { Node } from '@/types/markdown';
 import { ICatalogue, IPassage } from '@/data/posts';
-import { PostTree } from '@/components';
+import { PostTree, Profile } from '@/components';
 import catalogue from '@/app/posts/article/md/catalogue.json';
 
 import { buildAst } from './utils/traverse';
 import { Render } from './modules';
 import styles from './index.module.scss';
+import { Footer } from '@/components/Layout';
 
 const Article = (props: { ast: Node; metas: IPassage; }) => {
     const { ast: node, metas } = props;
@@ -44,6 +45,10 @@ const Article = (props: { ast: Node; metas: IPassage; }) => {
                     )}
                 </div>
                 <Render node={node} ast={ast} />
+            </div>
+            <div className={styles.right_panel}>
+                <Profile/>
+                <Footer/>
             </div>
         </div>
     );

@@ -1,8 +1,9 @@
+@use "@/styles/no-scrollbar";
+
 .profile {
   padding: 16px;
   border: 1px solid var(--gray-3);
   border-radius: var(--border-radius-mid);
-  overflow: hidden;
 
   .avatar {
     text-align: center;
@@ -35,5 +36,12 @@
         font-weight: lighter;
       }
     }
+  }
+
+  .status {
+    width: 100%;
+    overflow-x: auto;
+
+    @include no-scrollbar.no-scroll-bar;
   }
 }

@@ -5,6 +5,7 @@
   padding: 16px;
   border-radius: var(--border-radius-mid);
   border: 1px solid var(--gray-3);
+  min-height: 400px;
 
   .meta {
     margin-bottom: 16px;
@@ -47,10 +48,12 @@
   }
 
   .tags {
+    flex: 1;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     gap: 8px;
+    overflow-y: auto;
 
     .tag {
       font-weight: lighter;

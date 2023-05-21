@@ -8,6 +8,7 @@ import styles from './index.module.scss';
 export interface IPostsTreeProps {
     catalogue: ICatalogue;
     path: string[];
+    expandAll?: boolean;
 }
 
 const PostsTree: React.FC<IPostsTreeProps> = props => {
@@ -15,7 +16,11 @@ const PostsTree: React.FC<IPostsTreeProps> = props => {
 
     return (
         <div className={styles.posts_tree}>
-            <Directory directory={root} path={props.path} />
+            <Directory
+                directory={root}
+                path={props.path}
+                expandAll={props.expandAll}
+            />
         </div>
     );
 };

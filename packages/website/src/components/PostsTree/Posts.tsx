@@ -10,11 +10,12 @@ import { openPost } from '@/utils/post';
 export interface IDirectoryProps {
     directory: IDirectory;
     path: string[];
+    expandAll?: boolean;
 }
 
 const Directory: React.FC<IDirectoryProps> = (props) => {
-    const { directory, path } = props;
-    const [fold, setFold] = useState(directory.name !== path?.[0]);
+    const { directory, path, expandAll = false } = props;
+    const [fold, setFold] = useState(directory.name !== path?.[0] && !expandAll);
 
     const onFoldChange = useEvent((e: React.MouseEvent) => {
         e.stopPropagation();
@@ -37,6 +38,7 @@ const Directory: React.FC<IDirectoryProps> = (props) => {
                                         key={child.path}
                                         directory={child as IDirectory}
                                         path={path.slice(1)}
+                                        expandAll={expandAll}
                                     />
                                 );
                             }
