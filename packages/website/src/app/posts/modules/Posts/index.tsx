@@ -7,6 +7,7 @@ import { useEvent } from '@zhongbr/react-hooks';
 
 import { ICatalogue } from '@/data/posts';
 import styles from './index.module.scss';
+import { openPost } from '@/utils/post';
 
 export interface IPostProps {
     catalogue: ICatalogue;
@@ -26,8 +27,7 @@ const Posts: React.FC<IPostProps> = (props) => {
     }, [searchParams, catalogue]);
 
     const onOpenPassage = useEvent((passage: ICatalogue[keyof ICatalogue]) => {
-        const path = passage['json-path'].replace(/\.json$/, '');
-        window.open(`/posts/${path}`, '_blank', 'noopener');
+        openPost(passage['json-path']);
     });
 
     return (

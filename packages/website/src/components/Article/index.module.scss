@@ -1,0 +1,51 @@
+@use "@/components/Layout/index.module.scss" as layout;
+@use "@/styles/responsive" as responsive;
+
+.container {
+  display: flex;
+  align-items: start;
+
+  .posts_tree {
+    margin: 16px;
+    padding: 16px;
+    width: 300px;
+    overflow-x: auto;
+    border-radius: var(--border-radius-mid);
+    border: 1px solid var(--gray-3);
+    height: max-content;
+    min-height: calc(100vh - #{layout.$header-height} - 64px);
+
+    @include responsive.hide-when-small(block)
+  }
+
+  .post {
+    padding: 16px;
+    margin: 16px auto;
+    max-width: 960px;
+    border-radius: var(--border-radius-mid);
+    border: 1px solid var(--gray-3);
+    line-height: 200%;
+
+    .metas {
+      .cover {
+        img {
+          width: 100%;
+          -webkit-mask: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.7)), to(rgba(255, 255, 255, 0)));
+        }
+      }
+
+      .title {
+        font-size: 36px;
+        font-weight: bold;
+        margin: 16px auto;
+      }
+
+      .info {
+        display: flex;
+        gap: 8px;
+        align-items: center;
+      }
+    }
+  }
+
+}

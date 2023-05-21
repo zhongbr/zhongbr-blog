@@ -62,7 +62,7 @@ async function parse(filePath, ast) {
         .trim();
     const children = ast?.children || [];
     const ymlChild = children?.[0];
-    const jsonPath = filePath.replace(/\.md$/, '.json').replace(/^\.\//, '');
+    const jsonPath = filePath.replace(/\.md$/, '.json');
 
     // 没有设置元数据的文章默认不显示
     if (ymlChild?.type !== 'Yaml') {
@@ -91,6 +91,33 @@ async function parse(filePath, ast) {
     };
 }
 
+function traverse(ast, filePath, parent = null, index = 0) {
+    // 增加 key 属性
+    if (parent) {
+        ast.key = `${parent.key}-${index}`;
+    }
+    else {
+        ast.key = `${index}`;
+    }
+    // 处理 url
+    if (['Link', 'Image'].includes(ast.type)) {
+        let url = decodeURIComponent(ast.url);
+        // 只处理内部链接，将相对链接改为相对文章根目录的链接
+        if (!url.startsWith('http') && !url.startsWith('//')) {
+            if (!path.isAbsolute(url)) {
+                if (!url.startsWith('.')) {
+                    url = './' + url;
+                }
+                ast.url = path.join(filePath, url);
+            }
+        }
+    }
+    if (ast.children) {
+        ast.children.forEach((child, index) => traverse(child, filePath, ast, index));
+    }
+}
+
 module.exports = {
-    parse
+    parse,
+    traverse
 };

@@ -1,0 +1,10 @@
+.inline-math {
+  &>div {
+    display: inline-block;
+  }
+
+  :global(.MathJax) {
+    display: inline-block !important;
+    margin: unset !important;
+  }
+}

@@ -27,7 +27,6 @@ const getElementType = (element: JSX.Element | JSX.Element[] | undefined) => {
 
 const RootLayout: FCWithChildren = ({ children }) => {
     const type = getElementType(children);
-    console.log(type, Reflect.get(type, 'test'));
 
     return (
         <html lang="en">

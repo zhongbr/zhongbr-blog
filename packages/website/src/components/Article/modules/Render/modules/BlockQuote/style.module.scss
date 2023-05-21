@@ -1,0 +1,10 @@
+.block-quote {
+    position: relative;
+    white-space: pre-wrap;
+    background-color: var(--quoteblock-background-color);
+    padding: 10px 10px 10px 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: var(--border-radius-mid);
+    overflow: hidden;
+}

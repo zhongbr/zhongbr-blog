@@ -1,6 +1,8 @@
 const { appendFile, readFile, writeFile } = require("fs/promises");
 const { existsSync, mkdirSync } = require("fs");
 const path = require("path");
+const crypto = require('crypto');
+const { pinyin } = require("pinyin");
 
 async function readYaml(content, path) {
     if (!content) {
@@ -34,8 +36,35 @@ function ensurePath(targetPath) {
     }
 }
 
+function md5(str) {
+    const hash = crypto.createHash('md5');
+    hash.update(str);
+    return hash.digest('hex');
+}
+
+const encodedPaths = new Map();
+function py(str) {
+    const relative = path.parse(path.isAbsolute(str) ? path.relative(process.cwd(), str) : str);
+    const paths = relative.dir.split(path.sep);
+    paths.push(relative.name);
+    return paths.map(segment => {
+        if (encodedPaths.has(segment)) return encodedPaths.get(segment);
+        let encoded = segment;
+        if (/[^\w\-]/.test(segment)) {
+            encoded = pinyin(segment, { style: pinyin.STYLE_NORMAL }).map(item => item[0]).join('-');
+            encoded = encoded.replace(/[^\w\-]/g, '-');
+            encoded = encoded.replace(/-+/g, '-');
+        }
+        encodedPaths.set(segment, encoded);
+        return encoded;
+    }).join(path.sep) + relative.ext;
+}
+
 module.exports = {
     readYaml,
+    md5,
     write,
-    ensurePath
+    ensurePath,
+    py,
+    encodedPaths
 };

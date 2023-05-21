@@ -12,3 +12,15 @@ $breakpoints: (
     @warn "Breakpoint `#{$breakpoint}` does not exist in $breakpoints.";
   }
 }
+
+@mixin hide-when-small($display) {
+  @media #{responsive(small)} {
+    display: none;
+  }
+  @media #{responsive(medium)} {
+    display: $display;
+  }
+  @media #{responsive(large)} {
+    display: $display;
+  }
+}

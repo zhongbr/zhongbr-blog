@@ -1,0 +1,39 @@
+.posts_tree {
+  font-size: 14px;
+  line-height: 150%;
+  font-weight: lighter;
+
+  .directory {
+    cursor: pointer;
+
+    .name {
+      white-space: nowrap;
+      display: flex;
+      gap: 4px;
+      font-weight: normal;
+    }
+
+    .children {
+      display: flex;
+      gap: 4px;
+
+      &::before {
+        content: ' ';
+        width: 10px;
+        border-right: 1px solid var(--gray-3);
+      }
+    }
+  }
+
+  .post {
+    white-space: nowrap;
+    display: flex;
+    gap: 4px;
+    cursor: pointer;
+
+    &[data-selected=true] {
+      font-weight: normal;
+      text-decoration: underline;
+    }
+  }
+}
