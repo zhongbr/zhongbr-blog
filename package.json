@@ -5,7 +5,8 @@
     "gen-posts": "cd ./packages/website && npm run gen-posts",
     "start-website": "cd ./packages/website && npm run dev",
     "build-website": "cd ./packages/website && npm run export",
-    "build-code-sandbox": "cd ./packages/code-sandbox && pnpm run build"
+    "build-code-sandbox": "cd ./packages/code-sandbox && pnpm run build",
+    "build-react-hooks": "cd ./packages/react-hooks && pnpm run build"
   },
   "devDependencies": {
     "@types/node": "^16.11.56",

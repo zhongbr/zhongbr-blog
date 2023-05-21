@@ -4,16 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="27b3b0e5-1ac3-4b25-8173-a590bd44bf60" name="变更" comment="feat: 完善文章展示页面">
-      <change beforePath="$PROJECT_DIR$/.github/workflows/build-website.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/build-website.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="27b3b0e5-1ac3-4b25-8173-a590bd44bf60" name="变更" comment="feat: 修改构建脚本">
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/blog-scripts/scripts/markdown-transform/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/blog-scripts/scripts/markdown-transform/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/next.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/next.config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/app/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/app/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/components/MathJax/MathJaxReact.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/components/MathJax/MathJaxReact.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/components/MathJax/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/components/MathJax/index.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -302,14 +294,7 @@
       <workItem from="1684301108620" duration="10434000" />
       <workItem from="1684332085614" duration="35168000" />
       <workItem from="1684428467743" duration="7362000" />
-      <workItem from="1684511295955" duration="57212000" />
-    </task>
-    <task id="LOCAL-00151" summary="feat: 修改样式问题">
-      <created>1675243804381</created>
-      <option name="number" value="00151" />
-      <option name="presentableId" value="LOCAL-00151" />
-      <option name="project" value="LOCAL" />
-      <updated>1675243804381</updated>
+      <workItem from="1684511295955" duration="57356000" />
     </task>
     <task id="LOCAL-00152" summary="feat: iframe支持全屏">
       <created>1675249547850</created>
@@ -647,7 +632,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684674448220</updated>
     </task>
-    <option name="localTasksCounter" value="200" />
+    <task id="LOCAL-00200" summary="feat: 修改构建脚本">
+      <created>1684680224564</created>
+      <option name="number" value="00200" />
+      <option name="presentableId" value="LOCAL-00200" />
+      <option name="project" value="LOCAL" />
+      <updated>1684680224564</updated>
+    </task>
+    <option name="localTasksCounter" value="201" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -667,7 +659,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="feat: sandbox支持多文件" />
     <MESSAGE value="feat: 加入刷新功能" />
     <MESSAGE value="feat: 提取常用 hooks，修复行内的代码不显示的bug" />
     <MESSAGE value="feat: 修复UI问题" />
@@ -692,7 +683,8 @@
     <MESSAGE value="feat: 博客目录页" />
     <MESSAGE value="feat: 增加标签" />
     <MESSAGE value="feat: 完善文章展示页面" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: 完善文章展示页面" />
+    <MESSAGE value="feat: 修改构建脚本" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: 修改构建脚本" />
   </component>
   <component name="VgoProject">
     <integration-enabled>false</integration-enabled>
