@@ -5,7 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="27b3b0e5-1ac3-4b25-8173-a590bd44bf60" name="变更" comment="feat: 修改构建脚本">
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/workflows/build-website.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/build-website.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -294,14 +295,7 @@
       <workItem from="1684301108620" duration="10434000" />
       <workItem from="1684332085614" duration="35168000" />
       <workItem from="1684428467743" duration="7362000" />
-      <workItem from="1684511295955" duration="57356000" />
-    </task>
-    <task id="LOCAL-00152" summary="feat: iframe支持全屏">
-      <created>1675249547850</created>
-      <option name="number" value="00152" />
-      <option name="presentableId" value="LOCAL-00152" />
-      <option name="project" value="LOCAL" />
-      <updated>1675249547850</updated>
+      <workItem from="1684511295955" duration="57424000" />
     </task>
     <task id="LOCAL-00153" summary="feat: sandbox支持多文件">
       <created>1675429256478</created>
@@ -639,7 +633,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684680224564</updated>
     </task>
-    <option name="localTasksCounter" value="201" />
+    <task id="LOCAL-00201" summary="feat: 修改构建脚本">
+      <created>1684680357179</created>
+      <option name="number" value="00201" />
+      <option name="presentableId" value="LOCAL-00201" />
+      <option name="project" value="LOCAL" />
+      <updated>1684680357179</updated>
+    </task>
+    <option name="localTasksCounter" value="202" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

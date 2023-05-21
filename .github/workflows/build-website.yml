@@ -37,7 +37,7 @@ jobs:
         run: pnpm run gen-posts
       - name: 编译 Next.js 页面资源
         run: pnpm run build-website
-      - name: 上传 SSG 资源
+      - name: 上传 SSG 资源 (out 目录)
         uses: actions/upload-artifact@v3
         with:
           name: build-pages
@@ -51,7 +51,7 @@ jobs:
       - uses: actions/checkout@v3
         with:
           ref: github-pages
-      - name: 下载 SSG 资源
+      - name: 下载 SSG 资源 (out 目录)
         uses: actions/download-artifact@v2
         with:
           name: build-pages
