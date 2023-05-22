@@ -47,6 +47,17 @@
         gap: 8px;
         align-items: center;
       }
+
+      .tags_box {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 8px;
+
+        .tag {
+          line-height: 100%;
+        }
+      }
     }
   }
 

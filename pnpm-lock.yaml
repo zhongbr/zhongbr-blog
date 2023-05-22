@@ -192,14 +192,17 @@ importers:
       '@types/react': 18.2.6
       '@types/react-dom': 18.2.4
       '@zhongbr/blog-scripts': 'workspace: ^0.0.1'
+      '@zhongbr/code-sandbox': workspace:^0.0.1
       '@zhongbr/react-hooks': workspace:^0.0.1
       antd: ^5.5.0
       clsx: ^1.2.1
       eslint: 8.40.0
       eslint-config-next: 13.4.2
       mathjax-react: ^2.0.1
+      mermaid: ^9.4.0
       next: 13.4.2
       path-browserify: ^1.0.1
+      prop-types: ^15.5.4
       querystring: ^0.2.1
       react: 18.2.0
       react-dom: 18.2.0
@@ -211,14 +214,17 @@ importers:
       '@types/react': 18.2.6
       '@types/react-dom': 18.2.4
       '@zhongbr/blog-scripts': link:../blog-scripts
+      '@zhongbr/code-sandbox': link:../code-sandbox
       '@zhongbr/react-hooks': link:../react-hooks
       antd: 5.5.0_biqbaboplfbrettd7655fr4n2y
       clsx: 1.2.1
       eslint: 8.40.0
       eslint-config-next: 13.4.2_3qfatcekpgbllh6uk5ivyhkbxq
-      mathjax-react: 2.0.1_biqbaboplfbrettd7655fr4n2y
+      mathjax-react: 2.0.1_v2m5e27vhdewzwhryxwfaorcca
+      mermaid: 9.4.0
       next: 13.4.2_txdvpvppf2ilsh27xadmwrzlmm
       path-browserify: 1.0.1
+      prop-types: 15.8.1
       querystring: 0.2.1
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
@@ -8808,20 +8814,6 @@ packages:
       mhchemparser: 4.1.1
       mj-context-menu: 0.6.1
       speech-rule-engine: 4.0.7
-    dev: false
-
-  /mathjax-react/2.0.1_biqbaboplfbrettd7655fr4n2y:
-    resolution: {integrity: sha512-bEDPfGTm8Bi4VylmFbg5SGCN/BzDCiTJMTXDalAFDnsTwAhDdJgBRWlO5nHRtj+3/bOSfYF7wak7qmRN6XbPOw==}
-    engines: {node: '>=8', npm: '>=5'}
-    deprecated: This package is no longer actively maintained
-    peerDependencies:
-      prop-types: ^15.5.4
-      react: ^17.0.0 || ^18.0.0
-      react-dom: ^17.0.0 || ^18.0.0
-    dependencies:
-      mathjax-full: 3.2.2
-      react: 18.2.0
-      react-dom: 18.2.0_react@18.2.0
     dev: false
 
   /mathjax-react/2.0.1_v2m5e27vhdewzwhryxwfaorcca:

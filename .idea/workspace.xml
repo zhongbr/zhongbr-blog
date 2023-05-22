@@ -4,19 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="27b3b0e5-1ac3-4b25-8173-a590bd44bf60" name="变更" comment="feat: 修改构建脚本">
+    <list default="true" id="27b3b0e5-1ac3-4b25-8173-a590bd44bf60" name="变更" comment="feat: 调整样式">
+      <change afterPath="$PROJECT_DIR$/packages/website/src/app/playground/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/website/src/components/Mermaid/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/app/posts/index.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/app/posts/index.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/app/posts/modules/Tags/index.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/app/posts/modules/Tags/index.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/app/posts/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/app/posts/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/app/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/app/layout.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/packages/website/src/components/Article/index.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/components/Article/index.module.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/packages/website/src/components/Article/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/components/Article/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/components/Layout/Footer/index.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/components/Layout/Footer/index.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/components/PostsTree/Posts.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/components/PostsTree/Posts.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/components/PostsTree/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/components/PostsTree/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/components/Profile/index.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/components/Profile/index.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/components/Profile/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/components/Profile/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/website/src/styles/no-scrollbar.scss" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/styles/no-scrollbar.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/components/Article/modules/Render/modules/CodeBlock/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/components/Article/modules/Render/modules/CodeBlock/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/website/src/components/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/website/src/components/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pnpm-lock.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pnpm-lock.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,9 +29,9 @@
         <option value="CSS File" />
         <option value="Less File" />
         <option value="JavaScript File" />
-        <option value="TypeScript JSX File" />
         <option value="SCSS File" />
         <option value="TypeScript File" />
+        <option value="TypeScript JSX File" />
       </list>
     </option>
   </component>
@@ -143,11 +141,11 @@
       <recent name="$PROJECT_DIR$/packages/website/posts" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/packages/website/src/app" />
       <recent name="$PROJECT_DIR$/packages/website/src" />
       <recent name="$PROJECT_DIR$/packages/website/src/components/Article/modules" />
       <recent name="$PROJECT_DIR$/packages/website/src/components/Article/Render/utils" />
       <recent name="$PROJECT_DIR$/packages/website/src/components/Article/Render" />
-      <recent name="$PROJECT_DIR$/packages/website/src/components/Article" />
     </key>
   </component>
   <component name="RunAnythingCache">
@@ -305,14 +303,7 @@
       <workItem from="1684301108620" duration="10434000" />
       <workItem from="1684332085614" duration="35168000" />
       <workItem from="1684428467743" duration="7362000" />
-      <workItem from="1684511295955" duration="61022000" />
-    </task>
-    <task id="LOCAL-00155" summary="feat: 提取常用 hooks，修复行内的代码不显示的bug">
-      <created>1675494275330</created>
-      <option name="number" value="00155" />
-      <option name="presentableId" value="LOCAL-00155" />
-      <option name="project" value="LOCAL" />
-      <updated>1675494275330</updated>
+      <workItem from="1684511295955" duration="66243000" />
     </task>
     <task id="LOCAL-00156" summary="feat: 提取常用 hooks，修复行内的代码不显示的bug">
       <created>1675531172030</created>
@@ -650,7 +641,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684680456344</updated>
     </task>
-    <option name="localTasksCounter" value="204" />
+    <task id="LOCAL-00204" summary="feat: 调整样式">
+      <created>1684684260461</created>
+      <option name="number" value="00204" />
+      <option name="presentableId" value="LOCAL-00204" />
+      <option name="project" value="LOCAL" />
+      <updated>1684684260461</updated>
+    </task>
+    <option name="localTasksCounter" value="205" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -690,12 +688,12 @@
     <MESSAGE value="feat: 修复bug" />
     <MESSAGE value="feat: 编写 next 版本的首页" />
     <MESSAGE value="feat: 首页轮播图" />
-    <MESSAGE value="feat: 调整样式" />
     <MESSAGE value="feat: 博客目录页" />
     <MESSAGE value="feat: 增加标签" />
     <MESSAGE value="feat: 完善文章展示页面" />
     <MESSAGE value="feat: 修改构建脚本" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: 修改构建脚本" />
+    <MESSAGE value="feat: 调整样式" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: 调整样式" />
   </component>
   <component name="VgoProject">
     <integration-enabled>false</integration-enabled>

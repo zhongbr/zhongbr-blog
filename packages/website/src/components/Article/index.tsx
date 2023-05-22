@@ -1,6 +1,7 @@
 import React from 'react';
 import clsx from 'clsx';
 import { sep } from 'path';
+import Link from 'next/link';
 
 import { Node } from '@/types/markdown';
 import { ICatalogue, IPassage } from '@/data/posts';
@@ -41,6 +42,20 @@ const Article = (props: { ast: Node; metas: IPassage; }) => {
                         <div className={styles.info}>
                             <span>👤</span>
                             {metas.author}
+                        </div>
+                    )}
+                    {metas?.tags?.length && (
+                        <div className={clsx(styles.tags_box, 'no-default-styles')}>
+                            {metas?.tags?.map(tag => (
+                                <Link
+                                    key={tag}
+                                    className={clsx('tag', styles.tag)}
+                                    href={`/posts?tags=${tag}`}
+                                    target="_blank"
+                                >
+                                    {tag}
+                                </Link>
+                            ))}
                         </div>
                     )}
                 </div>

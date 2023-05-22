@@ -1,7 +1,7 @@
 import React, { useMemo, useState } from 'react';
-import clsx from 'clsx';
 
 import { IBaseProps } from '@/types/markdown';
+import { Mermaid } from '@/components';
 
 import styles from './style.module.scss';
 
@@ -14,6 +14,13 @@ const shouldPreview = (lang: string, code: string) => {
 
 const CodeBlock: React.FC<IBaseProps> = (props) => {
     const { node } = props;
+
+    // mermaid 流程图
+    if (node.lang?.toLowerCase() === 'mermaid') {
+        return (
+            <Mermaid source={node.value} />
+        );
+    }
 
     return (
         <pre className={styles.code_block}>{node.value}</pre>

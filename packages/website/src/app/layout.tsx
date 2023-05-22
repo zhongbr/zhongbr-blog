@@ -12,7 +12,7 @@ const title = 'Zhongbr\'s Blog 🚀';
 const navLinks: IHeaderProps['navLinks'] = [
     { title: 'Github', icon: <Icon className="rp-yaoqing" />, url: 'https://github.com/zhongbr' },
     { title: '全部文章', icon: <Icon className="rp-baogao" />, url: '/posts' },
-    { title: 'Playground', icon: <Icon className="rp-faxian" />, url: '/playground' },
+    // { title: 'Playground', icon: <Icon className="rp-faxian" />, url: '/playground' },
 ];
 
 export const metadata: Metadata = {
@@ -20,19 +20,12 @@ export const metadata: Metadata = {
     description: 'Always believe that something wonderful is about to happen.',
 };
 
-const getElementType = (element: JSX.Element | JSX.Element[] | undefined) => {
-    if (!element || Array.isArray(element)) return {};
-    return Reflect.get(element, 'type');
-};
-
 const RootLayout: FCWithChildren = ({ children }) => {
-    const type = getElementType(children);
-
     return (
         <html lang="en">
             <body className="light-theme">
                 <Layout
-                    headerPadding={Reflect.get(type, 'headerPadding') !== false}
+                    headerPadding={true}
                     headerProps={{ title, navLinks }}
                 >
                     {children}
