@@ -8,6 +8,7 @@ import { useEvent } from '@zhongbr/react-hooks';
 import { ICatalogue } from '@/data/posts';
 import styles from './index.module.scss';
 import { openPost } from '@/utils/post';
+import { ImageSize, imgLevel } from '@/utils/cover';
 
 export interface IPostProps {
     catalogue: ICatalogue;
@@ -39,7 +40,7 @@ const Posts: React.FC<IPostProps> = (props) => {
                     onClick={() => onOpenPassage(passage)}
                 >
                     <div className={styles.cover}>
-                        <img src={passage.cover}/>
+                        <img src={imgLevel(passage.cover, ImageSize.Small)} alt="cover"/>
                     </div>
                     <div className={styles.info}>
                         <div className={styles.title}>

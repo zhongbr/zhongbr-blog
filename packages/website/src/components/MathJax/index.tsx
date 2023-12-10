@@ -1,7 +1,6 @@
 import React, { memo, Suspense } from 'react';
 import dynamic from 'next/dynamic';
 
-// @ts-ignore
 const LazyMathComponent = dynamic(() => import('./MathJaxReact'), {
     ssr: false,
     loading: () => <span>📚公式加载中🚀🚀</span>
@@ -16,7 +15,6 @@ const MathJax = memo<IProps>(props => {
 
     return (
         <Suspense fallback="📚公式加载中🚀🚀">
-            {/* @ts-ignore */}
             <LazyMathComponent tex={latex}/>
         </Suspense>
     );

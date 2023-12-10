@@ -1,7 +1,7 @@
 const path = require('path');
 const fs = require('fs');
 const utils = require('./utils');
-const { markdownFilesPath } = require('../../config/paths');
+const {markdownFilesPath} = require('../../config/paths');
 
 /**
  * 随机返回数组内的一个元素
@@ -15,29 +15,25 @@ Array.prototype.random = function () {
 // 随机生成一张封面图片
 function randomCoverImage() {
     const imagesPools = [
-        'https://i.328888.xyz/2022/12/31/ndOVF.jpeg',
-        'https://i.328888.xyz/2022/12/31/nd2oZ.jpeg',
-        'https://i.328888.xyz/2022/12/31/ndbjH.jpeg',
-        'https://i.328888.xyz/2022/12/31/ndj6Q.jpeg',
-        'https://i.328888.xyz/2022/12/31/nd8QE.jpeg',
-        'https://i.328888.xyz/2022/12/31/ndNlC.jpeg',
-        'https://i.328888.xyz/2022/12/31/ndrgP.jpeg',
-        'https://i.328888.xyz/2022/12/31/nd3LX.jpeg',
-        'https://i.328888.xyz/2022/12/31/ndcnt.jpeg',
-        'https://i.328888.xyz/2022/12/31/ndmRJ.jpeg',
-        'https://i.328888.xyz/2022/12/31/ndpoc.jpeg',
-        'https://i.328888.xyz/2023/01/01/tZMoa.jpeg',
-        'https://i.328888.xyz/2023/01/01/tZLcw.jpeg',
-        'https://i.328888.xyz/2023/01/01/tZTfx.jpeg',
-        'https://i.328888.xyz/2023/01/01/tZa8k.jpeg',
-        'https://i.328888.xyz/2023/01/01/tZ1FL.jpeg',
-        'https://i.328888.xyz/2023/01/01/tZQYp.jpeg',
-        'https://i.328888.xyz/2023/01/01/tZqwU.jpeg',
-        'https://i.328888.xyz/2023/01/01/tZuxv.jpeg',
-        'https://i.328888.xyz/2023/01/01/tiZM3.jpeg',
-        'https://i.328888.xyz/2023/01/01/tiVty.jpeg',
-        'https://i.328888.xyz/2023/01/01/tifc5.jpeg',
-    ];
+        "http://i.imgs.ovh/2023/12/10/fUDwe.jpeg",
+        "http://i.imgs.ovh/2023/12/10/fUEO3.jpeg",
+        "http://i.imgs.ovh/2023/12/10/fUTD9.jpeg",
+        "http://i.imgs.ovh/2023/12/10/fU9ZO.jpeg",
+        "http://i.imgs.ovh/2023/12/10/fUNjD.jpeg",
+        "http://i.imgs.ovh/2023/12/10/fUGKH.jpeg",
+        "http://i.imgs.ovh/2023/12/10/fUvLo.jpeg",
+        "http://i.imgs.ovh/2023/12/10/fUy0A.jpeg",
+        "http://i.imgs.ovh/2023/12/10/fiCt5.jpeg",
+        "http://i.imgs.ovh/2023/12/10/fiL3X.jpeg",
+        "http://i.imgs.ovh/2023/12/10/fiXOU.jpeg",
+        "http://i.imgs.ovh/2023/12/10/firE0.jpeg",
+        "http://i.imgs.ovh/2023/12/10/fiFlC.jpeg",
+        "http://i.imgs.ovh/2023/12/10/fiAKt.jpeg",
+        "http://i.imgs.ovh/2023/12/10/fiZ4m.jpeg",
+        "http://i.imgs.ovh/2023/12/10/finLN.jpeg",
+        "http://i.imgs.ovh/2023/12/10/fiH0R.jpeg",
+        "http://i.imgs.ovh/2023/12/10/fiM1p.jpeg"
+    ]
     return imagesPools.random();
 }
 
@@ -95,8 +91,7 @@ function traverse(ast, filePath, parent = null, index = 0) {
     // 增加 key 属性
     if (parent) {
         ast.key = `${parent.key}-${index}`;
-    }
-    else {
+    } else {
         ast.key = `${index}`;
     }
     // 处理 url
